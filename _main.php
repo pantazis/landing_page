@@ -13,7 +13,8 @@
         <div class="large-12 columns domains">
             <section>
                 <div class="section-header">
-                    <h2>Domain names σε 2'</h2>
+                    <h2>Domain names σε 3
+                    '</h2>
                     <p>Το domain σου σε περιμένει εδώ! Εκατοντάδες επιλογές, δωρεάν υπηρεσίες, γρήγορη εξυπηρέτηση.</p>
                 </div>
               
