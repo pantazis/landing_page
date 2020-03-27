@@ -1,0 +1,834 @@
+/* Building our responsible tables */
+.my-table{
+    margin-bottom: 1.25rem;
+    border-top: 1px solid $medium-grey-section-bg-color;
+    div.head{
+        padding: 1rem 1.25rem;
+        background: scale-color($light-grey-section-bg-color, $lightness: 15%);
+        border: 1px solid $medium-grey-section-bg-color;
+        border-top: 0 none;
+        h5{
+            line-height: 1.1;
+            margin: 0;
+            padding: 0;
+            font-weight: 500;
+            display: inline-block;
+        }
+        a{
+            i{
+                color: $my-header-color;
+                float: right;
+                font-size: 1rem;
+                position: relative;
+                top: 6px;
+                @media #{$large-up} {
+                    font-size: 1.25rem;
+                    top: 8px;
+                }
+            }
+        }
+
+        //icon for toggling the table
+        .toggle-table{
+            i{
+                float: right;
+                position: relative;
+                top: 7px;
+                cursor: pointer;
+                color: $my-header-color;
+            } 
+            .loading{
+                position: absolute;
+                right: 1.5rem;
+                top: 0.725rem;
+            }
+        }
+    }
+    div.resp-table {
+        font-size: 0.925rem;
+        line-height: 1.3;
+        .sorting-links {
+            margin: .2rem 0 0;
+        }
+        .ordering-links {
+            margin: .2rem 0 .25rem;
+        }
+
+        div.data-headers{
+            background: scale-color($light-grey-section-bg-color, $lightness: 25%);
+        }
+        div.odd {
+            background-color: white;
+            border-bottom: 1px solid scale-color($medium-grey-section-bg-color, $lightness: 20%);
+        }
+        div.even {
+            background-color: scale-color($light-grey-section-bg-color, $lightness: 50%);
+            border-bottom: 1px solid scale-color($medium-grey-section-bg-color, $lightness: 20%);
+        }
+        div.data-headers, div.odd, div.even{
+            border-left: 1px solid $medium-grey-section-bg-color;
+            border-right: 1px solid $medium-grey-section-bg-color; 
+        }
+        div.odd, div.even{
+            padding: 1rem;
+            & > .row > .columns{
+                padding-top: 0.35rem;
+                padding-bottom: 0.35rem;
+            }
+            .header-for-small{
+                display: none;
+            }
+            .my-hide-only-small{
+                display: block;
+                @media #{$small-only} {
+                    display: none;
+                }
+            }
+        }
+        div.default {
+            /* Its a class that indicates the Default Billing Profile */
+        }
+        div.last {
+            border-bottom: 1px solid $medium-grey-section-bg-color;
+        }
+        span{
+            @include word-wrap;
+            &.status{
+                position: relative;
+                top: -1px;
+                text-align: center;
+                .label{
+                    min-width: 5rem;
+                    white-space: normal;
+                    &.error{
+                        margin-bottom: 0;
+                        display: inline-block !important;
+                        font-size: 0.6875rem;
+                        font-weight: 500;
+                        background-color: white;
+                    }
+                }  
+            }
+            &.email, &.user_email{
+                a{
+                    border-bottom: 1px dotted;
+                }
+                &.ssl-email a{
+                    @media #{$large-up} {
+                        display: inline-block;
+                        line-height: 1.3;
+                        max-height: 1.6rem;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+            &.negative-balance{
+                color: $my-red;
+            }
+            &.positive-balance{
+                color: $my-green;
+            }
+            &.balance, &.total, &.amount, &.credit_before, &.credit_after, &.balance_before, &.balance_after{
+                @media #{$large-up} {
+                    text-align: right;
+                }
+            }
+            &.ex_date, &.date, &.sync_date, &.domains, &.enroll_date, &.update, &.order_date{
+                @media #{$large-up} {
+                    text-align: center;
+                }
+            }
+            // This is for expiring domain time cell
+            &.ex_date, &.enroll_date, &.w-hours{
+                small{
+                    font-weight: 300;
+                    font-size: 100%;
+                    color: #c3c3c3;
+                    margin-left: 0.325rem;
+                }
+                &.admin-timezone{
+                    @media #{$large-up} {
+                        padding-right: 2rem;
+                        position: absolute;
+                        top: -4px;
+                        width: 100%;
+                    }
+                    small{
+                        font-size: 70%;
+                        @media #{$large-up} {
+                            display: block;
+                            margin-left: 0;
+
+                        }
+                    }
+                }
+            }
+            // Break display block in div used for data atributes
+            [data-attr-selection]{
+                display: inline;
+            }
+        }
+        // this is for ΔΙΑΣ συναλλαγές table
+        .is-right{
+            display: inline;
+            position: relative;
+            top: 3px;
+            color: $my-green;
+            &.second{
+                color: $my-orange;
+            }
+        }
+        .id_protect{
+            float: right;
+            a.id_icon{
+                display: block;
+                width: 38px;
+                height: 24px;
+                overflow: hidden;
+                text-indent: -9999px; 
+                text-align: left;
+                background-size: 38px 24px;
+                background: url('../img/sprites/main-sprite.png') no-repeat;
+                // by default in off-state
+                background-position: -20px -2023px;
+
+                &.on{
+                    background-position: -20px -1979px;
+                    cursor: default;
+                }
+                &.warning{
+                    background-position: -74px -1979px;
+                }
+                &.off{
+                    background-position: -20px -2023px;
+                }
+                &.na{
+                    background-position: -74px -2023px;
+                    cursor: default;
+                } 
+            }
+            .id_protect_notice{
+                word-break: initial;
+            }
+            button.id_icon_action{
+                width: inherit;
+                font-size: 0.75rem;
+                margin-bottom: 0;
+                margin-top: 1rem;
+                padding: 0.425rem 1.25rem 0.4875rem;
+            }
+        }
+        .el-promo{
+            float: right;
+            a.el_icon{
+                display: block;
+                width: 38px;
+                height: 24px;
+                overflow: hidden;
+                text-indent: -9999px;
+                text-align: left;
+                background-size: 38px 24px;
+                background: url('../img/sprites/sprite-el-domain.png') no-repeat;
+                // by default in off-state
+                background-position: -20px -2023px;
+
+                &.connected{
+                    background-position: -15px -23px;
+                    cursor: default;
+                }
+                &.avail{
+                    background-position: -70px -23px;
+                }
+                &.conditionally{
+                    background-position: -15px -111px;
+                }
+                &.un_avail{
+                    background-position: -15px -67px;
+                }
+                &.unknown{
+                    background-position: -70px -67px;
+                    cursor: default;
+                }
+            }
+            .el_notice{
+                word-break: initial;
+                u{
+                    text-decoration: none;
+                }
+            }
+            button.el_add_to_cart{
+                width: inherit;
+                font-size: 0.75rem;
+                margin-bottom: 0;
+                margin-top: 1rem;
+                padding: 0.425rem 1.25rem 0.4875rem;
+            }
+        }
+        .has-document{
+            display: inline-block;
+            a{
+                color: $medium-grey-section-bg-color;
+            }
+            &.active{
+                a{
+                    color: $my-green;
+                }  
+            }
+            &.pending{
+                a{
+                    color: $my-orange;
+                }  
+            }
+            i{
+                font-size: rem-calc(19);
+                position: relative;
+                top: 1px;
+            }
+        }
+        .refund-status{
+            display: inline;
+            a{
+                color: $medium-grey-section-bg-color;
+            }
+            &.approved{
+                a{
+                    color: $my-green;
+                }  
+            }
+            &.pending{
+                a{
+                    color: $my-orange;
+                }  
+            }
+            &.rejected{
+                a{
+                    color: $my-red;
+                }  
+            }
+            i{
+                font-size: 1rem;
+                position: relative;
+                top: 3px;
+            }
+        }
+        .renew_before{
+            display: inline-block; 
+            margin-right: 0.125rem;
+        }
+        //this goes to data headers
+        small.timezone{
+            display: block;
+            color: $my-body-lightest-text-color;
+            font-weight: 300;
+        }
+        button, .button{
+            margin-bottom: 0;
+            padding: 0.34375rem 1rem 0.40625rem;
+            font-size: 0.775rem;
+            @media #{$large-up} {
+                width: 100%;
+                padding-left: 0.25rem;
+                padding-right: 0.25rem;
+            }
+            &.active{
+                background-color: $my-green;
+                cursor: default;
+            }
+            &.in-cart{
+                background-color: $my-green;
+                cursor: default;
+                pointer-events: none;
+            }
+            .loading{
+                height: rem-calc(19);
+            }
+            span{
+                padding: 0;
+            }
+        }
+    }
+    div.footer{
+        padding-top: 0.7rem;
+        padding-bottom: 0.7525rem;
+
+        // show number of results
+        .chosen-container-single{
+            margin-bottom: 0;
+            .chosen-single{
+                line-height: 2.2125rem;
+            }
+        }
+        // info of total results of the table
+        .entries{
+            text-align: center;
+            font-size: 0.8125rem;
+            padding: 0.8rem;
+            span{
+                font-weight: 700;
+            }
+        }
+        // pagination
+        ul{
+            &.pagination{
+                margin-bottom: 0.25rem;
+                margin-top: 0.75rem;
+                li{
+                    a{
+                        border-radius: 0;
+                        padding: 0.05rem 0.275rem;
+                    }
+                    &.morePagesR,  &.morePagesL{
+                        padding: 0;
+                        a:hover{
+                            background: none;
+                            cursor: default;
+                        }
+                    }
+                }
+            }    
+        }
+    }
+}
+
+/* Styles for medium up */
+@media #{$medium-up}{
+    .my-table{
+        div.resp-table {
+            @media #{$large-up}{
+                div.data-headers {
+                    border-bottom: 1px solid $medium-grey-section-bg-color;
+                    padding: 0 1rem;
+                    & > .row{
+                        display: -webkit-flex !important;
+                        display: flex !important;
+                        -webkit-flex-wrap: wrap;
+                        flex-wrap: wrap;  
+                    } 
+                    & > .row > .columns{
+                        border-right: 1px solid scale-color($medium-grey-section-bg-color, $lightness: 20%);
+                        padding-top: 0.2rem;
+                        padding-bottom: 0.225rem;
+                        &:last-child{
+                            border-right: none;
+                        }
+                    }
+                    div.label-wrapper{
+                        position: relative;
+                        span.header-label {
+                            font-size: 0.925rem;
+                            color: $my-header-color;
+                            font-weight: 500;
+                            text-align: center;
+                            &.smaller{
+                                font-size: 0.725rem;
+                                font-weight: 700;
+                                padding: 0.4rem 0;
+                            }
+                        }
+                        i{
+                            float: right;
+                            position: absolute;
+                            cursor: pointer;
+                            border-left: 5px solid transparent;
+                            border-right: 5px solid transparent;
+                            &.arrow-up, &.arrow-down{
+                                left: auto;
+                                &.active{
+                                    pointer-events: none;
+                                    cursor: default;
+                                }
+                            }
+                            &.arrow-up {
+                                border-bottom: 8px solid; 
+                                top: rem-calc(5);
+                                right: -0.4375rem;
+                                &.blue{
+                                    border-bottom-color: scale-color($medium-grey-section-bg-color, $lightness: -5%);
+                                    &:hover, &.active {
+                                        border-bottom-color: $my-body-text-color;
+                                    }
+                                }
+                            }
+                            &.arrow-down{
+                                border-top: 8px solid; 
+                                top: rem-calc(15);
+                                right: -0.4375rem;
+                                &.blue{
+                                    border-top-color: scale-color($medium-grey-section-bg-color, $lightness: -5%);
+                                    &:hover, &.active {
+                                        border-top-color: $my-body-text-color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &.v-middle{
+                        div.label-wrapper{
+                            display: table-cell;
+                            height: 2.5rem;
+                            vertical-align: middle;
+                            width: 10%;
+                            i{
+                                &.arrow-up {
+                                    top: rem-calc(12);
+                                }
+                                &.arrow-down {
+                                    top: rem-calc(22);
+                                }
+                            }
+                        }
+                    }
+                }
+                div.odd, div.even{
+                    padding: 0 1rem;
+                    & > .row{
+                        display: -webkit-flex;
+                        display: flex;
+                        -webkit-flex-wrap: wrap;
+                        flex-wrap: wrap;  
+                    }
+                    & > .row > .columns{
+                        border-right: 1px solid scale-color($medium-grey-section-bg-color, $lightness: 20%);
+                        padding-top: 0.625rem;
+                        padding-bottom: 0.625rem;
+
+                        &:last-child{
+                            border-right: none;
+                        }
+
+                        &.no-border-right{
+                            border-right: 0 none;
+                        }
+                    }
+                    & > .row > .columns.smaller-padding{
+                        padding-left: 0.5rem;
+                        padding-right: 0.5rem;
+                    }
+                    & > .row > .columns.smallest-padding{
+                        padding-left: 0.3125rem;
+                        padding-right: 0.3125rem;
+                    }
+                }
+                span{
+                    display: block;
+                    padding-bottom: 0.25rem;
+                    padding-top: 0.25rem;
+                    .label{
+                        display: inline-block !important;
+                    }
+                }
+                .has-document{
+                    float: right;
+                }
+                .refund-status a i{
+                    position: absolute;
+                    right: 0;
+                    top: 7px;
+                }
+                .is-right{
+                    position: absolute;
+                    right: 0;
+                    top: 6px;
+                    &.second{
+                        right: 1.25rem;
+                    }
+                }
+            }
+        }
+        div.footer{
+            ul{
+                margin-bottom: 0;
+                &.pagination{
+                    float: right;
+                    margin-top: 0.35rem;
+                    li{
+                        a{
+                            padding: 0.05rem 0.45rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Turn Rows into Blocks for Small and Medium - Combined Styles for reduced SCSS code
+@media only screen and (max-width: 64em){
+    .my-table{
+        border-top: 0 none;
+        div.head{
+            background: $medium-grey-section-bg-color;
+            margin-bottom: 0.75rem;
+        }
+        div.resp-table {
+            div.odd, div.even{
+                background-color: white;
+                //background-color: scale-color($light-grey-section-bg-color, $lightness: 50%);
+                border-top: 1px solid $medium-grey-section-bg-color; 
+                border-bottom: 1px solid $medium-grey-section-bg-color;
+                margin-bottom: 1.75rem;
+                padding: 0 1.75rem 0;
+                & > .row > .columns{
+                    border-bottom: 1px solid scale-color($medium-grey-section-bg-color, $lightness: 20%);
+                    padding: 0.75rem 0.5rem;
+                    &:last-child{
+                        border-bottom: none;
+                    }
+                }
+                .header-for-small{
+                    display: block;
+                    position: relative;
+                    margin-bottom: 0;
+                    margin-left: -1.75rem;
+                    margin-right: -1.75rem;
+                    background-color: $medium-grey-section-bg-color;
+                    padding: 1.25rem 1rem;
+                    span{
+                        font-size: 1.125rem;
+                        font-weight: 500;
+                        color: $my-header-color;
+                        line-height: 21px;
+                        max-height: 42px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: inline-block;
+                    }
+                }
+            }
+            .label-for-small{
+                font-size: 0.85rem;
+                color: #717171;
+                font-weight: 300 !important;
+                small.timezone{
+                    display: inline-block;
+                    margin-left: 0.2rem;
+                    font-size: 100%;
+                    color:  #717171;
+                    &:before{
+                        content: "(";
+                        display: inline-block;
+                    }
+                    &:after{
+                        content: ")";
+                        display: inline-block;
+                    }
+                }
+            }
+            span{
+                font-size: 1rem;
+                font-weight: 400;
+                &.status{
+                    top: 0;
+                    display: inline-block;
+                    margin-top: 2px;
+                    margin-bottom: 1px;
+                    .label{
+                        font-size: 0.6875rem;
+                    }
+                }
+                &.ex_date, &.enroll_date, &.w-hours{
+                    &.admin-timezone{
+                        position: relative;
+                        top: 0;
+                        small{
+                            display: inline-block;
+                            font-size: 100%;
+                            margin-left: 0.2rem;
+                        }
+                    }
+                } 
+                &.email a, &.user_email a{
+                    border-bottom: 0 none;
+                }
+            }
+            .id_protect{
+                a.id_icon.na{
+                    display: none;
+                }
+            }   
+            .button{
+                padding: 0.54375rem 1.75rem 0.60625rem;
+            }
+        }
+
+    }
+}
+// Some medium only refinement styles
+@media #{$medium-only}{
+    .my-table{
+        div.resp-table {
+            .label-for-small{
+                small.timezone{
+                    display: block;
+                    font-size: 80%;
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+} 
+
+// Specifically made to equalize height of status label in firefox
+@-moz-document url-prefix() {
+    .my-table div.resp-table span.status .label{
+        padding-bottom: 0.3125rem !important;
+    }
+    @media only screen and (max-width: 64em){
+        .my-table div.resp-table{
+            div.odd, div.even{
+                .header-for-small{
+                    padding: 1.25rem 1.25rem 0.925rem;
+                }
+            }
+        }
+    }
+}
+
+// Chrome and Safari (and Opera 14+), Microsoft Edge
+@media screen and (-webkit-min-device-pixel-ratio:0){ 
+    .my-table div.resp-table span.status .label{
+        padding-bottom: 0.3125rem !important;
+    }
+    @media only screen and (max-width: 64em){
+        .my-table div.resp-table{
+            div.odd, div.even{
+                .header-for-small{
+                    padding: 1.25rem 1.25rem 0.925rem;
+                }
+            }
+        }
+    }
+}
+
+// Overide Safari over Chrome
+::i-block-chrome,.my-table div.resp-table div.odd .header-for-small {
+    @media only screen and (max-width: 64em) {
+        padding: 1rem 1.25rem 1.125rem;
+    }
+}
+::i-block-chrome,.my-table div.resp-table div.even .header-for-small {
+    @media only screen and (max-width: 64em) {
+        padding: 1rem 1.25rem 1.125rem;
+    }
+}
+
+
+
+
+
+
+
+/**********************************************************************
+ New Backend Responsive Tables Based on Custom List - Development stage
+
+ resources\views\static\test\backend.blade.php
+************************************************************************/
+.custom-list.backend{
+    .item{
+        // Manage Header
+        &.header{
+            ul{
+                li{
+                    .arrows-wrapper{
+                        position: absolute;
+                        right: 1.125rem;
+                        top: 6px;
+                        i{
+                            float: right;
+                            position: absolute;
+                            cursor: pointer;
+                            border-left: 5px solid transparent;
+                            border-right: 5px solid transparent;
+                            &.arrow-up, &.arrow-down{
+                                left: auto;
+                                &.active{
+                                    pointer-events: none;
+                                    cursor: default;
+                                }
+                            }
+                            &.arrow-up {
+                                border-bottom: 8px solid;
+                                top: rem-calc(5);
+                                border-bottom-color: scale-color($medium-grey-section-bg-color, $lightness: -5%);
+                                &:hover, &.active {
+                                    border-bottom-color: $my-body-text-color;
+                                }
+                            }
+                            &.arrow-down{
+                                border-top: 8px solid;
+                                top: rem-calc(15);
+                                border-top-color: scale-color($medium-grey-section-bg-color, $lightness: -5%);
+                                &:hover, &.active {
+                                    border-top-color: $my-body-text-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media #{$large-up}{
+        // global cell widths
+        .w-5{
+            width:5%;
+        }
+        .w-10{
+            width:10%;
+        }
+        .w-15{
+            width:15%;
+        }
+        .w-20{
+            width:20%;
+        }
+        .w-25{
+            width:25%;
+        }
+        .w-30{
+            width:30%;
+        }
+        .w-35{
+            width:35%;
+        }
+        // specific cell widths
+        .id{
+            width: 5%;
+        }
+
+
+        // table styles
+        .item{
+            padding-top: rem-calc(4);
+            padding-bottom: rem-calc(4);
+            margin-bottom: rem-calc(12);
+        }
+
+    }
+
+
+    // Some globals first
+    .b-line{
+        display: block;
+    }
+    span{
+        @include word-wrap;
+        &.status{
+            position: relative;
+            top: -1px;
+            text-align: center;
+            .label{
+                min-width: 6.625rem;
+                white-space: normal;
+                &.error{
+                    margin-bottom: 0;
+                    display: inline-block !important;
+                    font-size: 0.6875rem;
+                    font-weight: 500;
+                    background-color: white;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,143 @@
+/* Free Apps */
+
+
+/* List of Apps */
+// Extend tab-module
+#tab-module.free-apps{
+    .accordion {
+        dd {
+            // Link
+            & > a {
+                font-size: 0.9375rem;
+                font-weight: 400;
+                color: $my-body-text-color;
+                background: scale-color($light-grey-section-bg-color, $lightness: -5%);
+                border-bottom: 1px solid scale-color($light-grey-section-bg-color, $lightness: 50%);
+                &:hover{
+                   background: $my-deep-blue;
+                   font-weight: 400;
+                   color: white;
+                }
+            }
+            // Active state
+            &.active > a {
+                background: scale-color($my-deep-blue, $lightness: 0%);
+                font-weight: 400;
+                color: white;
+            }
+        }
+        // Content
+        & .content{
+            background: scale-color($light-grey-section-bg-color, $lightness: 50%);
+            &.active {
+                background: scale-color($light-grey-section-bg-color, $lightness: 50%);
+            }
+        }
+
+    }
+    // Content
+    .tabs-content{
+        ul{
+            margin-top: 1rem;
+            li{
+                margin-bottom: 1rem;
+                p{
+                    margin-top: 1rem;
+                    font-size: 1.125rem;
+                }
+                div{
+                    p{
+                        font-size: 0.925rem;
+                        margin-top: 0;
+                        @media #{$small-only} {
+                            font-size: 0.875rem;
+                        }
+                        &:first-of-type{
+                            font-weight: 500;
+                            margin-bottom: 1rem;
+                        }
+                    }   
+                }
+            }    
+        }
+    }
+}
+
+/* Special points styles for apps */
+#points.apps{
+    .point{
+        // Importing Special Icons
+        .head{
+            i{
+                font-size: 4rem;
+                @media #{$small-only} {
+                    font-size: 3rem;
+                }
+                &.icon-wordpress{
+                    color: $my-body-text-color;
+                }
+                &.icon-joomla{
+                    color: #F98D2A;
+                }
+                &.icon-druplicon{
+                    color: #0077B9;
+                }
+            }
+            .svg-container{
+                position: relative;
+                height: 4rem;
+                width: 4rem;
+                @media #{$small-only} {
+                    height: 3rem;
+                    width: 3rem;
+                }
+                span{
+                    &.logo {
+                        position: absolute;
+                        height: 5rem;
+                        width: 4.25rem;
+                        @media #{$small-only} {
+                            height: 3.5rem;
+                            width: 3.25rem;
+                        }
+                    }
+                    &.magento{
+                        background-image: url("../img/logos/magento-logo.svg");  
+                    }
+                    &.prestashop{
+                        background-image: url("../img/logos/prestashop-logo.svg");
+                    }
+                    &.moodle{
+                        background-image: url("../img/logos/moodle-logo.svg");
+                    }
+                    &.opencart{
+                        background-image: url("../img/logos/opencart-logo.svg");
+                    }
+                    &.cscart{
+                        background-image: url("../img/logos/cscart-logo.svg");
+                    }
+                    &.zencart{
+                        background-image: url("../img/logos/zencart-logo.svg");
+                    }
+                    &.oscommerce{
+                        background-image: url("../img/logos/oscommerce-logo.svg");
+                    }
+                    &.woo-commerce{
+                        background-image: url("../img/logos/woo-commerce-logo.svg");
+                    }
+                    &.virtue-mart{
+                        background-image: url("../img/logos/virtue-mart-logo.svg");
+                    }
+                    &.magento, &.prestashop, &.moodle, &.opencart, &.cscart, &.zencart, &.oscommerce, &.woo-commerce, &.virtue-mart{
+                        background-size: 4.25rem auto;
+                        background-repeat: no-repeat;
+                        background-position: center top;
+                        @media #{$small-only} {
+                            background-size: 3.25rem auto;
+                        }
+                    }
+                }
+            }
+        } 
+    }   
+}

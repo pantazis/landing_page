@@ -1,0 +1,302 @@
+/* --------------------------------------------------------------------------------
+These are styles for filters in medium and small screens
+They are used for ssls, domains, domains price table and now on dedicated servers
+----------------------------------------------------------------------------------- */
+// Button
+.cd-btn {
+  	bottom: 3rem;
+	font-weight: 300;
+	left: 0;
+	letter-spacing: 1px;
+	position: fixed;
+	padding: 0.5rem 1rem;
+	background-color: #080808;
+	display: none;
+	color: white;
+	z-index: 1;
+	border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+	@media #{$medium-only} {
+        bottom: 6rem;
+    }
+	&.m-bot{
+		bottom: 7rem;
+	}
+	&:hover{
+		color: #FFF;
+	}
+}
+// Transform text
+.vertical-text {
+	//@include transform(rotate(270deg));
+	-moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+	transform-origin: left top 0;
+}
+// Wrapper
+.cd-panel{
+  	position: fixed;
+  	top: 0;
+  	left: 0;
+  	height: 100%;
+  	width: 100%;
+  	visibility: hidden;
+	-webkit-transition: visibility 0s 0.6s;
+	-moz-transition: visibility 0s 0.6s;
+  	transition: visibility 0s 0.6s;
+  	z-index: 99;
+  	&::after {
+	  	/* overlay layer */
+	  	position: absolute;
+	  	top: 0;
+	  	left: 0;
+	  	width: 100%;
+	  	height: 100%;
+	  	background: transparent;
+	  	cursor: pointer;
+		-webkit-transition: background 0.3s 0.3s;
+		-moz-transition: background 0.3s 0.3s;
+		transition: background 0.3s 0.3s;
+	}
+	&.is-visible {
+		visibility: visible;
+		-webkit-transition: visibility 0s 0s;
+		-moz-transition: visibility 0s 0s;
+		transition: visibility 0s 0s;
+
+		&::after {
+			background: rgba(28,29,30,.7);
+			-webkit-transition: background 0.3s 0s;
+			-moz-transition: background 0.3s 0s;
+			transition: background 0.3s 0s;
+			content: '';
+		}
+	}
+}
+// Open close wrapper
+.cd-panel.is-visible .cd-panel-close::before{
+	-webkit-animation: cd-close-1 0.6s 0.3s;
+	-moz-animation: cd-close-1 0.6s 0.3s;
+	animation: cd-close-1 0.6s 0.3s;
+}
+.cd-panel.is-visible .cd-panel-close::after{
+	-webkit-animation: cd-close-2 0.6s 0.3s;
+	-moz-animation: cd-close-2 0.6s 0.3s;
+	animation: cd-close-2 0.6s 0.3s;
+}
+// keyframes
+@-webkit-keyframes cd-close-1{
+  	0%, 50% {
+   		-webkit-transform: rotate(0);
+  	}
+  	100% {
+   		-webkit-transform: rotate(45deg);
+  	}
+}
+@-moz-keyframes cd-close-1{
+  	0%, 50% {
+   		-moz-transform: rotate(0);
+  	}
+  	100% {
+   		-moz-transform: rotate(45deg);
+  	}
+}
+@keyframes cd-close-1{
+  	0%, 50% {
+    	@include transform(rotate(0));
+  	}
+  	100% {
+    	@include transform(rotate(45deg));
+  	}
+}
+@-webkit-keyframes cd-close-2{
+  	0%, 50% {
+  		-webkit-transform: rotate(0);
+  }
+  	100% {
+  		-webkit-transform: rotate(-45deg);
+  	}
+}
+@-moz-keyframes cd-close-2{
+  	0%, 50% {
+ 	    -moz-transform: rotate(0);
+  	}
+  	100% {
+ 		-moz-transform: rotate(-45deg);
+  	}
+}
+@keyframes cd-close-2{
+  	0%, 50% {
+    	@include transform(rotate(0));
+  	}
+  	100% {
+    	@include transform(rotate(-45deg));
+  	}
+}
+.cd-panel-header{
+	position: fixed;
+	width: 85%;
+	height: 50px;
+	line-height: 50px;
+	background: rgba(255, 255, 255, 0.96);
+	z-index: 101;
+	-webkit-transition: top 0.3s 0s;
+	-moz-transition: top 0.3s 0s;
+	transition: top 0.3s 0s;
+	border-bottom: 1px solid $medium-grey-section-bg-color;
+	p{
+	  	padding-left: 5%;
+	  	font-weight: 400;
+	  	font-size: 1.4rem;
+	  	line-height: rem-calc(50);
+	}
+
+}
+.from-right .cd-panel-header, .from-left .cd-panel-header{
+  	top: -50px;
+}
+.from-right .cd-panel-header{
+  	right: 0;
+}
+.from-left .cd-panel-header{
+  	left: 0;
+}
+.is-visible .cd-panel-header{
+	top: 0;
+	-webkit-transition: top 0.3s 0.3s;
+	-moz-transition: top 0.3s 0.3s;
+	transition: top 0.3s 0.3s;
+}
+@media only screen and (min-width: 768px){
+  	.cd-panel-header {
+    	width: 70%;
+  	}
+}
+
+.cd-panel-close{
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 60px;
+	/* image replacement */
+	display: inline-block;
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+
+	&::before, &::after {
+		/* close icon created in CSS */
+		position: absolute;
+		top: 24px;
+		left: 20px;
+		height: 3px;
+		width: 20px;
+		background-color: #424f5c;
+		/* this fixes a bug where pseudo elements are slighty off position */
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		content: '';
+	}
+}
+.cd-panel-close::before{
+  	@include transform(rotate(45deg));
+}
+.cd-panel-close::after{
+  	@include transform(rotate(-45deg));
+}
+.no-touch .cd-panel-close:hover{
+  	background-color: #080808;
+}
+.no-touch .cd-panel-close:hover::before, .no-touch .cd-panel-close:hover::after{
+	background-color: #ffffff;
+	-webkit-transition-property: -webkit-transform;
+	-moz-transition-property: -moz-transform;
+	transition-property: transform;
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	content: '';
+}
+.no-touch .cd-panel-close:hover::before{
+  	@include transform(rotate(220deg));
+}
+.no-touch .cd-panel-close:hover::after{
+  	@include transform(rotate(135deg));
+}
+
+.cd-panel-container{
+	position: fixed;
+	width: 85%;
+	height: 100%;
+	top: 0;
+	background: scale-color($light-grey-section-bg-color, $lightness: -2%);
+	z-index: 100;
+	-webkit-transition-property: -webkit-transform;
+	-moz-transition-property: -moz-transform;
+	transition-property: transform;
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-delay: 0.3s;
+	-moz-transition-delay: 0.3s;
+	transition-delay: 0.3s;
+}
+.from-left .cd-panel-container{
+  	left: 0;
+  	@include transform( translate3d(-100%, 0, 0));
+}
+.is-visible .cd-panel-container{
+	@include transform( translate3d(0, 0, 0));
+	-webkit-transition-delay: 0s;
+	-moz-transition-delay: 0s;
+	transition-delay: 0s;
+}
+@media only screen and (min-width: 768px){
+  	.cd-panel-container {
+    	width: 70%;
+  	}
+}
+
+.cd-panel-content{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 80px 5% 70px 4%;
+	overflow: auto;
+	/* smooth scrolling on touch devices */
+	-webkit-overflow-scrolling: touch;
+
+	.container{
+		margin-bottom: 1rem;
+		min-height: rem-calc(64);
+		select{
+			margin-bottom: 0;
+		}
+		&.search{
+			position: relative;
+			input {
+				background: white;
+				color: black;
+				margin: 0;
+				padding-right: 2rem;
+			}
+			i{
+				color: scale-color($my-body-light-text-color, $lightness: 25%);
+				font-size: 1rem;
+				position: absolute;
+				right: rem-calc(12);
+    			top: rem-calc(33);
+			}
+		}
+	}
+
+	.button{
+		margin-top: 0.5rem;
+		padding: 0.7rem 2rem 0.7625rem;
+	}
+}

@@ -1,0 +1,369 @@
+/* That styles apply to all configurators. VPS, Semi-dedi, Dedicated */
+
+/* Intro */
+#server-intro{
+	#intro{
+		background-color: $hosting-bg-color;
+		padding: 1.5rem 0;
+		.my-h2-title{
+			margin: 0;
+			color: white;
+			font-weight: 100;
+			strong{
+				font-weight: 400;
+			}
+			.name{
+				font-weight: 500;
+				font-size: rem-calc(19);
+				text-transform: uppercase;
+				background-color: white;
+				color: $my-light-blue;
+				padding: 7px 10px;
+				border-radius: 2px;
+				top: -4px;
+				position: relative;
+				display: inline-block;
+				line-height: 1;
+				margin-top: 10px;
+			}
+		}
+	}
+}
+
+/* Configurator styles */
+.server-configurator{
+	margin: 4rem 0 3rem;
+
+	/* Tab module styles will be erased after new dedicated servers are released */
+	#tab-module{
+		padding: 0;
+		background-color: transparent;
+		.tabs{
+			.tab-title{
+				width: 50%;
+				& > a{
+					margin: 0 1rem 2rem;
+					text-align: center;
+					background-color: white;
+	                color: $medium-grey-section-bg-color;
+	                border: 1px solid;
+					border-color: $medium-grey-section-bg-color;
+	                font-size: 1.125rem;
+	                font-weight: 500;
+	                @include transition(all 0.1s linear 0s);
+	                @media #{$small-only} {
+	                    font-size: 1rem;
+	                    margin: 0 0.5rem 2rem;
+	                    padding: 0.75rem 1rem;
+	                }
+				}
+				& > a:hover{
+					// a lighter version of buy-overview-color
+	                border-color: #273c60;
+	                color: #273c60;
+	            }
+				&.active a{
+					background-color: #273c60;
+					border-color: #273c60;
+					color: white;
+				}
+			}	
+		}
+		.tabs-content{
+			background-color: $light-grey-section-bg-color;
+			@media #{$large-up} {
+				padding: 1.75rem 1.75rem 1.5rem;
+			}
+	    }    
+    }
+    p{
+	    &.options{
+	    	color: $my-inner-elements-header-color;
+			line-height: 1;
+			font-size: 1.175rem;
+			font-weight: 500;
+			margin-bottom: 0;
+			padding: 1rem 0 0.25rem;
+			text-transform: uppercase;
+	    }
+	    &.lead{
+			font-size: rem-calc(17);
+			font-weight: 400;
+			color: $my-inner-elements-header-color;
+			margin-bottom: 1rem;
+			&.light-blue{
+				color: scale-color($my-light-blue, $lightness: -5%);
+				font-size: rem-calc(18);
+				margin-bottom: 1.25rem;
+			}
+    	}
+	}
+	/* back button on top of the page */
+	.back{
+		display: block;
+    	position: absolute;
+    	top: -2rem;
+		a{
+			font-weight: 500;
+			font-size: rem-calc(14);
+			i{
+				color: $my-body-text-color;
+				padding: 1px;
+				border: 1px solid scale-color($medium-grey-section-bg-color, $lightness: -10%);
+				font-size: rem-calc(18);
+				@include border-radius(50%);
+				@include transition(all 0.2s ease-out);
+			}
+			&:hover{
+				i{
+					box-shadow:0 1px 6px rgba(0,0,0, .2);
+				}
+			}
+		}
+
+	}
+	/* Configurator */
+	.configurator{
+		.panel{
+			background-color: white;
+			border-bottom: 2px solid scale-color($medium-grey-section-bg-color, $lightness: 10%);
+			@include transition(all 0.3s ease-out 0s);
+			&:hover{
+		    	border-bottom:  2px solid scale-color($medium-grey-section-bg-color, $lightness: -10%);
+		    }
+		    &:first-of-type{
+		    	margin-top: 1rem;
+		    }
+		    &:last-of-type{
+		    	margin-bottom: 0;
+		    }
+			&.server-summary{
+				padding-bottom: 0.25rem;
+				.row .columns{
+					padding: rem-calc(0 15);
+				}
+				table{
+					width: 100%;
+					border: 0 none;
+					&.first-block{
+						margin-bottom: 0.175rem;
+					}
+					tr{
+						background-color: white;
+						td{
+							display: inline-flex;
+							width: 100%;
+							flex-direction: row;
+							justify-content: space-between;
+							padding: rem-calc(14 0);
+							font-size: rem-calc(15);
+							border-bottom: 1px dotted $medium-grey-section-bg-color;
+							position: relative;
+							span{
+								background-color: white;
+								position: absolute;
+								&.value{
+									right: 0;
+									font-weight: 500;
+									color: $my-inner-elements-header-color;
+								}
+							}
+						}
+					}
+					@media #{$small-only} {
+						tr td{
+							flex-direction: column;
+							padding-bottom: 0.125rem;
+							span{
+								justify-content: flex-start;
+								position: relative;
+							}
+						}
+					}
+					@media #{$large-up} {
+						&.first-block{
+							margin-bottom: 1.25rem;
+						}
+					}
+				}
+			}
+		}
+		p{
+			&.lead{
+				margin-bottom: 0.75rem;
+				font-size: 1rem;
+				font-weight: 500;
+			}
+			&.server-name{
+				margin-bottom: 0;
+				font-size: 0.925rem;
+				font-weight: 500;
+			}
+		}
+		ul{
+			li{
+				display: flex;
+				padding-bottom: 0.75rem;
+				align-items: start;
+			}
+		}
+		input[type="checkbox"], input[type="radio"] {
+		    margin-bottom: 0;
+			margin-top: 1px;
+		    margin-right: 0.25rem;
+		}
+		label{
+			line-height: 1.1;
+			span{
+				color: $my-body-light-text-color;
+                &:last-of-type{
+                	font-weight: 400;
+                	@media #{$large-up} {
+	                    margin-left: 5px;
+	                }
+                }
+			}
+			.s-fee{
+            	display: block;
+			    margin-top: 0.325rem;
+			    font-size: 0.825rem;
+            }
+		}
+		.tooltip-config{
+			a{
+				font-size: rem-calc(20);
+				padding-right: 0.25rem;
+				color: $my-header-color;
+			}
+		}
+		.button, button{
+			float: right;
+			padding: 0.725rem 2rem;
+			margin-top: 0.5rem;
+			margin-bottom: 0.5rem;
+			min-width: rem-calc(185);
+		}
+	}
+	
+	/* Summary and Price */
+	.summary{
+		.inner-wrapper{
+			@media #{$large-up} {
+				width: rem-calc(320);
+			}
+			@media only screen and (min-width: 1025px) and (max-width: 1196px) {
+				width: rem-calc(230);
+			}
+			@media only screen and (min-width: 1197px) and (max-width: 1366px) {
+				width: rem-calc(280);
+			}
+		}
+		p.lead{
+			background-color: scale-color($my-green, $lightness: 5%);
+		    color: white;
+		    font-weight: 400;
+		    margin: 0;
+		    padding: 0.925rem 1.25rem;
+			&.dark-blue{
+				background-color: $buy-overview-bg-color;
+			}
+		}
+		.panel{
+			&.specs{
+				background-color: white;
+				border: 2px solid scale-color($light-grey-section-bg-color, $lightness: -3%);
+				border-top: 0;
+				p.head{
+					margin-bottom: 0;
+					font-weight: 500;
+					font-size: rem-calc(15);
+					color: $my-inner-elements-header-color;
+				}
+				ul{
+					li{
+						font-weight: 400;
+						font-size: 0.825rem;
+						border-bottom: 1px dashed scale-color($light-grey-section-bg-color, $lightness: -10%);
+						line-height: 1.1;
+					    padding: 0.75rem 0 0.25rem;
+						display: table;
+						width: 100%;
+						@media #{$large-up} {
+                            font-weight: 300;
+                        }
+						div{
+							display: table-cell;
+							vertical-align: middle;
+							&:last-child{
+								padding-left: 0.5rem;
+								width: 40%;
+							}
+						}
+					}
+				}
+				&.server{
+					padding: 0;
+					margin-bottom: 0;
+					border-bottom: 0;
+					ul{
+						li{
+							padding: 0.625rem 0.75rem;
+							border-bottom: 0;
+							&:nth-child(even){
+								background-color: scale-color($light-grey-section-bg-color, $lightness: 30%);
+							}
+						}
+					}
+				}
+			}
+			&.buy-overview{
+				ul.price-container{
+		            li{
+		            	&.pricing{
+				            padding-bottom: 1.25rem;
+				            padding-top: 0.5rem;
+				            .price{
+				                font-size: 3.5rem;
+				                sup{
+				                    font-size: 1.425rem;
+				                }
+				            }
+							small{
+								font-size: 75%;
+							}
+				            .currency{
+				                font-size: 1.2rem;
+				            }
+				        }
+		            	&.setup-fee{
+		            		display: table;
+							width: 100%;
+							font-size: 0.825rem;
+							padding-bottom: 0.5rem;
+							font-weight: 400;
+							position: relative;
+    						top: -7px;
+							div{
+								display: table-cell;
+								color: white;
+								line-height: 1.2;
+								a, span{
+									color: white;
+								}
+								&:last-child{
+									padding-left: 0.25rem;
+								}
+							}
+		            	}
+                        &.order{
+                        	padding-bottom: 0;
+	                        .button{
+								margin-bottom: 0;
+							}
+						}	
+		            }
+				}
+			}
+		}
+	}
+}

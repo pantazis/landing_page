@@ -1,0 +1,970 @@
+/* SSLs */
+
+
+/* ----------------------------------------------------------------------
+SSL List of Products
+----------------------------------------------------------------------- */
+
+/* Custom styles for SSL list of products. Extend Custom List */
+.custom-list.ssl-list{
+    // wrapper
+    .item {
+        @media #{$large-up}{
+            max-height: rem-calc(100);
+            height: auto;
+            overflow: hidden;
+        }
+        ul {
+            li{
+                // EV Style
+                div{
+                    .label.ev{
+                        background-color: #33cc66;
+                    }
+                }
+                // Handling different screens with Media Queries
+                @media #{$medium-only} {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    div{
+                        width: 100%;
+                    }
+                    // Style for name cell
+                    &.name{
+                        div{
+                            max-height: 21px;
+                            a{
+                                line-height: 21px;
+                                max-height: 21px;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                display: inline-block;
+                            }
+                        }
+                    }
+                    &.price, &.domain-number{
+                        min-height: rem-calc(63);
+                    }
+                }
+                @media #{$large-up} {
+                    // define cells width for large
+                    &.name{
+                        width: 18%;
+                    }
+                    &.validation{
+                        width: 10%;
+                    }
+                    &.wildcard{
+                        width: 8%;
+                    }
+                    &.issuance{
+                        width: 10%;
+                    }
+                    &.domain-number{
+                        width: 14%;
+                    }
+                }
+            }
+        }
+        // for effect while filtering
+        &.filtered-out{
+            display: none;
+            @media #{$large-up}{
+                max-height: 0;
+                padding: 0;
+                height: 0;
+                margin: 0;
+            }
+        }
+    }
+}
+
+/* Header and filters for SSL list */
+#ssl-list-products{
+    padding: 2.25rem 0 4rem;
+    // Head element
+    .head{
+       margin-bottom: 2.5rem;
+       .inner-head{
+           @media #{$large-up} {
+               display: inline-flex;
+               align-items: center;
+               .head-image{
+                   margin-right: 5rem;
+                   max-width: 27%;
+                   min-width: 27%;
+                   img{
+                       margin: 0;
+                   }
+               }
+           }
+           @media #{$medium-only} {
+               .head-image{
+                   max-width: 35%;
+               }
+           }
+           @media #{$small-only} {
+               .head-image{
+                   max-width: 70%;
+               }
+           }
+       }
+       .my-h2-title{
+           margin-bottom: 1.25rem;
+           line-height: 1.2;
+       }
+       img{
+            margin-bottom: 1rem;
+       }
+       p{
+           margin-bottom: 0.75rem;
+           &:last-of-type{
+               margin-bottom: 0;
+           }
+       }
+    }
+    // Filters in Row
+    .ssl-inline-filters{
+        display: none;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 2rem;
+        padding-bottom: 0.75rem;
+        padding-top: 0.75rem;
+        border-bottom: 1px solid $medium-grey-section-bg-color;
+        border-top: 1px solid $medium-grey-section-bg-color;
+        background-color: white;
+        @media #{$large-up} {
+            display: inline-flex;
+        }
+        // Sticky
+        &.sticky{
+            left: 0;
+            position: fixed;
+            top: 0;
+            justify-content: space-around;
+            border-top: 0 none;
+            @include shadow(0, 6px, 12px, rgba(0, 0, 0, 0.1));
+            z-index: 99;
+            &.all-filters{
+                padding-left: 77px;
+                padding-right: 72px;
+            }
+        }
+        // Left side
+        .filters-left{
+            .inline-list{
+                margin-bottom: 0;
+                & > li {
+                    height: rem-calc(36);
+                }
+            }
+            // Dropdown
+            .f-dropdown{
+                max-width: 260px;
+                li{
+                    border-bottom: 1px solid scale-color($dark-grey-section-bg-color, $lightness: -20%);
+                    display: flex;
+                    align-items: center;
+                    &:last-child{
+                        border-bottom: 0 none;
+                    }
+                    label{
+                        color: white;
+                        width: 100%;
+                        padding: 0.675rem 0.75rem 0.675rem 0;
+                        margin-right: 0;
+                    }
+                    input{
+                        margin-bottom: 0;
+                        margin-left: 16px;
+                    }
+                }
+            }
+            button{
+                background-color: transparent;
+                margin-bottom: 0;
+                padding-bottom: 0.5rem;
+                padding-left: 0;
+                padding-top: 0.5rem;
+                &.dropdown{
+                    padding-right: 2.5rem;
+                    font-size: rem-calc(15);
+                    &:before{
+                        border-width: 4px;
+                        margin-top: -2px;
+                        right: 1.5rem;
+                    }
+                }
+
+            }
+        }
+        // Right side
+        .filters-right{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            // Quantity
+            .qty{
+                font-size: 0.725rem;
+                letter-spacing: 0.25px;
+                margin-right: 0.75rem;
+                color: $my-body-lightest-text-color;
+                width: rem-calc(110);
+                span{
+                    font-weight: 700;
+                    color: $my-body-text-color;
+                }
+            }
+            // Search
+            .search-container{
+                position: relative;
+                input{
+                    margin-bottom: 0;
+                    min-width: 17rem;
+                }
+                i{
+                    position: absolute;
+                    color: #8e8e8e;
+                    right: 1rem;
+                    top: 0.75rem;
+                }
+            }
+            // Action button
+            .action-container{
+                margin-left: 0.75rem;
+                .button{
+                    margin-bottom: 0;
+                    background-color: scale-color($my-orange, $lightness: -5%);
+                    padding: rem-calc(11 17);
+                    &:hover{
+                        background-color: scale-color($my-orange, $lightness: -20%);
+                    }
+                }
+            }
+        }
+    }
+    .alert-box{
+        margin-top: 1.25rem;
+    }
+}
+
+/* Custom modal for SSL ordering */
+.ssl-order-modal{
+    & > .panel{
+        background-color: white;
+    }
+    // Wrapper
+    .order-wrapper{
+        // duration styles
+        .duration{
+            padding: 0.75rem;
+            ul{
+                li{
+                    input{
+                        margin-bottom: 0;
+                        position: relative;
+                        top: rem-calc(1);
+                        margin-right: rem-calc(6);
+                    }
+                    label{
+                        padding: 0.75rem;
+                        font-size: 1rem;
+                        line-height: 1.3;
+                        color: $my-header-color;
+                        font-weight: 500;
+                        .on-offer{
+                            display: inline;
+                            color: $my-purple;
+                            font-weight: 700;
+                            font-size: 0.925rem;
+                        }
+                        .prices{
+                            position: relative;
+                            font-size: 0.775rem;
+                            left: rem-calc(20);
+                            color: $my-body-text-color;
+                            span{
+                                &.initial{
+                                    color: #b2b2b2;
+                                    font-weight: 300;
+                                }
+                                &.discount{
+                                    margin-left: 0.75rem;
+                                    color: $offer-color;
+                                    font-weight: 700;
+                                }
+                                &.final{
+                                    font-weight: 700;
+                                    margin-left: 0.25rem;
+                                    color: $my-orange;
+                                }
+                            }
+                        }
+                    }
+                    &.active{
+                        background-color: white;
+                        border: 1px solid $my-deep-blue;
+                    }
+                }
+            }
+        }
+        // SSL details
+        .details{
+            // Logo
+            .company-logo{
+                text-align: right;
+                margin-bottom: 0.25rem;
+            }
+            // Attributes
+            .ssl-attributes{
+                margin-bottom: 0.75rem;
+                li{
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    margin-bottom: 0.5rem;
+                    span{
+                        font-size: 0.8rem;
+                        line-height: 1.1;
+                        margin-right: 0.5rem;
+                        text-align: right;
+                        &.disabled{
+                            color: #d1d1d1;
+                        }
+                    }
+                    select{
+                        height: rem-calc(30);
+                        max-width: rem-calc(60);
+                        padding: 0.175rem 0.5rem;
+                        margin-bottom: 0;
+                        font-size: 0.825rem;
+                    }
+                }
+            }
+            // Total styles
+            .total-domains, .total{
+                text-align: right;
+                color: $my-header-color;
+                .value{
+                    display: inline-block;
+                    margin-left: 1rem;
+                }
+            }
+            .total-domains{
+                font-size: 0.875rem;
+                margin: 0.5rem 0;
+                padding: 0.625rem 0;
+                border-top: 1px solid $medium-grey-section-bg-color;
+                border-bottom: 1px solid $medium-grey-section-bg-color;
+            }
+            .total{
+                font-weight: 500;
+                font-size: rem-calc(20);
+            }
+        }
+    }
+    // Extra SSL Info
+    .additional-info{
+        margin-top: 1.25rem;
+        // Features
+        .bold-features{
+            padding: 0.75rem 0.75rem 0.25rem;
+            margin-bottom: 0.25rem;
+            ul{
+                font-size: 0.8rem;
+                li{
+                    line-height: 1;
+                    padding-bottom: 0.5rem;
+                    strong{
+                        color: $my-header-color;
+                    }
+                }
+            }
+        }
+        // More Features
+        .more-features{
+            background-color: white;
+            padding: 0.5rem 0.5rem 0;
+            margin-bottom: 0;
+            // Features List
+            ul{
+                font-size: 0.725rem;
+                li{
+                    padding-bottom: 0.5rem;
+                    padding-left: 1.5rem;
+                    position: relative;
+                    line-height: 1.2;
+                    i{
+                        font-size: 1rem;
+                        left: 6px;
+                        position: absolute;
+                        &.icon-checkmark{
+                            color: $my-green;
+                            top: -2px;
+                        }
+                        &.icon-cross3{
+                            color: $my-red;
+                            top: -1px;
+                        }
+                    }
+                    span{
+                        strong{
+                            color: $my-header-color;
+                        }
+                    }
+                }
+            }
+
+        }
+        // For javascript
+        .ssl-signs, .greek-support{
+            display: none;
+        }
+        .btn-order{
+            margin-bottom: 0.75rem;
+        }
+    }
+    // Close
+    .closure{
+        font-size: 0.725rem;
+        .last-action{
+            strong{
+                display: block;
+                margin-bottom: 0.25rem;
+                margin-top: -0.375rem;
+                font-size: 0.675rem;
+                color: $my-body-light-text-color;
+                font-weight: 300;
+                letter-spacing: 0.25px;
+            }
+            .a{
+                font-weight: 400;
+            }
+        }
+
+    }
+    // Media queries for this modal
+    @media #{$small-only} {
+        .closure .last-action{
+            margin-top: 1rem;
+        }
+    }
+    @media #{$medium-only} {
+        .additional-info .ssl-signs ul li figure{
+            width: 4rem;
+        }
+    }
+    @media #{$medium-up} {
+        .order-wrapper .duration ul li label{
+            min-height: rem-calc(61);
+        }
+        .additional-info{
+            .ssl-signs{
+                padding: 0;
+                margin-bottom: 0.5rem;
+                background-color: white;
+                display: inline-block;
+                ul{
+                    li{
+                        margin-left: 0;
+                        padding: 0;
+                        float: left;
+                        figure{
+                            margin:0;
+                            text-align: center;
+                            width: 4.75rem;
+                            img{
+                                width: 3rem;
+                                height: 3rem;
+                            }
+                            figcaption{
+                                font-size: 0.675rem;
+                                line-height: 1.1;
+                                margin-top: 0.225rem;
+                                font-style: italic;
+                                color: #989898;
+                            }
+                        }
+                    }
+                }
+            }
+            .greek-support{
+                border-top: 1px solid $medium-grey-section-bg-color;
+                display: inline-block;
+                padding-top: 0.5rem;
+                text-align: center;
+                width: 100%;
+                a{
+                    display: inline-flex;
+                    align-items: center;
+                    color: $my-light-blue;
+                    span{
+                        font-size: 0.775rem;
+                        margin-left: 0.5rem;
+                        font-weight: 400;
+                    }
+                    img{
+                        width: rem-calc(40);
+                    }
+                }
+                .my-tooltip{
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
+
+/* Featured grid module with custom styles for ssl's -> Δημοφιλέστερες κατηγορίες SSL */
+.featured-grid.ssl-featured{
+    .panel{
+        p.desc{
+            margin-bottom: 1.75rem;
+        }
+    }
+    // Build meters
+    .ssl-progress{
+        margin-bottom: 1.25rem;
+        .for-meter{
+            display: block;
+            font-size: 0.775rem;
+            font-weight: 500;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+        ul{
+            font-size: 0;
+            list-style-type: none;
+            max-width: 100%;
+            padding: 0;
+            margin-bottom: 0.75rem;
+            &.low li:nth-child(-n+1){
+                background-color: #33cc66;
+            }
+            &.medium li:nth-child(-n+3){
+                background-color: #33cc66;
+            }
+            &.high li:nth-child(-n+5){
+                background-color: #33cc66;
+            }
+            li{
+                background-color: #dde4e7;
+                border-left: 1px solid  white;
+                border-right: 1px solid #989898;
+                display: inline-block;
+                font-size: 1rem;
+                height: 0;
+                overflow: hidden;
+                padding-top: 1rem;
+                width: 20%;
+                &:last-of-type{
+                    border-right: 0 none;
+                    border-top-right-radius: 3px;
+                    border-bottom-right-radius: 3px;
+                }
+                &:first-of-type{
+                    border-top-left-radius: 3px;
+                    border-bottom-left-radius: 3px;
+                }
+            }
+        }
+    }
+}
+
+
+/* ----------------------------------------------------------------------
+SSL Inner pages
+----------------------------------------------------------------------- */
+
+/* SSL breadcrumbs */
+.ssl-breadcrumbs{
+    background-color: $light-grey-section-bg-color;
+    border-bottom: 1px solid $medium-grey-section-bg-color;
+    // breadcrumbs list
+    .breadcrumbs{
+        margin-bottom: 0;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        // each breadcrumb
+        li{
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.2;
+            text-transform: none;
+            a{
+                color: #989898;
+                &:hover{
+                    color: $my-green;
+                }
+            }
+            &.inactive a{
+                color: #989898;
+                cursor: default;
+            }
+            &.current a{
+                color: $my-green;
+            }
+            form{
+                display: inline;
+            }
+        }
+    }
+}
+
+/* Small module with icon and content. The last section in SSL categories pages */
+.ssl-assistance{
+    text-align: center;
+    // Wrapper
+    .content{
+        padding: 3rem 0;
+        // Icon
+        i{
+            font-size: 5rem;
+            color: $my-blue-black;
+        }
+        // Paragraph
+        p{
+            line-height: 1.3;
+            // Header
+            &.lead{
+                color: $my-header-color;
+                font-weight: 500;
+                margin-bottom: 0.5rem;
+                margin-top: 1rem;
+            }
+        }
+        // handling different screens
+        @media #{$large-up} {
+            ul{
+                li{
+                    padding-left: 2rem;
+                    padding-right: 2rem;
+                }
+            }
+        }
+    }
+}
+
+
+/* ----------------------------------------------------------------------
+What is SSL page
+----------------------------------------------------------------------- */
+
+/*  Tables of content specifically made for choosing SSLs */
+#how-to-choose-ssl{
+    padding: 3rem 0;
+    background-color: $light-grey-section-bg-color;
+    // Tab module extend
+    #tab-module{
+        padding: 0;
+        // Title
+        .tab-title{
+            width: 33%;
+            margin-bottom: 1.5rem !important;
+        }
+        // Content
+        .tabs-content{
+            padding: 0;
+            background-color: $light-grey-section-bg-color;
+            // Header
+            .my-h3-title{
+                font-weight: 300;
+                margin-bottom: 1.625rem;
+                margin-top: 0;
+                text-align: center;
+                line-height: 1.1;
+            }
+            // Boxes
+            a{
+                /* Fix for Microsoft Edge */
+                color: transparent;
+                .panel{
+                    background: #FFFFFF;
+                    padding: 0;
+                    margin-bottom: 0;
+                    position: relative;
+                    border: 0 none;
+                    @include transition(all 0.3s ease-in-out);
+                    @media #{$medium-only} {
+                        max-width: 30rem;
+                        margin: 0 auto;
+                    }
+                    // Hover States
+                    &:hover{
+                        background:#FFFFFF;
+                        .button{
+                            background: scale-color($primary-color, $lightness: -20%);
+                        }
+                        .container, .img-cont{
+                            border-color: scale-color($medium-grey-section-bg-color, $lightness: -10%);
+                        }
+                    }
+                    &::after {
+                        content: "";
+                        left: 0;
+                        opacity: 0;
+                        position: absolute;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        @include shadow(0, 1px, 6px, scale-color($my-black, $lightness: 70%));
+                        @include transition(opacity 0.3s ease-in-out);
+                    }
+                    &:hover::after {
+                        opacity: 1;
+                    }
+                    // Wrapper inside box
+                    .container{
+                        padding: 1.25rem;
+                        border: 1px solid $medium-grey-section-bg-color;
+                        border-top: 0;
+                        @media #{$large-up} {
+                            padding: 1.75rem;
+                        }
+                    }
+                    // Image Wrapper
+                    .img-cont{
+                        background-color: scale-color($medium-grey-section-bg-color, $lightness: 35%);
+                        border: 1px solid $medium-grey-section-bg-color;
+                        border-bottom: 0;
+                        text-align: center;
+                        &.some-padding{
+                            padding: 1.75rem 1rem;
+                        }
+                    }
+                    // Title
+                    h4{
+                        font-size: 1.5rem;
+                        font-weight: normal;
+                        line-height: 1.4;
+                        color: $my-header-color;
+                        margin-bottom: 0.25rem;
+                        margin-top: 0;
+
+                        @media #{$small-only} {
+                            font-size: 1.3rem;
+                        }
+                    }
+                    // Paragraph styles
+                    p{
+                        font-size: 0.925rem;
+                        line-height: 1.4;
+                        &.subheading{
+                            border-bottom: 1px dashed $medium-grey-section-bg-color;
+                            padding-bottom: 0.15rem;
+                            margin-top: 1rem;
+                            margin-bottom: 1.25rem;
+                            font-size: 0.825rem;
+                            font-weight: 500;
+                        }
+                        &.for-meter{
+                            margin-top: 1rem;
+                            font-size: 0.825rem;
+                            font-weight: 500;
+                            margin-bottom: 0.125rem;
+                        }
+                        &.sub-head{
+                            color: #989898;
+                            font-size: 0.825rem;
+                            line-height: 1.2;
+                            position: relative;
+                            top: -0.3rem;
+                            margin-bottom: 1rem;
+                        }
+                        &.price{
+                            margin-bottom: 0;
+                            text-align: right;
+                            color: $my-inner-elements-header-color;
+                            font-size:  1.825rem;
+                            margin-top: 2rem;
+                            display: block;
+                            .sup{
+                                font-family: "Sarala";
+                                font-size: 2.75rem;
+                            }
+                            sup{
+                                font-size: 45%;
+                                margin-top: rem-calc(19);
+                                margin-left: rem-calc(2);
+                                position: absolute;
+                                top: initial;
+                            }
+                            small{
+                                font-size: 56%;
+                            }
+                            .strikethrough{
+                                color: scale-color($my-body-light-text-color, $lightness: 25%);
+                                font-size: 1.125rem;
+                            }
+                        }
+                    }
+                    // List
+                    ul{
+                        li{
+                            font-size: 0.925rem;
+                            line-height: 1.2;
+                            margin-bottom: 0.5rem;
+                            color: $my-body-light-text-color;
+                        }
+                    }
+                    // Meter
+                    .ssl-progress{
+                        ul{
+                            font-size: 0;
+                            list-style-type: none;
+                            max-width: 100%;
+                            padding: 0;
+                            margin-bottom: 0.75rem;
+                            &.low li:nth-child(-n+1){
+                                //background-color: #aad2c7;
+                                background-color: #33cc66;
+                            }
+                            &.medium li:nth-child(-n+3){
+                                //background-color: #7dc5a4;
+                                background-color: #33cc66;
+                            }
+                            &.high li:nth-child(-n+5){
+                                background-color: #33cc66;
+                            }
+                            li{
+                                background-color: #dde4e7;
+                                border-left: 1px solid  white;
+                                border-right: 1px solid #818181;
+                                display: inline-block;
+                                font-size: 1rem;
+                                height: 0;
+                                overflow: hidden;
+                                padding-top: 1rem;
+                                width: 20%;
+                                &:last-of-type{
+                                    border-right: 0 none;
+                                    border-top-right-radius: 3px;
+                                    border-bottom-right-radius: 3px;
+                                }
+                                &:first-of-type{
+                                    border-top-left-radius: 3px;
+                                    border-bottom-left-radius: 3px;
+                                }
+                            }
+                        }
+
+                    }
+                    //Action
+                    .button{
+                        width: 100%;
+                        padding: 0.8rem 1rem 0.8625rem;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+// Touch Screens Handling
+html.touch #how-to-choose-ssl #tab-module.ssl .tab-title a{
+    background-color: $light-grey-section-bg-color;
+    color: scale-color($medium-grey-section-bg-color, $lightness: -15%);
+    border: 1px solid $medium-grey-section-bg-color;
+}
+html.touch #how-to-choose-ssl #tab-module.ssl .tab-title.active a{
+    background-color: $my-green;
+    border: 1px solid $my-green;
+    color: white;
+}
+
+
+/* ----------------------------------------------------------------------
+SSL Wizard page
+----------------------------------------------------------------------- */
+.ssl-wizard{
+    padding: 2.25rem 0 0;
+    // Header
+    .head{
+        .my-h2-title{
+            margin-bottom: 0.25rem;
+        }
+        margin-bottom: 2.5rem;
+    }
+    // List
+    .questions{
+        ol{
+            margin-left: 0;
+            // Header
+            & > li{
+                position: relative;
+                font-size: 1.25rem;
+                font-weight: 500;
+                color: $my-header-color;
+                padding: 2.5rem;
+                background-color: $light-grey-section-bg-color;
+                list-style-position: inside;
+                margin-bottom: 1.25rem;
+                line-height: 1.3;
+                border-bottom: 2px solid $medium-grey-section-bg-color;
+                @include transition(all 0.3s ease-out 0s);
+                &:hover{
+                    border-bottom:  2px solid scale-color($my-green, $lightness: 1%);
+                }
+            }
+            // Inner List
+            li{
+                ul{
+                    margin-left: 1rem;
+                    margin-top: 1rem;
+                    margin-bottom: 0;
+                    li{
+                        margin-bottom: 1rem;
+                        @include transition(all 0.3s ease-out 0s);
+                        &:last-child{
+                            margin-bottom: 0;
+                        }
+                        label{
+                            display: inline-block;
+                            color: $my-header-color;
+                            margin-left: rem-calc(8);
+                            line-height: 1.3;
+                            @media #{$medium-up} {
+                                margin-left: rem-calc(28);
+                            }
+                            span{
+                                &:first-of-type{
+                                    font-weight: 500;
+                                    font-size: 1rem;
+                                }
+                                &:last-of-type{
+                                    display: block;
+                                    color: $my-body-light-text-color;
+                                    margin-left: -1px;
+                                    margin-top: 0.325rem;
+                                }
+                            }
+                        }
+                        input{
+                            margin-bottom: 0;
+                            margin-right: 0.25rem;
+                            margin-left: rem-calc(-23);
+                            position: relative;
+                            top: 1px;
+                        }
+                    }
+                }
+                a.question_redo{
+                    font-size: 1rem;
+                    position: absolute;
+                    right: 1rem;
+                    top: 1rem;
+                }
+            }
+
+        }
+    }
+}
+
+
+
+
+
+

@@ -1,0 +1,168 @@
+/* Checkout styles */
+
+/* Many styles have moved to global so that they can used in back end too */
+.profiles{
+    margin-bottom: 3rem;
+    .choose-profile{
+        background-color: scale-color($light-grey-section-bg-color, $lightness: 30%);
+        border: 1px solid $medium-grey-section-bg-color;
+        margin-bottom: 2rem;
+        padding: 1.25rem 1.25rem 0.25rem;
+        .create-new-profile{
+            display: table-cell;
+            vertical-align: middle;
+            height: inherit;
+            font-size: 0.925rem;
+            padding-top: 1.25rem;
+            @media #{$medium-up} {  
+                padding-left: 1.25rem;
+            }
+            @media #{$small-only} {
+                margin-top: 0.5rem;
+                display: block;
+            } 
+            span{
+                display: inline-block;
+                margin-bottom: 0.5rem;
+                margin-right: 0.75rem;
+            } 
+            a.new-billing-profile{
+                font-size: 0.875rem;
+                padding: 0.575rem 1.25rem 0.6375rem;
+            } 
+        }
+        
+    }
+    .profile-info{
+        position: relative;
+        @media #{$medium-up} {           
+            &:after{
+                background-color: scale-color($medium-grey-section-bg-color, $lightness: 10%);
+                content: "";
+                display: block;
+                height: 100%;
+                left: 50%;
+                position: absolute;
+                top: 0;
+                width: 1px;
+            }
+        }
+        .info{
+            .title{
+                font-size: 0.95rem;
+                font-weight: 500;
+                margin-bottom: 0;
+                color: $my-inner-elements-header-color;
+            }
+            ul{
+                position:relative;
+                top: -1px;
+                li{
+                    font-size: 0.875rem;
+                }
+            }
+        }
+        .prices-box{
+            @media #{$small-only} {
+                margin-top: 2rem;
+            }  
+            ul{
+                margin-bottom: 0;
+                li{
+                    .price-conteiner{
+                        display: table;
+                        width: 100%;
+                        margin-bottom: 0.25rem;
+                        &.total{
+                            font-weight: 500;
+                            color: $my-inner-elements-header-color;
+                        }
+                        .title{
+                            display: table-cell;
+                            padding-right: 1rem;
+                        }
+                        .prices{
+                            display: table-cell;
+                            text-align: right;
+                            @media #{$medium-up} {  
+                                padding-left: 2rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }       
+    }
+}
+
+/* Specific styles for checkout */
+#checkout-summary{
+    #simple-content{
+        padding-top: 0;
+        padding-bottom: 1rem;
+        background-color: white;
+        .panel{
+            border-width: 1px;
+        }
+        .payments{
+            .panel{
+                background-color: scale-color($light-grey-section-bg-color, $lightness: 30%);
+                margin-top: 0;
+            } 
+        } 
+    }
+}
+
+/* New stand alone installation service for ssl certificates */
+#product-summary {
+    .stand-alone-ssl-installation {
+        b {
+            color: #686868;
+        }
+
+        .stand-alone-ssl-installation-display {
+            font-size: 0.85rem;
+
+            .target_domain_display {
+                color: #8e8e8e;
+            }
+        }
+
+        .target_domains.stand_alone {
+            max-height: 34px;
+        }
+
+        .button.save_target_domains {
+            max-height: 34px;
+
+            .submitText {
+                position: relative;
+                top: -2px;
+            }
+
+            .loading {
+                position: relative;
+                margin-top: 0;
+                top: 5px;
+            }
+        }
+
+        .icon-checkmark {
+            background-color: #18BF93;
+            color: white;
+
+            font-size: 11px;
+
+            border-radius: 50%;
+
+            padding: 4px;
+            margin-right: 3px;
+        }
+
+        .icon-cog3 {
+            color: #282828;
+            position: relative;
+            top: 2px;
+        }
+    }
+}

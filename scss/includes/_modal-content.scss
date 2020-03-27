@@ -1,0 +1,526 @@
+/* Styles for modal */
+.reveal-modal{
+    padding: 0;
+    // buiding generic width of our modal
+	&.tiny{
+    	@media #{$medium-only} {
+            margin-left: -40%;
+            width: 80%;
+        }
+        @media #{$large-only} {
+            margin-left: -25%;
+            width: 50%;
+        }
+        @media #{$xlarge-up} {
+            margin-left: -17.5%;
+            width: 35%;
+        }
+        // Specific styles for SSL modal
+        &.for-ssl-order{
+            // Build width in different screens
+            @media #{$medium-only} {
+                margin-left: -45%;
+                width: 90%;
+            }
+            @media #{$large-only} {
+                margin-left: -30%;
+                width: 60%;
+            }
+            @media #{$xlarge-up} {
+                margin-left: -21%;
+                width: 42%;
+            }
+            // Header
+            p.lead{
+                @media #{$large-up} {
+                    font-size: 1.375rem;
+                    letter-spacing: 0.5px;
+                }
+                a{
+                    color: white;
+                }
+            }
+            // Content padding
+            .modal-content{
+                padding: 1rem 0.3125rem;
+            }
+        }
+	}
+    // Our custom regular modal
+    &.minimal{
+        .header{
+            padding-left: 2rem;
+            padding-right: 2rem;
+            p{
+                margin-bottom: 0;
+                line-height: 1;
+            }
+            &.normal{
+                padding-top: 2.75rem;
+                padding-bottom: 1.25rem;
+                p{
+                    color: $my-inner-elements-header-color;
+                    font-weight: 500;
+                    font-size: rem-calc(20);
+                    &.w-border{
+                        border-bottom: 1px solid scale-color($light-grey-section-bg-color, $lightness: -5%);
+                        padding-bottom: 1.5rem;
+                    }
+                    &.warning{
+                        color: scale-color($my-orange, $lightness: -20%);
+                    }
+                    &.red{
+                        color: scale-color($my-red, $lightness: -5%);
+                    }
+                }
+            }
+            &.w-bg-color{
+                padding-top: 1.75rem;
+                padding-bottom: 1.75rem;
+                margin-bottom: 1.25rem;
+                &.orange{
+                    background-color: scale-color($my-orange, $lightness: -8%);
+                }
+                &.dark-blue{
+                    background-color: #2D4A63;
+                }
+                &.light-grey{
+                    background-color: $light-grey-section-bg-color;
+                    border-bottom: 1px solid scale-color($light-grey-section-bg-color, $lightness: -5%);
+                    p{
+                        color: $my-inner-elements-header-color;
+                    }
+                }
+                &.info{
+                    @include linear-gradient(#3995c0, #75badc);
+                }
+                p{
+                    color: white;
+                }
+            }
+        }
+        .content{
+            margin: 0 2rem 2.25rem;
+            min-height: 3.5rem;
+        }
+        .actions{
+            padding: 1.325rem 2rem;
+            background-color: $light-grey-section-bg-color;
+            border-top: 1px solid scale-color($light-grey-section-bg-color, $lightness: -5%);
+            text-align: center;
+            button,.button{
+                min-width: 100%;
+                margin-left: 0;
+            }
+            @media #{$medium-up}{
+                text-align: right;
+                button,.button{
+                    min-width: 10rem;
+                    margin-left: 1rem;
+                }
+            }
+        }
+        @media #{$medium-up} {
+            &.with-scroll{
+                height: 26rem;
+                overflow-y: auto;
+            }
+            .header, .actions{
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
+            .content{
+                margin-left: 3rem;
+                margin-right: 3rem;
+
+            }
+        }
+        @media #{$large-only} {
+            .content{
+                &.cart-scroll{
+                    height: 15rem;
+                    overflow-y: auto;
+                }
+            }
+        }
+    }
+    // Custom modal made for login
+    &.login-forms{
+        // login tabs styles
+        .tabs dd{
+            // Tab style
+            & > a{
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                line-height: 1.3;
+                background-color: scale-color($light-grey-section-bg-color, $lightness: -8%);
+                color: scale-color($medium-grey-section-bg-color, $lightness: -25%);
+                font-size: 1.5rem;
+                @include transition(all 0.2s ease-in-out);
+                small{
+                    display: block;
+                    font-size: 50%;
+                }
+                &:hover{
+                    background-color: scale-color($light-grey-section-bg-color, $lightness: -15%);
+                    color: scale-color($medium-grey-section-bg-color, $lightness: -40%);
+                }
+            }
+            // Active state
+            &.active > a{
+                background-color: white;
+                color: $my-green;
+            }
+        }
+        // Content style
+        .tabs-content{
+            hr{
+                margin: 1.25rem 0 0.5rem;
+            }
+            .positioned-bottom{
+                @media #{$large-up} {
+                    position: absolute;
+                    width: 94.5%;
+                    top: 10.2rem;
+                }
+                @media #{$medium-only} {
+                    position: absolute;
+                    width: 94.5%;
+                    top: 12.73rem;
+                }
+            }
+        }
+    }
+    // Class for creating a bigger content area
+    .modal-content-big{
+        @media #{$large-up} {
+            padding: 3rem;
+            min-height: 18rem;
+        }
+        @media #{$medium-only} {
+            padding: 2rem;
+            min-height: 19.5rem;
+        }
+        @media #{$small-only} {
+            padding: 1rem 0.5rem 1.75rem;
+        }
+    }
+    // Our change Vat modal
+    .vat-content{
+        // form wrapper
+        form{
+            ul.no-bullet{
+                li{
+                    display: flex;
+                }
+            }
+            label{
+                line-height: 1;
+                font-size: 0.925rem;
+            }
+        }
+        // styling the component
+        .select-vat{
+            max-width: 22rem;
+            p{
+                margin-bottom: 0.75rem;
+                font-size: rem-calc(15);
+                font-weight: 500;
+                border-bottom: 1px dashed scale-color($medium-grey-section-bg-color, $lightness: -10%);
+            }
+            ul{
+                margin-bottom: 0.25rem;
+                li{
+                    // loading sprite
+                    &.flag{
+                        background-size: 110px 55px;
+                        overflow: hidden;
+                        text-indent: -9999px;
+                        text-align: left;
+                        height:	24px;
+                        width: 24px;
+                        background: url('../img/sprites/main-sprite.png') no-repeat;
+                        &.allothers { background-position: -20px -1275px;}
+                        &.at { background-position: -64px -1275px; }
+                        &.be { background-position: -20px -1319px; }
+                        &.bg { background-position: -64px -1319px; }
+                        &.ch { background-position: -20px -1363px; }
+                        &.cy { background-position: -64px -1363px; }
+                        &.cz { background-position: -20px -1407px; }
+                        &.de { background-position: -64px -1407px; }
+                        &.dk { background-position: -20px -1451px; }
+                        &.ee { background-position: -64px -1451px; }
+                        &.es { background-position: -20px -1495px; }
+                        &.fi { background-position: -64px -1495px; }
+                        &.fr { background-position: -20px -1539px; }
+                        &.gb { background-position: -64px -1539px; }
+                        &.gr { background-position: -20px -1583px; }
+                        &.hr { background-position: -64px -1583px; }
+                        &.hu { background-position: -20px -1627px; }
+                        &.ie { background-position: -64px -1627px; }
+                        &.it { background-position: -20px -1671px; }
+                        &.lt { background-position: -64px -1671px; }
+                        &.lu { background-position: -20px -1715px; }
+                        &.lv { background-position: -64px -1715px; }
+                        &.mt { background-position: -20px -1759px; }
+                        &.nl { background-position: -64px -1759px; }
+                        &.pl { background-position: -20px -1803px; }
+                        &.pt { background-position: -64px -1803px; }
+                        &.ro { background-position: -20px -1847px; }
+                        &.se { background-position: -64px -1847px; }
+                        &.si { background-position: -20px -1891px; }
+                        &.sk { background-position: -64px -1891px; }
+                        &.ua { background-position: -20px -1935px; }
+                    }
+                    &.country{
+                        margin-left: 0.5rem;
+                        font-size: rem-calc(15);
+                    }
+                    &.percentage{
+                        margin-left: 4px;
+                        font-size: 13px;
+                        letter-spacing: -0.25px;
+                        color: $my-body-lightest-text-color;
+                        font-weight: 400;
+                        position: relative;
+                        top: 2px;
+                    }
+                }
+            }
+        }
+        .vat-widget-notice{
+            font-size: 0.925rem;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+    }
+    // Close btn
+    .close-reveal-mymodal{
+        color: scale-color($medium-grey-section-bg-color, $lightness: -2%);
+        cursor: pointer;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1;
+        position: absolute;
+        right: rem-calc(15);
+        top: rem-calc(5);
+        @media #{$large-up}{
+            font-size: 2rem;
+        }
+    }
+    /* Generic styles for modals */
+
+    // Forms
+    form{
+        &.with-scroll{
+            @media #{$large-up}{
+                max-height: 18rem;
+                overflow-y: scroll;
+            }
+        }
+        label{
+            font-weight: 500;
+            position: relative;
+            &.inline {
+                @media #{$large-up}{
+                    text-align: right;
+                    &.n-lineheight{
+                        line-height: 1.4;
+                    }
+                }
+                @media #{$medium-only}{
+                    margin: 0;
+                    padding: 0;
+                    line-height: 1.5;
+                }
+                @media #{$small-only}{
+                    margin: 0;
+                    padding: 0;
+                    line-height: 1.5;
+                }
+            }
+        }
+    }
+    // Paragraph styles
+    p{
+        line-height: 1.4;
+        &.lead{
+            @media #{$medium-up}{
+                font-size: rem-calc(22);
+            }
+            &.green{
+                color: white;
+                padding: 1.5rem 1.25rem;
+                margin-bottom: 0;
+                background-color: scale-color($my-green, $lightness: -5%);
+            }
+        }
+    }
+    // Simple list
+    ul {
+        li {
+            line-height: 1.3;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+    }
+    // Action styles
+    .button{
+        padding-top: 0.7rem;
+        padding-bottom: 0.725rem;
+        @media #{$medium-up} {
+            margin-bottom: 0;
+        }
+        &.warning{
+            background-color: $my-orange;
+            &:hover{
+                background-color: scale-color($my-orange, $lightness: -20%);
+            }
+        }
+        .loading{
+            .spinner{
+                left: 9px;
+                position: relative;
+            }
+        }
+    }
+    // Simple link
+    .link{
+        line-height: 1.2;
+        display: block;
+        
+        @media #{$medium-up} {
+            position: relative;
+            top: 0.5rem;
+            margin-bottom: 0;
+        }
+    }
+    // Special list found in modal of order
+    .for-order-agreement{
+        ul{
+            li{
+                line-height: 1.4;
+                margin-bottom: 0.75rem;
+                font-size: 0.95rem;
+                ol{
+                    margin-top: 0.5rem;
+                    margin-left: 0.925rem;
+                    li{
+                        font-size: 0.85rem;
+                        margin-bottom: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+    // Special class made for el domains
+    .for-el-backorder{
+        display: block;
+        margin-top: 0.5rem;
+        input[type="checkbox"]{
+            margin: 0 0.425rem 0.75rem 0;
+            position: relative;
+            top: 1px;
+        }
+    }
+    // Special class made for terms
+    .terms-link{
+        border-bottom: 1px dotted;
+        padding-bottom: 1px;
+        color: $my-body-text-color;
+    }
+}
+
+/* Build custom Modal from scratch. We need this for user interaction. Collect data. -> Can be found at Create Billing Profiles */
+.custom-modal{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index:1000;
+    top: 100%;
+    background: white;
+    overflow-y: scroll;
+    @include transition(all 350ms);
+    &.active{
+        top: 0;
+        @include transition(all 350ms);
+    }  
+    @media #{$large-up} {
+        overflow-y: auto;
+    }
+    //Content styles
+    .custom-modal-content{
+        padding: 2rem 0;
+        p.lead{
+            color: $my-subheader-paragraph-color;
+            font-weight: 400;
+            line-height: 1.2;
+            font-size: 1.5rem;
+            @media #{$large-up}{
+                font-size: 1.75rem;
+            }
+        }
+        fieldset{
+            border: 1px solid $medium-grey-section-bg-color;
+            border-top: 0 none;
+            padding: 0 1.25rem 0.25rem;
+            margin-bottom: 2rem;
+            // Header
+            p.form-head{
+                background-color: scale-color($light-grey-section-bg-color, $lightness: 15%);
+                border-top: 1px solid $medium-grey-section-bg-color;
+                border-bottom: 1px solid $medium-grey-section-bg-color;
+                display: block;
+                font-weight: 500;
+                line-height: 1.1;
+                padding: 1rem 1.25rem;
+                margin: 0 -1.25rem 1.25rem;
+                font-size: 1.125rem;
+                color: $my-inner-elements-header-color;
+            }
+            // Labels
+            label{
+                &.inline{
+                    color: #717171;
+                    @media #{$large-up}{
+                        text-align: right;
+                    }
+                    @media #{$medium-only}{
+                        margin: 0;
+                        padding: 0;
+                        line-height: 1.6;
+                    }
+                    @media #{$small-only}{
+                        margin: 0;
+                        padding: 0;
+                        line-height: 1.6;
+                    }
+                }
+            }
+            // Checkbox
+            .checkbox{
+                margin-bottom: 1.25rem;
+                input[type="checkbox"]{
+                    margin-bottom: 0;
+                    margin-left: -1rem;
+                }
+                label{
+                    margin-left: 1rem;
+                    line-height: 1.2;
+                    span{
+                        left: 0.25rem;
+                        position: relative;
+                    }
+                }
+            }    
+        }
+    }
+    //Close styles
+    .modal-close{
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.125rem;
+        color: $my-body-text-color;
+    }
+}

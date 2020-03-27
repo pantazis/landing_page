@@ -1,0 +1,732 @@
+/* Domains Search Results Page */
+
+
+/* Big Search Bar on Top*/
+.domain-results-searchbar{
+	background: $medium-grey-section-bg-color;
+	@media #{$xlarge-up} {
+        background: $light-grey-section-bg-color;
+    }
+    &.fixed-top{
+    	background: $medium-grey-section-bg-color;
+	    @include transition(background-color 100ms linear);
+
+    	.domain-results-searchbar-container{
+			padding: 1.025rem 0 1.25rem;
+			@include transition(all 150ms ease);
+			.searchbar{
+				input{
+					height: 3rem;
+					font-size: 1rem;
+				}
+				.button{
+					height: 3rem;
+    				line-height: 3rem;
+					i{
+						font-size: 1.5rem;
+					}
+				}
+			}
+		}
+    }
+	.domain-results-searchbar-container{
+		background: $medium-grey-section-bg-color;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+		@media #{$large-up} {
+	        padding: 2.5rem;
+	    }
+		@include transition(all 100ms ease);
+
+		.searchbar{
+			margin: 0;
+			input{
+				background: white;
+				text-transform: lowercase;
+			}
+		}
+	}
+}
+
+/* Used for margin top in elements .domain-results & .domains-more-results when appropriate */
+.search-margin{
+	margin-top: 3rem;
+}
+
+/* Big Domain Result */
+.domain-results{
+	.output{
+		color: $my-inner-elements-header-color;
+		font-size: 1.5rem;
+		text-align: center;
+		
+		@media #{$large-up} {
+            font-size: 2rem;
+            text-align: left;
+            display: block;
+        }
+        .domain{
+        	font-weight: 500;
+
+        	.name{
+				position: relative;
+        	}
+        	.tld{
+	        	position: relative;
+	        	left: -5px;
+	        	@media #{$large-up} {
+	        		left: -7px;
+	        	}
+	        	&::before{
+	        		content: ".";
+	        	}
+	        }
+
+        } 
+		.status{
+			&.errors{
+				color: $my-red;
+			}
+			i{
+				padding-left: 0.5rem;
+				position: relative;
+				&.icon-checkmark{
+					color: $my-green;
+				}
+				&.icon-cross3{
+					color: $my-red;
+					top: 5px;
+				}
+				&.icon-info2{
+					color: $my-orange;
+					font-size: 1.5rem;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+	ul{
+		@media #{$large-up} {
+            float: right;
+        }
+        li{
+        	@media #{$medium-only} {
+	            float: none;
+	            text-align: center;
+	            margin-bottom: 0.25rem;
+	        }
+	        @media #{$small-only} {
+	            float: none;
+	            text-align: center;
+	            margin-bottom: 0.25rem;
+	        }
+        }	
+        .premium{
+			margin-top: 0.25rem;
+			font-size: 1.5rem;
+			font-weight: 100;
+			text-transform: uppercase;
+			color: $my-purple;
+			cursor: help;
+			@media #{$large-up} {
+	            font-size: 2rem;
+	            margin-top: 0;
+	        }
+			&::before{
+				content:"Premium";
+			} 
+		}
+		.errors{
+			color: $my-red;
+			font-size: 1.5rem;
+			margin-top: 0.25rem;
+			@media #{$large-up} {
+	            font-size: 2rem;
+	            margin-top: 0;
+	        }
+		}
+		.price-container{
+			visibility: hidden;
+
+			.regular-price{
+				font-size: 1.5rem;
+				display: inline-block;
+				font-weight: 400;
+				color: $my-inner-elements-header-color;
+				margin-top: 0.25rem;
+				@media #{$large-up} {
+		            font-size: 2.125rem;
+		            font-weight: 300;
+		            margin-top: 0;
+		        }
+		        &.discount{
+		        	text-decoration: line-through;
+		        	font-weight: 300;
+		        	font-size: 1.5rem;
+		        }
+			}
+			.reduced-price{
+				@extend .regular-price;
+				color: $my-orange;
+				padding-left: 0.5rem;
+			}
+			.year{
+				@extend .price;
+				font-weight: 300;
+		        font-size: 1.5rem;
+		        color: scale-color($my-body-light-text-color, $lightness: 25%);
+			}
+		}
+		.button{
+			margin-bottom: 0;
+			padding: 0.8rem 1.25rem 0.8625rem;
+			width: 60%;
+			margin: auto;
+			@media #{$large-up} {
+	            font-size: 1.2rem;
+	            width: 12rem;
+	        }
+	        @media #{$medium-only} {
+	            width: 30%;
+	        }
+ 			&.secondary{
+	        	background: scale-color($light-grey-section-bg-color, $lightness: -5%);
+	        	&:hover{
+	        		background: scale-color($light-grey-section-bg-color, $lightness: -12%);
+	        	}
+	        }
+	        &.taken{
+	        	pointer-events: none;
+	        }
+	        &.selected{
+	        	background: $my-green;
+	        	&::after{
+	        		content: "\e614";
+	        		font-family: 'icomoon'; 
+	        		color: white;
+	        		position: relative;
+	        		top: 1px;
+	        		padding-left: 0.25rem;
+	        	}
+				&:hover{
+					background: scale-color($medium-grey-section-bg-color, $lightness: -50%);
+				}
+				&:hover::after{
+	        		content: "\e913";
+	        		font-family: 'icomoon'; 
+	        		color: white;
+	        		position: relative;
+	        		top: 3px;
+	        		padding-left: 0.25rem;
+	        	}
+
+	        }
+		}
+	}
+}
+
+/* Domain Table with Results & Filters */
+.domains-more-results{
+	padding: 1rem 0 4rem;
+	.header{
+		margin: 0.25rem 0 2rem;
+		h1{
+			margin-top: 0.15rem;
+			font-weight: 500;
+			font-size: 1.125rem;
+			margin-bottom: 0; 
+			&::after{
+				content:":";
+				padding-left: 0.5rem;
+			}
+			@media #{$small-only} {
+	            margin-bottom: 0.25rem;
+	        }
+		}
+		.filters-on-use{
+			font-size: 1.125rem;
+			font-weight: 400;
+			margin-left: 0.5rem;
+		    position: relative;
+		    top: 0;
+		    color: $my-deep-blue;
+		}
+		.total-domains{
+			@extend .filters-on-use;
+			background-color: $my-green;
+			color: white;
+			display: none;
+			font-size: 15px !important;
+			padding: 2px 11px;
+			position: relative;
+			text-align: center;
+			top: 0;
+		}
+	}
+	.tld-results{
+		&:last-of-type{
+			border-bottom: 2px solid $light-grey-section-bg-color;
+		}
+		.tld-line{
+			display: none;
+			padding: 0.875rem 0.4rem 0.8125rem 0.8rem;
+			@media #{$small-only} {
+	            border-left: 2px solid $light-grey-section-bg-color;
+	            border-right: 2px solid $light-grey-section-bg-color;
+	        }
+			&:last-of-type{
+	    		@media #{$medium-up} {
+	    			border-bottom: 1px solid $light-grey-section-bg-color;
+	    		}
+	    	}
+			&.odd{
+				background: $light-grey-section-bg-color;
+			}
+			.tld-name{
+				display: table;
+				margin-left: 0;
+				font-size: 1rem;
+				@media #{$medium-up} {
+		            margin-left: 0.75rem;
+		        }
+				.name{
+					display: table-cell;
+					line-height: 2;
+					vertical-align: middle;
+					@media #{$small-only} {
+			            font-size: 1.125rem;
+			            display: inline;
+			        }					
+				}
+				.tld{
+					@extend .name;
+					font-weight: 700;
+					color: $my-inner-elements-header-color;
+					&::before{
+						content: ".";
+					}
+				}
+				.info{
+					display: table-cell;
+					vertical-align: middle;
+					padding-left: 1rem;
+					cursor: help;
+					color: scale-color($my-body-light-text-color, $lightness: 30%);
+
+					i{
+						position: relative;
+						top: 1px;
+						color: $my-orange;
+					}
+				}
+				.premium{
+					display: table-cell;
+					vertical-align: middle;
+					padding-left: 1rem;
+					font-weight: 300;
+					text-transform: uppercase;
+					color: $my-purple;
+					cursor: help;
+					@media #{$small-only} {
+			            display: table-row;
+			        }
+				}
+			}
+			.actions{
+				display: block;
+				line-height: 2;
+				@media #{$medium-up} {
+		            float: right;
+		            display: table;
+		        }
+		        @media #{$small-only} {
+		            display: table;
+		            width: 100%;
+		            line-height: 2.5;
+		        }
+				.price{
+					visibility: hidden;
+					display: block;
+					@media #{$medium-up} {
+			            padding-right: 1.5rem;
+			            display: table-cell;
+			        }
+			        @media #{$small-only} {
+			            display: table-cell;
+			            vertical-align: middle;
+			        }
+			        &.discount{
+			        	.regular-price{
+			        		margin-right: 0.5rem;
+			        	}
+			        	.reduced-price{
+			        		font-weight: 500;
+			        		color: $my-orange;
+			        		line-height: 1.3;
+			        		@media #{$medium-up} {
+			        			font-size: 1.125rem;
+			        		}
+			        	}	
+			        }
+			        .year{
+			        	font-size: 0.925rem;
+			        	color: scale-color($my-body-light-text-color, $lightness: 40%);
+			        }
+				}
+				.tld-taken{
+					@extend .price;
+					padding-right: rem-calc(4);
+					.output{
+						color: scale-color($my-body-light-text-color, $lightness: 50%);
+		        		position: relative;
+    					top: 1px;
+						font-size: rem-calc(15);
+					}
+			    }
+			    .not-available{
+					font-size: rem-calc(15);
+			    	color: scale-color($my-body-light-text-color, $lightness: 50%);
+			    }
+			    .errors{
+			    	color: $my-red;
+					padding-right: rem-calc(4);
+					font-size: rem-calc(15);
+					margin-top: 1px;
+				}
+				.add-to-cart{
+					display: table-cell;
+					@media #{$small-only} {
+						float: right;
+			        }
+					a{
+						padding: 0.8125rem 1.8rem;
+						&.cart-button{
+							background-image: url("../img/cart/cart.svg"), url("../img/cart/cart-add.svg");							
+							background-attachment: scroll, scroll;
+							background-clip: border-box, border-box;
+							background-color: $my-deep-blue;
+							background-origin: padding-box, padding-box;
+							background-position: center center, center -3rem;
+							background-repeat: no-repeat, no-repeat;
+							background-size: 2rem 2rem;
+							margin-bottom: 0;						    							
+							&:hover{
+								background-position: center 3rem, center center;
+								@include transition(background-position 150ms linear);
+							}
+							&.selected{
+								background-image: url("../img/cart/cart-checkout.svg"), url("../img/cart/cart-remove.svg");
+								background-color: $my-green;
+								&:hover{
+									background-color: scale-color($medium-grey-section-bg-color, $lightness: -50%);
+								}
+							}
+							&.taken{ 
+								background-image: url("../img/cart/eye.svg");
+								background-color: #bbc7cb;
+								background-position: center center;
+
+								 &:hover{
+								 	background-color: scale-color($medium-grey-section-bg-color, $lightness: -20%);
+								 	background-position: center center;
+								 }
+							}
+						}
+						&.loading{
+							cursor: default;
+							.spinner{
+								top: 50%;
+							    border-color: rgba(0, 0, 0, 0.1);
+        						border-left: 4px solid scale-color($medium-grey-section-bg-color, $lightness: -20%);
+							}
+						}
+					}	
+				}
+			}
+		}
+	}
+	.show-more-btn{
+		margin-top: 1.5rem;
+		.button{
+			padding-top: 0.8rem;
+			padding-bottom: 0.8625rem;
+		}
+	}
+	.filtering{
+		margin-top: 0;
+	    &.fixed-filters{
+	    	position: fixed; 
+	    	top: 84px; 
+	    	z-index: 99;
+	    	margin-top: 1.5rem;
+	    }
+		.view-cart{
+			margin-top: 0;
+	        margin-bottom: 1.35rem;
+	        text-align: center;
+	        @media #{$large-up} {
+	            text-align: left;
+	        }
+	        a{
+	        	margin-bottom: 0;
+	        	color: $my-deep-blue;
+	        	&:hover{
+	        		color: scale-color($my-deep-blue, $lightness: -20%);
+	        	}
+	        	&.inactive{
+	        			color: #989898;
+	        			cursor: default;
+	        			&:hover{
+	        				color: #989898;
+	        				cursor: default;
+	        			}
+	        		}
+	        	&.button{
+	        		padding: 0.6rem 1rem 0.6625rem 3.5rem;
+	        		color: white;
+	        		background-color: $my-green;
+	        		width: 100%;
+	        		margin-bottom: 1rem;
+	        		font-weight: 400;
+	        		@media #{$large-up} {
+			            margin-bottom: 0.5rem;
+			        }
+	        		&:hover{
+	        			background-color: scale-color($my-green, $lightness: -15%);
+	        			color: white;
+	        		}
+	        		&.inactive{
+	        			background-color: scale-color($my-green, $lightness: 15%);
+	        			cursor: default;
+	        			color: white;
+	        			&:hover{
+	        				background-color: scale-color($my-green, $lightness: 15%);
+		        			cursor: default;
+		        			color: white;
+	        			}
+	        			span{
+	        				background-color: transparent;
+	        			}
+	        		}
+	        		&.center-padding{
+	        			padding-left: 1rem;
+	        			background-color: $my-orange;
+	        			&:hover{
+	        				background-color: scale-color($my-orange, $lightness: -15%);
+	        			}
+	        		}
+        			span{
+        				background-color: scale-color($my-green, $lightness: -10%);
+						border-right: 1px solid rgba(255, 255, 255, 0.9);
+						color: white;
+						display: block;
+						height: 100%;
+						left: 0;
+						line-height: 2.6;
+						position: absolute;
+						text-align: center;
+						top: 0;
+						vertical-align: middle;
+						width: 3.5rem;
+        			}
+	        	}
+	        }  
+		}
+		.filters{
+			dl{
+				@media #{$xlarge-up} {
+					max-width: rem-calc(250) ;
+				}
+				dt{
+					font-size: 1.125rem;
+					font-weight: 500;
+					color: $my-deep-blue;
+				}
+				dd{
+					text-indent: 0.5rem;
+					line-height: 1.3;
+					font-size: 0.875rem;
+					color: #989898;
+					margin-bottom: 1px;
+					padding-bottom: 0.075rem;
+					padding-top: 0.075rem;
+					&:hover{
+						color: $my-inner-elements-header-color;
+						background: $light-grey-section-bg-color;
+						cursor: pointer;
+					}
+					&.selected{
+						color: $my-deep-blue;
+						background: $light-grey-section-bg-color;
+						font-weight: 500;
+						cursor: pointer;
+						&::after{
+							content: "\e913";
+	                        font-family: 'icomoon'; 
+	                        color: $my-red;
+	                        font-style: normal;
+	                        position: relative;
+	                        float: right;
+	                        top: 1px;
+	                        right: 0.5rem;  
+						}
+						&:hover::after{
+							color: scale-color($my-red, $lightness: -10%);
+						}
+					}
+				}
+				&.inactive{
+					dt{
+						color: #989898;
+					}
+					dd{
+						color: #989898;	
+						background: white;
+						cursor: default;
+						&.selected{
+							color: $my-deep-blue;
+							background: $light-grey-section-bg-color;
+							font-weight: 500;
+							cursor: pointer;
+						}
+					}
+				}
+			}		
+		}
+	}
+	.results-load{
+		background: white;
+		height: 2.5rem;
+		.loading{
+			cursor: default;
+			text-align: center;
+			.spinner{
+				top: 2rem;
+			    border-color: rgba(0, 0, 0, 0.1);
+				border-left: 4px solid scale-color($medium-grey-section-bg-color, $lightness: -20%);
+			}
+		}
+	}	
+	.alert-box{
+		ul{
+			margin-top: 0.75rem;
+			li{
+				font-size: 0.8125rem;
+			}
+		}
+	}
+}
+
+/* Search box on top of the filters */
+.search-tlds{
+	.searchContainer{
+        margin-bottom: 1rem;
+        input {
+            background: white;
+            color: black;
+            margin: 0;
+            padding-right: 2rem;
+        }
+        i{
+            color: scale-color($my-body-light-text-color, $lightness: 25%);
+            font-size: 1rem;
+            position: absolute;
+            right: 1.75rem;
+            top: 0.75rem;
+        }
+    }
+}
+
+/* Global class for highlighting matching tlds */
+.colored_tld {
+    background-color: #FFE900;
+}
+
+
+/* Very special css for handling domain results in other browsers and touch devices - Better leave it alone */
+
+/* Firefox only style */
+@-moz-document url-prefix() {
+    .domains-more-results .tld-results .tld-line{
+        padding: 0.875rem 0.5rem 0.875rem 0.8rem;
+    }
+}
+// Targeting IE 10+11 with media queries
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.domains-more-results .tld-results .tld-line .actions .add-to-cart a.cart-button { 
+  		background-image: url("../img/cart/cart.svg");
+		background-position: center center;
+  	}
+  	.domains-more-results .tld-results .tld-line .actions .add-to-cart a.cart-button:hover{
+  		background-image: url("../img/cart/cart-add.svg");
+		background-position: center center;
+  	} 
+  	.domains-more-results .tld-results .tld-line .actions .add-to-cart a.cart-button.selected{ 
+  		background-image: url("../img/cart/cart-checkout.svg");
+		background-position: center center;
+  	}
+  	.domains-more-results .tld-results .tld-line .actions .add-to-cart a.cart-button.selected:hover{ 
+  		background-image: url("../img/cart/cart-remove.svg");
+		background-position: center center;
+	}
+}
+/* Microsoft Edge Browser */
+@supports (-ms-ime-align:auto) {
+  	.domains-more-results .tld-results .tld-line .actions .add-to-cart a.cart-button { 
+  		background-image: url("../img/cart/cart.svg");
+		background-position: center center;
+  	}
+  	.domains-more-results .tld-results .tld-line .actions .add-to-cart a.cart-button:hover{
+  		background-image: url("../img/cart/cart-add.svg");
+		background-position: center center;
+  	} 
+  	.domains-more-results .tld-results .tld-line .actions .add-to-cart a.cart-button.selected{ 
+  		background-image: url("../img/cart/cart-checkout.svg");
+		background-position: center center;
+  	}
+  	.domains-more-results .tld-results .tld-line .actions .add-to-cart a.cart-button.selected:hover{ 
+  		background-image: url("../img/cart/cart-remove.svg");
+		background-position: center center;
+	}
+}
+
+
+/* Handling Touch only screens */
+html.touch .domain-results ul .button{
+	background: $my-deep-blue;
+}
+html.touch .domain-results ul .button.selected{
+	background: scale-color($my-green, $lightness: -10%);
+}
+html.touch .domain-results ul .button.secondary{
+	background: scale-color($light-grey-section-bg-color, $lightness: -10%);
+}
+html.touch .domain-results ul .button.selected::after{
+	content: "\e614";
+	font-family: 'icomoon'; 
+	color: white;
+	position: relative;
+	top: 1px;
+	padding-left: 0.25rem;
+}
+html.touch .domains-more-results .tld-results .tld-line .actions .add-to-cart a.cart-button{
+	background-image: url("../img/cart/cart.svg");
+	background-color: $my-deep-blue;							
+	background-position: center;
+}
+html.touch .domains-more-results .tld-results .tld-line .actions .add-to-cart a.cart-button.selected{
+	background-image: url("../img/cart/cart-checkout.svg");
+	background-color: scale-color($my-green, $lightness: -10%);
+	background-position: center;
+}
+html.touch .domains-more-results .tld-results .tld-line .actions .add-to-cart a.cart-button.taken{
+	background-image: url("../img/cart/eye.svg");
+	background-color: scale-color($medium-grey-section-bg-color, $lightness: -20%);
+}
+
+html.touch .domains-more-results .filtering .view-cart a.button{
+	background: scale-color($my-green, $lightness: -10%);
+}
+html.touch .domains-more-results .filtering .view-cart a.button.inactive{
+	background: scale-color($my-green, $lightness: 10%);
+}

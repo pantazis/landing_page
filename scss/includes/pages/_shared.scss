@@ -1,0 +1,290 @@
+/* Web Hosting Page */
+
+h2.my-h2-title {
+    text-align: center;
+    font-weight: 500;
+}
+
+.shared-hosting-plans h1 {
+    font-size: 2rem;
+}
+
+.shared-hosting-plans h2 {
+    margin-bottom: 3rem !important;
+}
+
+.shared-hosting-plans .row {
+    max-width: 1000px;
+}
+
+.shared-hosting-plans .plan .icon {
+    background-image: url('../img/sprites/main-sprite.png');
+    background-repeat: no-repeat;
+    height: 70px;
+}
+
+.shared-hosting-plans .plan1 .icon {
+    width: 82px;
+    background-position: 0px -2734px;
+}
+
+.shared-hosting-plans .plan2 .icon {
+    width: 86px;
+    background-position: 0px -2808px;
+}
+
+.shared-hosting-plans .plan3 .icon {
+    width: 83px;
+    background-position: 0px -2886px;
+}
+
+.shared-hosting-plans .has-tip {
+    border-bottom: dotted 1px #ccc;
+}
+
+.tippy-tooltip .tier:nth-child(odd) {
+    background-color: #55555580;
+}
+
+.tippy-tooltip .tier:nth-child(even) {
+    background-color: #55555550;
+}
+
+.shared-hosting-plans .flip-clock-divider, .shared-hosting-plans .flip-clock-label {
+    color: white;
+}
+
+.shared-hosting-plans .flip-clock-dot {
+    background-color: white;
+}
+
+.shared-hosting-plans .flip-clock-wrapper ul li a div div.inn {
+    color: #444444;
+    background-color: white;
+    text-shadow: none;
+}
+
+.shared-hosting-plans .summer .flip-clock-wrapper ul li a div div.inn {
+    color: #006fb2;
+}
+
+.shared-hosting-plans .offer {
+    border-top: 55px solid purple;
+    border-right: 55px solid purple;
+    border-bottom: 55px solid transparent;
+    border-left: 55px solid transparent;
+}
+
+.reseller-hosting-plans.shared-hosting-plans .offer {
+    border-top: 55px solid #ffd00e;
+    border-right: 55px solid #ffd00e;
+    border-bottom: 55px solid transparent;
+    border-left: 55px solid transparent;
+}
+
+.shared-hosting-plans .offer-border {
+    background-color: purple;
+}
+
+.reseller-hosting-plans.shared-hosting-plans .offer-border {
+    background-color: #ffd00e;
+}
+
+.shared-hosting-plans .promo-placeholder {
+    height: 91px;
+    height: 91px;
+}
+
+.shared-hosting-plans .promo {
+    background-color: #a40000;
+    height: 66px;
+    width: 97%;
+    overflow: hidden;
+}
+
+.reseller-hosting-plans.shared-hosting-plans .promo {
+    background-color: #d8bfa0;
+    background-image: url(/img/hosting/reseller/reseller4.png);
+    background-position: center center;
+    background-size: 100% auto;
+}
+
+.shared-hosting-plans .promo svg {
+    top: -40px;
+    /*left: -0px;*/
+    /*fill: #f8bb00;*/
+    width: 100px;
+}
+
+.shared-hosting-plans .promo-left {
+    font-size: 1.2rem;
+    top: 50%;
+    transform:translateY(-50%);
+    padding-left: 15px;
+    padding-right: 15px;
+    text-shadow: 0 0 10px black;
+    color: purple;
+}
+
+.shared-hosting-plans .summer .promo-left {
+    /*padding-left: 110px;*/
+}
+
+.shared-hosting-plans .promo-right {
+    float: right;
+}
+
+.shared-hosting-plans .promo-left .discount {
+    background-color: white;
+    border-radius: 3px;
+    color: #18BF93;
+    padding: 2px 5px 2px 7px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.7);
+    border: none;
+}
+
+.shared-hosting-plans .promo-small {
+    top: 10px;
+    right: 5px;
+}
+
+.shared-hosting-plans .promo.summer {
+    /*background-image: url('/img/andreas-ignore/hosting2019/promobg1.svg');*/
+    /*background-position: center -243px;*/
+    /*background-size: 100% auto;*/
+    /*background-size: auto 100%;*/
+    /*background-color: #9de3db;*/
+    /*background-repeat: no-repeat;*/
+}
+
+.shared-hosting-plans .summer .promo-left > span > span {
+    /*text-shadow: 0 0 5px black;*/
+    font-weight: 500;
+}
+
+.shared-hosting-plans .next2u {
+    width: 60px;
+}
+
+.shared-hosting-plans .box {
+    box-shadow: 0 0 5px transparent;
+    transition: box-shadow 0.2s linear 0s;
+}
+
+.shared-hosting-plans .box:hover {
+    box-shadow: 0 0 5px black;
+    transition: box-shadow 0.2s linear 0s;
+}
+
+.shared-hosting-plans .icon-img {
+    -webkit-transform: scale(1, 1);
+    -moz-transform: scale(1, 1);
+    transform: scale(1, 1);
+    transition: transform 0.2s linear 0s;
+    will-change: transform;
+}
+
+.shared-hosting-plans .box:hover .icon-img {
+    -webkit-transform: scale(1.2, 1.2);
+    -moz-transform: scale(1.2, 1.2);
+    transform: scale(1.2, 1.2);
+    transition: transform 0.2s linear 0s;
+    will-change: transform;
+}
+
+.hosting-site-transfer-promo {
+    background-color: #828A8E;
+}
+
+.hosting-site-transfer-promo blockquote {
+    color: white;
+}
+
+.hosting-site-transfer-promo cite {
+    color: white;
+}
+
+.shared-hosting-ghost-button, .shared-hosting-ghost-button:hover {
+    border-width: 1px;
+    color: #007095 !important;
+}
+
+#new-promo-container.hosting-site-transfer-promo .promo-text blockquote::before {
+    content: '';
+}
+
+.tippy-popper {
+    max-width: 300px;
+}
+
+.st-new {
+    background: url(../img/strikethrough2-min.png) no-repeat center center !important;
+}
+
+/**********************************************************************************/
+
+.shared-datacenter {
+   display: inline-block !important;
+   overflow: hidden;
+
+   position: relative;
+   top: 8px;
+
+   height: 24px;
+   width: 24px;
+
+   margin-top: -16px;
+   border-radius: 50px;
+
+   background-size: 110px 55px;
+   background-color: #FFF !important;
+   background: url(../img/sprites/main-sprite.png) no-repeat;
+   background-position: -20px -1583px;
+}
+
+
+@media only screen and (min-width: 1201px) and (max-width:1344px) {
+   .shared-datacenter{margin-top:0;}
+}
+
+/**********************************************************************************/
+
+/*@media only screen and (min-width: 1500px) {
+    .shared-hosting-plans h2 {
+        margin-bottom: 3rem !important;
+    }
+}*/
+
+/**********************************************************************************/
+
+@media only screen and (min-width: 40.063em) {
+    .shared-hosting-plans h1 {
+        font-size: 2.6rem;
+    }
+    .shared-hosting-plans .promo-placeholder {
+        height: 110px;
+    }
+    .shared-hosting-plans .promo {
+        height: 85px;
+        /*width: 429px;*/
+    }
+    .shared-hosting-plans .promo-left {
+        font-size: 1.5rem;
+        padding-left: 110px;
+        padding-right: 110px;
+    }
+}
+
+@media only screen and (min-width: 64.063em) {
+    .shared-hosting-plans .promo {
+        height: 216px;
+        width: 100%;
+    }
+    .shared-hosting-plans .promo-placeholder {
+        height: 90px;
+    }
+    .shared-hosting-plans .promo-left {
+        top: 28px;
+        transform: none;
+    }
+}

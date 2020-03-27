@@ -1,0 +1,157 @@
+.color-white {
+    color: white !important;
+}
+.color-light-blue {
+    color: #20B6DB !important;
+}
+.color-dark-blue {
+    color: #092241 !important;
+}
+.color-grey {
+    color: #AAAAAA !important;
+}
+.bg-white {
+    background-color: white !important;
+}
+.bg-light-blue {
+    background-color: #20B6DB !important;
+}
+.bg-grey {
+    background-color: #EEEEEE !important;
+}
+.bg-dark-grey {
+    background-color: #AAAAAA !important;
+}
+.d-block {
+    display: block !important;
+}
+.m-0 {
+    margin: 0 !important;
+}
+.mb-05 {
+    margin-bottom: .5rem !important;
+}
+.mb-1 {
+    margin-bottom: 1rem !important;
+}
+.mb-2 {
+    margin-bottom: 2rem !important;
+}
+.mb-3 {
+    margin-bottom: 3rem !important;
+}
+.mt-n1 {
+    margin-top: -1rem !important;
+}
+.p-0 {
+    padding: 0 !important;
+}
+.p-0625 {
+    padding: .625rem !important;
+}
+.pt-1 {
+    padding-top: 1rem !important;
+}
+.px-0625 {
+    padding-left: .625rem !important;
+    padding-right: .625rem !important;
+}
+.py-05 {
+    padding-top: .5rem !important;
+    padding-bottom: .5rem !important;
+}
+.w-100 {
+    width: 100% !important;
+}
+.fs-076 {
+    font-size: .76rem !important;
+}
+.fs-12 {
+    font-size: 1.2rem !important;
+}
+.fs-15 {
+    font-size: 1.5rem !important;
+}
+.fs-2 {
+    font-size: 2rem !important;
+}
+.fw-b {
+    font-weight: bold !important;
+}
+.lh-13 {
+    line-height: 1.3 !important;
+}
+.va-tb {
+    vertical-align: text-bottom;
+}
+.float-center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+html {
+    scroll-behavior: smooth;
+}
+.web-hosting-package {
+    background-image: url("http://laravel.upgrade/img/test/antreas/shutterstock_503725970.png");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.web-hosting-package hr {
+    margin: 1rem 0;
+}
+.web-hosting-package h2 {
+    font-size: 1rem;
+}
+.web-hosting-package .separator {
+    width: 3rem;
+    height: 5px;
+}
+.web-hosting-package .box {
+    border-radius: 5px;
+}
+.web-hosting-package .fa-info {
+    padding-top: 2px;
+    border: 1px solid;
+    border-radius: 100%;
+    font-size: .8rem;
+    width: 16px;
+}
+.web-hosting-package .has-tip {
+    /*vertical-align: text-bottom;*/
+}
+.web-hosting-package .tooltip {
+    background-color: #274251;
+}
+.web-hosting-package .tab-title {
+    width: 33.33%;
+}
+.web-hosting-package .tab-title a {
+
+}
+.web-hosting-package .tab-title.active a {
+    background-color: #20B6DB;
+    color: white;
+}
+.web-hosting-package .pricing-box {
+    position: relative;
+}
+.web-hosting-package .vat {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+@media only screen and (min-width: 40.063em) {
+    .web-hosting-package h2 {
+        font-size: 1.5rem;
+    }
+    .web-hosting-package .features {
+        padding-top: 88px;
+    }
+}
+@media only screen and (min-width: 64.063em) {
+}
+@media only screen and (min-width: 90.063em) {
+}
+@media only screen and (min-width: 120.063em) {
+}

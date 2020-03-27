@@ -1,0 +1,12 @@
+/* Setting Salara Font */
+@font-face {
+  font-family: 'Sarala';
+  src: url("../fonts/sarala/regular/Sarala.ttf.woff") format("woff"), url("../fonts/sarala/regular/Sarala.ttf.svg#Sarala") format("svg"), url("../fonts/sarala/regular/Sarala.ttf.eot"), url("../fonts/sarala/regular/Sarala.ttf.eot?#iefix") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Sarala';
+  src: url("../fonts/sarala/bold/Sarala-Bold.ttf.woff") format("woff"), url("../fonts/sarala/bold/Sarala-Bold.ttf.svg#Sarala-Bold") format("svg"), url("../fonts/sarala/bold/Sarala-Bold.ttf.eot"), url("../fonts/sarala/bold/Sarala-Bold.ttf.eot?#iefix") format("embedded-opentype");
+  font-weight: bold;
+  font-style: normal; }

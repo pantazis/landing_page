@@ -1,0 +1,20 @@
+/* Domains Search bar */
+#intro{
+    .domains-searchbar{
+        margin-bottom: 1rem;
+        padding: 1.75rem 1.25rem;
+        background: $medium-grey-section-bg-color;
+
+        @media #{$medium-up} {
+            padding: 2rem;
+        }
+        .searchbar{
+            margin: 0;
+            .button{
+                margin: 0;
+            }
+        }
+    }
+}
+
+

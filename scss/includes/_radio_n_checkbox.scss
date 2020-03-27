@@ -1,0 +1,169 @@
+/* Our special PINK radios and checkboxes. Used in whole backend's forms */
+
+$input--size: 20px;
+$input--color--default: #b7bfc4;
+$input--color--active: #eb7092;
+$input--color--disabled: #efefef;
+
+%checkbox-radio-buttons__label--element {
+  
+    label {
+        // Positioning
+        position: inherit;
+        line-height: 1.3;
+        display: inline;
+
+        // Box Model
+        //padding-left: $input--size - 11px;
+    }    
+}
+
+%checkbox-radio-buttons__label--class {
+  // Typography
+  line-height: $input--size;
+  display: inline-block;
+  margin-left: 1.75rem;
+
+  &:before {
+    // Positioning
+    left: -0.5rem;
+    position: relative;
+    margin-left: -1.25rem;
+
+    // Box Model
+    float: left;
+    width: $input--size;
+    height: $input--size;
+
+    // Typography
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #fff;
+
+    // Visual
+    border: 2px solid $input--color--default;
+    background-color: white;
+
+    // CSS3
+    content: '';
+
+    // Transition
+    transition: all 250ms;
+  }
+
+  &:hover::before {
+    // Visual
+    border-color: $input--color--active;
+  }
+    
+}
+@-moz-document url-prefix() {
+    %checkbox-radio-buttons__label--class {
+        &:before {
+            line-height: 15px;
+        }
+    }
+}
+
+
+%checkbox-radio-buttons__input--element {
+  // Box Model
+  display: none;
+
+  &:checked + span::before {
+    background: $input--color--active;
+    border-color: $input--color--active;
+  }
+
+  &:disabled + span::before {
+    border-color: $input--color--disabled;
+  }
+
+  &:disabled:hover + span {
+    cursor: not-allowed;
+  }
+
+  &:disabled:checked + span::before {
+    background-color: $input--color--disabled;
+  }  
+}
+
+%checkbox-radio-buttons__input--first-child {
+  padding-left: 0;
+}
+
+
+
+@each $input--type in checkbox, radio {
+  
+  .#{$input--type},
+  .#{$input--type}-inline {
+    
+    @extend %checkbox-radio-buttons__label--element;
+    
+    .#{$input--type}__label {
+      @extend %checkbox-radio-buttons__label--class;
+      
+      @if $input--type == radio {
+        &:before {
+          border-radius: 50%;
+          box-shadow: 0 0 0 3px inset;
+        }
+      }
+      @if $input--type == checkbox {
+            &:before{
+            content: '\e614';
+            font-family: 'Icomoon';
+          }
+        }
+    }
+       
+    input[type='#{$input--type}'] {
+      @extend %checkbox-radio-buttons__input--element;
+    }
+
+  }
+
+  @if $input--type == checkbox {
+    .#{$input--type}es-inline .#{$input--type}-inline:first-child {
+      @extend %checkbox-radio-buttons__input--first-child;
+    }
+  }
+
+  @if $input--type == radio {
+    .#{$input--type}s-inline .#{$input--type}-inline:first-child {
+      @extend %checkbox-radio-buttons__input--first-child;
+    }
+  }
+}
+
+/* Special classes for handling radios and checkboxes */
+
+// class for register forms
+.agree-terms{
+  margin-bottom: 1rem;
+}
+
+// No bullet list li margin bottom
+.no-bullet{
+  .radio, .checkbox{
+    margin-bottom: 0.35rem;
+  }
+}
+
+// class so radio and checkboxes stay aligned inside a form with inline label
+#all-forms, #register-forms{
+  .check-margin-top{
+    margin-top: 7px;
+  }
+}
+// A special label style
+p.radio-label{
+  color: #527F9C;
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.7;
+  margin-bottom: 0.2rem;
+}

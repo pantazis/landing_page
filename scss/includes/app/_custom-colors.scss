@@ -1,0 +1,26 @@
+//Custom Colors
+
+// Color Pallete 
+$my-silver-grey: #E5ECEE;
+
+// Nav-icons
+$nav-icons-bg-color: #2D435E;
+
+// Icon Colors
+$domains-icon-color: scale-color($my-orange, $lightness: -5%);
+$hosting-icon-color: scale-color($my-light-blue, $lightness: -10%);
+$security-icon-color: $my-green;
+
+// Editable forms
+$editable-header-bg-color: $my-light-blue;
+$editable-item-bg-color: white;
+$editable-item-hover: scale-color($light-grey-section-bg-color, $lightness: 50%);
+$editable-item-opened: scale-color($light-grey-section-bg-color, $lightness: 30%);
+
+// Vertical Tabs
+$vertical-tabs-bg-color: white;
+$vertical-tabs-active-bg-color: #CFE8F3;
+
+// Horizontal Tabs 
+$horizontal-tabs-bg-color: $tabs-bg-color;
+

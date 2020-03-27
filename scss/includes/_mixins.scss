@@ -1,0 +1,113 @@
+/* Mixins */
+
+/* Gradient Background */
+@mixin linear-gradient($fromColor, $toColor) {
+    background-color: $fromColor; /* Fallback Color */
+    background-image: -webkit-gradient(linear, left top, right top, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(right, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+    background-image:    -moz-linear-gradient(right, $fromColor, $toColor); /* FF3.6 */
+    background-image:     -ms-linear-gradient(right, $fromColor, $toColor); /* IE10 */
+    background-image:      -o-linear-gradient(right, $fromColor, $toColor); /* Opera 11.10+ */
+    background-image:         linear-gradient(to right, $fromColor, $toColor);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}');
+}
+
+
+/* Box-Shadow */
+@mixin shadow( $off-y, $off-x, $blur, $color){
+    -moz-box-shadow: $off-y $off-x $blur $color; /* FF3.5+ */
+    -webkit-box-shadow: $off-y $off-x $blur $color; /* Saf3.0+, Chrome */
+    box-shadow: $off-y $off-x $blur $color; /* Opera 10.5, IE9 */
+}
+
+@mixin border-radius($radius) {
+    border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+}
+
+
+/* Transitions */
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+@mixin transition-property($property...) {
+    -moz-transition-property:    $property;
+    -o-transition-property:      $property;
+    -webkit-transition-property: $property;
+    transition-property:         $property;
+}
+
+@mixin transition-duration($duration...) {
+    -moz-transition-property:    $duration;
+    -o-transition-property:      $duration;
+    -webkit-transition-property: $duration;
+    transition-property:         $duration;
+}
+
+@mixin transition-timing-function($timing...) {
+    -moz-transition-timing-function:    $timing;
+    -o-transition-timing-function:      $timing;
+    -webkit-transition-timing-function: $timing;
+    transition-timing-function:         $timing;
+}
+
+@mixin transition-delay($delay...) {
+    -moz-transition-delay:    $delay;
+    -o-transition-delay:      $delay;
+    -webkit-transition-delay: $delay;
+    transition-delay:         $delay;
+}
+
+
+// generic transform
+@mixin transform($transforms) {
+       -moz-transform: $transforms;
+         -o-transform: $transforms;
+        -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+          transform: $transforms;
+}
+
+// generic animation
+@mixin animation($str) {
+-webkit-animation: #{$str};
+   -moz-animation: #{$str};
+    -ms-animation: #{$str};
+     -o-animation: #{$str};
+        animation: #{$str};      
+}
+
+
+// Word-wrap
+@mixin word-wrap() {
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+
+
+//bourbon
+
+@mixin perspective($depth: none) {
+  @include _bourbon-deprecate-for-prefixing("perspective");
+
+  // none | <length>
+  @include prefixer(perspective, $depth, webkit moz spec);
+}
+
+@mixin perspective-origin($value: 50% 50%) {
+  @include _bourbon-deprecate-for-prefixing("perspective-origin");
+
+  @include prefixer(perspective-origin, $value, webkit moz spec);
+}

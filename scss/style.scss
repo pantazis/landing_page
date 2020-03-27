@@ -1,0 +1,4748 @@
+/* -------------------------------
+Main style file
+--------------------------------*/
+
+/* Specifies the character encoding used in the style sheet. Must be first element */
+@charset "utf-8";
+
+/* Including all files */
+@import "included-files";
+@import "_christmas_decoration";
+
+
+
+/* -------------------------------
+Globals - Typography
+--------------------------------*/
+// Override prefix, postfix Buttons
+.prefix, .postfix{
+    height: 2.5rem;
+}
+
+// Dashed HR
+hr.dashed{
+    border-style: dashed;
+}
+
+/* George need this for javascript */
+.hide-important{
+    display:none !important;
+}
+
+/* Header Styles */
+// H2 styles
+.my-h2-title{
+    margin-bottom: 2rem;
+    font-weight: 300;
+    @media #{$large-up} { 
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+    @media #{$medium-only} {
+        font-size: 1.85rem;
+    }
+    @media #{$small-only} {
+        font-size: 1.375rem;
+        font-weight: 400;
+    }
+    // Margins
+    &.big-margin{
+        @media #{$xlarge-up}{
+            margin-bottom: 4rem;
+        }
+    }
+    &.smaller-margin{
+        margin-bottom: 1.75rem;
+    }
+    &.smallest-margin{
+        margin-bottom: 0.75rem;
+    }
+    &.no-margin{
+        margin-bottom: 0;
+    }
+    span.smaller{
+        @media #{$medium-up} {
+            display: block;
+            font-size: 1.3125rem;
+        }
+    }
+}
+// H3 styles
+.my-h3-title{
+    font-size: 1.4rem;
+    @media #{$medium-only} {
+        font-size:1.3rem;
+    }
+    @media #{$small-only} {
+        font-size:1.2rem;
+    }
+    // Margins
+    &.smallest-margin{
+        margin-bottom: 0.75rem;
+    }
+}
+// H4 styles
+.my-h4-title{
+    font-size: 1.2rem;
+    @media #{$medium-only} {
+        margin-bottom: 0.75rem;
+    }
+    @media #{$small-only} {
+        font-size:1.1rem;
+    }
+    &.smallest-margin{
+        margin-bottom: 0.325rem;
+    }
+}
+
+/* Paragraph Styles */
+p{
+    @media #{$small-only} {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    // A bigger p
+    &.lead{
+        line-height: 1.4;
+        @media #{$small-only} {
+            font-size: 1.025rem;
+        } 
+    }
+    // with orange border on the left and italics
+    &.tension{
+        border-left: 5px solid $my-orange;
+        padding: rem-calc(10 0 10 30);
+        margin: 0 0 1.75rem;
+        font-style: italic;
+        color: scale-color($my-body-light-text-color, $lightness: 10%);
+        line-height: 1.5;
+        strong{
+            color: $my-body-light-text-color;
+        }
+    }
+    // smaller line height
+    &.s-l-height{
+        line-height: 1.3;
+    }
+    // smaller font
+    &.smaller{
+        font-size: 0.925rem;
+        line-height: 1.3;
+    }
+    // smallest font
+    &.smallest{
+        font-size: 0.875rem;
+        line-height: 1.2;
+    }
+    // for vat
+    &.vat{
+        margin-top: -1rem;
+        margin-bottom: 0.5rem;
+        font-weight: 400;
+        &.after-tabs{
+            margin-top: -1.25rem;
+        }
+        &.after-table{
+            margin-top:0.25rem;
+        }
+        &.after-ssl{
+            text-align: center;
+            margin-top: 0;
+            @media #{$large-up} {
+                position: relative;
+                top: -1rem;
+                text-align: right;
+            }
+        }
+        &.after-hr{
+            margin-top: -0.5rem;
+            margin-bottom: 0.25rem;
+            font-weight: 400;
+        }
+    }
+    /* Margins */
+    // Big margin bottom
+    &.big-margin{
+        margin-bottom: 2rem;
+        @media #{$small-only} {
+            margin-bottom: 1.5rem;
+        }
+    }
+    // Half margin bottom
+    &.half-margin-bottom{
+        margin-bottom: 0.75rem;
+    }
+    // Small margin bottom
+    &.smaller-margin{
+        margin-bottom: 0.5rem;
+    }
+    // No margin bottom
+    &.no-margin-bottom{
+        margin-bottom: 0;
+    }
+    // Small margin top
+    &.small-margin-top{
+        margin-top: 0.625rem;
+    }
+    // Sub header margin
+    &.sub-header{
+        margin-bottom: 3.5rem;
+        @media #{$small-only} {
+            margin-bottom: 2.75rem;
+        }
+    }
+}
+
+/* Font Weight Global Settings */
+// Bold
+strong{
+    font-weight: 500;
+}
+// Normal
+.n-weight{
+    font-weight: 400;
+}
+
+/* A red line that underlines the headers ...slowly gets depreciated */
+.under-line{
+    @media #{$large-up} {
+        &::after{
+        background-repeat: no-repeat;
+        content: " ";
+        display: block;
+        position: absolute;
+        height: 35px;
+        width: 200px; 
+        }
+        // Small line
+        &.small-line::after{
+            background-image: url("../img/header-underline-s.svg");
+            background-size: 176px 12px;
+            height: 12px;
+            width: 176px; 
+        }
+        // Medium line
+        &.medium-line{
+            &::after{
+                background-image: url("../img/header-underline-m.svg");
+                background-size: cover;
+                height: 0;
+                padding: 7px;
+                width: 260px;
+            }
+            //for word πλεονεκτήματα (hosting page)
+            &.advantages::after{
+                padding: 6px;
+                width: 233px;
+            }
+            // for Με ποιές εφαρμογές (eshop page)
+            &.applications::after{
+                width: 300px;
+            }
+        }
+    }     
+}
+
+
+/* -------------------------------
+Global Elements
+--------------------------------*/
+
+/* My custom tooltip */
+.my-tooltip{
+    // dropdown wrapper
+    &.f-dropdown.content {
+        background: #FFFFFF;
+        height: auto;
+        margin-top: 0.5rem;
+        border: 2px solid $medium-grey-section-bg-color;
+        font-size: 0.825rem;
+        line-height: 1.4;
+        box-shadow: 0 4px 10px -5px $my-header-color;
+        min-width: 200px;
+        strong{
+            font-weight: 700;
+        }
+        p{
+            margin-bottom: 0.5rem;
+            font-size: 0.825rem;
+            text-align: left;
+            line-height: 1.4;
+            a{
+               font-size: 0.825rem; 
+            }
+            &:last-of-type{
+               margin-bottom: 0;
+            }
+        }
+        // Class used in cart cross-sell products
+        button.tiny{
+            font-size: 0.75rem;
+            margin-bottom: 0;
+            margin-top: 1rem;
+            padding: 0.425rem 1.25rem 0.4875rem;
+        }
+    }
+    &.f-dropdown:before {
+        border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) $medium-grey-section-bg-color;
+        top: -14px;
+    }
+    //when dropdown is set to open to top -> spec tables at hosting pages
+    &.up{
+        &.f-dropdown.content{
+            box-shadow: 0 -2px 10px -5px $my-header-color;
+            margin-top: -0.5rem;
+        }
+        &.f-dropdown:before {
+            border-color: $medium-grey-section-bg-color rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+            top: auto;
+        }
+    }
+}
+
+/* Search Form -> Domain Names - Transfer Domains */
+.searchbar{
+    margin: 0 0 1rem;
+    // Input
+    input{ 
+        margin:0;
+        height: 3.75rem;
+        font-size: rem-calc(19);
+        border: none;
+        background: white;
+        padding-left: 1.25rem;
+        box-shadow:none;
+        @include border-radius(0);
+        @media #{$small-only} {
+            height: 3.25rem;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        @media #{$medium-only} {
+            height: 3.5rem;
+        }
+        &:focus{ 
+            border: 1px solid $my-white;
+            @include shadow(1px, 0, 3px, scale-color($my-black, $lightness: 50%));
+        }
+    }
+    // Button
+    .button{
+        cursor: pointer;
+        font-size: 1.5rem;
+        height: 3.75rem;
+        line-height: 3.75rem;
+        @media #{$small-only} {
+            height: 3.25rem;
+        }
+        @media #{$medium-only} {
+            height: 3.5rem;
+        }
+        // Search Icon
+        i{
+            vertical-align: middle;
+            font-size: 1.8rem;
+            position:relative;
+            top: -0.125rem;
+
+            @media #{$small-only} {
+                font-size: 1.4rem;
+                top: -0.3rem;
+            }
+            @media #{$medium-only} {
+                font-size: 1.6rem;
+                top: -0.2rem;
+            }
+        }
+        // loader styles in searchbar
+        .loading{
+            top: 19px;
+            @media #{$small-only} {
+                top: 15px;
+            }
+            @media #{$medium-only} {
+                top: 18px;
+            }
+        }
+    }
+    // Build Dropdown - Swapping domain search and domain transfer
+    .dropdown{
+        margin-bottom: 0;
+        width: 100%;
+        padding-right: initial;
+        height: 3.5rem;
+        background-color: white;
+        border-right: 1px solid $light-grey-section-bg-color;
+        color: #989898;
+        min-width: 9rem;
+        padding-left: 1.25rem;
+        text-align: left;
+        &.dropdown:before{
+            border-color: #989898 transparent transparent;
+            border-width: 0.3rem;
+        }
+        &:hover, &:focus{
+            background-color: white;
+            color: $my-body-light-text-color;
+            &.dropdown:before{
+                border-color: $my-body-light-text-color transparent transparent;
+            }
+         }
+    }
+    .f-dropdown{
+        background: white;
+        max-width: 9rem;
+        &:before {
+            border: none;
+        }
+        &:after {
+            border: none;
+        }
+        & > li{
+            a{
+                color: #989898;
+                padding: 0.625rem;
+                text-align: center;
+                font-weight: 400;
+                font-size: 0.825rem;
+                &:hover{
+                    color: white;
+                }
+            }
+            &:hover, &.focus{
+                background-color: $my-green;
+            }
+        }
+    }
+    // transfer styles
+    &.transfer{
+        .f-dropdown > li{
+            &:hover, &.focus{
+                background-color: $my-deep-blue;
+            }
+        }
+    }
+    // useful classes
+    &.w-padding{
+        margin-bottom: 1rem;
+        padding: 1.75rem 1.25rem;
+        background: $medium-grey-section-bg-color;
+    }
+    a{ 
+        margin:0;
+        span {
+            display: none;
+        }  
+    }
+}
+
+
+/* Scroll Sub Menu */
+#custom-nav, #wrapper-nav{
+    width: 100%;
+    z-index: 98;
+    display: none;
+    @media #{$large-up} {
+        display: block;
+    }
+    .scroll-menu{
+        // generic styles
+        &.bg-domains, &.bg-hosting, &.bg-security, &.bg-websites, &.bg-company{
+            ul li a{
+                color: white;
+                &.active{  
+                    background: #f1f5f7;
+                    color: $my-body-text-color;
+                    &:hover{
+                        background: #f1f5f7;
+                        color: $my-body-text-color;
+                        cursor: default;
+                    }
+                }
+            }      
+        }
+        // Colors for Sections
+
+        // Domains
+        &.bg-domains{
+            background-color: $domains-bg-color;
+            ul li a:hover{
+                background-color: scale-color($domains-bg-color, $lightness: 15%);
+                color: white; 
+            }
+        }
+        // Hosting
+        &.bg-hosting{
+            background-color: $hosting-bg-color;
+            ul li a:hover{
+                background-color: scale-color($hosting-bg-color, $lightness: 15%);
+                color: white; 
+            }
+        }
+        // Security
+        &.bg-security{
+            background-color: $security-bg-color;
+            ul li a:hover{
+                background-color: scale-color($security-bg-color, $lightness: 5%);
+                color: white; 
+            }
+        }
+        // Websites
+        &.bg-websites{
+            background-color: $websites-bg-color;
+            ul li a:hover{
+                background-color: scale-color($websites-bg-color, $lightness: 15%);
+                color: white; 
+            }
+        }
+        // Company
+        &.bg-company{
+            background-color: scale-color($company-bg-color, $lightness: 7%);
+            ul li a:hover{
+                background-color: scale-color($company-bg-color, $lightness: 14%);
+                color: white;
+            }
+        }
+
+        /* Inactive State */
+        ul{
+            margin: 0 auto;
+            max-width: 87.5rem;
+            li{
+                &:first-child{
+                    margin-left: 0.95rem;    
+                }
+                margin-left: 0; 
+                padding: 0;
+                // link style
+                a{
+                    color: $my-body-text-color;
+                    text-transform: uppercase;
+                    font-size: 0.925rem;
+                    line-height: 1;
+                    padding: rem-calc(15 24);
+                    // for right side links....see it on shared hosting
+                    &.right-btn{ 
+                        margin-right: -2px;
+                        line-height: 1.2;
+                        padding: 5px 1rem;
+                        text-transform: none;
+                        span{
+                            display: block;
+                            text-align: right;
+                            font-size: 0.95rem;
+                            &:first-of-type{
+                                padding-right: 1px;
+                                font-size: 0.825rem;
+                            }
+                        }
+                        &:hover{
+                            background-color: $my-light-blue;
+                        }   
+                    }
+                    // Special case link.....see it on magento
+                    &.highlighted{
+                        padding: rem-calc(7 8 6);
+                        margin: rem-calc(8 15);
+                        background: white;
+                        color: #0F9FC2;
+                        border-radius: 2px;
+                        font-weight: 400;
+                        letter-spacing: 0.25px;
+                        @include transition(all 0.2s ease-out);
+                        &.active{
+                            padding: rem-calc(15 24);
+                            margin: 0;
+                            border-radius: 0;
+                            letter-spacing: 0;
+                            background: #f1f5f7;
+                            color: $my-body-text-color;
+                        }
+                        &:hover{
+                            padding: rem-calc(15 24);
+                            margin: 0;
+                            border-radius: 0;
+                            letter-spacing: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// Fix sub nav height for chrome
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    #custom-nav, #wrapper-nav{
+        .scroll-menu ul li a{
+            padding: rem-calc(15 24 16);
+            &.highlighted{
+                padding: 7px 9px 8px;
+                margin: 8px 15px 7px;
+                &.active{
+                    padding: rem-calc(15 24 16);
+                }
+                &:hover{
+                    padding: rem-calc(15 24 16);
+                }
+            }
+
+        } 
+    }
+}
+
+/* Intro Section */
+#intro{
+    // this is the padding for the first section that goes in page
+    padding: 2.25rem 0 4rem;
+    // colors
+    &.light-grey{
+        background-color: $light-grey-section-bg-color;
+    }
+    // useful classes
+    &.big-padding{
+        padding: 4rem 0;
+    }
+    // content
+    .my-h2-title{
+        margin-bottom: 1.75rem;
+    }
+    p{ 
+        i{
+            position: relative;
+            top: 2px;
+            color: $my-orange;
+        }
+        &.ul-header{
+            margin-bottom: -0.825rem;
+        }
+    }
+    // list
+    ul.intro-list{
+        margin-top: 1rem;
+        margin-left: 0.5rem;
+        margin-bottom: 1.5rem;
+        @media #{$small-only} {
+            margin-left: 0.75rem;
+            font-size: 0.95rem;
+        }
+        li{
+            padding: 0.25rem 0.625rem 0.625rem;
+            line-height: 1.4;
+            list-style-type: none;
+            &:before{
+                content: "\e614";
+                font-family: 'icomoon';
+                margin-left: -0.9rem; 
+                left: -0.4rem;
+                color: $my-green;
+                position: relative;
+                top:1px;
+            }
+            i{
+                position: relative;
+                top: 2px;
+                color: $my-orange;
+            }
+        }
+    }
+    // big icons
+    .icon{
+        text-align: center;
+        vertical-align: middle;
+        font-size: 15rem;
+        color: scale-color($medium-grey-section-bg-color, $lightness: 35%);
+
+        &.hosting{
+            color: $hosting-icons;
+        }
+        &.domains{
+            color: $domains-icons;            
+        }
+        &.websites{
+            color: $websites-icons;
+        }
+    }
+    // style for images
+    .intro-img{
+        vertical-align: top;
+        margin-bottom: 1rem;
+        text-align: center;
+        &.w-m-top{
+            margin-top: 1.5rem;
+        }
+        @media #{$large-up} {
+            margin-bottom: 0;
+        }
+    }
+    // button styles
+    .button{
+        margin-top: 0.75rem;
+        margin-right: 0.5rem;
+        margin-bottom: 0;
+        @media #{$small-only} {
+            width: 100%;
+        } 
+    }
+    // warning panel
+    .panel.definition{
+        background: scale-color($my-yellow, $lightness: 80%);
+        border: 2px solid scale-color($my-yellow, $lightness: -10%);
+    }  
+}
+
+/* Intersection Line (2 Action Boxes) - slowly gets depreciated */
+#intersection{
+    position: relative;
+    // Create vertical line
+    @media #{$medium-up} { 
+        &:after{
+            background: #C6D1D3;
+            content: "";
+            display: block;
+            height: 100%;
+            left: 50%;
+            position: absolute;
+            top: 0;
+            width: 1px;
+        }
+    }    
+    .row{
+        max-width: 100%;
+    }
+    // Content styles for boxes
+    .action-box1, .action-box2{
+        padding: 2rem 1rem;
+            @media #{$large-up} {
+               padding: 2.5rem;
+            }
+        p{
+            margin-bottom:0;
+            color: $action-box-font-color;
+            font-size: 1.4rem;
+            line-height: 1.3;
+
+                @media #{$small-only} {
+                    font-size: 1.1rem;
+                }
+                @media #{$medium-only} { 
+                    font-size: 1.2rem;
+                }
+        }
+    }
+    // Create hovers states
+    a{
+        .action-box1{
+            background: $action-box1-color;
+            @include transition(background 0.25s linear 0s);
+            @media #{$small-only} {
+                border-bottom: 1px solid #C6D1D3;
+            }
+        }
+        &:hover .action-box1{
+            background: $action-box1-hover-color;
+        }
+        .action-box2{
+            background: $action-box2-color;
+            @include transition(background 0.25s linear 0s);
+        }
+        &:hover .action-box2{
+            background: $action-box2-hover-color;
+        }
+    }
+}
+
+
+/* End Global Elements */
+
+
+
+/* -------------------------------
+Hosting Sections and Widgets
+--------------------------------*/
+
+/* Intro Hosting Padding */
+#hosting-plans, #reseller-plans, #semi-dedi, #magento-plans, #vps-plans, #dedicated-servers{
+    padding: 2.25rem 0 4rem;
+}
+
+/* Hosting Plans */
+.plans{
+    margin-top: 1.75rem;
+    margin-bottom: 2rem;
+    // Hosting Plans
+    .plan{
+        text-align: center;
+        position: relative;
+        // Content
+        .plan-content{
+            background-color: white;
+            border: 1px solid $medium-grey-section-bg-color;
+            border-bottom: 0 none;
+            margin-bottom: 0;
+            padding: 1.25rem 1rem;
+            @include transition(all 0.15s linear);
+            span{
+                display: block;
+                // Header
+                &.plan-header{
+                    font-size: 1.75rem;
+                    font-weight: 400;
+                    line-height: 1.3;
+                    color: $my-light-blue;
+                    text-transform: uppercase;
+                    display: inline-block;
+                }
+                // Prices
+                &.plan-price{
+                    font-size: 0.775rem;
+                    font-weight: 500;
+                    color: #31444e;
+                    line-height: 2;
+                    .vat{
+                        display: inline;
+                    }
+                    .on-offer{
+                        color: #8e8e8e;
+                        display: block;
+                        left: -7px;
+                        line-height: 1;
+                        margin-top: -13px;
+                        position: relative;
+                        top: 9px;
+                    }
+                }
+                // Line
+                &.line{
+                    margin: 2rem auto;
+                    width: 80%;
+                    border-bottom: 1px solid $medium-grey-section-bg-color;
+                    &.less-margin{
+                        margin-bottom: 1.75rem;
+                    }
+                }
+                // Plan Spec
+                &.plan-value{
+                    font-family: 'Sarala';
+                    font-size: 2.75rem;
+                    font-weight: 700;
+                    color: black;
+                    @include transition(all 0.15s linear);
+                    .metric{
+                        font-family: $roboto-font-family;
+                        display: inline;
+                        margin-left: 0.25rem;
+                    }
+                }
+                &.plan-label{
+                    line-height: 2;
+                    margin-bottom: 0.5rem;
+                }
+            }
+            // shows a meter like ssl's / not in used
+            .host-progress{
+                margin-bottom: 0.5rem;
+                margin-top: 1.25rem;
+                .for-meter{
+                    display: block;
+                    font-size: 0.775rem;
+                    font-weight: 500;
+                    line-height: 1;
+                    margin-bottom: 0.275rem;
+                    text-align: left;
+                    margin-left: 1px;
+                }
+                ul{
+                    font-size: 0;
+                    list-style-type: none;
+                    max-width: 100%;
+                    padding: 0;
+                    margin-bottom: 0.75rem;
+                    &.level-1 li:nth-child(-n+1){
+                        background-color: #33cc66;
+                    }
+                    &.level-2 li:nth-child(-n+2){
+                        background-color: #33cc66;
+                    }
+                    &.level-3 li:nth-child(-n+3){
+                        background-color: #33cc66;
+                    }
+                    &.level-5 li:nth-child(-n+5){
+                        background-color: #33cc66;
+                    }
+                    li{
+                        background-color: #dde4e7;
+                        border-left: 1px solid  white;
+                        border-right: 1px solid #989898;
+                        display: inline-block;
+                        font-size: 1rem;
+                        height: 0;
+                        overflow: hidden;
+                        padding-top: rem-calc(14);
+                        width: 20%;
+                        &:last-of-type{
+                            border-right: 0 none;
+                            border-top-right-radius: 3px;
+                            border-bottom-right-radius: 3px;
+                        }
+                        &:first-of-type{
+                            border-top-left-radius: 3px;
+                            border-bottom-left-radius: 3px;
+                        }
+                    }
+                }
+            }
+            // List styles
+            .disc{
+                font-size: 0.775rem;
+                line-height: 1.2;
+                text-align: left;
+                margin-left: rem-calc(11);
+                margin-bottom: 0.25rem;
+                list-style: none;
+                /* fix for chrome */
+                @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+                    margin-left: rem-calc(14.5);
+                    text-indent: -5px;
+                    strong{
+                        font-weight: 700;
+                    }
+                }
+                li:not(:last-child){
+                    margin-bottom: 0.5rem;
+                }
+            }
+            .inner-wrap{
+                margin: 0 0.5rem;
+            }
+            // offers
+            .badge{
+                background-color: $offer-color;
+                box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+                color: white;
+                height: 30px;
+                position: absolute;
+                top: -15px;
+                width: 70%;
+                left: 15%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .badge-content{
+                    position: relative;
+                    top: 1px;
+                    p{
+                        color: white;
+                        text-align: center;
+                        margin-bottom: 0;
+                        line-height: 1;
+                        font-size: rem-calc(18);
+                        letter-spacing: 0.5px;
+                        font-weight: 700;
+                        font-family: "Sarala";
+                        span{
+                            font-family: "Roboto", Helvetica, Arial, Verdana, sans-serif;
+                            font-size: 0.675rem;
+                            font-weight: 300;
+                            position: relative;
+                            top: -3px;
+                            padding-left: 2px;
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+            // Left and right specs
+            .split-values{
+                // wrapper
+                .box{
+                    .plan-value{
+                        font-size: 1.5rem;
+                        &.smaller{
+                            font-size: 1.3125rem;
+                        }
+                    }
+                    .plan-label{
+                        line-height: 1.1;
+                        margin-top: 0.125rem;
+                        &.more-margin{
+                            margin-bottom: 1.5rem;
+                        }
+                    }
+                } 
+                &.left-side{
+                    text-align: left;
+                    margin-left: 1rem;
+                    @media screen and (max-width:1280px)and (max-height:1024px){
+                        margin-left: 0.25rem;
+                    }
+                    .box{
+                        .plan-value{
+                            display: inline;
+                            font-size: 1.175rem;
+                        }
+                        .plan-label{
+                            display: inline-block;
+                            font-size: 1.125rem;
+                            margin-left: 0.25rem;
+                            &.more-margin{
+                                margin-bottom: 1.25rem;
+                            }
+                        }
+                    }
+                }   
+            }
+        }
+        // Action box with check mark
+        .select-plan{
+            background-color: $light-grey-section-bg-color;
+            border: 1px solid $medium-grey-section-bg-color;
+            padding-top: rem-calc(10);
+            padding-bottom: rem-calc(10);
+            @include transition(all 0.1s linear);
+            // Check mark
+            .special-select{
+                background-color: white;
+                border: 1px solid $my-body-text-color;
+                @include border-radius(50%);
+                display: inline-block;
+                height: 26px;
+                position: relative;
+                vertical-align: middle;
+                width: 26px;
+                i{
+                    color: white;
+                    font-size: 1.25rem;
+                    position: relative;
+                    top: 1px;
+                    display: none;
+                }    
+            }
+            span{
+                font-size: 1.125rem;
+                vertical-align: middle;
+                font-weight: 300;
+                display: block;
+                padding-top: 0.2rem;
+            }
+        }
+        // Hover Styles
+        &:hover{
+            cursor: pointer;
+            .plan-content{
+                border: 1px solid scale-color($medium-grey-section-bg-color, $lightness: -10%);
+                border-bottom: 0 none;
+                .plan-value, .disc strong{
+                    color: scale-color($my-orange, $lightness: -10%);
+                }
+            }
+            .select-plan{
+                background-color: scale-color($light-grey-section-bg-color, $lightness: -5%);
+                border: 1px solid scale-color($medium-grey-section-bg-color, $lightness: -10%);
+                .special-select{
+                    border: 1px solid $my-inner-elements-header-color;
+                }
+                span{
+                    color: $my-inner-elements-header-color;
+                }
+            }
+        }
+        &::after {
+            content: "";
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            @include shadow(0, 1px, 6px, scale-color($my-black, $lightness: 70%));
+            @include transition(opacity 0.3s ease-in-out);
+        }
+        &:hover::after {
+            opacity: 1;
+        }
+        // Selected State
+        &.selected{
+            cursor: default;
+            .plan-content{
+                .plan-value, .disc strong{
+                    color: scale-color($my-orange, $lightness: -10%);
+                }
+            }
+            .select-plan{
+                background-color: $hosting-bg-color;
+                border: 1px solid $hosting-bg-color;
+                .special-select{
+                    background-color: black;
+                    border: 2px solid black;
+                    i{
+                        display: block;
+                    }
+                }
+                span{
+                    color: white;
+                }
+            }
+            &:hover::after {
+                opacity: 0;
+            }
+        }
+    }
+    // 3 Important Features -> This has been taken out. Now only exists in magento hosting page
+    .hosting-features{
+        background-color: #eef1f3;
+        margin-bottom: 1.25rem;
+        .bold-features{
+            background-color: #eef1f3;
+            position: relative;
+            margin-bottom: 0;
+            @media #{$xlarge-up} {
+                padding-left: 4rem;
+                height: 79px;
+            }
+            ul li{
+                padding-bottom: 1rem;
+                @media #{$medium-up} {
+                    padding-bottom: 0;
+                }
+            }
+            .feature{
+                display: table;
+                @media #{$medium-up} {
+                    margin: 0 auto;
+                }
+                i{
+                    color: $hosting-bg-color;
+                    font-size: 2.25rem;
+                    display: table-cell;
+                    vertical-align: middle;
+                    position: relative;
+                    right: 0.5rem;
+                }
+                p{
+                    display: table-cell;
+                    font-weight: 500;
+                    color: $my-inner-elements-header-color;
+                    line-height: 1.3;
+                    vertical-align: middle;
+                    span{
+                        display: block;
+                        font-weight: 300;
+                        font-size: 0.925rem;
+                    }
+                }
+            } 
+        }
+        .gr-datacenter{
+            float: right;
+            a{
+                display: inline-block;
+            }       
+        }
+    }  
+}
+
+/* For who is suitable every type of hosting */
+.great-for{
+    margin: 3rem 0;
+    // Wrapper
+    .wrapper{
+        padding: 0.75rem 0;
+        // Header
+        .heading{
+            h2{
+                color: scale-color($my-orange, $lightness: -10%);
+                line-height: 1.1;
+                margin-bottom: 1rem;
+                i{
+                    display: none;
+                }
+                span{
+                    &:first-of-type{
+                       font-weight: 300;
+                    }  
+                }
+            }  
+        }
+        // Content styles
+        .content{
+            ul{
+                margin-bottom: 0;
+                line-height: 1.2;
+                li:not(:last-child){
+                    margin-bottom: 0.5rem;
+                }
+            }
+        }
+    }
+    // Handling different screens with Media Queries
+    @media #{$medium-up} {
+        margin: 4rem 0;
+        // Wrapper
+        .wrapper{
+            display: table;
+            width: 100%;
+            // vertical line
+            &:after{
+                background-color: scale-color($medium-grey-section-bg-color, $lightness: 10%);
+                content: "";
+                display: block;
+                height: 100%;
+                left: 50%;
+                position: absolute;
+                top: 0;
+                width: 1px;
+            }
+            // Header
+            .heading{
+                display: table-cell;
+                vertical-align: middle;
+                width: 50%;
+                padding-right: 1rem;
+                h2{
+                    text-align: right;
+                    margin: 0;
+                    position: relative;
+                    top: -7px;
+                    font-weight: 500;
+                    font-size: rem-calc(25);
+                    i{
+                        margin-left: -3.5rem;
+                        display: inline-block;
+                        font-size: 2.75rem;
+                        position: absolute;
+                    }
+                    span{
+                        &:first-of-type{
+                          font-size: 1.5rem;  
+                        }
+                        &:last-of-type{
+                           display: block;
+                        }
+                    }
+                }  
+            }
+            // Content
+            .content{
+                display: table-cell;
+                vertical-align: middle;
+                width: 50%;
+                padding-left: 1rem;
+            }
+        }
+    } 
+}
+
+/* Most important Specs of hosting - only in magento hosting right now */
+.plans-specs{
+    // Wrapper
+    .panel{
+        background-color: white;
+        border: 1px solid $medium-grey-section-bg-color;
+        padding-top: 0;
+        padding-bottom: 0.75rem;
+        margin-top: 2.5rem;
+        text-align: center;
+        @include transition(all 0.15s linear);
+        @media #{$large-up} {
+            margin-top: 1rem;
+        }
+        // Icons
+        i{
+            color: scale-color($my-orange, $lightness: -10%);
+            background-color: white;
+            padding-left: 2.5rem;
+            padding-right: 2.5rem;
+            font-size: 3rem;
+            position: relative;
+            top: -1.75rem;
+            @include transition(all 0.2s linear);
+        }
+        // Header
+        h3{
+            color: $my-inner-elements-header-color;
+            margin-bottom: 1.125rem;
+            position: relative;
+            top: rem-calc(-15);
+            font-size: rem-calc(17);
+            font-weight: 700;
+        }
+        // List
+        ul{
+            margin-bottom: 0;
+            position: relative;
+            top: -1rem;
+            li{
+                line-height: 1.9;
+                font-size: rem-calc(15);
+                font-weight: 400;
+            }
+        }
+        // hover state
+        &:hover{
+            border: 1px solid scale-color($medium-grey-section-bg-color, $lightness: -10%);
+            box-shadow: 0 4px 12px -6px scale-color($medium-grey-section-bg-color, $lightness: -10%);
+            i{
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+        // useful classes
+        &.w-min-h{
+            @media #{$medium-up} {
+                min-height: rem-calc(248);
+            }
+        }
+    }
+    // Action Btn
+    .see-full-characteristics{
+        text-align: center;
+        &.with-margin-top{
+            margin-top: 0.5rem;
+        }
+        a{
+            border-bottom: 1px dotted;
+            font-size: 0.95rem;
+            font-weight: 400;
+            padding-bottom: 1px;
+        }
+    }     
+}
+
+/* Hosting Mobile Order For Shared, Reseller, Semi Dedicated and VPS */
+.mobile-order{
+    // Header
+    .mobile-header{
+        font-size: 1.125rem;
+        font-weight: 500;
+        line-height: 1.1;
+    }
+    //Wrapper
+    .panel{
+        border: none;
+        background-color: $light-grey-section-bg-color;
+        border-bottom: 2px solid scale-color($light-grey-section-bg-color, $lightness: -18%);
+        padding: 2rem 1.25rem 1.25rem;
+        // Form
+        form{
+            height: 100%;
+            @media #{$medium-up} {
+                height: 24rem;
+            }
+            &#vps_small_order, &#semi_small_order{
+                height: 100%;
+            }
+            // Fieldset
+            fieldset{
+                height: 100%;
+                background: white;
+                border-color: $medium-grey-section-bg-color; 
+                margin-top: 0;
+                // Fieldset legent
+                legend{
+                    font-size: 0.925rem;
+                    font-weight: 500;
+                    background-color: $buy-overview-bg-color;
+                    line-height: 1.2;
+                    padding: 0.6rem 0.75rem 0.625rem;
+                    color: white;
+                }
+                // Label
+                label{
+                    font-size: 1rem;
+                    line-height: 1;
+                    font-weight: 500;
+                    display: table;
+                    width: 100%;
+                    position: relative;
+                    .offer{
+                        background-color: $offer-color;
+                        padding: 0.325rem 0.75rem 0.3rem;
+                        font-size: 0.675rem;
+                        font-weight: 400;
+                        color: white;
+                        top: -2px;
+                        line-height: 1;
+                        position: absolute;
+                        right: 0;
+                    }
+                }
+                // Prices
+                .length-price{
+                    float: right;
+                    font-weight: 300;
+                    position: relative;
+                    @media #{$small-only} {
+                        font-size: 0.925rem;
+                    }
+                    &.with-discount{
+                        @media #{$small-only} {
+                            display: block;
+                            float: none;
+                            margin-left: rem-calc(22);
+                            top: 5px;
+                            height: rem-calc(17);
+                        }
+                    }
+                    .strikethrough{
+                        color: scale-color($my-body-light-text-color, $lightness: 25%);
+                        margin-right: rem-calc(7);
+                    }
+                }
+                // Packet list
+                ul{
+                    margin-bottom: 0;
+                    li{
+                        border-bottom: 1px dashed scale-color($light-grey-section-bg-color, $lightness: -3%);
+                        padding: 1rem 0 0.975rem;
+                        &:first-child{
+                            padding-top: 0.5rem;
+                        }
+                        &:last-child{
+                            border-bottom: none;
+                            padding-bottom: 0;
+                        }
+                        input{
+                            margin-bottom: 0;
+                            margin-right: 0.5rem;
+                        }
+                    }
+                }
+                // Packet Specks
+                .specs-wrapper{
+                    margin-top: 0.5rem;
+                    ul{
+                        margin-left: 1rem;
+                        li{
+                            border-bottom: 0 none;
+                            font-size: 0.825rem;
+                            font-weight: 400;
+                            margin-left: 0.375rem;
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+        }
+        // Buy box
+        .buy_packet{
+            padding: 2rem 0 0;
+            .total{
+                display: table;
+                float: right;
+                margin-bottom: 1rem;
+                .total-label{
+                    display: table-cell;
+                    font-size: 1.25rem;
+                    padding-right: 0.5rem;
+                }
+                .total-cost{
+                    font-size: 3.125rem;
+                    margin-bottom: 0;
+                    text-align: right;
+                    display: table-cell;
+                    .vat{
+                        margin-right: -0.5rem;
+                    }
+                    @media #{$small-only} {
+                        font-size: 2.25rem;
+                        .vat{
+                            margin-right: -0.25rem;
+                        }
+                    }
+                    
+                }
+            }
+            .button{
+                margin-bottom: 0;
+            }
+        }
+    } 
+}
+
+/* Hosting Tables with Specs for every packet */
+.tablesFullSpecs{
+    padding: 4rem 0;
+    background: white;
+    // Table styles
+    table{
+        width:100%;
+        border: none;
+        // Header
+        thead{
+            background: $hosting-bg-color;
+            border: 2px solid $hosting-bg-color;
+            border-bottom: none;
+            // Color Variation
+            &.dark-blue{
+                background: $my-blue-black;
+                border: 2px solid $my-blue-black;
+            }
+            tr{
+                th{
+                    font-size: 1.125rem;
+                    font-weight: 500;
+                    letter-spacing: 0.5px;
+                    padding-top: rem-calc(22);
+                    padding-bottom: rem-calc(22);
+                }
+            }
+        }
+        // Main Table
+        tbody{
+            border: 2px solid scale-color($light-grey-section-bg-color, $lightness: -5%);
+            border-top: none;
+            tr{
+                td{
+                    text-align: center;
+                    padding: rem-calc(20 16);
+                    position: relative;
+                    @media #{$small-only}{
+                        line-height: 1.5;
+                    }
+                    // Define first cell width
+                    &:first-of-type{
+                        text-align: left;
+                        font-weight: 500;
+                        width: 47%;
+                        @media #{$small-only}{
+                            width: 65%;
+                        }
+                        a{  
+                            border-bottom: 1px dotted scale-color($link-color, $lightness: 30%);
+                        }
+                    }
+                }
+            }
+        }
+        // Check Icon
+        i{
+            // green version with white icon
+            background-color: $my-green;
+            @include border-radius(50%);
+            color: white;
+            padding: 0.3rem 0.325rem;
+            position: relative;
+            top: 2px;
+            // green icon without background
+            &.clean{
+                background-color: transparent;
+                color: $my-green;
+                border-radius: 0;
+                padding: 0;
+                font-size: 21px;
+                position: absolute;
+                margin-top: -9px;
+                margin-left: -12px;
+                top: initial;
+            }
+        }
+    }
+    // Add-ons section
+    .panel{
+        border: 0 none;
+        background: transparent;
+        padding: 0;
+        @media #{$large-up} {
+            margin-top: 0.5rem;
+        }
+        // header
+        p.panel-header{
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            @media #{$large-up} {
+                font-size: 1.125rem;
+            }
+        }
+        // options list
+        ul{
+            li{
+                padding-bottom: 0.75rem;
+                @media #{$small-only} {
+                    width: 100%;
+                }
+                // option
+                .option{
+                    font-size: 0.875rem;
+                    padding: 1rem;
+                    background-color: scale-color($light-grey-section-bg-color, $lightness: 20%);
+                    width: 100%;
+                    border-left: 2px solid scale-color($light-grey-section-bg-color, $lightness: -5%);
+                    a{  
+                        border-bottom: 1px dotted scale-color($my-deep-blue, $lightness: 30%);
+                    }
+                }
+            }
+        }
+    }
+    // Disclaimer
+    .disclaimer{
+        margin-top: 1rem;
+        p{
+            border-bottom: 1px solid #c3d4d8;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.25rem;
+        }
+        // list
+        ul{
+            margin-bottom: 0;
+            li{
+                padding-bottom: 0.75rem;
+                font-size: 0.925rem;
+                @media #{$large-up} {
+                    padding-bottom: 0.25rem;
+                }
+            }
+        }
+    }
+    // Image background at the top or bottom of the section
+    // bottom background
+    &.w-bottom-bg{
+        background-color: white;
+        background-image: url('../img/hosting/desk-bottom.jpg');
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        background-size: contain;
+        padding-bottom: 12rem;
+        @media only screen and (max-width: 40em) and (orientation : portrait) {
+            padding-bottom: 8rem;
+        }
+        @media #{$medium-only} {
+            padding-bottom: 18rem;
+        }
+        @media only screen and (min-width: 40.063em) and (max-width: 64em) and (orientation : portrait) {
+            padding-bottom: 14rem;
+        }
+        @media #{$large-up} {
+            padding-bottom: 23rem;
+            background-size: 1300px 300px;
+        }
+    }
+    // top background
+    &.w-top-bg{
+        background-color: white;
+        background-image: url('../img/hosting/desk-top.jpg');
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: contain;
+        padding-top: 12rem;
+        @media only screen and (max-width: 40em) and (orientation : portrait) {
+            padding-top: 8rem;
+        }
+        @media #{$medium-only} {
+            padding-top: 18rem;
+        }
+        @media only screen and (min-width: 40.063em) and (max-width: 64em) and (orientation : portrait) {
+            padding-top: 14rem;
+        }
+        @media #{$large-up} {
+            padding-top: 22rem;
+            background-size: 1300px 300px;
+        }
+        &.reseller{
+            background-image: url('../img/hosting/reseller/desk-top.jpg');
+        }
+        &.vps{
+            background-image: url('../img/hosting/vps/desk-top.jpg');
+        }
+        &.semi-dedicated{
+            background-image: url('../img/hosting/semi-dedicated/desk-top.jpg');
+        }
+    }
+}
+
+/* This is used in Semi-Dedicated Hosting only */
+.graphs{
+    padding: 4rem 0;
+    background: $light-grey-section-bg-color;
+    // Wrapper
+    .panel{
+        background-color: white;
+        padding-top: 3rem;
+        p{
+            line-height: 1.4;
+            &.title{
+                margin-bottom: 2rem;
+                padding: 0 1rem;
+            }
+        }
+    }
+    // Handling different screens with Media Queries
+    @media #{$large-up} {
+        .panel{
+            padding: 4rem 2rem 0; 
+            p.title{
+                margin-bottom: 3rem;
+                padding: 0 3rem;
+            }
+            ul{
+                li{
+                   padding: 0 2rem 3rem;
+                }
+            }
+        }
+    }
+}
+
+/* All Hosting Plans display module (Homepage + Parent Hosting) */
+.hosting-module{
+    // Wrapper
+    .tabs{
+        // Each cell
+        .tab-title{
+            width: 20%;
+            text-align: center;
+            background-color: white;
+            // Icon style
+            & > a{
+                line-height: 1.1;
+                background-color: white;
+                font-weight: 500;
+                border-bottom: 4px solid $light-grey-section-bg-color;
+                position: relative;
+                i{
+                    display: block;
+                    font-size: 4rem;
+                    margin-bottom: 1rem;
+                    color: #484848;
+                }
+                // building hover effect
+                &:before{
+                    content: "";
+                    background-color: $my-light-blue;
+                    bottom: -4px;
+                    height: 4px;
+                    width: 100%;
+                    left: 0;
+                    position: absolute;
+                    visibility: hidden;
+                    @include transform(scaleX(0));  
+                    @include transition(all 0.3s ease-out 0s); 
+                }
+                &:hover:before {
+                    visibility: visible;
+                    @include transform(scaleX(1));  
+                }
+                &:after{
+                    content: ""; 
+                    display: block;
+                    top: 100%; 
+                    left: 50%; 
+                    height: 0; 
+                    width: 0; 
+                    position: absolute; 
+                    pointer-events: none;
+                    border-image: none;
+                    border-style: solid;
+                    border-color: rgba(0, 0, 0, 0); 
+                    border-top-color: $my-light-blue;
+                    border-width: 0.75rem; 
+                    margin-left: -0.75rem;
+                    visibility: hidden;
+                    opacity: 0;
+                    @include transform(rotate(360deg));
+                    @include transition(all 0.1s linear 0s);  
+                }
+                @media #{$medium-only} {
+                    padding: 1rem;
+                    span{
+                        display: block;
+                    }
+                }
+            }
+            // Active State
+            &.active{
+                a{
+                    border-bottom: 4px solid $my-light-blue;
+                    color: $my-light-blue;
+                    &:after{
+                       visibility: visible;
+                       opacity: 1;
+                       @include transition(all 0.1s linear 0s);                  
+                    }
+                }
+            }
+        }
+    }
+    // Used for mobile where we transform the module with accordion
+    .accordion{
+        .accordion-navigation{
+            // link
+            & > a {
+                font-size: 1.125rem;
+                border-bottom: 2px solid $my-light-blue;
+                position: relative;
+                padding: 17px 16px 16px;
+                // arrow
+                &:after{
+                    content: "";
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    border-left: 6px solid transparent;
+                    border-right: 6px solid transparent;
+                    border-top: 8px solid white;
+                    right: 1rem;
+                    top: 27px;
+                }
+                // active state
+                &.active{
+                    border-bottom: 4px solid $my-light-blue;
+                    &:before{
+                        content: "";
+                        position: absolute;
+                        width: 0;
+                        height: 0;
+                        border-left: 9px solid transparent;
+                        border-right: 9px solid transparent;
+                        border-bottom: 11px solid $my-light-blue;
+                        left: 9px;
+                        bottom: 0;
+                    }
+                    &:after{
+                        content: "";
+                        border-bottom: 8px solid white;
+                        border-top: 0 none;
+                    }
+                }    
+            }
+        }
+    }
+    // Content of module
+    .content{
+        padding: 0 !important;
+        @media #{$medium-up} {
+            margin-top: 2rem;
+            padding: 1.25rem 0 !important;
+            .wrapper .block hr{
+                border-color: scale-color($medium-grey-section-bg-color, $lightness: 50%);
+            }
+        }
+        // Outer wrapper
+        .wrapper{
+            .block{
+                padding: 1.5rem 1rem 1rem;
+                background-color: $light-grey-section-bg-color;
+                p{
+                    line-height: 1.5;
+                    // header
+                    &.head{
+                        font-size: rem-calc(20);
+                        font-weight: 500; 
+                        color: $my-header-color;
+                        line-height: 1.2;
+                    }
+                }
+                // with offer
+                .offer{
+                    background-color: $offer-color;
+                    display: inline-block;
+                    padding: 0.5rem 1rem;
+                    font-size: 0.675rem;
+                    font-weight: 400;
+                    color: white;
+                    position: relative;
+                    top: -7px;
+                    line-height: 1;
+                }
+                // suitable for
+                .suitable{
+                    display: table;
+                    padding: 0.5rem 0;
+                    position: relative;
+                    p{
+                        font-size: 1rem;
+                        font-weight: 500;
+                        line-height: 1.2;
+                        color: scale-color($my-orange, $lightness: -10%);
+                        width: 100%;
+                        margin-bottom: 0.75rem;
+                    }
+                    ul{
+                        line-height: 1.2;
+                        font-size: 0.95rem;
+                        li:not(:last-child){
+                            margin-bottom: 0.5rem;
+                        }
+                    }
+                }
+                // prices
+                .price-wrapper{
+                    .price{
+                        margin-bottom: 0;
+                        color: $my-inner-elements-header-color;
+                        font-size:  1.825rem;
+                        display: block;
+                        .sup{
+                            font-family: "Sarala";
+                            font-size: 2.75rem;
+                        }
+                        sup{
+                            font-size: 45%;
+                            margin-left: 2px;
+                            margin-top: 20px;
+                            position: absolute;
+                            top: initial;
+                        }
+                        small{
+                            font-size: 56%;
+                            &:last-of-type{
+                                left: -5px;
+                                position: relative;
+                            }
+                        }
+                        .strikethrough{
+                            color: scale-color($my-body-light-text-color, $lightness: 25%);
+                            font-size: 1.125rem;
+                        }
+                    }
+                    .button{
+                        color: white;
+                    }  
+                }
+            }
+            // list with advantages
+            .points{
+                background-color: scale-color($light-grey-section-bg-color, $lightness: -5%);
+                padding: 2.5rem 1.5rem 0.25rem;
+                position: relative;
+                // arrow
+                &:after{
+                    content: " "; 
+                    display: block;
+                    top: 0; 
+                    left: 50%; 
+                    height: 0; 
+                    width: 0; 
+                    position: absolute; 
+                    pointer-events: none;
+                    border-image: none;
+                    border-style: solid;
+                    border-color: rgba(0, 0, 0, 0);
+                    border-top-color: $light-grey-section-bg-color;
+                    border-width: 1rem; 
+                    margin-left: -1rem;
+                    @include transform(rotate(360deg));                   
+                }
+
+                // list styles
+                ul{
+                    font-size: 0.95rem;
+                    li{
+                        position: relative;
+                        padding-left: 1.325rem;
+                        line-height: 1.2;
+                        &:before{
+                            content: "";
+                            position: absolute;
+                            width: 10px;
+                            height: 10px;
+                            border: 2px solid scale-color($medium-grey-section-bg-color, $lightness: -8%);
+                            border-radius: 100%;
+                            left: 0;
+                            top: 5px;
+                        }
+                    }
+                }
+            }
+            // Handling for different screens
+            @media #{$small-only} {
+                .block .suitable ul{
+                    list-style: disc;
+                    margin-left: 1.1rem;
+                }
+            }
+            @media #{$medium-up} {
+                .block{
+                    background-color: white;
+                    margin-bottom: 1rem;
+                    padding: 0;
+                    p{
+                        .head{
+                            font-weight: 400; 
+                        }
+                    }
+                    .suitable{
+                        margin: 0 auto;
+                        p{
+                            width: 50%;
+                            display: table-cell;
+                            padding-right: 1.5rem;
+                            &.head{
+                                font-size: 1.4rem;
+                            }
+                        }
+                        ul{
+                           font-size: 1rem; 
+                           padding-left: 1.5rem;
+                           display: table-cell;  
+                        }
+                        &:after{
+                            background-color: scale-color($medium-grey-section-bg-color, $lightness: 50%);
+                            content: "";
+                            display: block;
+                            height: 100%;
+                            left: 50%;
+                            position: absolute;
+                            top: 0;
+                            width: 1px;
+                        }
+                    }
+                    .price-wrapper{
+                        display: table;
+                        margin: 0 auto;
+                        margin-top: 2rem;
+                        .price{
+                            text-align: center;
+                        }
+                    }
+                }
+                .points{
+                    background-color: $light-grey-section-bg-color;
+                    padding: 2.25rem 2.25rem 1rem;
+                    &:after{
+                        border-top-color: white;
+                    }
+                    ul{
+                        font-size: 1rem;
+                        li:before{
+                            width: 11px;
+                            height: 11px;
+                            border: 2px solid scale-color($medium-grey-section-bg-color, $lightness: -5%);
+                        }
+                    }
+                }
+            }
+            @media #{$large-up} {
+                .block{
+                    margin-bottom: 2.5rem;
+                    .suitable{
+                        margin: 0;
+                        width: 100%;
+                        p{
+                            width: 33%;
+                        }
+                        &:after{
+                            left: 33%;
+                        }
+                    }
+                    .price-wrapper, .offer{
+                        display: none;
+                    }
+                }   
+            }
+        }
+    }
+    // Big Price Box
+    .price-box{
+        background-color: $buy-overview-bg-color;
+        padding-top: 1.75rem;
+        margin-bottom: 1.25rem;
+        position: relative;
+        & > a{
+            display: block;
+            // badge is made for showing offers
+            .badge{
+                background-color: $offer-color;
+                box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+                color: white;
+                height: 36px;
+                position: absolute;
+                top: -18px;
+                width: 80%;
+                left: 10%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .badge-content{
+                    position: relative;
+                    top: 1px;
+                    p{
+                        text-align: center;
+                        margin-bottom: 0;
+                        line-height: 1;
+                        font-size: rem-calc(18);
+                        letter-spacing: 0.5px;
+                        font-weight: 700;
+                        font-family: "Sarala";
+                        span{
+                            font-family: "Roboto", Helvetica, Arial, Verdana, sans-serif;
+                            font-size: 0.675rem;
+                            font-weight: 300;
+                            position: relative;
+                            top: -3px;
+                            padding-left: 6px;
+                        }
+                    }
+                }
+                // for black-friday
+                &.black-friday{
+                    background-color: black;
+                }
+                // for xmas
+                &.xmas{
+                    background-color: $xmas-red;
+                }
+                // for easter
+                &.easter{
+                    background-color: $easter-color;
+                }
+            }
+            // title
+            .title{
+                text-align: center;
+                text-transform: uppercase;
+                font-size: 1.625rem;
+                font-weight: 400;
+                color: white;
+                line-height: 1.2;
+                margin-bottom: 0;
+                span{
+                    display: block;
+                }
+            }
+            // subtitle
+            .sub-title{
+                text-align: center;
+                color: #8EA8C9;
+                display: block;
+                font-size: 0.875rem;
+            }
+            // prices
+            .pricing{
+                color: white;
+                display: block;
+                margin-bottom: 3rem;
+                margin-left: 0.5rem;
+                margin-top: 2.75rem;
+                text-align: center;
+                position: relative;
+                .price{
+                    font-family: 'Sarala';
+                    font-weight: 400;
+                    font-size: 8rem;
+                    line-height: 1;
+                    sup{
+                        font-size: 41%;
+                        margin-top: rem-calc(31);
+                        position: absolute;
+                        top: initial;
+                    }
+                }
+                .currency{
+                    font-size: 2rem;
+                }
+                .period{
+                    font-size: 1.475rem;
+                }
+                &.discount{
+                    margin-bottom: 1rem;
+                    .strikethrough{
+                        display: table;
+                        font-size: 1.25rem;
+                        margin: 0 auto;
+                        position: relative;
+                        top: -7px;
+                    }
+                }
+            }
+            // action button
+            .price-box-btn{
+                margin-bottom: 0;
+                padding: 2rem;
+                text-align: left;
+                background-color: $my-light-blue;
+                font-size: 1rem;
+                color: white;
+                i{
+                    font-size: 1.25rem;
+                    margin-top: 2px;
+                    position: absolute;
+                    right: 2rem;
+                    @include transition(all 0.2s ease-out 0s);
+                }
+            }
+            &:hover{
+                .price-box-btn{
+                    background-color: scale-color($my-light-blue, $lightness: -20%); 
+                    i{
+                        right: 1.5rem;
+                    } 
+                }
+            }
+        }
+    }
+}
+
+// Additional classes for Hosting module touch only screens
+html.touch .hosting-module .tabs .tab-title > a::before{
+    content: none;
+}
+
+/* When Hosting is on one standard discount. This bar goes on top of hosting packets */
+.promo{
+    position: relative;
+    // generic promo
+    &.alert-box{
+        @include linear-gradient(#52DA8A, #00c853);
+        font-size: rem-calc(18);
+        border: 0 none;
+        text-align: center;
+        font-weight: 500;
+        margin-bottom: rem-calc(46);
+        @media #{$small-only} {
+            line-height: 1.3;
+            font-size: 1rem;
+            margin-bottom: rem-calc(20);
+        }
+    }
+    // build discount circle
+    .discount{
+        display: inline;
+        color: white;
+        span {
+            font-weight: 700;
+        }
+        @media #{$medium-up} {
+            background-color: #FF9800;
+            box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+            border: 12px solid white;
+            @include border-radius(50%);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+            margin-left: 0.5rem;
+            margin-right: 0.625rem;
+            padding: 25px 38px;
+            position: relative;
+            @media screen and (-webkit-min-device-pixel-ratio:0) {
+                padding: 25px 37px;
+                box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+            }
+                span {
+                bottom: 20px;
+                font-family: "Sarala";
+                font-size: rem-calc(28);
+                left: 7px;
+                position: absolute;
+            }
+        }
+    }
+    // black-friday style
+    &.black-friday{
+        background-color: $black-friday;
+        background-image: none;
+        .discount{
+            @media #{$medium-up} {
+                background-color: $my-pink;
+            }
+        }
+    }
+    // xmas style
+    &.xmas{
+        background: #833ab4;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #833ab4, #fd1d1d, #fcb045); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        z-index: 1;
+        .discount{
+            @media #{$medium-up} {
+                background-color: $xmas-red;
+                &::after{
+                    content: "";
+                    display: inline-block;
+                    position: absolute;
+                    background: url(../img/holidays/small-santa.png) 0 0/100px 92px no-repeat;
+                    width: 100px;
+                    height: 92px;
+                    left: 27px;
+                    top: -74px;
+                }
+            }
+
+        }
+    }
+    // easter style
+     &.easter{
+        background: #833ab4;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #9482ce,#db4aa3, #9482ce);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #9482ce,#db4aa3, #9482ce); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        z-index: 1;
+        .discount{
+            @media #{$medium-up} {
+                background-color: #db4aa3;
+            }
+
+        }
+    }
+}
+
+/* Small round discount badge for showing discount -> dedicated servers */
+.rounded-badge{
+    background-color: $offer-color;
+    box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+    color: white;
+    height: 56px;
+    width: 56px;
+    @include border-radius(50%);
+    // Content
+    .badge-content{
+        display: table-cell;
+        height: 56px;
+        vertical-align: middle;
+        width: 56px;
+        p{
+            text-align: center;
+            margin-bottom: 0;
+            line-height: 1;
+            font-size: rem-calc(17);
+            letter-spacing: 0.5px;
+            font-weight: 700;
+            font-family: "Sarala";
+            span{
+                display: block;
+                font-family: "Roboto",Helvetica,Arial,Verdana,sans-serif;
+                font-size: 0.6rem;
+                font-weight: 400;
+                position: relative;
+                top: 0;
+            }
+        }
+    }
+}
+
+
+/* End Hosting */
+
+/* ------------------------------------------------------------------
+Global Buy Overview box
+When special style is required for this box its inside the page's scss
+------------------------------------------------------------------- */
+.buy-overview{
+    background-color: $buy-overview-bg-color;
+    padding: 1.75rem;
+    color: white;
+    // Title
+    .title{
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 2rem;
+        line-height: 1.3;
+        padding-bottom: 0;
+    }
+    // Sub Title
+    .sub-title{
+        text-align: center;
+        text-transform: uppercase;
+        color: #8EA8C9;
+        font-weight: 400;
+        padding-bottom: 2.25rem;
+        position: relative;
+        font-size: 0.7rem;
+        // This h2 exist for semantic reasons. It's been used on buy-overview at hosting pages
+        h2{
+            margin: 0;
+            padding: 0;
+            color: #8EA8C9;
+            font-size: 0.7rem;
+            font-weight: 400;
+        }
+    }
+    // Pricing
+    .pricing{
+        text-align: center;
+        margin-left: 0.5rem;
+        padding-bottom: 1.75rem;
+        // Fix for IE
+        position: relative;
+        .price{
+            font-family: 'Sarala';
+            font-weight: 400;
+            font-size: 4rem;
+            line-height: 1;
+            sup{
+                font-size: 52%;
+                margin-top: rem-calc(14);
+                position: absolute;
+                top: initial;
+            }
+        }
+        .currency{
+            position: relative;
+        }
+        .period{
+            position: relative;
+
+        }
+
+
+    }
+    // Total
+    .total{
+        padding-bottom: 0.5rem;
+        ul{
+            margin: 0;
+            li{
+                font-size: 0.75rem;
+                padding-bottom: 0;
+                line-height: 1.4;
+                &:first-of-type{
+                    padding-left: 0;
+                }
+                &:last-of-type{
+                    padding-right: 0;
+                }
+                &.discount{
+                    color: $my-orange;
+                }
+            }
+        }
+    }
+    // Duration dropdown
+    .duration{
+        button{
+            background: #FFFFFF;
+            color: $my-inner-elements-header-color;
+            margin-bottom: 0;
+            width: 100%;
+            padding-right: initial;
+
+            &:hover, &:focus{
+                background: #E5ECEE;
+            }
+            &.dropdown:before{
+                border-color: #333333 transparent transparent;
+                border-width: 0.3rem;
+            }
+        }
+        .f-dropdown {
+            background: white;
+            border: 2px solid #BECACE;
+            @media #{$xlarge-up} {
+                max-width: 16.5rem;
+            }
+            @media #{$large-only} {
+                max-width: 16rem;
+            }
+            @media #{$medium-only} {
+                max-width: 17rem;
+            }
+
+            &:before {
+                border: none;
+            }
+            &:after {
+                border: none;
+            }
+
+            & > li{
+                a{
+                    color: #484848;
+                    &:hover{
+                        color: white;
+                    }
+                    .strikethrough{
+                        margin-right: rem-calc(7);
+                        color: scale-color($my-body-light-text-color, $lightness: 49%);
+                        background: url("../img/strikethrough-grey.png") no-repeat center center;
+                    }
+                }
+                &:hover, &.focus{
+                    background-color: $my-deep-blue;
+                }
+                &.active {
+                    background-color: #D5DFE2;
+                    cursor: default;
+                    pointer-events: none;
+                }
+            }
+        } 
+    }
+    // Add to cart button
+    .add-to-cart{
+        height: rem-calc(55);
+        padding-bottom: 0; 
+        .button, button{
+            margin-bottom: 0; 
+        }
+    }
+    // Styles for offers
+    &.on-offer{
+        .badge{
+            background-color: $offer-color;
+            box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+            color: white;
+            height: 36px;
+            position: absolute;
+            top: -18px;
+            width: 80%;
+            left: 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .badge-content{
+                position: relative;
+                left: -2px;
+                top: 1px;
+
+                p{
+                    color: white;
+                    text-align: center;
+                    margin-bottom: 0;
+                    line-height: 1;
+                    font-size: rem-calc(18);
+                    letter-spacing: 0.5px;
+                    font-weight: 700;
+                    font-family: "Sarala";
+                    span{
+                        font-family: "Roboto", Helvetica, Arial, Verdana, sans-serif;
+                        font-size: 0.675rem;
+                        font-weight: 300;
+                        position: relative;
+                        top: -3px;
+                        padding-left: 6px;
+                    }
+                }
+            }
+            &.xmas{
+                background-color: $xmas-red;
+            }
+            &.easter{
+                background-color: $easter-color;
+            }
+
+        }
+        .pricing{
+            padding-bottom: rem-calc(4) !important;
+            .strikethrough{
+                display: table;
+                margin: 0 auto;
+                font-size: 0.875rem;
+            }
+        }
+    }
+}
+
+
+/* ---------------------------------
+Global Modules for Content
+------------------------------------ */
+
+
+/* Simple Module for small amount of content with various uses - Used often as last section with action btn */
+#simple-row{
+    padding: 4rem 0;
+
+    // Colors
+    &.medium-grey{
+        background: scale-color($medium-grey-section-bg-color, $lightness: 10%);  
+    }
+    &.light-grey{
+        background: $light-grey-section-bg-color;
+    }
+    // Call to Action Style
+    &.call-to-action{
+        .my-h2-title{
+            margin-bottom: 0.625rem;
+        }
+        p{
+            line-height: 1.2;
+        } 
+        .button{
+            margin-top: 1rem;
+            margin-bottom: 0;
+            @media #{$small-only} { 
+                width: 100%;
+            }
+        }
+        @media #{$large-up}{
+            .my-h2-title{
+                margin-bottom: 0.325rem;
+            }
+        }
+    }
+    // Disclaimer Styles
+    &.disclaimer{
+        p{
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+        ul{
+            margin-bottom: 0;
+            li{
+                padding-bottom: 0.5rem;
+                font-size: 0.925rem;
+                line-height: 1.3;
+            }
+        }
+    }
+    // Need Help Styles
+    &.need-help{
+        // header
+        .heading{
+            font-size: rem-calc(18);
+            line-height: 1.2;
+            margin-bottom: 14px;
+            color: $my-inner-elements-header-color;
+            a{
+                color: $my-inner-elements-header-color;
+                &:hover{
+                    padding-bottom: 1px;
+                    border-bottom: 1px dashed;
+                }
+            }
+        }
+        // phone style
+        .tel{
+            font-size: rem-calc(26);
+            font-family: "Sarala";
+            color: $my-light-blue;
+            i{
+                display: inline-block;
+                margin-right: rem-calc(10);
+                font-size: rem-calc(20);
+            }
+        }
+
+        @media #{$large-up}{
+            .heading{
+                font-size: rem-calc(24);
+            }
+            .tel{
+                font-size: rem-calc(34);
+                pointer-events: none;
+                i{
+                    font-size: rem-calc(27);
+                }
+            }
+        }
+    }
+    // Useful Classes
+    ol{
+        margin-left: 1rem;
+        li{
+            font-size: 0.925rem;
+            line-height: 1.4;
+            padding-bottom: 1.25rem;
+
+            &:last-of-type{
+                padding-bottom: 0;
+            }
+        }
+    }
+    img{
+        margin-bottom: 1rem;
+        @media #{$large-up} { 
+            margin-bottom: 0;
+        }
+    }  
+}
+
+/* Generic module for handling content */
+#simple-content{
+    background: $light-grey-section-bg-color;
+    padding: 4rem 0;
+    // When it is first section in a page
+    &.intro-padding{
+        padding: 2.25rem 0 4rem;
+    }
+    &.white{
+       background: white; 
+    }
+    // Styles for content
+    .my-h3-title{
+        font-weight: 400;
+        &.light{
+           font-weight: 300; 
+        }
+    }
+    .my-h4-title{
+        font-size: 1rem;
+        font-weight: 500;
+        margin-bottom: rem-calc(2);
+    }
+    p{
+        &.header{
+            font-weight: 500;
+            margin-bottom: 0;
+        } 
+    }
+    small{
+        &.reg{
+            position: relative;
+            bottom: 4px;
+            left: 1px;
+        }
+        i{
+            top: 2px;
+            position: relative;
+            margin-right: 0.25rem;
+            font-size: 0.85rem;
+        }
+    }
+    hr{
+        border-style: dashed;
+        border-color: scale-color($light-grey-section-bg-color, $lightness: -15%);
+        margin: 1.25rem 0 1.8rem;
+    }
+    // warning panel
+    .panel{
+        background: scale-color($my-yellow, $lightness: 80%);
+        border: 2px solid scale-color($my-yellow, $lightness: -10%);
+        margin-top: 1rem;
+        &.grey{
+            background: white;
+            border: 2px solid scale-color($medium-grey-section-bg-color, $lightness: -1%);
+
+        }
+        p{
+            font-size: 0.925rem;
+            &.panel-header{
+                font-weight: 500;
+                margin-bottom: 0.25rem;
+                font-size: 1rem;
+            }
+        }
+    }
+    // generic list
+    ul, ol{
+        font-size: 0.925rem;
+        line-height: 1.3;
+        font-weight: 300;
+        li:not(:last-child){
+            margin-bottom: 0.625rem;
+        }
+    }
+    //class for ul with ticks
+    .special-list{
+        li{
+            list-style-type: none;
+            &:before{
+                content: "\e614";
+                font-family: 'icomoon';
+                margin-left: -1.285rem;
+                color: $my-green;
+                position: absolute;
+            }
+            &.normal{
+                padding: 0;
+                font-weight: 300;
+                margin-left: 0.25rem;
+                position: relative;
+                @media #{$large-up} {
+                    margin-bottom: 0.825rem;
+                    font-size: 1rem;
+                }
+            }
+        }
+        ol{
+            margin-top: 0.75rem;
+            margin-left: 1rem;
+            li{
+                list-style-type: decimal;
+                font-size: 0.85rem;
+                font-weight: 500;
+                margin-top: 0.325rem;
+                &:before{
+                    content: none;
+                }
+            }
+        }
+    }
+    // useful classes
+    a{
+        margin: 0 auto;
+    }
+    table{
+        border: 0;
+        width: 100%;
+    }
+    dl{
+        dt{
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+    }
+}
+
+/* Module with icon - header - paragraph. It is used throughout the site. Example can be found on all hosting pages */
+#points{
+    background: $light-grey-section-bg-color;
+    padding: 4rem 0 3rem;
+    // When it is first section in a page
+    &.intro{
+        padding: 2.8rem 0 4rem;
+    }
+    &.white{
+        background: white;   
+    }
+    // Colors for different sections
+    &.domains .point .head i{
+        color: $domains-bg-color;
+    }
+    &.hosting .point .head i{
+        color: $hosting-bg-color;
+    }
+    &.security .point .head i{
+        color: $security-bg-color;
+    }
+    &.websites .point .head i{
+        color: $websites-bg-color;
+    }
+    // Header
+    .my-h4-title{
+        font-weight: 500;
+        line-height: 1.3;
+        margin-bottom: 0.825rem;
+        margin-top: 0;
+    }
+    // Build points
+    .point{
+        display: table;
+        width: 100%;
+        margin-top: 2rem;
+        .head{
+            display: table-cell;
+            padding-right: 1.5rem;
+            i{
+                color: #383838;
+                font-size: 3rem;
+                display: block;
+                text-align: left;
+                @include transition(all 0.3s ease-out 0s);
+                @media #{$medium-only} {
+                    font-size: 2.75rem;
+                }
+                @media #{$small-only} {
+                    font-size: 2.5rem;
+                }
+            }
+        }
+        .body{
+            display: table-cell;
+            vertical-align: top;
+            padding-right: 0;
+            @media #{$medium-up} { 
+                padding-right: 1.5rem;
+            }
+            p{
+                line-height: 1.5;
+            }
+            small{
+                font-size: 82.5%;
+            }
+        }  
+    }
+}
+
+/* Module for Showing Specs - One of the oldest. Example can be found on Free Hosting */
+#specs-icons{
+    padding: 4rem 0 5rem;
+    // Colors for different sections
+    &.grey{
+        background-color: scale-color($light-grey-section-bg-color, $lightness: 1%);
+        .img-container{
+            background-color: scale-color($light-grey-section-bg-color, $lightness: 1%);;
+        }
+    }
+    &.white{
+        background-color: white;
+        .wrapper{
+            background: scale-color($light-grey-section-bg-color, $lightness: 1%);
+            .img-container{
+                background-color: white;
+            }
+            ul{
+                li{
+                    border-bottom: 1px dashed scale-color($medium-grey-section-bg-color, $lightness: -1%);
+                }
+            }
+        }
+    }
+    &.websites{
+        .lead{
+            background-color: scale-color($websites-bg-color, $lightness: 1%);
+        }
+        .wrapper ul li i{
+            color: $websites-bg-color;   
+        }
+    }
+    &.domains{
+        .lead{
+            background-color: scale-color($domains-bg-color, $lightness: 1%);
+        }
+        .wrapper ul li i{
+            color: $domains-bg-color; 
+        }
+    }
+    // Content styles
+    .wrapper{
+        background: #FFFFFF;
+        border-bottom: 2px solid scale-color($medium-grey-section-bg-color, $lightness: -5%);
+        padding: 1.25rem 2.25rem;
+        @media #{$small-only} {
+           padding: 0.75rem 1.25rem 1.25rem;
+        }
+        .lead{
+            line-height: 1.3;
+            color: white;
+            padding: 1.25rem;
+            font-size: 1.125rem;
+            strong{
+                letter-spacing: 0.5px;
+            }
+        }
+        .img-container{
+            margin-top: 1rem;
+            img{
+                vertical-align: bottom;
+            }
+        }
+        ul{
+            text-align: left;
+            @media #{$small-only} {
+                margin-bottom: 0;
+            }
+            li{
+
+                align-items: center;
+                display: inline-flex;
+                justify-content: flex-start;
+                border-bottom: 1px dashed scale-color($medium-grey-section-bg-color, $lightness: 20%);
+                font-size: 0.95rem;
+                font-weight: 500;
+                line-height: 1.2;
+                padding: 1rem 0 0.625rem 3.25rem;
+                width: 91%;
+                i{
+                    font-size: rem-calc(35);
+                    margin-left: -3.25rem;
+                    margin-right: 1rem;
+                    position: relative;
+                    @media #{$large-up} {
+                        font-size: 2rem;
+                    }
+                }
+            }
+        } 
+    }
+}
+
+/* Q+A module - Regularly used. Example can be found on all hosting pages */
+#accordion-content{
+    background: scale-color($light-grey-section-bg-color, $lightness: 1%);
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    /* White Q&A sections*/
+    &.white{
+        background: #FFFFFF;
+        .content{
+            background: $light-grey-section-bg-color !important;
+            &.active {
+                background: $light-grey-section-bg-color !important;
+            }
+        }
+    }
+    // Wrapper
+    .wrapper{
+        margin-bottom: 4rem;
+        @media #{$small-only} {
+            margin-bottom: 3rem;
+        }
+    }
+    // Build Q&A
+    .accordion{
+        // Line with icon
+        dd{
+            background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+            color: $body-font-color;
+            & > a {
+                background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+                color: $body-font-color;
+                font-size: 0.925rem;
+                padding: 0.75rem 0 0.75rem 2.5rem;
+                border-bottom: 1px dashed scale-color($light-grey-section-bg-color, $lightness: -20%);
+                line-height: 1.3;
+                font-weight: 500;
+                &:hover{
+                   color: $my-deep-blue;
+                }
+                span{
+                    color: $body-font-color;
+                    font-size: rem-calc(23);
+                    font-weight: normal;
+                    position: relative;
+                    top: 5px;
+                    left: -9px;
+                    margin-left: rem-calc(-24);
+                    @include transition(all 0.3s ease-out 0s);
+
+                    &::before {
+                        content: "";
+                    }
+                }
+                @media #{$large-up} {
+                    font-size: 1rem;
+                    top: 6px;
+                    span{
+                        margin-left: -1.75rem;
+                        font-size: rem-calc(27);
+                    }
+                }
+            }
+            &.active{
+                & > a{
+                    border: none;
+                    color: $my-deep-blue;
+                    span{
+                        @include transition(all 0.3s ease-out 0s);
+
+                        &::before {
+                            content: "";
+                        }
+                    }
+                }
+            }     
+        }
+        // Content
+        .content{
+            background: #FFFFFF;
+            font-size: 0.925rem;
+            padding: 1.75rem 2.4rem;
+
+            &.active {
+                background: #FFFFFF;
+            }
+            span{
+                line-height: 1.4 ;
+                &.sub-header{
+                    font-weight: 500;
+                    font-size: 0.975rem;
+                    display: block;
+                    margin-bottom: 0.5rem;
+
+                    &.with-border{
+                        padding-bottom: 2px;
+                        border-bottom: 1px dashed scale-color($body-font-color, $lightness: 40%);
+                        margin-bottom: 1rem;
+                        margin-top: 2rem;
+                        line-height: 1.3;
+                    }
+                }
+                &.my-paragraph{
+                    display: block;
+                    margin-bottom: 0.825rem;
+
+                    &.end{
+                       margin-bottom: 1.5rem; 
+                    }
+                }
+            }
+            .container{
+                margin-top: 2rem;
+                .item{
+                    padding: 1.5rem 1.25rem;
+                    &:nth-child(odd) {
+                        background: white;
+                    }
+                }
+            }
+            ul, ol{
+                margin-top: 0.25rem;
+                font-size: 0.925rem;
+                line-height: 1.4;
+                li{
+                    padding-bottom:0.35rem;
+                }
+            } 
+        }       
+    }
+    // Useful extra classes
+    .panel{
+        background: scale-color($my-yellow, $lightness: 80%);
+        border: 2px solid scale-color($my-yellow, $lightness: -10%);
+        p{
+            font-size: 0.925rem;
+            &.panel-header{
+                font-weight: 500;
+                margin-bottom: 0.25rem;
+                font-size: 1rem;
+            }
+        }
+    }
+    .no-margin-bottom{
+        margin-bottom: 0;
+    }
+    // link at the end of the section  - you can see it at domain register
+    a.simple-link{
+        margin-top: 3rem;
+        @media #{$large-up} {
+             margin-top: 4rem;
+        }   
+    }
+}
+
+/* This is the tab module. Build in with different types of styles that come by applying the right class */
+#tab-module{
+    background: $light-grey-section-bg-color;
+    padding: 4rem 0;
+    // Build Generic Tabs
+    .tabs{
+        dd{
+            &.active a{
+                color: #FFFFFF;
+                background: $tabs-bg-color;
+                // build arrow
+                &:after{
+                    display: block;
+                    top: 100%; 
+                    left: 50%;
+                    content: " "; 
+                    height: 0; 
+                    width: 0; 
+                    position: absolute; 
+                    pointer-events: none; 
+                    border-color: rgba(0, 0, 0, 0); 
+                    border-top-color: $tabs-bg-color;
+                    border-width: 1.45rem; 
+                    margin-left: -1.45rem;
+                    @include transform(rotate(360deg));
+
+                    @media #{$small-only} {
+                        border-width: 1rem; 
+                        margin-left: -1rem;
+                    }
+                    @media #{$medium-only} {
+                        border-width: 1.2rem;
+                        margin-left: -1.2rem;
+                    }                    
+                }
+            }
+            // generic link style
+            & > a{
+                text-align:center;
+                font-size: 1.125rem;
+                font-weight: 500;
+
+                    @media #{$small-only} {
+                        font-size: 0.875rem;
+                        padding: 0.925rem 0.3rem;
+                    }
+                    @media #{$medium-only} {
+                        font-size: 1rem;
+                        padding: 1rem 1rem;
+                    }
+            }
+        }
+    }
+    // Tabs as ghost buttons. Preview style on Μεταφορά Domain
+    &.as-buttons{
+        .tab-title{
+            margin-bottom: 2rem !important;
+            // build the links
+            & > a{
+                background-color: white;
+                color: scale-color($medium-grey-section-bg-color, $lightness: -5%);
+                border: 1px solid $medium-grey-section-bg-color;
+                font-size: 1.125rem;
+                font-weight: 500;
+                margin: 0 auto;
+                text-align: center;
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+                width: 90%;
+                @include transition(all 0.1s linear 0s);
+                @media #{$small-only} {
+                    width: 96%;
+                    line-height: 1.2;
+                    font-size: 1rem;
+                    padding-left: 0.5rem;
+                    padding-right: 0.5rem;
+                }
+            }
+            // Hover state
+            & > a:hover{
+                border: 1px solid $my-green;
+                color: $my-green;
+            }
+            // Active State
+            &.active a{
+                background-color: $my-green;
+                border: 1px solid $my-green;
+                color: white;
+            }
+        }
+    }
+    // Minimal tabs. Preview style on Plesk page
+    &.minimal{
+        background-color: white;
+        .tabs{
+            @media #{$small-only}{
+                display: none;
+            }
+            margin: 0;
+            border-bottom: 2px solid $light-grey-section-bg-color;
+            display: inline-flex;
+            width: 100%;
+            justify-content: center;
+            .tab-title{
+                text-align: center;
+                padding: 0;
+                margin: 0 1rem;
+                // build the links
+                a{
+                    background-color: transparent;
+                    color: #989898;
+                    font-weight: 500;
+                    padding: 1rem 0.5rem;
+                    letter-spacing: 0.25px;
+                    line-height: 1.1;
+                    // hover state
+                    &:hover{
+                        color: $my-header-color;
+                        &::after{
+                            content: "";
+                            height: 2px;
+                            position: absolute;
+                            bottom: -2px;
+                            left: 0;
+                            right: 0;
+                            background-color: $my-header-color;
+                        }
+                    }
+                }
+                // active state
+                &.active a{
+                    color: $my-header-color;
+                    &::after{
+                        content: "";
+                        height: 2px;
+                        position: absolute;
+                        bottom: -2px;
+                        left: 0;
+                        right: 0;
+                        background-color: $link-color;
+                    }
+                }
+            }
+        }
+        .accordion dd > {
+            & a{
+                margin-bottom: 1px;
+            }
+            // Content styles
+            & .content{
+                @media #{$small-only}{
+                    background-color: $light-grey-section-bg-color;
+                }
+                @media #{$medium-up}{
+                    margin-top: 3rem;
+                    padding: 0;
+                }
+                // special class for handling images
+                .img-content{
+                    img{
+                        margin-top: 1rem;
+                        margin-bottom: 2rem;
+                    }
+                    .title-section{
+                        .my-h2-title, .my-h3-title{
+                            font-weight: 500;
+                        }
+                        p{
+                            line-height: 1.4;
+                        }
+                    }
+                    // Media queries Handling
+                    @media #{$large-up}{
+                        img{
+                            margin-top: 0;
+                            margin-bottom: 3rem;
+                        }
+                        .title-section{
+                            margin: 0 5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // Styles for tabs content wrapper
+    .tabs-content{
+        background: #FFFFFF;
+        padding: 3.5rem 1.5rem 1rem;
+        margin: 0 0 1.5rem;
+            // Media queries Handling
+            @media #{$small-only} {
+                padding: 2rem 1rem 1rem;
+            }
+            @media #{$medium-only} {
+                padding: 2rem 1.25rem 1rem;
+            }
+    }
+}
+
+/* Really Important Module - Regularly used. This is Version 2. Relies on flex system */
+#new-promo-container{
+    display: -ms-inline-flexbox;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+    // Colors
+    &.grey, &.domains{
+        .my-h2-title, p, ul, a, blockquote, cite{
+            color: white;
+        }
+    }
+    &.grey{
+        background: scale-color($dark-grey-section-bg-color, $lightness: 10%);
+    }
+    &.blue{
+        background: scale-color(#4C91D2, $lightness: 10%);
+    }
+    &.light-grey{
+        background: $light-grey-section-bg-color;
+    }
+    &.domains{
+        background: $domains-bg-color;
+    }
+    // Image Container
+    .img-container{
+        order: 0;
+        align-self: center;
+    }
+    // Content Container
+    .promo-text{
+        order: 0;
+        align-self: center;
+        padding-top: 2.75rem;
+        padding-bottom: 1.75rem;
+        padding-left: 0.9375rem;
+        padding-right: 0.9375rem;
+        width: 100%;
+        // Content styles
+        .my-h2-title{
+            line-height: 1.2;
+            color: #777;
+            &.white{
+              color: white;
+            }
+        }
+        p{
+          color: #777;
+        }
+        p.white{
+          color: white;
+        }
+        //a{
+        //    color: #686868;
+        //}
+        a.dark{
+          color: #384858;
+        }
+        ul{
+            line-height: 1.3;
+            @media #{$small-only} {
+                font-size: 0.925rem;
+            }
+            li:not(:last-child){
+                margin-bottom: 0.5rem;
+            }
+        }
+        .button{
+            margin-top: 0.5rem;
+            min-width: 10rem;
+            &.small{
+                padding-top: 0.725rem;
+                padding-bottom: 0.8375rem;
+            }
+        }
+        blockquote{
+            font-style: italic;
+            border-left: 0 none;
+            padding: 0;
+            margin-bottom: 0;
+            &:before{
+                font-family: Icomoon;
+                content: "\e1a0";
+                color: scale-color($dark-grey-section-bg-color, $lightness: 7%);
+                font-size: 3rem;
+                display: inline-block;
+                position: relative;
+                top: 4px;
+                margin-right: 1rem;
+                line-height: 1;
+            }
+            cite{
+                margin-top: 0.5rem;
+            }
+        }
+        cite{
+           font-style: normal;
+        }
+        small{
+            font-size: 85%;
+        }
+    }
+    // Useful Classes
+    .more-margin{
+        margin-top: 2rem;
+        @media #{$large-only} {
+            margin-top: 1rem;
+        }
+    }
+    // Media queries Handling
+    @media #{$large-up} {
+        flex-direction: row;
+        .img-container{
+            flex: 1;
+            min-width: 50%;
+            max-width: 50%;
+        }
+        .promo-text{
+            flex: 1;
+            padding-top: 1.25rem;
+            padding-bottom: 0;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            .button{
+                margin-bottom: 0;
+            }
+        }
+    }
+    @media #{$xlarge-up} {
+        max-height: rem-calc(575);
+        overflow: hidden;
+        .promo-text{
+            padding-left: 5rem;
+            padding-right: 15rem;
+        }
+    }
+}
+
+/* Module for displaying content and image. Example found on Why Ev SSL */
+.asset{
+    padding: 4rem 0;
+    // Colors
+    &.light{
+        background: $light-grey-section-bg-color;
+    }
+    // When it is first section in a page
+    &.intro{
+        padding-top: 2.25rem;
+    }
+    // Content Styles
+    .my-h2-title{
+        line-height: 1.2;       
+    }
+    img{
+        margin-bottom: 1.25rem;
+        @media #{$large-up} {
+            margin-top: 1.25rem;
+            margin-bottom: 0;
+            &.l-m-top{
+                margin-top: 2.5rem;
+            }   
+        } 
+    }
+    ul{
+        margin-left: 1.75rem;
+        &.w-m-bottom{
+            margin-bottom: 1.75rem;
+        }
+        li{
+            list-style-type: none;
+            line-height: 1.3;
+            position: relative;
+            &:not(:last-child){
+                margin-bottom: 0.75rem;
+            }
+            @media #{$small-only} {
+               font-size: 0.925rem;
+            }
+            &:before{
+                content: "\e614";
+                font-family: 'icomoon';
+                color: $my-green;
+                font-size: 18px;
+                left: -1.75rem;
+                top: -1px;
+                position: absolute;
+            }
+        }
+    }
+    .button{
+        &.w-m-top{
+            margin-top: 1.75rem;
+        }
+    }
+}
+
+/* Grid of 4 boxes in a row. Example found in domain names and ssl parent page */
+.featured-grid{
+    padding: 4rem 0;
+    background: scale-color($light-grey-section-bg-color, $lightness: 1%);
+    // Box styles
+    .panel{
+        background: white;
+        position: relative;
+        @include shadow(0, 2px, 0, scale-color($medium-grey-section-bg-color, $lightness: -5%));
+        @include transition(all 0.3s ease-in-out);
+        @media #{$large-up} {
+            padding: 1.75rem;
+            margin-bottom: 0;
+        }
+        // building hover state with after for seamless operation
+        &:hover{
+            box-shadow: none;
+        }
+        &::before {
+            content: "";
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            @include shadow(0, 1px, 6px, scale-color($my-black, $lightness: 55%));
+            @include transition(opacity 0.3s ease-in-out);
+        }
+        &:hover::before {
+            opacity: 1;
+        }
+        // Content styles
+        .my-h3-title{
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: $my-header-color;
+            margin-bottom: 1rem;
+            @media #{$small-only} {
+                font-size: 1.125rem;
+            }
+        }
+        img{
+            max-width: 45%;
+        }
+        p{
+            font-size: 0.925rem;
+            // Description
+            &.desc{
+                margin-bottom: 0.5rem;
+                margin-top: 0.5rem;
+                line-height: 1.4;
+                &.w-min-h{
+                    min-height: 6rem;
+                    line-height: 1.5;
+                }
+            }
+            // Price style
+            &.price{
+                margin-bottom: 0;
+                text-align: right;
+                color: $my-inner-elements-header-color;
+                font-size:  1.825rem;
+                display: block;
+                line-height: 1.3;
+                .sup{
+                    font-family: "Sarala";
+                    font-size: 2.75rem;
+                }
+                sup{
+                    font-size: 45%;
+                    margin-top: rem-calc(17);
+                    margin-left: rem-calc(2);
+                    position: absolute;
+                    top: initial;
+                }
+                small{
+                    font-size: 56%;
+                }
+                .strikethrough{
+                    color: scale-color($my-body-light-text-color, $lightness: 25%);
+                    font-size: 1.125rem;
+                }
+            }
+        }
+        .button{
+            padding: 0.8rem 1rem 0.8625rem;
+            margin-bottom: 0;
+        }
+        // when on Offer
+        &.on-offer:after{
+            background-color: $offer-color;
+            color: white;
+            content: "ΣΕ ΠΡΟΣΦΟΡΑ";
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 0.35rem 0.75rem;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+}
+
+/* Cards that consist of an image and a link. They are made to be used aside of content. Preview them on Ssl-wizard */
+.side-cards{
+    // Content styles
+    .panel{
+        padding: 0;
+        a{
+            background-color: $my-blue-black;
+            color: white;
+            line-height: 1.3;
+            padding: 1.25rem 1rem;
+            display: inline-block;
+            font-size: 0.925rem;
+            font-weight: 500;
+            width: 100%;
+            text-align: center;
+            @include transition(all 0.3s ease-in 0s);
+            &:hover{
+                background-color: scale-color($my-blue-black, $lightness: -20%);
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+/* Nice minimal tiles. Example found on SSL's product page and SSL installation service */
+.tiles{
+    padding: 4rem 0;
+    // Content styles
+    .my-h2-title{
+        margin-bottom: 0.625rem;
+    }
+    p{
+        line-height: 1.2;
+    }
+    // Build Tiles
+    ul{
+        margin-top: 2.25rem;
+        li{
+            // Build Tile
+            .tile{
+                border: 1px solid $medium-grey-section-bg-color;
+                display: table;
+                width: 100%;
+                border-collapse: separate;
+                border-spacing: 1rem;
+                position: relative;
+                // image wrapper
+                figure{
+                    display: table-cell;
+                    vertical-align: middle;
+                    margin: 0.5rem;
+                    min-width: rem-calc(70);
+                    max-width: rem-calc(130);
+                }
+                // Content styles
+                .text-container{
+                    display: table-cell;
+                    vertical-align: middle;
+                    p{
+                        color: $my-body-text-color;
+                        line-height: 1.2;
+                        &:last-of-type{
+                            margin-bottom: 0;
+                            font-size: 0.925rem;
+                        }
+                    }
+                    .head{
+                        font-weight: 700;
+                        margin-bottom: 0.5rem;
+                        color: $my-inner-elements-header-color;
+                    }
+                }
+                // hover state with after
+                &:hover{
+                    cursor: pointer;
+                    border-color: scale-color($medium-grey-section-bg-color, $lightness: -10%);
+                    .text-container{
+                        .head{
+                            color: $primary-color;
+                        }
+                    }
+                }
+                &::after {
+                    content: "";
+                    left: 0;
+                    opacity: 0;
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    @include shadow(0, 1px, 6px, scale-color($my-black, $lightness: 70%));
+                    @include transition(opacity 0.3s ease-in-out);
+                }
+                &:hover::after {
+                    opacity: 1;
+                }
+            }
+            .tile, .tile .text-container .head{
+                @include transition(all 0.3s ease-in-out);
+            }
+        }
+    }
+    // Media Queries Handling
+    @media #{$large-up} { 
+        .my-h2-title{
+            margin-bottom: 0.325rem;
+        }
+    }
+}
+
+/* It is made for 6 items with icon. Dashed border. Not been used yet live.
+Preview it on development page http://laravel.upgrade/tests/test4 */
+.tiles-with-border{
+    // Content styles
+    .my-h2-title, .my-h3-title, p, i{
+        @media #{$large-up} {
+            text-align: center;
+        }
+    }
+    .my-h3-title{
+        font-weight: 500;
+        font-size: 1.1rem;
+    }
+    p{
+        margin-bottom: 0;
+        @media #{$large-up} {
+            line-height: 1.4;
+        }
+    }
+    i{
+        display: block;
+        font-size: rem-calc(43);
+        margin-bottom: rem-calc(24);
+    }
+    a{
+        margin-top: 3rem;
+        color: white;
+    }
+    // Build Items
+    ul{
+        margin-top: 0;
+        @media #{$large-up} {
+            margin-top: 3rem;
+        }
+        // Item
+        li{
+            border-bottom: 1px dashed scale-color($medium-grey-section-bg-color, $lightness: -4%);
+            padding: 1.5rem 1rem;
+            @media #{$small-only} {
+                padding: 1.5rem 0;
+                margin-left: 1rem;
+                width: 95%;
+            }
+            @media #{$large-up} {
+                border-right: 1px dashed scale-color($medium-grey-section-bg-color, $lightness: -4%);
+                border-bottom: none;
+                padding: 2rem 3rem;
+            }
+            &:last-of-type{
+                border: none;
+            }
+            &:nth-child(3){
+                @media #{$large-up} {
+                    border-right: none;
+                }
+            }
+            &:nth-child(-n+3){
+                @media #{$large-up} {
+                    border-bottom: 1px dashed scale-color($medium-grey-section-bg-color, $lightness: -4%);
+                }
+            }
+        }
+    }
+}
+
+/* Big stats module. Example found on wordpress page */
+.big-stats{
+    padding: 4rem 0 5rem;
+    // Colors
+    &.grey{
+        background: $light-grey-section-bg-color;
+        ul{
+            border-color: $medium-grey-section-bg-color;
+            li, li.middle{
+                border-color: $medium-grey-section-bg-color;
+            }
+        }
+    }
+    .wrapper{
+        padding: 0 0.9375rem;
+    }
+    // Build each number cell
+    ul{
+        // cell styles
+        li{
+            padding-top: 2rem;
+            border-bottom: 1px solid;
+            border-color: scale-color($light-grey-section-bg-color, $lightness: -3%);
+            // number style
+            span{
+                font-size: 2.125rem;
+                font-weight: 700;
+                font-family: "Sarala";
+                line-height: 1;
+            }
+            p{
+                margin-bottom: 0;
+            }
+        }
+    }
+    // Handling module for larger screen
+    @media #{$medium-up} {
+        .wrapper{
+            padding: 0;
+        }
+        ul{
+            border-bottom: 1px solid;
+            border-color: scale-color($light-grey-section-bg-color, $lightness: -3%);
+            // cell styles
+            li{
+                padding-top: 3.75rem;
+                border-bottom: 0 none;
+                // styles for middle cell
+                &.middle{
+                    border-right: 1px solid;
+                    border-left: 1px solid;
+                    border-color: scale-color($light-grey-section-bg-color, $lightness: -3%);
+                }
+                span{
+                    font-size: 2.75rem;
+                    line-height: 1.1;
+                }
+            }
+        }
+    }
+}
+
+/* Minimal Cards. The global version of them. Example found on new tld's */
+.global-cards{
+	// Important note: dimensions for card image are 500px x 400px
+	.global-card{
+		max-width: rem-calc(500);
+		border: 1px solid $medium-grey-section-bg-color;
+		position: relative;
+        // Image
+		.global-card-img{
+			position: relative;
+		}
+        // Content
+		.global-card-content{
+			padding: 1rem;
+			background-color: white;
+			position: relative;
+            // Title
+			.global-card-name{
+				font-weight: 700;
+				font-size: rem-calc(17);
+				color: $my-inner-elements-header-color;
+			}
+            // Prices
+			.global-card-price{
+				position: absolute;
+				right: 1rem;
+				top: 1.75rem;
+				.price{
+					display: flex;
+					font-size: rem-calc(15);
+					font-weight: 400;
+					.strikethrough{
+						margin-right: 0.5rem;
+					}
+					.discount_target.current-price{
+						color: scale-color($my-orange, $lightness: -10%);
+					}
+				}
+			}
+		}
+        // Hover Styles
+		&:hover{
+			border-color: scale-color($medium-grey-section-bg-color, $lightness: -10%);
+		}
+		&::after {
+			content: "";
+			left: 0;
+			opacity: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			@include shadow(0, 1px, 6px, scale-color($my-black, $lightness: 70%));
+			@include transition(opacity 0.3s ease-in-out);
+		}
+		&:hover::after {
+			opacity: 1;
+		}
+        // On offer
+		&.on-offer::before {
+			background-color: $offer-color;
+			color: white;
+			content: "ΣΕ ΠΡΟΣΦΟΡΑ";
+			font-size: 0.7rem;
+			font-weight: 700;
+			letter-spacing: 1px;
+			padding: 0.4125rem 1rem;
+			position: absolute;
+			z-index: 2;
+			left: 0;
+			top: 0;
+		}
+        // Popular
+		&.popular::before{
+			background-color: $my-red;
+			color: white;
+			content: "ΔΗΜΟΦΙΛΕΣ";
+			font-size: 0.7rem;
+			font-weight: 700;
+			letter-spacing: 1px;
+			padding: 0.4125rem 1rem;
+			position: absolute;
+			z-index: 2;
+			left: 0;
+			top: 0;
+		}
+        // These Labels used in homepage
+		&.w-label{
+			.global-card-img:after{
+				color: white;
+				content: "";
+				font-size: 0.7rem;
+				font-weight: 700;
+				letter-spacing: 1px;
+				padding: 0.5rem 0.75rem;
+				position: absolute;
+				right: 0.75rem;
+				bottom: 0.75rem;
+				z-index: 2;
+			}
+            // For Security Section
+			&.security{
+				.global-card-img:after{
+					content: "ΑΣΦΑΛΕΙΑ";
+					background-color: rgba(24,191,147, .8);
+				}
+			}
+            // For Websites Section
+			&.websites{
+				.global-card-img:after{
+					content: "WEBSITES";
+					background-color: rgba(148,114,190, .8);
+				}
+			}
+		}
+	}
+}
+
+/* Module for displaying 2 sections of content and an image. Example found in Hosting and Domains parent pages. Relies on flex system. */
+.three-boxes{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+    // Colors
+    &.light-grey{
+        $bg-color: $light-grey-section-bg-color;
+        .wrapper{
+            &.box2{
+                background-color: scale-color($bg-color, $lightness: -6%);
+            }
+            &.box3{
+                background-color: scale-color($bg-color, $lightness: -11%);
+            }
+        }
+    }
+    &.dark-grey{
+        $bg-color: $dark-grey-section-bg-color;
+        .wrapper{
+            &.box2{
+                background-color: scale-color($bg-color, $lightness: 3%);
+            }
+            &.box3{
+                background-color: scale-color($bg-color, $lightness: -8%);
+            }
+            .content{
+                .genre-title, p, .my-h3-title{
+                    color: white;
+                }
+                .genre-title, p{
+                   opacity: 0.8;
+                }
+            }
+
+        }
+    }
+    // Content wrapper
+    .wrapper{
+        flex: 1;
+        height: inherit;
+        &.box1{
+            img{
+                object-fit: cover;
+                min-width: 100%;
+                min-height: 100%;
+            }
+        }
+        // Content styles
+        .content{
+            padding: 3rem 1.25rem;
+            .genre-title{
+                display: inline-block;
+                margin-bottom: 0.375rem;
+                font-size: rem-calc(14);
+            }
+            .my-h3-title{
+                font-weight: 500;
+                line-height: 1.2;
+            }
+            p{
+                line-height: 1.5;
+            }
+            .button{
+                margin-top: 0.5rem;
+                margin-bottom: 0;
+                &.small{
+                    padding-top: 0.725rem;
+                    padding-bottom: 0.8375rem;
+                }
+            }
+        }
+    }
+    // Handling different screens with Media Queries
+    @media #{$medium-only} {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: inherit;
+        .wrapper{
+            flex: 1 1 0;
+            &.box1{
+                flex-basis: 100%;
+            }
+        }
+    }
+    @media #{$large-up} {
+        flex-direction: row-reverse;
+        overflow: hidden;
+        height: 500px;
+        .wrapper{
+            .content{
+                padding: 3rem;
+                @media #{$xlarge-up} {
+                    padding: 6rem;
+                }
+            }
+        }
+    }
+}
+
+/* Flexible module for displaying content and image. Regularly used. This is Version2. Relies on flex system */
+.new-img-module{
+    background-color: white;
+    padding: 0 0 2rem;
+    // Colors
+    &.light-grey{
+        background: $light-grey-section-bg-color;
+    }
+    // Build Module
+    .wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        flex-wrap: nowrap;
+        // Image Styles
+        .img-container{
+            padding: 0;
+            margin: 0;
+            min-width: 30%;
+        }
+        // Content Styles
+        // wrapper
+        .content{
+            padding: 1.25rem 0.9375rem;
+            // list
+            ul{
+                margin-left: 1.75rem;
+                &.w-m-bottom{
+                    margin-bottom: 1.75rem;
+                }
+                li{
+                    list-style-type: none;
+                    line-height: 1.3;
+                    position: relative;
+                    &:not(:last-child){
+                        margin-bottom: 0.75rem;
+                    }
+                    @media #{$small-only} {
+                        font-size: 0.925rem;
+                    }
+                    &:before{
+                        content: "\e614";
+                        font-family: 'icomoon';
+                        color: $my-green;
+                        font-size: 18px;
+                        left: -1.75rem;
+                        top: -1px;
+                        position: absolute;
+                    }
+                }
+            }
+            // numbered list
+            ol{
+                margin: 0.75rem 0 1.25rem 1rem;
+                li{
+                    font-size: 0.825rem;
+                    line-height: 1.2;
+                    list-style-type: inherit;
+                    &:before{
+                        content: none;
+                    }
+                }
+            }
+            .button{
+                margin-bottom: 0;
+                @media #{$small-only} {
+                    width: 100%;
+                }
+                &.w-m-top{
+                    margin-top: 0.75rem;
+                }
+            }
+        }
+    }
+    // Handling different screens with Media Queries
+    @media #{$large-up} {
+        padding: 4rem 0;
+        .wrapper{
+            max-width: 87.5rem;
+            flex-flow: row;
+            margin: 0 auto;
+            padding-left: 0.9375rem;
+            padding-right: 0.9375rem;
+            .img-container{
+                max-width: 30%;
+            }
+            .content{
+                padding-left: 4rem;
+            }
+        }
+        // Reverse Option
+        &.reverse{
+            .wrapper{
+                flex-flow: row-reverse;
+                .content{
+                    padding-left: 0;
+                    padding-right: 4rem;
+                }
+            }
+        }
+    }
+}
+
+/* A row with a message. Available in 3-4 background variations. Regularly used. Relies on flex system */
+.action-row{
+    padding: 1.5rem;
+    // Colors
+    &.red{
+        background-color: $my-red;
+        .content a.button:hover{
+            color: $my-red;
+        }
+    }
+    &.dark-blue{
+        background-color: $my-blue-black;
+        .content a.button:hover{
+            color: $my-blue-black;
+        }
+    }
+    &.light-grey{
+        background-color: $light-grey-section-bg-color;
+        border-top: 1px solid #DBE2E5;
+        border-bottom: 1px solid #DBE2E5;
+        .content{
+           p{
+               color: $my-inner-elements-header-color;
+           }
+        }
+    }
+    // Content styles
+    .content{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-flow: column;
+        flex-wrap: nowrap;
+        min-height: rem-calc(59);
+        p{
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: white;
+            line-height: 1.2;
+            text-align: center;
+        }
+        a.button{
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            margin-bottom: 0;
+            &:hover{
+                background-color: white;
+                border-color: white;
+            }
+        }
+        // Handling different screens with Media Queries
+        @media #{$medium-up} {
+            flex-flow: row;
+            p{
+                text-align: left;
+                font-weight: 400;
+                font-size: 1.5rem;
+                margin-bottom: 0;
+            }
+        }
+        @media #{$large-up} {
+            p{
+                font-size: 1.75rem;
+            }
+        }
+    }
+}
+
+/* A list with big numbers on the side. Example found on Why choose DNHOST */
+.ordered-list{
+    padding: 4rem 0;
+    // When it is first section in a page
+    &.intro-padding{
+        padding: 2.25rem 0 4rem;
+    }
+    // Colors
+    &.light-grey{
+        background-color: $light-grey-section-bg-color;
+    }
+    &.hosting{
+        .my-ordered-list > li:before{
+            color: $my-light-blue;
+            background-color: white;
+        }
+    }
+    // Building Special list
+    .my-ordered-list{
+        list-style-type: none;
+        margin: 0;
+        margin-left: 2.25rem;
+        padding: 0;
+        padding-top: 0.5rem;
+        counter-reset: li-counter;
+        // Numbers
+        & > li{
+            position: relative;
+            margin-bottom: 1.25rem;
+            padding-left: 2.75rem;
+            min-height: 3rem;
+            // Build numbers
+            &:before{
+                color: #0686D8;
+                content: counter(li-counter,decimal);
+                counter-increment: li-counter;
+                font-size: 2rem;
+                font-weight: 700;
+                left: -2.75rem;
+                line-height: 1.95;
+                position: absolute;
+                text-align: center;
+                top: -1px;
+                width: 4rem;
+                background-color: #daedf8;
+                border-radius: 50%;
+                height: 4rem;
+                font-family: "Sarala";
+            }
+            // Handling different screens with Media Queries
+            @media #{$small-only} {
+                padding-left: 1rem;
+                &:before{
+                    font-size: 1.5rem;
+                    width: 3rem;
+                    height: 3rem;
+                }
+            }
+            //Fix for chrome
+            @media screen and (-webkit-min-device-pixel-ratio:0) {
+                &:before{
+                    line-height: 2;
+                }
+            }
+        }
+        // Content styles inside this module / Used in transfer site
+        li{
+            margin-bottom: 5rem;
+            @media #{$small-only} {
+                margin-bottom: 3rem;
+            }
+            &:last-of-type{
+                margin-bottom: 0;
+            }
+            h3{
+                font-size: 1.375rem;
+                font-weight: 400;
+                margin-top: 0;
+                line-height: 1.2;
+                @media #{$small-only} {
+                    font-size: 1.225rem;
+                }
+            }
+            p.lead{
+                font-size: 1rem;
+                font-weight: 500;
+                margin-bottom: 0.625rem;
+            }
+            ul{
+                margin-left: 1.25rem;
+                li{
+                    margin-bottom: 0.5rem;
+                    line-height: 1.3;
+                    @media #{$small-only} {
+                        font-size: 0.95rem;
+                        margin-bottom: 0.75rem;
+                    }
+                    &:before{
+                        content: "\e614";
+                        font-family: 'icomoon';
+                        margin-left: -0.9rem;
+                        left: -0.4rem;
+                        color: $my-green;
+                        position: relative;
+                        top:1px;
+                    }
+                }
+            }
+        }
+    }
+    // Useful Classes
+    .panel{
+        background: scale-color($my-yellow, $lightness: 80%);
+        border: 2px solid scale-color($my-yellow, $lightness: -10%);
+        margin-top: 1rem;
+        p{
+            font-size: 0.925rem;
+            &.panel-header{
+                font-weight: 500;
+                margin-bottom: 0.25rem;
+                font-size: 1rem;
+            }
+        }
+    }
+    .disclaimer{
+        margin-top: 4rem;
+        p{
+            border-bottom: 1px solid #c3d4d8;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.25rem;
+        }
+        ul{
+            margin-bottom: 0;
+            li{
+                padding-bottom: 0.75rem;
+                font-size: 0.925rem;
+                @media #{$large-up} {
+                    padding-bottom: 0.25rem;
+                }
+            }
+        }
+    }
+}
+
+
+/* Mobile Bottom Navigation - Bar with useful links that pops up when user scrolls down in mobile */
+$bottom-navigation-transition-speed: 1s;
+.bottom-navigation{
+    box-shadow: 0 0 2px 1.5px rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+    background-color: white;
+    width: 100%;
+    z-index: 99;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: transform $bottom-navigation-transition-speed cubic-bezier(0.86, 0, 0.07, 1);
+    // Class for javascript handling
+    &.hidden {
+        transform: translateY(100%);
+    }
+    // Content
+    ul{
+        text-align: center;
+        // Build each cell
+        li{
+            padding: 0;
+            a{
+                color: $my-body-text-color;
+                display: block;
+                @include transition(all 0.3s ease-in-out);
+                // wrapper
+                div{
+                    padding: 0.75rem;
+                    // icon
+                    i{
+                        font-size: rem-calc(23);
+                        position: relative;
+                        top: 2px;
+                    }
+                    span{
+                        display: block;
+                        font-size: 0.825rem;
+                        font-weight: 500;
+                        line-height: 1;
+                        position: relative;
+                        // for cart cell
+                        &.badge{
+                            @include border-radius(50%);
+                            color: white;
+                            font-size: 0.675rem;
+                            height: 18px;
+                            width: 18px;
+                            position: absolute;
+                            line-height: 20px;
+                            font-weight: 400;
+                            background-color: $my-red;
+                            display: inline;
+                            top: 10px;
+                            margin-left: -7px;
+                        }
+                    }
+                }
+                // Active state
+                &.active{
+                    color: $link-color;
+                    div{
+                        padding: 0.5rem;
+                        i{
+                            font-size: rem-calc(26);
+                            top: 4px;
+                        }
+                        span{
+                            font-size: 0.925rem;
+                            top: 2px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// Fix for firefox
+@-moz-document url-prefix() {
+    .bottom-navigation ul li a div span.badge{
+        line-height: 16px;
+    }
+}
+
+
+/* ----------------------------------------------------------------------
+Modules used for the parent pages Domains, Hosting ,Security and Websites
+----------------------------------------------------------------------- */
+// Intro Section for Parent pages
+.overview{
+    padding: 2.25rem 0 4rem;
+    // Find this in websites parent page
+    a{
+        // Build each box
+        .panel{
+            padding-bottom: 1.5rem;
+            margin-bottom: 0;
+            position: relative;
+            text-align: center;
+            background-color: white;
+            border: 1px solid $medium-grey-section-bg-color;
+            @include transition(all 0.3s ease-in-out);
+            // padding handling for different screens
+            @media #{$medium-only} {
+                padding: 1.75rem 2rem 1.75rem;
+            }
+            @media #{$large-only} {
+                padding: 2rem 1rem 1rem;
+            }
+            @media #{$large-up} {
+                padding: 2rem 1.25rem 1.5rem;
+            }
+            // styles for hover states
+            &:hover{
+                border: 1px solid scale-color($medium-grey-section-bg-color, $lightness: -10%);
+                .icon{
+                    i{
+                        color: white;
+                    }
+                }
+                p{
+                    @include transition(opacity 0.8s, transform 0.8s);
+                    &.content{
+                        visibility: hidden;
+                        opacity: 0;
+                        display: none;
+                    }
+                    &.h-content{
+                        opacity: 1;
+                        visibility: visible;
+                        position:relative;
+                    }
+                }   
+                .button{
+                    background: scale-color($primary-color, $lightness: -20%);
+                }   
+            }
+            &::after {
+                content: "";
+                left: 0;
+                opacity: 0;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                @include shadow(0, 1px, 6px, scale-color($my-black, $lightness: 70%));
+                @include transition(opacity 0.3s ease-in-out);
+            }
+            &:hover::after {
+                opacity: 1;
+            }
+            // Content styles
+            // header
+            h3, h2{
+                font-size: rem-calc(21);
+                line-height: 1.1;
+                font-weight: 500;
+                text-transform: uppercase;
+                margin-top: 0;
+                margin-bottom: 0.25rem;
+                color: $my-header-color;
+                @include transition(all 0.3s ease-out 0s);
+                @media #{$medium-up} {
+                    line-height: 1.4;
+                    margin-bottom: 0;
+                }
+            }
+            // paragraph styles
+            p{
+                font-size: 0.925rem;
+                line-height: 1.5;
+                &.subheading{
+                    font-size: rem-calc(13);
+                    font-weight: 400;
+                    padding-bottom: 0.25rem;
+                    margin: 0 auto 1.25rem;
+                }
+                &.content{
+                    opacity: 1;
+                    visibility: visible;
+                    position: relative;
+                    display: inline-block;
+                    min-height: 4.25rem;
+                    margin-bottom: 0;
+                }
+                &.h-content{
+                    visibility: hidden;
+                    opacity: 0;
+                    margin-bottom: 0;
+                    position: absolute;
+                    min-height: 4.25rem;
+                    top: 0;
+                }
+                i{
+                    vertical-align: middle;
+                }
+            }
+            // icon styles
+            .icon{
+                margin: 0 auto;
+                width: 8rem;
+                margin-top: 0.25rem;
+                margin-bottom: 2rem;
+                &:after{
+                    content: "";
+                    display: block;
+                    width: 100%;
+                    height:0;
+                    padding-bottom: 100%;
+                    background-color: #EEF1F3;
+                    @include border-radius(50%);
+                    @include transition(all 0.3s ease-out 0s);
+                }
+                i{
+                    float:left;
+                    width: 100%;
+                    padding-top: 50%;
+                    line-height: 1em;
+                    margin-top: -0.5em;
+                    text-align: center;
+                    font-size: rem-calc(60px);
+                    @include transition(all 0.3s ease-out 0.1s);
+                }
+            }
+            // action style
+            .button{
+                width: 100%;
+                padding: 0.8rem 1rem 0.8625rem;
+                margin-bottom: 0;
+                margin-top: 1.25rem;
+            }
+        }
+    } 
+}
+
+// 4 Elements. Last section in parent pages
+.four-elements{
+    background: scale-color($light-grey-section-bg-color, $lightness: -1%);
+    padding: 4rem 0 3rem;
+    // Content Styles
+    .my-h4-title{
+        font-weight: 500;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+    }
+    p{
+        margin-bottom: 2.5rem;
+        &.no-margin-bottom{
+            @media #{$small-only} {
+                margin-bottom: 0;
+            }
+        }
+    }
+    // Build Icons
+    ul{
+        @media #{$xlarge-up}{
+            margin-left: -2rem;   
+        }
+        @media #{$medium-only}{
+            padding-left: 1rem;   
+        }
+        li{ 
+            margin-top: 2rem;
+            padding-right: 1rem;
+            @media #{$small-only} {
+                margin-top: 1.375rem;
+            }
+            .icon{
+                width: 8rem;
+                float: right;
+                @media #{$small-only} {
+                    display: none;
+                }
+                @media #{$medium-only} {
+                    width: 7rem;
+                }
+                // Icon Background
+                &:after{
+                    content: "";
+                    display: block;
+                    width: 100%;
+                    height:0;
+                    padding-bottom: 100%;
+                    background: white;
+                    @include border-radius(50%);
+                }
+                // Icon Colors
+                &.color1{
+                    color: $my-orange;
+                }
+                &.color2{
+                    color: $my-light-blue;
+                }
+                &.color3{
+                    color: $my-purple;
+                }
+                &.color5{
+                    color: $my-deep-blue;
+                }
+                &.color7{
+                    color: $my-green;
+                }
+                // Icon style
+                i{
+                    float: left;
+                    width: 100%;
+                    padding-top: 50%;
+                    line-height: 1;
+                    margin-top: -0.475em;
+                    text-align: center;
+                    font-size: rem-calc(41);
+
+                    @media #{$large-up} {
+                        font-size: rem-calc(53);
+                    }
+                }
+            }   
+            &:hover .icon:after{
+                background: white;
+            }
+        }
+    }
+}
+
+
+/* End parent pages modules */
+
+
+/* Cookies Consent Box */
+.cookies-box{
+    padding: 1rem;
+    position: fixed;
+    background: $light-grey-section-bg-color;
+    z-index: 999999;
+    bottom: 0;
+    width: 100%;
+    // Content Styles
+    .content{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-flow: column;
+        flex-wrap: nowrap;
+        min-height: rem-calc(59);
+        p{
+            font-size: 0.925rem;
+            line-height: 1.4;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 0.75rem;
+        }
+        .button{
+            margin-bottom: 0;
+            padding-top: 0.575rem;
+            padding-bottom: 0.6375rem;
+        }
+    }
+    // Handling different screens with Media Queries
+    @media #{$medium-up} {
+        z-index: 9999;
+        padding: 0.375rem 1rem;
+        .content {
+            flex-flow: row;
+            p {
+                text-align: left;
+                margin-bottom: 0;
+                margin-right: 1.25rem;
+            }
+        }
+    }
+    @media #{$large-up} {
+        padding: 0.375rem 5rem;
+    }
+}
+
+
+/* ------------
+End CSS file
+-------------- */

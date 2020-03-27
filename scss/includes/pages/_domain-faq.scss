@@ -1,0 +1,15 @@
+/* Domains Faq */
+
+#intro{
+    #accordion-content{
+        padding-top: 0;
+        padding-bottom: 0;
+        background: white;
+
+        .accordion{
+            .content{
+                background: $light-grey-section-bg-color;
+            }       
+        }
+    }
+}

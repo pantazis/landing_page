@@ -1,0 +1,642 @@
+
+/* Dashboard Styles */
+
+// Dashboard Wrapper
+.dashboard-wrapper{
+	margin-bottom: -2.75rem;
+	.wrapper{
+		padding:4rem 0;
+		&.light-grey{
+			background-color: $light-grey-section-bg-color;
+		}
+	}
+	//Alert Messages
+	.alert-box{
+		font-size: 0.875rem;
+		line-height: 1.4;
+		margin-bottom: 0.5rem;
+		padding-right: 3rem;
+		font-weight: 300;
+
+		strong{
+			font-weight: 700;
+			letter-spacing: 0.5px;
+		}
+		.close{
+			color: #ffffff;
+			opacity: 0.8;
+			right: 0.75rem;
+			top: rem-calc(26);
+			&:hover{
+				opacity: 1;
+			}
+		}
+	}
+}
+
+// Account Quick Info
+.account-info{
+	padding: 1rem 0 1.875rem;
+	.user-container, .user-info{
+		border: 1px solid $medium-grey-section-bg-color;
+		padding: 1.25rem;
+	}
+	.user-container{
+		h5{
+			margin-top: -0.225rem;
+		}
+		.info{
+			display: table;
+			i, .user-details{
+				display: table-cell;
+			}
+			i{
+				font-size: 4rem;
+			    min-width: 4rem;
+			    padding-right: 1rem;
+			}
+			.user-details{
+				vertical-align: middle;
+				span{
+					display: block;
+					margin-bottom: 0.425rem;
+					&.minimum{
+						strong{
+							min-width: 7rem;
+							display: inline-table;
+						}
+					}
+					&.verify-link{
+						display: inline;
+						margin-left: 0.25rem;
+						font-size: 0.85rem;
+						a{
+							font-size: 0.85rem;
+						}
+					}
+				}
+				span, a{
+					font-size: 0.95rem;
+				}
+			}
+		}
+	}
+	.user-info{
+		@media #{$small-only} {
+			position: relative;
+			top: -1px;
+			padding-top: 1.75rem;
+			ul li:first-of-type{
+				margin-bottom: 1.25rem;
+			}
+		}
+		@media #{$medium-only} {
+			position: relative;
+			top: -1px;
+			padding-top: 1.75rem;
+		}
+		@media #{$medium-up} {
+			ul li{
+				padding-bottom: 0;
+				&:first-of-type{
+					padding-right: 1.75rem;
+					&::after{
+						background-color: $medium-grey-section-bg-color;
+					    content: "";
+					    display: block;
+					    height: 60%;
+					    left: 50%;
+					    position: absolute;
+					    top: 20%;
+					    width: 1px;
+					}
+				}
+				&:last-of-type{
+					padding-left: 1.75rem;
+				}
+			}
+		}
+		.tile{
+			padding-top: 0;
+			padding-left: 0;
+			padding-bottom: 0.675rem;
+			border: 0 none;
+			margin-bottom: 0;
+			.t-right i{
+				top: 0;
+				right: 0.25rem;
+			}
+		}
+		p, a{
+			font-size: 0.95rem;
+			line-height: 1.1rem;
+			margin-bottom: 0;
+		}
+		&.admin{
+			@media #{$medium-up} {
+				ul li{
+					&:first-of-type{
+						padding-right: 0.625rem;
+						&::after{
+							content: none;
+						}
+					}
+					&:last-of-type{
+						padding-left: 0.625rem;
+						.tile{
+							border-bottom: none;
+							margin-bottom: 0;
+							padding-bottom: 0;
+						}
+					}
+				}
+			}
+			@media #{$small-only} {
+				position: relative;
+				top: -1px;
+				padding-top: 1.75rem;
+				ul li{
+					&:first-of-type{
+						margin-bottom: 0;
+					}
+					&:last-of-type{
+						.tile{
+							border-bottom: none;
+							margin-bottom: 0;
+							padding-bottom: 0;
+						}
+					}
+				}
+			}
+			.tile{
+				font-size: 0.95rem;
+				border-bottom: 1px solid $medium-grey-section-bg-color;
+				margin-bottom: 1.25rem;
+				&.more-padding{
+					padding-bottom: 2.25rem;
+				}
+				.t-left{
+					.label{
+						margin-bottom: 0.5rem;
+					}
+					.number{
+						font-weight: 500;
+					}
+					.content{
+						padding-top: 0.5rem;
+						strong{
+							color: $my-inner-elements-header-color;
+						}
+						.date{
+							i{
+								font-size: 0.75rem;
+							}
+							@media #{$large-up} {
+								position: absolute;
+							    right: 0;
+							    top: 4rem;	
+							}
+						}
+						ul.inline-list{
+							& > li > *{
+								display: inline-block;
+							}
+							margin-bottom: 0;
+							li{
+								font-size: 0.95rem;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	// Hosting Account Quick Info. Its on hosting page
+	&.hosting{
+		padding: 0 0 2rem;
+		margin-top: 0;
+		.user-container{
+			border: 0 none;
+    		padding: 0;
+    		h5{
+			    margin-top: -0.225rem;
+			}
+		}
+		.user-actions{
+			display: table-cell;
+			vertical-align: bottom;
+			padding-left: 2rem;
+			.button{
+				margin-bottom: 0.25rem;
+			}
+		}
+		@media #{$large-up} {
+			margin-top: -1.5rem;
+		}
+		@media #{$small-only} {
+			.user-container {
+				display: block;
+				.info{
+					display: block;
+					i{
+						display: block;
+						margin-bottom: 1rem;
+					}
+				}
+
+			}
+			.user-actions{
+				display: block;
+    			margin-top: 1rem;
+    			padding-left: 0;
+			}
+		}
+	}
+}
+
+// Quick Services Overview
+.services-overview{
+	padding-bottom: 4rem;
+	.services_wrapper{
+		background-color: white;
+		margin-bottom: 1.25rem;
+		position: relative;
+		.blocks{
+			border: 1px solid $medium-grey-section-bg-color;
+			border-bottom: 0 none;
+			.total{
+				display: block;
+				text-align: center;
+				padding: 1.25rem;
+				color: $my-body-text-color;
+				height: inherit;
+				@include transition(all 0.3s ease-in);
+				@media #{$large-up} {
+					padding-top: 2.25rem;
+				}
+				&:hover{
+				 	color: $my-inner-elements-header-color;
+				 	.title::after {
+						-webkit-transform: translate3d(0,0,0);
+						transform: translate3d(0,0,0);
+					}
+				}
+				&::after{
+					position: absolute;
+					top: 0.825rem;
+					left: 1rem;
+					font-family: 'icomoon';
+					color: $medium-grey-section-bg-color;
+				}
+				.number{
+					font-size: 3.5rem;
+					font-weight: 400;
+					margin-bottom: 0.25rem;
+					@include transition(all 0.3s ease-in);
+					@media #{$medium-up} {
+						font-size: 4.5rem;
+					}
+					&.admin{
+						font-size: rem-calc(46);
+    					margin-top: 1rem;
+						font-weight: 500;
+					}
+				}
+				.title{
+					font-size: 1.25rem;
+	    			position: relative;
+					overflow: hidden;
+					padding-bottom: 0.4rem;
+					letter-spacing: -0.35px;
+					@include transition(all 0.3s ease-in);
+	    			&::after {
+					    bottom: 0;
+					    content: "";
+					    height: 2px;
+					    left: 0;
+					    position: absolute;
+					    transform: translate3d(-100%, 0px, 0px);
+					    -webkit-transform: translate3d(-100%,0,0);
+					    @include transition(transform 0.35s ease 0s);
+					    width: 100%;
+					}
+				}
+			}
+			.warnings{
+		        .number{
+					font-size: rem-calc(30);
+					font-weight: 400;
+					padding-top: rem-calc(20);
+					line-height: 1;
+		        }
+		        .title{
+		        	font-size: rem-calc(14);
+		        	line-height: 1.2;
+		        	padding-bottom: rem-calc(3);
+		        	color: $my-body-text-color;
+		        }
+		        ul{
+		        	margin: 0;
+		        	li{
+		        		padding-bottom: 0.6rem;
+		        		@include transition(all 0.25s ease-in);
+		        		border-top: 1px solid $medium-grey-section-bg-color;
+						@media #{$large-up} {
+				            border-left: 1px solid $medium-grey-section-bg-color;
+				            border-top: 0 none;
+				        }
+				        &:hover{
+				        	background-color: scale-color($light-grey-section-bg-color, $lightness: 15%);
+				        }
+		        		&.warn{
+		        			border-right: 1px solid $medium-grey-section-bg-color;
+							@media #{$large-up} {
+					            border-right: 0 none;
+					            border-bottom: 1px solid $medium-grey-section-bg-color;
+					        }
+		        			.number{
+								color: $my-orange;
+							}
+						}
+						&.expired{
+							.number{
+								color: $my-red;
+							}
+						}
+		        	}
+		        }
+			}
+		}
+		.button{
+			padding: 1.25rem;
+			display: block;	
+		}
+		// Give colors for each product category
+		&.domains{
+			.blocks .total::after{
+				content: "\e64e";
+				font-size: 1.625rem;
+			}
+			.blocks .total .title::after {
+				background-color: $domains-bg-color;
+			}
+			.button{
+				background-color: $domains-bg-color;
+				&:hover{
+					background-color: scale-color($domains-bg-color, $lightness: -20%);
+				}
+			}
+		}
+		&.hosting{
+			.blocks .total::after{
+				content: "\e908";
+				font-size: 1.825rem;
+			}
+			.blocks .total .title::after {
+				background-color: $hosting-bg-color;
+			}
+			.button{
+				background-color: $hosting-bg-color;
+				&:hover{
+					background-color: scale-color($hosting-bg-color, $lightness: -20%);
+				}
+			}
+		}
+		&.ssl{
+			.blocks .total::after{
+				content: "\e280";
+				font-size: 1.825rem;
+			}
+			.blocks .total .title::after {
+				background-color: $security-bg-color;
+			}
+			.button{
+				background-color: $security-bg-color;
+				&:hover{
+					background-color: scale-color($security-bg-color, $lightness: -20%);
+				}
+			}
+		}
+	}
+}
+
+// Quick Actions
+.quick-actions{
+	margin-bottom: 0.75rem;
+	.panel{
+		background-color: white;
+		border: 1px solid $medium-grey-section-bg-color;
+		position: relative;
+		transition: all 0.3s ease-in-out;
+		@media #{$large-up} {
+			padding-top: 2.25rem;
+			padding-bottom: 1.75rem;
+			max-height: 9.5rem;
+		}
+		&:hover{
+			.icon{
+				color: scale-color($my-deep-blue, $lightness: 1%);
+			}
+			p{
+				color: $my-subheader-paragraph-color;
+				&::after {
+					-webkit-transform: translate3d(0,0,0);
+					transform: translate3d(0,0,0);
+				}
+			}
+			&::before{
+				opacity: 1;
+			}
+		}
+		/*
+		&::before{
+            content: "";
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            @include shadow(0, 1px, 6px, scale-color($my-black, $lightness: 55%));
+            @include transition(opacity 0.3s ease-in-out);
+        }
+        */
+		.icon{
+			font-size: 2.75rem;
+			margin-bottom: 1rem;
+			color: scale-color($my-light-blue, $lightness: 1%);
+			@include transition(all 0.3s ease-in);
+		}
+		p{
+			@include transition(all 0.3s ease-in);
+			position: relative;
+			overflow: hidden;
+			padding-bottom: 0.4rem;
+			margin-bottom: 0;
+			line-height: 1.2;
+			font-size: 0.925rem;
+    		font-weight: 500;
+			&::after {
+				background-color: scale-color($my-deep-blue, $lightness: 1%);
+			    bottom: 0;
+			    content: "";
+			    height: 2px;
+			    left: -0.075rem;
+			    position: absolute;
+			    transform: translate3d(-100%, 0px, 0px);
+			    -webkit-transform: translate3d(-100%,0,0);
+			    @include transition(transform 0.35s ease 0s);
+			    width: 100%;
+			}
+		}
+	}
+	.box-unpaid-orders .panel{
+		span{
+			@include border-radius(50%);
+			background-color: $my-orange;
+			color: white;
+		    font-size: 0.875rem;
+		    font-weight: 700;
+		    height: 1.5rem;
+		    line-height: 1.7;
+		    position: absolute;
+		    right: 0.75rem;
+		    top: 0.75rem;
+		    width: 1.5rem;
+		}
+	}
+}
+
+// Quick Search
+.quick-search{
+	margin-bottom: 0.75rem;
+}
+
+// Support & Offers
+.support-offers{
+	// Support section
+	.support{
+		.head{
+			background-color: #7adbc8;
+			background: url("../img/back-end/support.jpg") no-repeat scroll left 0, #7adbc8;
+            background-size: 305px 204px;
+            width: 100%;
+            height: 204px;
+		}
+		.content{
+			border: 1px solid $medium-grey-section-bg-color;
+			border-top: 0 none;
+			min-height: rem-calc(204);
+			padding-top: 2rem;
+			@media #{$large-up} {
+				border-left: 0 none;
+				border-top: 1px solid $medium-grey-section-bg-color;
+			}
+
+			h4{
+				font-weight: 300;
+				line-height: 1.2;
+				margin-bottom: 2rem;
+				text-align: center;
+			}
+			a{
+				display: inline-block;
+				margin-bottom: 1.75rem;
+				padding-left: 0.5rem;
+				padding-right: 0.5rem;
+				color: $my-body-text-color;
+				font-size: 0.925rem;
+				font-weight: 400;
+				@include transition(all 0.3s ease-in);
+				i{
+					display: block;
+				    font-size: rem-calc(33);
+				    margin-bottom: 0.25rem;
+				    color: scale-color(#7ADBC8, $lightness: -10%);
+				    @include transition(all 0.3s ease-in);				
+				}
+				&:hover{
+					color: $my-subheader-paragraph-color;
+					i{
+						color: scale-color(#7ADBC8, $lightness: -35%);
+					}
+				}
+			}
+		}	
+	}
+	// Offers section
+	.offer{
+		position: relative;
+		figure {
+			position: relative;
+			overflow: hidden;
+			margin: 0;
+			background-color: scale-color($dark-grey-section-bg-color, $lightness: -10%);
+			img {
+				position: relative;
+				display: block;
+				@include transition(opacity 0.35s);
+			}
+			figcaption {
+				padding: 2rem;
+				position: absolute;
+				width: 100%;
+				-webkit-backface-visibility: hidden;
+				backface-visibility: hidden;
+			}
+		}
+
+		/* Effect */
+		figure.effect figcaption {
+			top: auto;
+			bottom: 0;
+			padding: 1rem;
+			height: 3.75rem;
+			background: white;
+			@include transition(transform 0.35s);
+			-webkit-transform: translate3d(0,100%,0);
+			transform: translate3d(0,100%,0);
+			
+		}
+		figure.effect a {
+			float: left;
+			padding: 0.125rem;
+			font-weight: 400;
+		}
+		figure.effect p.description {
+			position: absolute;
+			top: -10rem;
+			padding: 2rem;
+			font-size: 1rem;
+			color: white;
+			opacity: 0;
+			@include transition(opacity 0.35s);
+			-webkit-backface-visibility: hidden; /* Fix for Chrome 37.0.2062.120 (Mac) */
+			backface-visibility: hidden;
+			@media #{$large-up} {
+                font-size: 1.125rem;
+                top: -11.5rem;
+            }
+		}
+		figure.effect a {
+			@include transition(transform 0.5s);
+			-webkit-transform: translate3d(0,200%,0);
+			transform: translate3d(0,200%,0);
+		}
+		figure.effect:hover p.description {
+			opacity: 1;
+		}
+		figure.effect:hover img{
+			opacity: 0.05;
+		}
+		figure.effect:hover figcaption, figure.effect:hover a {
+			-webkit-transform: translate3d(0,0,0);
+			transform: translate3d(0,0,0);
+		}
+		figure.effect:hover a {
+			-webkit-transition-delay: 0.05s;
+			transition-delay: 0.05s;
+		}
+	}
+}

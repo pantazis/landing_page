@@ -1,0 +1,88 @@
+// User enrolment options
+#enrolment_options_container {
+    .panel {
+        background: white;
+        position: relative;
+        -moz-box-shadow: 0 2px 0 #c1cdd3;
+        -webkit-box-shadow: 0 2px 0 #c1cdd3;
+        box-shadow: 0 2px 0 #c1cdd3;
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+
+        padding: 1.75rem 1.75rem 0.875rem 1.75rem;
+
+        margin-bottom: 0;
+
+        .button {
+            min-height: 46px;
+            padding-top: 0.8rem;
+        }
+    }
+}
+
+#installation-disclaimer {
+    font-size: 0.75rem;
+}
+
+
+// Tabs with radio inside them / Made for SSL enroll section
+.custom-tabs{
+	ul.inline-list{
+        li{
+            @media #{$small-only}{
+                width: 100%;
+            }
+            .button{
+                background-color: $light-grey-section-bg-color;
+                color: scale-color($medium-grey-section-bg-color, $lightness: -15%);
+                border: 1px solid $medium-grey-section-bg-color;
+                margin-bottom: 0.25rem;
+                padding-left: 1.5rem;
+                padding-right: 1.75rem;
+                text-align: center;
+                @include transition(all 0.1s linear 0s);
+                @media #{$small-only}{
+                    width: 82%;
+                }
+                &:hover{
+                    background-color: white;
+                    border: 1px solid $my-green;
+                    color: $my-green;
+                }
+                &.active{
+                    background-color: $my-green;
+                    border: 1px solid $my-green;
+                    color: white;
+                }
+            }
+            input{
+                margin-bottom: 0;
+                margin-right: 0.25rem;
+                position: relative;
+                top: 1px;
+            }
+        }
+	}
+    .content{
+        padding: 1rem 0;
+        p{
+            line-height: 1.4;
+        }
+        ul{
+            font-size: 0.925rem;
+            margin-bottom: 0;
+            li{
+                line-height: 1.2;
+                margin-bottom: 0.5rem;
+                span{
+                    overflow-wrap: break-word;
+                    word-wrap: break-word;
+                    display: block;
+                }
+                
+            }
+        }
+    }
+}

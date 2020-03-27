@@ -1,0 +1,152 @@
+/* Styles for Forms */
+form{
+    &.white{
+        background-color: white;
+        padding: 1.25rem;
+        fieldset{
+            margin-top: 0; 
+        }
+    }
+    &.create{
+        h5{
+            background-color: scale-color($light-grey-section-bg-color, $lightness: 15%);
+            border-top: 1px solid $medium-grey-section-bg-color;
+            border-bottom: 1px solid $medium-grey-section-bg-color;
+            display: block;
+            font-weight: 500;
+            line-height: 1.1;
+            padding: 1rem 1.25rem;
+            margin: 0 -1.25rem 1.25rem;
+        }
+        fieldset{
+            border: 1px solid $medium-grey-section-bg-color;
+            border-top: 0 none;
+            padding: 0 1.25rem 0.25rem;
+            background-color: white;
+            label{
+                &.inline{
+                    color: #717171;
+                    @media #{$large-up}{
+                        text-align: right;
+                    }
+                }
+                &.small-lineheight{
+                    @media #{$large-up}{
+                        line-height: 1.2;
+                        display: flex;
+                        height: 2.5rem;
+                        align-items: center;
+                        flex-direction: row-reverse;
+                    }
+                }
+            }
+            .data-label{
+                display: block;
+                color: black;
+                margin-bottom: 1rem;
+                margin-top: 0.25rem;
+                @media #{$large-up}{
+                    line-height: 2.4;
+                    margin-top: 0;
+                }
+            }
+            //shows a euro sign next to input field      
+            .euro{
+                font-size: 1.25rem;
+                position: absolute;
+                right: -0.25rem;
+                top: 0.7rem;
+            } 
+            .approve-int-domains{
+                p{
+                    margin-bottom: 0.325rem;
+                }
+                ul{
+                    padding-left: 0.125rem;
+                    margin-top: 1rem;
+                    margin-bottom: 2rem;
+                    li{
+                        font-size: 0.875rem;
+                        letter-spacing: 0.5px;
+                        line-height: 1.2;
+                        margin-bottom: 0.425rem;
+                        font-weight: 500;
+                    }
+                }
+            }  
+        }
+    }
+}
+
+
+// Useful classes
+.help-block.form-error {
+    display: block;
+    padding: 0.2rem 0.5625rem 0.35rem;
+    margin-top: -1px;
+    margin-bottom: 1rem;
+    font-size: 0.75rem !important;
+    font-weight: 300;
+    font-style: normal;
+    background: $my-red;
+    color: white;
+    line-height: 1.2;
+}
+p.alert-msg {
+    line-height: 1;
+    margin-bottom: 0;
+    font-size: 0.8125rem;
+}
+select.promo {
+    width: auto;
+}
+ul.promo-rules {
+    list-style-type: none;
+    margin: 0;
+    border-left: 1px dotted #666;
+    padding-left: 1rem;
+}
+label.error {
+    color: #ed6857 !important;
+}
+.check-margin-top{
+    @media #{$large-up}{
+        margin-top: 0.5rem;
+    }
+}
+
+// This class refers buttons under the form
+.button-group{
+    &.add-remove{
+       li{
+           a.button{
+               font-size: rem-calc(16);
+               padding: rem-calc(4 8);
+               line-height: 1;
+               &.add:hover{
+                   background-color: $my-deep-blue;
+                   color: white;
+               }
+               &.remove:hover{
+                   background-color: $my-red;
+                   color: white;
+               }
+           }
+       }
+    }
+}
+
+// This class refers to Dedicated Servers Create 1st Step -> insert flags
+#flagsHolder{
+    .flag{
+        cursor: pointer;
+        &:not(:first-child) {
+            margin-left: 0.5rem;
+        }
+        i{
+            &.icon-cross3{
+                color: $my-red;
+            }
+        }
+    }
+}

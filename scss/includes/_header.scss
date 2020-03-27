@@ -1,0 +1,2596 @@
+/* -------------------------------------------------------------------------------------------------------------------
+Components for header. Includes the menu, home page banner, inner pages banner, promo bar, homepage notification bar
+------------------------------------------------------------------------------------------------------------------- */
+header {
+    /* Menu */
+    .nav-spacer{
+        display: none;
+    }
+
+    .sticky_menu &{
+         .nav-spacer{
+             display: block;
+         }
+             #main_nav{
+                 position: fixed;
+                 top:0;
+                 left:0;
+                 right: 0;
+                 z-index: 10;
+
+             }
+        }
+    #main_nav{
+        display: block;
+        .nav{
+            background-color: $header-bg-color;
+            z-index: 98;
+            position: relative;
+            -webkit-box-shadow: 0 4px 3px -4px rgba(0,0,0,0.5);
+            -moz-box-shadow: 0 4px 3px -4px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 3px -4px rgba(0,0,0,0.5);
+            .logo{
+                float: left;
+                @include transition(all 0.2s ease-in 0s);
+                display: inline-flex;
+                a{
+                    display: inline-block;
+                    overflow: hidden;
+                    //this is fall back for just in case a mobile browser doesn't render svg's
+                    background: url("../img/logos/logo_dnhost_mobile.png") 0 0/170px 52px no-repeat;
+                    //Svg call
+                    background: url(../img/logos/dnhost-logo-mobile.svg) 0 2px/157px 48px no-repeat;
+                    width: 170px;
+                    height: 52px;
+                    padding-top: 52px;
+                    margin: rem-calc(8.5 0);
+                    @media only screen and (min-width: 1025px) {
+                        //this is fall back for older browsers (ie 8,9)
+                        background: url("../img/logos/logo_dnhost_large.png") -1px -2px/171px 54px no-repeat;
+                        //Svg call
+                        background: url(../img/logos/dnhost-logo.svg) 0 0/166px 51px no-repeat;
+                        padding-top: 51px;
+                        width: 166px;
+                        height: 51px;
+                        margin: 11px 0;
+                        @include transition(all 0.1s ease-in 0s);
+                    }
+                }
+                // Xmas class for logo
+                &.xmas:before{
+                    content: "";
+                    display: inline-block;
+                    position: absolute;
+                    background: url("../img/holidays/xmass-hat.png") 0 0/34px 22px no-repeat;
+                    width: 34px;
+                    height: 22px;
+                    left: 38px;
+                    top: 3px;
+                    @media only screen and (min-width: 1025px) {
+                        left: 40px;
+                    }
+                }
+                // Easter class for logo
+                /*&.easter:before{
+                    content: "";
+                    display: inline-block;
+                    position: absolute;
+                    background: url("../img/holidays/easter-hat.png") 0 0/34px 22px no-repeat;
+                    width: 34px;
+                    height: 22px;
+                    left: 24px;
+                    top: -4px;
+                }*/
+            }
+            .menu-wrapper{
+                float: right;
+                display: inline-block;
+                /* Primary Menu Styles */
+                .primary-menu{
+                    display: none;
+                    @include transition(all 0.1s ease-in);
+                    // Container
+                    .container{
+                        margin: 0;
+                        display: inline-block;
+                        margin-right: 3rem;
+                        @media #{$xlarge-up} {
+                            margin-right: 8rem;
+                        }
+                        // Each Section
+                        & > li{
+                            display: inline-block;
+                            margin-left: 0.5rem;
+                            // Menu titles
+                            & > a{
+                                color: $my-inner-elements-header-color;
+                                font-size: rem-calc(15);
+                                font-weight: 700;
+                                padding: 1.5rem 1.425rem 1.5rem 1.55rem;
+                                display: block;
+                                letter-spacing: 0.5px;
+                                position: relative;
+                                @include transition(all 0.25s ease-out 0s);
+                                &:hover {
+                                    color: $my-deep-blue;
+                                }
+                                &:after{
+                                    content: "\e606";
+                                    font-family: "Icomoon";
+                                    display: inline;
+                                    position: relative;
+                                    color: #9D9D9D;
+                                    top: 1px;
+                                    left: 2px;
+                                }
+                                &.is-active{
+                                    background-color: scale-color($medium-grey-section-bg-color, $lightness: 30%);
+                                    color: $my-inner-elements-header-color;
+                                    text-shadow: 1px 1px 0 white;
+                                    &:before{
+                                        content: '';
+                                        width: 100%;
+                                        height: 5px;
+                                        background-color: scale-color($medium-grey-section-bg-color, $lightness: 30%);
+                                        bottom: -5px;
+                                        position: absolute;
+                                        left: 0;
+                                    }
+                                    &:after{
+                                        content: "\e607";
+                                        font-family: "Icomoon";
+                                        display: inline;
+                                        position: relative;
+                                        color: #9D9D9D;
+                                        top: 1px;
+                                        left: 2px;
+                                    }
+                                }
+                            }
+                            // big content wrapper of dropdown menu
+                            .nav-dropdown{
+                                overflow: hidden;
+                                position: absolute;
+                                margin: 0;
+                                height: 0;
+                                opacity: 0;
+                                z-index: 89;
+                                top: 105px;
+                                right: 0;
+                                @include transition(opacity .2s linear);
+                                //controlling the padding of dropdown
+                                @media only screen and (min-width: 1367px) and (max-width: 1920px) {
+                                    padding: 0 1.5rem;
+                                }
+                                @media #{$xlarge-up} {
+                                    padding: 0 3rem;
+                                }
+                                // Active
+                                &.is-active{
+                                    height: auto;
+                                    opacity: 1;
+                                }
+                                // Common styles for all 3 blocks
+                                .content, .links, .placeholder{
+                                    padding: 0.9375rem;
+                                    position: relative;
+                                    min-height: rem-calc(275);
+                                    &:before{
+                                        content: "";
+                                        background-color: white;
+                                        width: 1px;
+                                        height: rem-calc(280);
+                                        display: inline-block;
+                                        position: absolute;
+                                        margin-left: -1.875rem;
+                                    }
+                                }
+                                /* Styles for content (1st) block */
+                                .content{
+                                    padding-right: 1.875rem;
+                                    padding-left: 1rem;
+                                    // titles
+                                    .title{
+                                        font-size: rem-calc(21);
+                                        font-weight: 700;
+                                        letter-spacing: 0.5px;
+                                        margin-bottom: 0.675rem;
+                                        position: relative;
+                                        display: inline-block;
+                                        a{
+                                            color: $my-inner-elements-header-color;
+                                            padding: 0;
+                                        }
+                                        &:before{
+                                            content: "";
+                                            position: absolute;
+                                            background-color: white;
+                                            display: inline-block;
+                                            width: 1.25rem;
+                                            height: 4px;
+                                            margin-top: -4px;
+                                            @include transition(all 0.2s ease-out 0s);
+                                        }
+                                        &:hover:before {
+                                            width: 3.25rem;
+                                        }
+                                    }
+                                    // Description
+                                    .desc{
+                                        font-size: 0.925rem;
+                                        margin-bottom: rem-calc(24);
+                                        line-height: 1.5;
+                                        font-weight: 300;
+                                        color: $my-inner-elements-header-color;
+                                    }
+                                    //Button
+                                    .button{
+                                        margin-bottom: 0;
+                                        background-color: scale-color($medium-grey-section-bg-color, $lightness: -6%);
+                                        //border: 2px solid white;
+                                        color: white;
+                                        padding-top: rem-calc(10);
+                                        padding-bottom: rem-calc(11);
+                                        font-size: 0.8375rem;
+                                        font-weight: 400;
+                                        //for Chrome
+                                        @media screen and (-webkit-min-device-pixel-ratio:0) {
+                                            //padding-top: rem-calc(10);
+                                            //padding-bottom: rem-calc(11);
+                                            i{
+                                                top: 0;
+                                            }
+                                        }
+                                    }
+                                    // No border
+                                    &:before{
+                                        content: none;
+                                    }
+                                }
+                                /* Styles for links -> 2nd block */
+                                .links{
+                                    & > ul > li:first-child{
+                                        margin-top: rem-calc(36);
+                                    }
+                                    ul{
+                                        line-height: 1.2;
+                                        position: relative;
+                                        // Links styles
+                                        li{
+                                            a{
+                                                display: block;
+                                                color: $my-inner-elements-header-color;
+                                                font-size: rem-calc(14);
+                                                font-weight: 700;
+                                                padding: 0.6rem 0 0.6375rem 1.25rem;
+                                                letter-spacing: 0.15px;
+                                                @include transition(all .1s linear);
+                                                &:hover{
+                                                    background-color: scale-color($medium-grey-section-bg-color, $lightness: -17%);
+                                                    color: white;
+                                                    span{
+                                                        color: white;
+                                                    }
+                                                }
+                                                span{
+                                                    color: $my-body-lightest-text-color;
+                                                    display: none;
+                                                    //display: block;
+                                                    text-transform: none;
+                                                    font-size: 0.675rem;
+                                                    font-weight: 300;
+                                                    letter-spacing: 0.5px;
+                                                    line-height: 1.3;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    // Second level menu links -> See SSL's
+                                    .with-dropdown{
+                                        margin-bottom: 8px;
+                                        margin-top: 13px;
+                                        & > a{
+                                            cursor: default;
+                                            pointer-events: none;
+                                            font-weight: 700;
+                                            font-size: 11px;
+                                            letter-spacing: 1px;
+                                            color: scale-color($medium-grey-section-bg-color, $lightness: -17%);
+                                            padding: 0;
+                                            padding-left: 1.25rem;
+                                        }
+                                        ul{
+                                            padding: 0;
+                                            left: rem-calc(-7);
+                                            li{
+                                                display: inline-block;
+                                                position: relative;
+                                                margin-right: 7px;
+                                                &:after{
+                                                    content: "";
+                                                    height: 10px;
+                                                    width: 1px;
+                                                    background-color: scale-color($medium-grey-section-bg-color, $lightness: -17%);
+                                                    position: absolute;
+                                                    top: 0;
+                                                    right: 0;
+                                                    margin-right: -4px;
+                                                    margin-top: 8px;
+                                                }
+                                                a{
+                                                    padding: rem-calc(5 6);
+                                                    font-size: rem-calc(14);
+                                                }
+                                                &:last-of-type:after{
+                                                    content: none;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                /* Styles for image -> 3rd block */
+                                .placeholder{
+                                    border-right: 0 none;
+                                    div{
+                                        margin-top: rem-calc(19);
+                                        margin-left: 0.25rem;
+                                        figure{
+                                            margin: 0;
+                                            position: relative;
+                                            overflow: hidden;
+                                            max-width: 415px;
+                                            max-height: 255px;
+                                            background-color: white;
+                                            p{
+                                                margin: 0;
+                                                line-height: 1.2;
+                                                color: $my-header-color;
+                                            }
+                                            .title, .desc{
+                                                position: absolute;
+                                                bottom: 0;
+                                                left: 0;
+                                            }
+                                            .title{
+                                                background-color: white;
+                                                padding: 0.75rem 1rem;
+                                                font-weight: 700;
+                                                letter-spacing: 0.5px;
+                                                line-height: 1;
+                                                bottom: 1.25rem;
+                                            }
+                                            .desc{
+                                                opacity: 0;
+                                                font-size: rem-calc(15);
+                                                padding: 1.5rem 1rem;
+                                                @include transition(transform 0.35s);
+                                                @include transform(translate3d(0,50px,0));
+                                            }
+                                            figcaption > a{
+                                                position: absolute;
+                                                top: 0;
+                                                left: 0;
+                                                width: 100%;
+                                                height: 100%;
+                                                z-index: 1000;
+                                                text-indent: 200%;
+                                                white-space: nowrap;
+                                                font-size: 0;
+                                                opacity: 0;
+                                            }
+                                            img, .title{
+                                                @include transition(transform 0.35s);
+                                            }
+                                            img{
+                                                position: relative;
+                                                display: block;
+                                                backface-visibility: hidden;
+                                            }
+                                            &:hover img{
+                                                @include transform(translate3d(0,-65px,0));
+                                            }
+                                            &:hover .title{
+                                                @include transform(translate3d(0,-80px,0));
+                                            }
+                                            &:hover .desc{
+                                                opacity: 1;
+                                                @include transform(translate3d(0,0,0));
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        /* Handle each section separately....domains, hosting, etc */
+                        & > li{
+                            // domain specific styles
+                            &.domains .nav-dropdown{
+                                .content{
+                                    .title:before{
+                                        background-color: $my-red;
+                                    }
+                                    .button{
+                                        background-color: $my-red;
+                                        &:hover{
+                                            background-color: #e9484d;
+                                        }
+                                    }
+                                }
+                            }
+                            // hosting specific styles
+                            &.hosting .nav-dropdown{
+                                .content{
+                                    .title:before{
+                                        background-color: $my-light-blue;
+                                    }
+                                    .button{
+                                        background-color: $my-light-blue;
+                                        &:hover{
+                                            background-color: scale-color($my-light-blue, $lightness: -10%);
+                                        }
+                                    }
+                                }
+                            }
+                            // security specific styles
+                            &.security .nav-dropdown{
+                                .content{
+                                    .title:before{
+                                        background-color: $my-green;
+                                    }
+                                    .button{
+                                        background-color: $my-green;
+                                        &:hover{
+                                            background-color: scale-color($my-green, $lightness: -10%);
+                                        }
+                                    }
+                                }
+                                .links > ul > li:first-child{
+                                    margin-top: rem-calc(22);
+                                }
+                            }
+                            // websites specific styles
+                            &.websites .nav-dropdown{
+                                .content{
+                                    .title:before{
+                                        background-color: $my-purple;
+                                    }
+                                    .button{
+                                        background-color: $my-purple;
+                                        &:hover{
+                                            background-color: scale-color($my-purple, $lightness: -8%);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    /* Media Queries for Seamless Navigation behaviour */
+
+                    // This is for google page manager - Menu must be visible
+                    @media only screen and (min-width: 999px) {
+                        display: inline-block;
+                    }
+                    @media only screen and (min-width: 999px) and (max-width: 1025px) {
+                        .container{
+                            border: 0 none;
+                            padding: 0;
+                            margin-right: 2rem;
+                        }
+                    }
+                    @media only screen and (min-width: 1025px) and (max-width: 1279px) {
+                        .container > li a{
+                            padding: 1.5rem 1.25rem;
+                        }
+                    }
+                    // Landscape mode on 1024x768px tablets (Ipad)
+                    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+                        display: inline-block;
+                        .container{
+                            &> li a{
+                                padding: 1.5rem 1rem;
+                            }
+                        }
+                    }
+                }
+                /* Secondary Menu */
+                .secondary-menu{
+                    display: none !important;
+                    position: relative;
+                    // Media Queries for handling secondary menu
+                    @media only screen and (min-width: 1025px) {
+                        display: inline-block !important;
+                        .container li a.account .account-text{
+                            display: inline-block;
+                        }
+                        .container li.btn-icon-login, .container li a.account i{
+                            display: none;
+                        }
+                    }
+                    @media only screen and (min-width: 1025px) and (max-width: 1279px) {
+                        .container li.btn-login, .container li a.account .account-text{
+                            display: none;
+                        }
+                        .container li.btn-icon-login, .container li a.account i{
+                            display: inline-block;
+                        }
+                    }
+                    // Menu titles
+                    .container{
+                        margin: 0;
+                        display: inline-block;
+                        & > li{
+                            display: inline;
+                            margin-left: 1.5rem;
+                            button.register{
+                                font-size: rem-calc(12);
+                                padding: rem-calc(3 4 6 14);
+                                margin: 0;
+                                font-weight: 500;
+                                letter-spacing: -0.125px;
+                                i{
+                                    font-size: rem-calc(16);
+                                    position: relative;
+                                    top: 2px;
+                                    left: -3px;
+                                }
+                            }
+                            a{
+                                i{
+                                    font-size: 1.25rem;
+                                    color: $my-header-color;
+                                }
+                                .version{
+                                    background-size: 110px 55px;
+                                    overflow: hidden;
+                                    text-indent: -9999px;
+                                    text-align: left;
+                                    height: 30px;
+                                    width: 24px;
+                                    margin-top: 0.4rem;
+                                    background: url('../img/sprites/main-sprite.png') no-repeat;
+                                    position: relative;
+                                    left: 2px;
+                                    &.gr { background-position: -20px -1583px; }
+                                    &.gb { background-position: -64px -1539px; }
+                                    &.in-dropdown{
+                                        display: inline-block;
+                                        margin-right: 0.25rem;
+                                        margin-top: -3px;
+                                        position: relative;
+                                        vertical-align: middle;
+                                        height: 22px;
+                                    }
+                                }
+                                &.account{
+                                    padding: 0;
+                                    color: $my-inner-elements-header-color;
+                                    position: relative;
+                                    top: 1px;
+                                    .account-text{
+                                        margin-top: -13px;
+                                        position: relative;
+                                        top: 4px;
+                                        span{
+                                            display: block;
+                                            font-size: 0.775rem;
+                                            font-weight: 500;
+                                            line-height: 1;
+                                            position: relative;
+                                            top: rem-calc(7);
+                                            text-align: right;
+                                        }
+                                        small{
+                                            position: relative;
+                                            font-size: 65%;
+                                        }
+                                    }
+                                    i{
+                                        position: relative;
+                                        top: 2px;
+                                    }
+                                }
+                                &.notifications{
+                                    i{
+                                        font-size: rem-calc(19);
+                                        line-height: 2;
+                                        position: relative;
+                                        top: 1px;
+                                    }
+                                    .badge{
+                                        margin-left: -12px;
+                                    }
+                                }
+                                &.notifications, &.language, &.support, &.cart{
+                                    width: 2rem;
+                                    text-align: center;
+                                }
+                                &.support{
+                                    position: relative;
+                                    top: 2px;
+                                }
+                                &.cart{
+                                    position: relative;
+                                    top: 1px;
+                                    .badge{
+                                       margin-left: -12px;
+                                       top: -8px;
+                                    }
+                                }
+                                .badge{
+                                    @include border-radius(50%);
+                                    color: white;
+                                    font-size: 0.675rem;
+                                    height: 18px;
+                                    top: -2px;
+                                    width: 18px;
+                                    position: absolute;
+                                    line-height: 18px;
+                                    font-weight: 400;
+                                    background-color: $my-red;
+                                }
+                            }
+                            &.phone{
+                                position: absolute;
+                                right: 0;
+                                top: rem-calc(50);
+                                min-width: rem-calc(240);
+                                padding-left: 0.625rem;
+                                padding-right: 0.625rem;
+                                background-color: rgba(0,0,0, .5);
+                                border-bottom-left-radius: 3px;
+                                border-bottom-right-radius: 3px;
+                                div{
+                                    display: inline;
+                                    position: relative;
+                                    top: -1px;
+                                    &:first-child{
+                                        margin-right: 0.5rem;
+                                    }
+                                    i, span{
+                                        display: inline;
+                                        color: white;
+                                    }
+                                    i{
+                                        margin-right: 0.25rem;
+                                        font-size: rem-calc(11);
+                                    }
+                                    span{
+                                        font-size: rem-calc(12);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    // Dropdowns
+                    .f-dropdown{
+                        background: $header-dropdown-bg-color;
+                        padding: 0;
+                        margin-top: 8px;
+                        border-top: 5px solid $medium-grey-section-bg-color;
+                        box-shadow: 0 4px 10px -5px $my-header-color;
+                        width: 200px;
+                        &::before{
+                            border-color: transparent transparent $medium-grey-section-bg-color;
+                            top: -16px;
+                        }
+                        li{
+                            padding: 0.6rem;
+                            &:hover, &:focus{
+                                background-color: scale-color($medium-grey-section-bg-color, $lightness: 65%);
+                            }
+                            a{
+                                color: $my-body-text-color;
+                                font-size: 0.875rem;
+                                padding: 0;
+                            }
+                        }
+                        &.content{
+                            min-width: 300px;
+                            ul{
+                                position: relative;
+                                max-height: rem-calc(226);
+                                overflow-y: auto;
+                                border-bottom: 1px solid scale-color($medium-grey-section-bg-color, $lightness: 65%);
+                                li{
+                                    border-bottom: 1px solid scale-color($medium-grey-section-bg-color, $lightness: 65%);
+                                    &:last-child{
+                                        border-bottom: 0 none;
+                                    }
+                                }
+                                &.notification-list{
+                                    li{
+                                        word-break: break-all;
+                                        word-wrap: break-word;
+                                        line-height: 1.2;
+                                        padding-top: 0.7rem;
+                                        padding-bottom: 0.7rem;
+                                        cursor: default;
+                                    }
+
+                                }
+                                &.cart-items{
+                                    li{
+                                        display: table;
+                                        width: 100%;
+                                        cursor: default;
+                                        .product{
+                                            display: table-cell;
+                                            width: 70%;
+                                            font-weight: 500;
+                                            word-break: break-all;
+                                            word-wrap: break-word;
+                                            line-height: 1.2;
+                                            span{
+                                                display: block;
+                                                font-size: 0.7rem;
+                                                font-weight: 300;
+                                                margin-top: 1px;
+                                            }
+                                        }
+                                        .price{
+                                            display: table-cell;
+                                            width: 20%;
+                                            min-width: rem-calc(65px);
+                                            text-align: right;
+                                        }
+                                        .item-remove{
+                                            display: table-cell;
+                                            width: 10%;
+                                            text-align: right;
+
+                                            &::before{
+                                                content: "\e913";
+                                                font-family: 'icomoon';
+                                                position: relative;
+                                                font-size: 1.025rem;
+                                                height: 0.5rem;
+                                                top: 2px;
+                                                right: -4px;
+                                                width: 0.5rem;
+                                                color: scale-color($medium-grey-section-bg-color, $lightness: 10%);
+                                            }
+                                            &:hover::before{
+                                                color: $my-red;
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .cart-content, .notifications-content{
+                                padding: 0.75rem;
+                                p{
+                                    font-size: 0.875rem;
+                                    margin-bottom: 0.75rem;
+                                    line-height: 1.3;
+                                    &:last-of-type{
+                                        margin-bottom: 0;
+                                    }
+                                }
+                            }
+                        }
+                        .view-all-container{
+                            margin: 0.75rem;
+                            .view-all{
+                                width: 100%;
+                                font-size: 0.875rem;
+                                padding: 0.5rem 1rem;
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /* Main Menu Dropdown Background */
+        .nav-background.is-active{
+            height: rem-calc(352);
+            opacity: 1;
+            margin: 0 auto;
+            // width is the row width minus the padding
+            width: 85.625rem;
+            padding: 0;
+            margin-left: -42.8125rem;
+            left: 50%;
+            max-width: 85.625rem;
+        }
+        .nav-background {
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            z-index: 97;
+            background-color: scale-color($medium-grey-section-bg-color, $lightness: 30%);
+        }
+
+        /* Overlay Effect */
+        .overlay.is-active{
+            display: block;
+        }
+        .overlay{
+            position: fixed;
+            display: none;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(28,29,30,.7);
+            z-index: 96;
+            top: 0;
+            left: 0;
+        }
+
+        // Queries for nav background and overlay handling
+        @media only screen and (max-width: 999px){
+            .nav-background, .overlay{
+                display: none;
+            }
+        }
+        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape){
+            .nav-background{
+                display: block;
+            }
+        }
+    }
+
+    /* Build Homepage Banner */
+    .main_hp_banner{
+        height: rem-calc(500px);
+        width: 100%;
+        position:relative;
+        @include transition(height 300ms linear 0s);
+        /* Set Homepage Banners */
+        &.hero-banner{
+            background-color: $inner-banner-color;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            @media #{$small-only} {
+                background-image: url("../img/header-banners/homepage/current/sm/hero.jpg");
+                background-position: 65% center;
+            }
+            @media #{$medium-only} {
+                background-image: url("../img/header-banners/homepage/current/md/hero.jpg");
+                background-position: center center;
+            }
+            @media #{$large-up} {
+                background-image: url("../img/header-banners/homepage/current/lg/hero.jpg");
+            }
+            /* Set Summer Offers Banner */
+            &.summer-offer{
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/homepage/summer-banner/sm/hero.jpg");
+                    background-position: center right;
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/homepage/summer-banner/md/hero.jpg");
+                    background-position: center right;
+                }
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/homepage/summer-banner/lg/hero.jpg");
+                }
+                .search .wrapper .searchbar .button{
+                    background-color: $my-orange;
+                    &:hover{
+                        background-color: scale-color($my-orange, $lightness: -20%);
+                    }
+                }
+            }
+            /* Set Black Friday Banner */
+            &.black-friday{
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/homepage/black-friday/sm/hero.jpg");
+                    background-position: center right;
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/homepage/black-friday/md/hero.jpg");
+                    background-position: center right;
+                }
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/homepage/black-friday/lg/hero.jpg");
+                }
+            }
+            /* Set Xmas Banner */
+            &.xmas{
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/homepage/xmas/sm/hero2.jpg");
+                    background-position: center right;
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/homepage/xmas/md/hero2.jpg");
+                    background-position: center right;
+                }
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/homepage/xmas/lg/hero2.jpg");
+                }
+                .text-container{
+                    h1 div{display: inline-block;
+                    padding: 0;
+                    font-size: 95%;
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    @include linear-gradient(#F41F28, #FFFEC3);
+                    color: white;
+                    font-weight: 400;
+                    }
+                }
+            }
+            /* Set Easter Banner */
+            &.easter{
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/homepage/easter/sm/hero-image-small.jpg");
+                    background-position: center right;
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/homepage/easter/md/hero-image-medium.jpg");
+                    background-position: center right;
+                }
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/homepage/easter/lg/hero-image-large.jpg");
+                }
+                .text-container{
+                    h1 div{
+                        color: $easter-color;
+                        text-shadow: 1px 1px 0 white;
+                        background-image: none;
+                        -webkit-text-fill-color: $easter-color;
+                    }
+                }
+            }
+        }
+        /* Content Wrapper */
+        .text-container{
+            position: relative;
+            z-index: 1;
+            display: table-cell;
+            height: rem-calc(500);
+            vertical-align: middle;
+            // Header
+            h1{
+                color: white;
+                font-size: rem-calc(57);
+                font-weight: 500;
+                line-height: 1.1;
+                margin-top: 0;
+                @include animation(smooth-entry-title 1s);
+                .s-element{
+                    font-weight: 400;
+                    font-size: 92%;
+                }
+                div{
+                    display: inline-block;
+                    padding: 0;
+                    font-size: 95%;
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    @include linear-gradient(#57f2cc, #4596FB);
+                    color: white;
+                    font-weight: 400;
+                }
+            }
+            .break{
+                //custom media query specifically made for main banner text
+                @media only screen and (min-width: 735px) {
+                    display: block;
+                }
+            }
+            // Homepage Search styles
+            .search{
+                max-width: 44rem;
+                margin-top: 2.75rem;
+            }
+        }
+        /* Media queries for handling banner in different devices */
+        // For small only devices
+        @media #{$small-only} {
+            height: rem-calc(400px);
+            &:before{
+                background-color: rgba(0,0,0,.6);
+                content: "";
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 1;
+            }
+            .text-container{
+                height: rem-calc(400);
+                text-align: center;
+                h1{
+                    font-size: 2.75rem;
+                    line-height: 1.2;
+                    div{
+                        font-weight: 500;
+                    }
+                }
+                .search{
+                    @media #{$portrait} {
+                        display: none;
+                    }
+                }
+                .domain-search-items{
+                    display: none;
+                }
+            }
+        }
+        // For medium only devices
+        @media #{$medium-only} {
+            &:before{
+                background-color: rgba(0,0,0,.6);
+                content: "";
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 1;
+            }
+            .text-container{
+                display: block;
+                top: rem-calc(115);
+                text-align: center;
+                h1{
+                     font-size: 3.25rem;
+                }
+                .search, .domain-search-items{
+                    max-width: 42rem;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .domain-search-items .banner-vat{
+                    display: none;
+                }
+            }
+        }
+        // For large up devices
+        @media #{$large-up}{
+            .pattern-wrapper{
+                display: flex;
+                flex-flow: row;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                .opacity-block{
+                    max-width: 100%;
+                    min-width: 100%;
+                    background-color: rgba(0,0,0, .55);
+                }
+                .pattern-block{
+                    max-width: 0;
+                    min-width: 0;
+                    .pattern{
+                        background-image: url("../img/patterns/hp-pattern.png");
+                        background-position: 0 50%;
+                        background-repeat: no-repeat;
+                        background-size: initial;
+                        width: 100%;
+                        height: 500px;
+                    }
+                }
+            }
+        }
+        // For large only devices
+        @media #{$large-only} {
+            .pattern-wrapper{
+                .opacity-block{
+                    min-width: 67%;
+                }
+                .pattern-block{
+                    min-width: 33%;
+                }
+            }
+        }
+        // For xlarge devices
+        @media #{$xlarge-up} {
+            .pattern-wrapper{
+                .opacity-block{
+                    min-width: 57%;
+                }
+                .pattern-block{
+                    min-width: 43%;
+                }
+            }
+            .text-container{
+                .search{
+                    min-width: 44rem;
+                    margin-top: 3.5rem;
+                }
+            }
+        }
+        /* Specific media query made for handling mobile landscape view - it connects with homepage domains id...check it out */
+        @media screen and (max-width: 800px) and (max-height: 450px) and (orientation: landscape) {
+            height: rem-calc(400);
+            .pattern-wrapper{
+                .opacity-block{
+                    min-width: 100%;
+                }
+                .pattern-block{
+                    min-width: 0;
+                }
+            }
+            .text-container{
+                text-align: center;
+                display: block;
+                top: rem-calc(83);
+                .domain-search-items{
+                    display: none;
+                }
+            }
+        }
+
+    }
+
+    // Fall back styles for Internet explorer header text gradient
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        .main_hp_banner .text-container h1 div{
+            color: #57f2cc;
+            background: 0 none;
+        }
+    }
+
+    /* All Banners for Inner Pages */
+    .page_banner{
+        height: rem-calc(320);
+        background-color: $inner-banner-color;
+        background-size: cover;
+        background-position-x: right;
+        position: relative;
+        &:before{
+            @include linear-gradient(rgba(0,0,0,.7) , rgba(0,0,0,0));
+            background-color: transparent;
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+        @media #{$large-up} {
+            height: rem-calc(340);
+            &:before{
+                content: none;
+            }
+        }
+        .background-cell{
+            @media #{$large-up} {
+                background-color: $inner-banner-color;
+            }
+        }
+        // Main Wrapper
+        .wrapper{
+            display: table-cell;
+            width: 100%;
+            height: rem-calc(320);
+            vertical-align: middle;
+            padding-right: 2rem;
+            padding-left: 1rem;
+            position: relative;
+
+            @media #{$large-up} {
+                height: rem-calc(340);
+            }
+            // Content
+            .text-container{
+                z-index: 2;
+                position: relative;
+                // Header
+                h1{
+                    color: white;
+                    font-weight: 500;
+                    line-height: 1.2;
+                    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+                    margin-top: 0.25rem;
+                    margin-bottom: 1rem;
+                    -webkit-animation: smooth-entry-title 1.2s;
+                    -moz-animation: smooth-entry-title 1.2s;
+                    animation: smooth-entry-title 1.2s;
+
+                    span{
+                        font-weight: 300;
+                    }
+
+                    @media #{$small-only} {
+                        font-size: 1.75rem;
+                    }
+                    @media #{$medium-only} {
+                        font-size: 2.25rem;
+                        line-height: 1.1;
+                    }
+                    @media #{$large-up} {
+                        font-size: 2.65rem;
+                        margin-bottom: 1.5rem;
+                        text-shadow: none;
+                        line-height: 1.075;
+                    }
+                    &:before{
+                        content: "";
+                        position: absolute;
+                        display: inline-block;
+                        width: 3rem;
+                        height: 5px;
+                        margin-top: -1rem;
+                        background-color: white;
+                    }
+                }
+                // Paragraph
+                p{
+                    line-height: 1.3;
+                    margin-bottom: 0;
+                    letter-spacing: 0.5px;
+                    color: white;
+                    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+
+                    -webkit-animation: smooth-entry-title 1.2s;
+                    -moz-animation: smooth-entry-title 1.2s;
+                    animation: smooth-entry-title 1.2s;
+
+
+                    @media #{$small-only} {
+                        font-size: 0.95rem;
+                    }
+                    @media #{$medium-only} {
+                        font-size: 1rem;
+                    }
+                    @media #{$large-up} {
+                        font-size: 1.125rem;
+                        text-shadow: none;
+                        line-height: 1.4;
+                    }
+                }
+            }
+
+        }
+        // These are the patterns
+        .mask{
+            background-position: 0 50%;
+            background-repeat: no-repeat;
+            background-size: initial;
+            width: 100%;
+            height: rem-calc(340);
+            // Trick for better browser rendering
+            margin-left: -1px;
+            &.pattern-1{
+                background-image: url("../img/patterns/pattern1.png");
+                background-position: 0 42%;
+            }
+            &.pattern-2{
+                background-image: url("../img/patterns/pattern2.png");
+                background-position: 0 47%;
+            }
+            &.pattern-3{
+                background-image: url("../img/patterns/pattern3.png");
+                background-position: 0 40%;
+            }
+            &.pattern-4{
+                background-image: url("../img/patterns/pattern4.png");
+                background-position: 0 32%;
+            }
+        }
+
+        /* Domains Section Hero Images */
+        &.domains{
+            // Set this section's distinctive Color
+            .wrapper .text-container h1:before{
+               background-color: $my-red;
+            }
+            /* Domain Parent Page */
+            &.parent{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/domains/parent/lg/domains.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/domains/parent/md/domains.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/domains/parent/sm/domains.jpg");
+                }
+            }
+            /* Domain Registration Page */
+            &.domain-registration{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/domains/domain-registration/lg/domain-registration.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/domains/domain-registration/md/domain-registration.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/domains/domain-registration/sm/domain-registration.jpg");
+                }
+            }
+            /* Domain Registrar Change Page */
+            &.registrar-change{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/domains/registrar-change/lg/registrar-change.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/domains/registrar-change/md/registrar-change.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/domains/registrar-change/sm/registrar-change.jpg");
+                }
+            }
+            /* Domain Id-protect Page */
+            &.id-protect{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/domains/id-protect/lg/id-protect.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/domains/id-protect/md/id-protect.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/domains/id-protect/sm/id-protect.jpg");
+                }
+            }
+            /* Domain Whois Page */
+            &.whois{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/domains/whois/lg/whois.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/domains/whois/md/whois.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/domains/whois/sm/whois.jpg");
+                }
+            }
+            /* Domain Pricelist Page */
+            &.pricelist{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/domains/pricelist/lg/pricelist.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/domains/pricelist/md/pricelist.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/domains/pricelist/sm/pricelist.jpg");
+                }
+            }
+            /* Domain Offer Page */
+            &.on-offer{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/domains/offers/lg/offers.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/domains/offers/md/offers.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/domains/offers/sm/offers.jpg");
+                }
+            }
+            /* Domain New Tlds Page */
+            &.new-tlds{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/domains/new-tlds/lg/new-tlds2.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/domains/new-tlds/md/new-tlds2.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/domains/new-tlds/sm/new-tlds2.jpg");
+                }
+            }
+            /* Domain Free-hosting Page */
+            &.free-hosting{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/domains/free-hosting/lg/free-hosting.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/domains/free-hosting/md/free-hosting.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/domains/free-hosting/sm/free-hosting.jpg");
+                }
+            }
+            /* Domain FAQ Page */
+            &.faq{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/domains/faq/lg/faq.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/domains/faq/md/faq.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/domains/faq/sm/faq.jpg");
+                }
+            }
+            /* Domain Why Go EU Page */
+            &.why-go-eu{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/domains/why-go-eu/lg/why-go-eu.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/domains/why-go-eu/md/why-go-eu.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/domains/why-go-eu/sm/why-go-eu.jpg");
+                }
+            }
+            /* Special styles for Search Bar inside Header / Parent domain and domain register */
+            &.w-search-bar{
+                @media #{$small-only} {
+                    .wrapper .text-container{
+                        .searchbar, .domain-search-items{
+                            display: none;
+                        }
+                    }
+                }
+                @media #{$large-up} {
+                    height: rem-calc(400);
+                    .text-container{
+                        position: initial;
+                    }
+                    .wrapper, .mask{
+                        height: rem-calc(400);
+                    }
+                }
+                @media #{$xlarge-up} {
+                    .wrapper{
+                        padding-right: 4rem;
+                    }
+                }
+                .wrapper{
+                    width: inherit;
+                    .text-container{
+                        h1{
+                            margin-bottom: 0.75rem;
+                        }
+                        .searchbar, .domain-search-items{
+                            -webkit-animation: smooth-entry-title 1.2s;
+                            -moz-animation: smooth-entry-title 1.2s;
+                            animation: smooth-entry-title 1.2s;
+                        }
+                        .searchbar{
+                            margin: 0;
+                            margin-top: 3rem;
+                            input, .button{
+                                height: 3.125rem;
+                                line-height: 3.125rem;
+                                font-size: rem-calc(18);
+                            }
+                            .button{
+                                i{
+                                    font-size: rem-calc(26);
+                                }
+                                .loading {
+                                    top: rem-calc(14);
+                                }
+                            }
+                        }
+                        .domain-search-items{
+                            .banner-vat{
+                                left: 1rem;
+                            }
+                        }
+                    }
+                    .banner-vat,.vat-link{
+                        display: none;
+                        @media #{$large-up} {
+                            display: block;
+                            position: absolute;
+                            bottom: 0;
+                            left: 1rem;
+                            font-size: 0.4375rem;
+                            color: rgba(255, 255, 255, 0.75);
+                            letter-spacing: 0.75px;
+                            padding-bottom: 0.25rem;
+                        }
+                    }
+                    .vat-link{
+                        left: 8.25rem;
+                    }
+                }
+            }
+        }
+        /* Hosting Section Hero Images */
+        &.hosting{
+            // Set this section's distinctive Color
+            .wrapper .text-container h1:before{
+                background-color: $my-light-blue;
+            }
+            /* Hosting Parent Page */
+            &.parent{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/hosting/parent/lg/hosting.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/hosting/parent/md/hosting.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/hosting/parent/sm/hosting.jpg");
+                }
+            }
+            /* Web Hosting */
+            &.web-hosting{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/hosting/web-hosting/lg/web-hosting.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/hosting/web-hosting/md/web-hosting.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/hosting/web-hosting/sm/web-hosting.jpg");
+                }
+            }
+            /* Windows Web Hosting */
+            &.windows-web-hosting{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/hosting/windows-web-hosting/lg/windows-web-hosting.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/hosting/windows-web-hosting/md/windows-web-hosting.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/hosting/windows-web-hosting/sm/windows-web-hosting.jpg");
+                }
+            }
+            /* Transfer Site */
+            &.transfer-site{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/hosting/transfer-site/lg/transfer-site.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/hosting/transfer-site/md/transfer-site.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/hosting/transfer-site/sm/transfer-site.jpg");
+                }
+            }
+            /* Plesk control panel */
+            &.plesk-control-panel{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/hosting/plesk-control-panel/lg/plesk-control-panel.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/hosting/plesk-control-panel/md/plesk-control-panel.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/hosting/plesk-control-panel/sm/plesk-control-panel.jpg");
+                }
+            }
+            /* Litespeed */
+            &.litespeed-web-server{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/hosting/litespeed-web-server/lg/litespeed-web-server.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/hosting/litespeed-web-server/md/litespeed-web-server.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/hosting/litespeed-web-server/sm/litespeed-web-server.jpg");
+                }
+            }
+            /* Hosting Security */
+            &.hosting-security{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/hosting/hosting-security/lg/hosting-security.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/hosting/hosting-security/md/hosting-security.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/hosting/hosting-security/sm/hosting-security.jpg");
+                }
+            }
+            /* Reseller Hosting */
+            &.reseller{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/hosting/reseller-hosting/lg/reseller-hosting.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/hosting/reseller-hosting/md/reseller-hosting.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/hosting/reseller-hosting/sm/reseller-hosting.jpg");
+                }
+            }
+            /* Semi Dedicated */
+            &.semi-dedicated{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/hosting/semi-dedicated-hosting/lg/semi-dedicated-hosting.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/hosting/semi-dedicated-hosting/md/semi-dedicated-hosting.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/hosting/semi-dedicated-hosting/sm/semi-dedicated-hosting.jpg");
+                }
+            }
+            /* Magento Hosting */
+            &.magento-hosting{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/hosting/magento-hosting/lg/magento-hosting.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/hosting/magento-hosting/md/magento-hosting.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/hosting/magento-hosting/sm/magento-hosting.jpg");
+                }
+            }
+            /* VPS Hosting */
+            &.vps{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/hosting/vps-hosting/lg/vps-hosting.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/hosting/vps-hosting/md/vps-hosting.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/hosting/vps-hosting/sm/vps-hosting.jpg");
+                }
+            }
+            /* Windows VPS Hosting */
+            &.windows-vps{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/hosting/windows-vps-hosting/lg/windows-vps-hosting.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/hosting/windows-vps-hosting/md/windows-vps-hosting.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/hosting/windows-vps-hosting/sm/windows-vps-hosting.jpg");
+                }
+            }
+            /* What is VPS */
+            &.what-is-vps{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/hosting/what-is-vps/lg/what-is-vps.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/hosting/what-is-vps/md/what-is-vps.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/hosting/what-is-vps/sm/what-is-vps.jpg");
+                }
+            }
+            /* Dedicated Servers */
+            &.dedicated-servers{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/hosting/dedicated-servers/lg/dedicated-servers.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/hosting/dedicated-servers/md/dedicated-servers.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/hosting/dedicated-servers/sm/dedicated-servers.jpg");
+                }
+            }
+            /* Web radio hosting */
+            &.web-radio-hosting{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/hosting/web-radio-hosting/lg/web-radio-hosting.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/hosting/web-radio-hosting/md/web-radio-hosting.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/hosting/web-radio-hosting/sm/web-radio-hosting.jpg");
+                }
+            }
+        }
+        /* Security Section Hero Images */
+        &.security{
+            // Set this section's distinctive Color
+            .wrapper .text-container h1:before{
+                background-color: $my-green;
+            }
+            /* SSL's Parent Page */
+            &.ssl{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/security/ssl/lg/ssl.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/security/ssl/md/ssl.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/security/ssl/sm/ssl.jpg");
+                }
+            }
+            /* SSL details Page */
+            &.ssl-details{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/security/ssl-details/lg/ssl-details.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/security/ssl-details/md/ssl-details.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/security/ssl-details/sm/ssl-details.jpg");
+                }
+            }
+            /* Why ev SSL Page */
+            &.why-ev-ssl{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/security/why-ev-ssl/lg/why-ev-ssl.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/security/why-ev-ssl/md/why-ev-ssl.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/security/why-ev-ssl/sm/why-ev-ssl.jpg");
+                }
+            }
+            /* What is SSL Page */
+            &.what-is-ssl{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/security/what-is-ssl/lg/what-is-ssl.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/security/what-is-ssl/md/what-is-ssl.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/security/what-is-ssl/sm/what-is-ssl.jpg");
+                }
+            }
+            /* SSL Wizard Page */
+            &.wizard{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/security/ssl-wizard/lg/ssl-wizard-2.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/security/ssl-wizard/md/ssl-wizard-2.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/security/ssl-wizard/sm/ssl-wizard-2.jpg");
+                }
+            }
+            /* SSL PCI Compliance Page */
+            &.pci-compliance{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/security/pci-compliance/lg/pci-compliance-2.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/security/pci-compliance/md/pci-compliance-2.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/security/pci-compliance/sm/pci-compliance-2.jpg");
+                }
+            }
+
+            /* Symantec SSL's */
+            &.symantec-ssl{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/security/symantec-ssl/lg/symantec-ssl.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/security/symantec-ssl/md/symantec-ssl.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/security/symantec-ssl/sm/symantec-ssl.jpg");
+                }
+            }
+            /* Comodo SSL's */
+            &.comodo-ssl{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/security/comodo-ssl/lg/comodo-ssl.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/security/comodo-ssl/md/comodo-ssl.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/security/comodo-ssl/sm/comodo-ssl.jpg");
+                }
+            }
+            /* Geotrust SSL's */
+            &.geotrust-ssl{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/security/geotrust-ssl/lg/geotrust-ssl.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/security/geotrust-ssl/md/geotrust-ssl.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/security/geotrust-ssl/sm/geotrust-ssl.jpg");
+                }
+            }
+            /* Thawte SSL's */
+            &.thawte-ssl{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/security/thawte-ssl/lg/thawte-ssl.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/security/thawte-ssl/md/thawte-ssl.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/security/thawte-ssl/sm/thawte-ssl.jpg");
+                }
+            }
+            /* DV SSL's */
+            &.dv-ssl{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/security/dv-ssl/lg/dv-ssl.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/security/dv-ssl/md/dv-ssl.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/security/dv-ssl/sm/dv-ssl.jpg");
+                }
+            }
+            /* OV SSL's */
+            &.ov-ssl{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/security/ov-ssl/lg/ov-ssl.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/security/ov-ssl/md/ov-ssl.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/security/ov-ssl/sm/ov-ssl.jpg");
+                }
+            }
+            /* EV SSL's */
+            &.ev-ssl{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/security/ev-ssl/lg/ev-ssl.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/security/ev-ssl/md/ev-ssl.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/security/ev-ssl/sm/ev-ssl.jpg");
+                }
+            }
+            /* Single Domain SSL's */
+            &.single-domain-ssl{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/security/single-domain-ssl/lg/single-domain-ssl.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/security/single-domain-ssl/md/single-domain-ssl.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/security/single-domain-ssl/sm/single-domain-ssl.jpg");
+                }
+            }
+            /* Multi Domain SSL's */
+            &.multi-domain-ssl{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/security/multi-domain-ssl/lg/multi-domain-ssl.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/security/multi-domain-ssl/md/multi-domain-ssl.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/security/multi-domain-ssl/sm/multi-domain-ssl.jpg");
+                }
+            }
+            /* Wildcard SSL's */
+            &.wildcard-ssl{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/security/wildcard-ssl/lg/wildcard-ssl.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/security/wildcard-ssl/md/wildcard-ssl.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/security/wildcard-ssl/sm/wildcard-ssl.jpg");
+                }
+            }
+            /* Suggested SSL's */
+            &.suggested{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/security/suggested/lg/suggested-ssl.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/security/suggested/md/suggested-ssl.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/security/suggested/sm/suggested-ssl.jpg");
+                }
+            }
+            /* Why No Padlock */
+            &.why-no-padlock{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/security/why-no-padlock/lg/why-no-padlock-2.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/security/why-no-padlock/md/why-no-padlock-2.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/security/why-no-padlock/sm/why-no-padlock-2.jpg");
+                }
+            }
+            /* CSR Decoder */
+            &.csr-decoder{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/security/csr-decoder/lg/csr-decoder.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/security/csr-decoder/md/csr-decoder.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/security/csr-decoder/sm/csr-decoder.jpg");
+                }
+            }
+            /* SSL Installation */
+            &.ssl-installation{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/security/ssl-installation/lg/ssl-installation.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/security/ssl-installation/md/ssl-installation.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/security/ssl-installation/sm/ssl-installation.jpg");
+                }
+            }
+        }
+        /* Websites Section Hero Images */
+        &.websites{
+            // Set this section's distinctive Color
+            .wrapper .text-container h1:before{
+                background-color: $my-purple;
+            }
+            /* Websites Parent Page */
+            &.parent{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/websites/parent/lg/websites.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/websites/parent/md/websites.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/websites/parent/sm/websites.jpg");
+                }
+            }
+            /* Websites Sitebuilder Page */
+            &.sitebuilder{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/websites/sitebuilder/lg/sitebuilder.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/websites/sitebuilder/md/sitebuilder.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/websites/sitebuilder/sm/sitebuilder.jpg");
+                }
+            }
+            /* Websites Free Apps Page */
+            &.free-apps{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/websites/free-apps/lg/free-apps.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/websites/free-apps/md/free-apps.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/websites/free-apps/sm/free-apps.jpg");
+                }
+            }
+            /* Websites Eshop Page */
+            &.eshop{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/websites/eshop/lg/eshop.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/websites/eshop/md/eshop.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/websites/eshop/sm/eshop.jpg");
+                }
+            }
+            /* Websites Wordpress Page */
+            &.wordpress{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/websites/wordpress/lg/wordpress.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/websites/wordpress/md/wordpress.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/websites/wordpress/sm/wordpress.jpg");
+                }
+            }
+            /* Websites Spam Filter Page */
+            &.spam-filter{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/websites/spam-filter/lg/spam-filter.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/websites/spam-filter/md/spam-filter.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/websites/spam-filter/sm/spam-filter.jpg");
+                }
+            }
+        }
+        /* Company Section Hero Images */
+        &.company{
+            // Set this section's distinctive Color
+            .wrapper .text-container h1:before{
+                background-color: scale-color($company-bg-color, $lightness: 10%);
+            }
+            /* Company Profile Page */
+            &.profile{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/company/profile/lg/profile.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/company/profile/md/profile.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/company/profile/sm/profile.jpg");
+                }
+            }
+            /* Why DNHOST Page */
+            &.why-dnhost{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/company/why-dnhost/lg/why-dnhost.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/company/why-dnhost/md/why-dnhost.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/company/why-dnhost/sm/why-dnhost.jpg");
+                }
+            }
+            /* Testimonials Page */
+            &.testimonials{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/company/testimonials/lg/testimonials.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/company/testimonials/md/testimonials.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/company/testimonials/sm/testimonials.jpg");
+                }
+            }
+        }
+        /* Customer Support Section Hero Images */
+        &.customer-support{
+            // Set this section's distinctive Color
+            .wrapper .text-container h1:before{
+                background-color: scale-color($company-bg-color, $lightness: 10%);
+            }
+            /* New Support Request Page */
+            &.new-support-request{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/support/new-support-request/lg/new-support-request.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/support/new-support-request/md/new-support-request.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/support/new-support-request/sm/new-support-request.jpg");
+                }
+            }
+            /* Payment Methods Page */
+            &.payments{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/support/payments/lg/payments.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/support/payments/md/payments.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/support/payments/sm/payments.jpg");
+                }
+            }
+        }
+        /* Error pages Section Hero Images */
+        &.errors{
+            // Set this section's distinctive Color
+            .wrapper .text-container h1:before{
+                background-color: scale-color($company-bg-color, $lightness: 10%);
+            }
+            /* Error Page */
+            &.error-page-404{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/error-page/lg/error-page-404.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/error-page/md/error-page-404.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/error-page/sm/error-page-404.jpg");
+                }
+            }
+        }
+            /* windows hosting  Section Hero Images */
+        &.windowshosting{
+            // Set this section's distinctive Color
+            .wrapper .text-container h1:before{
+                //background-color: scale-color($company-bg-color, $lightness: 10%);
+                background-color: scale-color(#e3d2df, $lightness: 10%);
+            }
+
+            /* Offers Xmas Page */
+            &.host{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/landing-pages/win-hosting/lg/server.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/landing-pages/win-hosting/md/server.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/landing-pages/win-hosting/sm/server.jpg");
+                }
+            }
+
+        }
+        /* Offers pages Section Hero Images */
+        &.offers{
+            // Set this section's distinctive Color
+            .wrapper .text-container h1:before{
+                //background-color: scale-color($company-bg-color, $lightness: 10%);
+                background-color: scale-color(#e3d2df, $lightness: 10%);
+            }
+            /* Offers Parent Page */
+            &.parent{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/offers/parent/lg/offers.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/offers/parent/md/offers.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/offers/parent/sm/offers.jpg");
+                }
+            }
+            /* Offers Xmas Page */
+            &.xmas{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/landing-pages/xmas/lg/xmas.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/landing-pages/xmas/md/xmas.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/landing-pages/xmas/sm/xmas.jpg");
+                }
+            }
+            /* Offers Easter Page */
+            &.easter{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/offers/parent/lg/offers.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/offers/parent/md/offers.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/offers/parent/sm/offers.jpg");
+                }
+            }
+            /* Offers Black Friday Page */
+            &.black-friday{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/offers/black-friday/lg/black-friday.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/offers/black-friday/md/black-friday.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/offers/black-friday/sm/black-friday.jpg");
+                }
+            }
+
+            &.gr-offer{
+                //background-image: linear-gradient(to bottom, #20b6db, #25ccf5);
+                background-color: #20b6db;
+
+                .background-cell {
+                    background: none;
+                }
+
+                &:before{
+                    content: "";
+                    /*background-image: url("../img/offers/gr-duck-offer/backgroundbannerboxes.png");*/
+                    background-image: url("../img/offers/gr-offer/2019/header.png");
+                    //background-color: red;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    display: block;
+                }
+            }
+        }
+        /* Landing pages Section Hero Images */
+        &.landing{
+            /* Suggested SSL's for Gdpr Page */
+            &.landing-gdpr{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/landing-pages/gdpr/lg/gdpr.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/landing-pages/gdpr/md/gdpr.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/landing-pages/gdpr/sm/gdpr.jpg");
+                }
+            }
+            /* Dnhost and Gdpr Page */
+            &.gdpr-compliant{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/landing-pages/gdpr-compliant/lg/gdpr.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/landing-pages/gdpr-compliant/md/gdpr.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/landing-pages/gdpr-compliant/sm/gdpr.jpg");
+                }
+            }
+        }
+        /* Client Services Section Hero Images */
+        &.client-services{
+            // Set this section's distinctive Color
+            .wrapper .text-container h1:before {
+                background-color: scale-color($company-bg-color, $lightness: 10%);
+            }
+            /* Control Panel Page */
+            &.control-panel{
+                @media #{$large-up} {
+                    background-image: url("../img/header-banners/control-panel/lg/control-panel.jpg");
+                }
+                @media #{$medium-only} {
+                    background-image: url("../img/header-banners/control-panel/md/control-panel.jpg");
+                }
+                @media #{$small-only} {
+                    background-image: url("../img/header-banners/control-panel/sm/control-panel.jpg");
+                }
+            }
+        }
+        /* Pages with no banner */
+        &.no-background{
+            &:before{
+                content: none;
+            }
+            .wrapper .text-container h1:before{
+                content: none;
+            }
+            .mask{
+                background: none !important;
+            }
+        }
+    }
+
+    /* Common Styles between Homepage Banner and Inner pages banner */
+    .main_hp_banner, .page_banner{
+        // Content
+        .text-container{
+            // Search bar styles
+            .searchbar.with-transfer{
+                margin: 0;
+                display: inline-flex;
+                width: 100%;
+                @include shadow(0,1px,25px, rgba(0, 0, 0, 0.2));
+                input{
+                    height: 3.125rem;
+                    font-size: 1rem;
+                }
+                .dropdown{
+                    height: 3.125rem;
+                    font-size: 0.825rem;
+                }
+                .button{
+                    font-size: 1rem;
+                    height: 3.125rem;
+                    line-height: 3.125rem;
+                    width: 18.5rem;
+                    .submitText i{
+                        top:0;
+                        font-size: rem-calc(26);
+                    }
+                    .loading {
+                        top: 14px;
+                    }
+                }
+            }
+            // Search bar tld's styles
+            .domain-search-items{
+                padding: 0 0.625rem;
+                margin-top: 0.375rem;
+                ul{
+                    li{
+                        padding: 0;
+                        div{
+                            margin: initial;
+                            text-align: center;
+                            &.tld{
+                                & > span{
+                                    color: white;
+                                    font-weight: 700;
+                                    font-size: 1.375rem;
+                                    line-height: 1;
+                                    font-family: "Sarala";
+                                    display: inline-block;
+                                    margin-right: 0.375rem;
+                                }
+                                .price{
+                                    color: #FFF6f1;
+                                    &.on-offer{
+                                        color: $my-orange;
+                                    }
+                                }
+                            }
+                            &.link{
+                                text-align: right;
+                                line-height: 1;
+                                margin-top: rem-calc(3);
+                                a{
+                                    position: relative;
+                                    color: white;
+                                    font-size: 0.925rem;
+                                    &:before{
+                                        content: "";
+                                        background-color: white;
+                                        bottom: -3px;
+                                        height: 1px;
+                                        width: 100%;
+                                        left: 0;
+                                        position: absolute;
+                                        visibility: hidden;
+                                        @include transform(scaleX(0));
+                                        @include transition(all 0.3s ease-out 0s);
+                                    }
+                                    &:hover:before{
+                                        visibility: visible;
+                                        @include transform(scaleX(1));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                // Search bar vat style
+                .banner-vat,.vat-link{
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    font-size: rem-calc(7);
+                    color: rgba(255, 255, 255, 0.75);
+                    letter-spacing: 0.75px;
+                    padding-bottom: 0.25rem;
+                }
+                .vat-link{
+                    left: 7.25rem;
+                }
+            }
+        }
+    }
+
+    /* Global Promo Bar */
+    .promo-top-bar{
+        .alert-box{
+            margin-bottom: 0;
+            border: 0 none;
+            padding: rem-calc(8 22);
+            font-size: rem-calc(14);
+            text-align: center;
+            z-index: 97;
+            -webkit-animation: smooth-entry-title 0.625s;
+            -moz-animation: smooth-entry-title 0.625s;
+            animation: smooth-entry-title 0.625s;
+            background-image: linear-gradient(to top, #917ECD, #DEDAE1);
+            /* styles for top bar */
+            // gradient style 1
+            &.gradient-1{
+                @include linear-gradient(#b25bdc,#ee649e);
+            }
+            // gradient style 2
+            &.gradient-2{
+                @include linear-gradient(#06cefc,#b721ff);
+            }
+            // gradient style 3
+            &.gradient-3{
+                background: #9e6bdd; /* fallback for old browsers */
+                background: -webkit-linear-gradient(to right, #9e6bdd, #f64860, #fc864a);
+                background: linear-gradient(to right, #9e6bdd, #f64860, #fc864a);
+            }
+            // black friday style
+            &.black-friday{
+                background-color: $black-friday;
+            }
+            // content styles
+            .content{
+                letter-spacing: 0.5px;
+                strong{
+                    letter-spacing: 1px;
+                    font-weight: 700;
+                }
+                i{
+                    opacity:0.5;
+                    margin: 0 5px;
+                }
+                .number{
+                    font-family: "Sarala";
+                    letter-spacing: 1.5px;
+                    font-size: rem-calc(15);
+                    font-weight: 700;
+                }
+                .help{
+                    cursor: help;
+                }
+            }
+            .p-link{
+                margin-bottom: 0;
+                margin-left: 2rem;
+                font-weight: 400;
+                color: white;
+                letter-spacing: 0;
+                font-size: rem-calc(13);
+                position: relative;
+                top: -1px;
+                i{
+                    opacity: 1;
+                    top: 0.025rem;
+                    margin: 0;
+                }
+            }
+            .close{
+                color: white;
+                opacity: 0.8;
+                right: 0.75rem;
+                margin-top: 0;
+                padding: 0;
+                top: 1rem;
+                &:hover{
+                    opacity: 1;
+                }
+            }
+            @media #{$small-only}{
+                .content{
+                    text-align: center;
+                }
+                .hide-f-s{
+                    display: none;
+                }
+                .p-link{
+                    display: block;
+                    margin: 0;
+                    margin-top: 8px;
+                }
+                .icon-star2 {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    /* Homepage Alert Bar */
+    .alert-box{
+        &.for-header{
+            border: 0 none;
+            font-size: 1rem;
+            line-height: 1.3;
+            padding: 1rem 0;
+            text-align: center;
+            margin-bottom: 0;
+            @media #{$small-only}{
+              font-size: 0.925rem;
+            }
+            &.alert{
+                background-color: #f6b519;
+            }
+            .l-block{
+                @media #{$large-up} {
+                    display: block;
+                }
+            }
+            strong{
+                font-weight: 500;
+                //letter-spacing: 1px;
+            }
+            a.s-link{
+                color: white;
+                border-bottom: 1px dotted;
+                border-color: rgba(255,255,255, 0.6);
+                padding-bottom: 1px;
+                i{
+                    font-size: 10px;
+                }
+            }
+            .close{
+                color: #ffffff;
+                opacity: 0.8;
+                right: 0.75rem;
+                top: 1.75rem;
+                &:hover{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    /* Top bar for when Admin views as a User */
+    .user-definition{
+        p{
+            background-color: $my-red;
+            margin-bottom: 0;
+            color: white;
+            font-size: 0.825rem;
+            text-align: center;
+            padding: 0.1rem;
+        }
+        @media #{$large-up} {
+            margin-top: 1.5rem;
+            height: 0;
+            p{
+               position: relative; 
+               top: -1.5rem;
+            }
+        }
+    }    
+}
+
+
+// this is a header logo fix for firefox
+@-moz-document url-prefix(){
+    @media only screen and (min-width: 1025px) {
+        header #main_nav .logo a{
+            //this is fall back for older browsers
+            background: url("../img/logos/logo_dnhost_large.png") 0 0/166px 51px no-repeat;
+            //Svg call
+            background: url("../img/logos/dnhost-logo.svg") 0 0/166px 51px no-repeat;
+        }
+    }
+}
+
+/* --------------------------------
+Keyframes for banners title animation
+-------------------------------- */
+@-webkit-keyframes smooth-entry-title {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-0.6em);
+  }
+  50% {
+    opacity: 0;
+    -webkit-transform: translateY(-0.6em);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-moz-keyframes smooth-entry-title {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(-0.6em);
+  }
+  50% {
+    opacity: 0;
+    -moz-transform: translateY(-0.6em);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translateY(0);
+  }
+}
+@keyframes smooth-entry-title {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-0.6em);
+    -moz-transform: translateY(-0.6em);
+    -ms-transform: translateY(-0.6em);
+    -o-transform: translateY(-0.6em);
+    transform: translateY(-0.6em);
+  }
+  50% {
+    opacity: 0;
+    -webkit-transform: translateY(-0.6em);
+    -moz-transform: translateY(-0.6em);
+    -ms-transform: translateY(-0.6em);
+    -o-transform: translateY(-0.6em);
+    transform: translateY(-0.6em);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+
+
+/*End of Header*/

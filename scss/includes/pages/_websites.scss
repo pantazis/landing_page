@@ -1,0 +1,23 @@
+/* Websites Parent Page */
+.overview{
+    .websites-tools{
+        margin-top: 1.75rem;
+        .panel{
+            .icon i{
+                color: $my-purple;
+                &.icon-bag2{
+                    position: relative;
+                    left: 5px;
+                }
+            }
+            &:hover{
+                h2{
+                    color: $my-purple;
+                }
+                .icon:after{
+                    background: $my-purple;
+                }
+            }      
+        }
+    }
+}

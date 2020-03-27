@@ -1,0 +1,358 @@
+/* Footer Styles */
+
+// Footer Wrapper
+footer {
+    padding: rem-calc(70px 0  0);
+    background-color: $footer-bg-color;
+    // Xmas style
+    &.xmas{
+        background-image: url("../img/holidays/xmas-footer.png");
+        background-repeat: no-repeat;
+        background-position: top right;
+        background-size: 200px 145px;
+        @media #{$small-only} {
+            background-size: 138px 100px;
+        }
+    }
+
+    //&.easter{
+    //    background-image: url("../img/holidays/xmas-footer.png");
+    //    background-repeat: no-repeat;
+    //    background-position: top right;
+    //    background-size: 200px 145px;
+    //    @media #{$small-only} {
+    //        background-size: 138px 100px;
+    //    }
+    //}
+    // Generic footer paragraph
+    p{
+        color: $footer-text-color;
+    }
+    // Logo
+    .logo{
+        height: rem-calc(52px);
+        width: rem-calc(170px);
+        margin-bottom: 1rem;
+   
+        a{
+            background: url('../img/logos/logo_dnhost_footer.png') no-repeat; 
+            background-size: 170px 52px;
+            display: block;
+            height: rem-calc(52px);
+            overflow: hidden;
+            padding-top: rem-calc(52px);
+            width: rem-calc(170px);
+        }
+    }
+
+    // Newsletter section
+    .newsletter{
+        border-top: 1px solid scale-color($dark-grey-section-bg-color, $lightness: -30%);
+        padding: 1.25rem 0 0; 
+        // Header
+        p.header{
+            color:white;
+            font-size:1.2rem;
+            margin-bottom: 0;
+        }
+        // Form
+        fieldset{
+            border: 0 none;
+            margin: 0;
+            padding: 0;
+            input{
+                border-width: 0;
+            }
+            .checkbox{
+                .checkbox__label{
+                    color: white;
+                }
+            }
+            .button{
+                .loading{
+                    height: 2.5rem;
+                }
+            }
+            // Handling inputs in different screens
+            @media #{$small-only} { 
+                input{
+                    height: 3rem;
+                }
+                .postfix.button{
+                    height: 3rem;
+                    line-height: 3rem;
+                    .loading{
+                        height: 3rem;
+                    }
+                }
+            }
+            @media #{$medium-only} { 
+                input{
+                    height: 3rem;
+                    line-height: 3rem;
+                }
+                .postfix.button{
+                    height: 3rem;
+                    line-height: 3rem;
+                    .loading{
+                        height: 3rem;
+                    }
+                }
+            }
+        }  
+    }
+
+    // Social icons links
+    .social{
+        padding-bottom: 1.25rem;
+        padding-top: 1.25rem;
+        // Building icons
+        ul li a{ 
+            i{
+                font-size: rem-calc(48);
+                color: $footer-social-bg-color;
+                @media #{$small-only} {
+                   font-size: 3rem;
+                }
+                &:hover {
+                    color: $footer-social-hover-bg-color;
+                    transition: all 0.2s ease-out 0s;
+                }
+            }
+            #blogger-logo-footer{
+                font-size: 2.56rem !important;
+                padding-top: 5px;
+                display: block;
+            }
+            span {
+                display: none;
+            }
+        }
+    }
+
+    // Footer links
+    .links{
+        margin-top: 0;
+        @media #{$large-up} { 
+            margin-top:2.5rem;
+        }
+        // List Header
+        p.header{
+            font-size: 0.9325rem;
+            font-weight: 700;
+            letter-spacing: 0.25px;
+            line-height:1;
+            color:white;
+            margin-bottom: 0;
+        }
+        // List Header as a link
+        a.header{
+            color:white;
+            font-size: 0.9325rem;
+            font-weight: 700;
+            letter-spacing: 0.25px;
+
+            &:hover{
+                border-bottom:1px solid white;
+            }
+        }
+        // Links List
+        ul{
+            margin-top:0.5rem;
+            margin-bottom:2rem;
+            margin-left:0;
+            list-style-type:none;
+            // Link
+            li{
+                font-size:0.95rem;
+                color: $footer-text-color;
+                a{
+                    font-size:0.95rem;
+                    color: $footer-text-color;
+                    &:hover{
+                        color:white;
+                    }
+                }
+                span.head{
+                    color: #b6c3c9;
+                    font-size: 0.95rem;
+                    cursor: pointer;
+                }
+                span.the-at{
+                    &:after{
+                        content: "@";
+                        display: inline-block;
+                    }
+                }
+                // Second level list / SSL Certificates
+                ul.inner-list{
+                    @include transition(all 0.3s ease-in 0s);
+                    margin: 0;
+                    margin-left: 1rem;
+                    overflow: hidden;
+                    max-height: 0;
+                    color: #b6c3c9;
+                    list-style: inside;
+                    li a{
+                        font-size: 0.875rem;
+                    }
+                }
+                &.with-inner-list{
+                    display: inline;
+                    &:hover{
+                        span.head{
+                            color: white;
+                        }
+                    }
+                }
+            }
+            &.support{
+                margin-top:0;
+                li a.button{
+                    margin: 0 0 0.525rem;
+                    color:white;
+                }
+            }
+        }
+    }
+    .vcard{
+        color: $footer-text-color;
+        padding:0;
+        border:none;
+        font-size:0.95rem;
+        line-height:1.4;
+    }
+    // Line style
+    .line{
+        border-top: 1px solid scale-color($dark-grey-section-bg-color, $lightness: -30%);
+    }
+    // Copyright styles
+    .copyright{
+        padding: 2rem 0;
+        p{
+            font-size:0.825rem;
+            margin-bottom:0;
+            color: #92a3ab;
+        }
+        // List
+        .terms ul{
+            margin:0;
+            li a{
+                font-size:0.825rem;
+                color: #92a3ab;
+
+                &:hover{
+                    color: white;
+                }
+            }
+        }
+    }
+    // Partners list
+    .partners{
+        background: $footer-partners-bg-color;
+        padding:1.25rem 0;
+        .partners-list{
+            overflow: hidden;
+            width: 1372px;
+            ul{
+                margin-left: -0.28rem;
+                overflow: hidden;
+                width:1832px;
+                li{
+                    height: rem-calc(55px);
+                    margin-bottom: 0.5rem;
+                    padding: 0;
+                    opacity: 0.1;
+                    margin-left: 0.28rem;
+                    &:hover{
+                        opacity: 1;
+                        transition: all 0.4s ease-out 0s;
+                    }
+                    &.has-tip{
+                        border-bottom: none;
+                        cursor: default;
+                    }
+                    // Load sprite
+                    &.f_sprite{
+                        background-size: 110px 55px;
+                        overflow: hidden;
+                        text-indent: -9999px; 
+                        text-align: left;
+                        height: 55px;
+                        width: 110px;
+                        background: url('../img/sprites/main-sprite.png') no-repeat; 
+                    }
+                    &.centos{
+                        background-position: -20px -0px;
+                    }
+                    &.dell{
+                        background-position: -20px -75px;
+                    }
+                    &.grix{
+                        background-position: -20px -375px;
+                    }
+                    &.intel{
+                        background-position: -20px -525px;
+                    }
+                    &.helix{
+                        background-position: -20px -600px;
+                    }
+                    &.linux{
+                        background-position: -20px -675px;
+                    }
+                    &.litespeed{
+                        background-position: -20px -750px;
+                    }
+                    &.icann{
+                        background-position: -20px -450px;
+                    }
+                    &.mysql{
+                        background-position: -20px -900px;
+                    }
+                    &.odin{
+                        background-position: -20px -975px;
+                    }
+                    &.php{
+                        background-position: -20px -1125px;
+                    }
+                    &.spam_experts{
+                        background-position: -20px -1200px;
+                    }
+                    &.microsoft{
+                        background-position: -20px -825px;
+                    }
+                    &.eurid{
+                        background-position: -20px -225px;
+                    }
+                    &.eett{
+                        background-position: -20px -150px;
+                    }
+                    &.grite{
+                        background-position: -20px -300px;
+                    }
+                    span{
+                        display: none;
+                    }
+                }
+            }
+        }
+        // Sliders buttons
+        .slider-btn{
+            position: absolute;
+            cursor: default;
+            top: 4.15rem;
+            color: scale-color($dark-grey-section-bg-color, $lightness: 10%);
+            &:hover{
+                color: white;
+            }
+            &.right-bnt{
+                left: -1rem;
+            }
+            &.left-bnt{
+                right: -1rem;
+                
+            }
+        } 
+    }
+}
+/* End of Footer*/

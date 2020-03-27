@@ -1,0 +1,170 @@
+/* Terms & Conditions */
+#terms{
+    background: white;
+    padding: 2.8rem 0 4rem;
+
+    p{
+        i{
+            vertical-align: middle;
+            color: $my-deep-blue;
+        }
+        &.header{
+            font-weight: 500;
+            font-size: 1rem;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed #bbc5ca;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            @media #{$medium-up} {
+                font-size: rem-calc(17);
+            }
+        }
+        small{
+            font-size: 75%;
+        }  
+    }
+    .container{
+        background-color: #F2F6F8;
+        padding: 1.75rem 1.75rem 1.5rem;
+        margin-bottom: 3rem;
+        @media #{$large-up} {
+            padding: 2.25rem 2.25rem 2rem;
+            margin-right: 3rem;
+        }
+        h3{
+            font-size: 1.7rem;
+            font-weight: 500;
+            margin-bottom: 1.25rem;
+            &.first {
+                font-weight: 400;
+                margin-bottom: 0.5rem;
+            }
+            @media #{$medium-only} {
+                font-size:1.5rem;
+            }
+            @media #{$small-only} {
+               font-size:1.4rem;
+            }
+        } 
+        h4{
+            font-size: 1.4rem;
+            margin-bottom: 0.375rem;
+            margin-top: 1.75rem;
+            font-weight: 400;
+
+            @media #{$medium-only} {
+                font-size: 1.3rem;
+            }
+            @media #{$small-only} {
+               font-size:1.2rem;
+
+            }
+            i{
+                vertical-align: middle;
+                color: #484848;
+            }
+        }                 
+        ul{
+            text-align: left;
+            margin-bottom: 1.25rem;
+            line-height: 1.5;
+                @media #{$small-only} {
+                    margin-left: 1.3rem; 
+                }
+            li{
+                @media #{$small-only} {
+                   font-size: 0.925rem;
+                }
+                &:not(:first-child) {
+                    margin-top: 0.75rem;
+                }
+            }
+        }
+        ol{
+            margin-top: 0.5rem;
+            margin-bottom: 1.25rem;
+            margin-left: 2rem;
+            @media #{$small-only} {
+                margin-left: 1.2rem;
+            }
+            li{
+                list-style-type: decimal;
+                margin-top: 0.75rem;
+                line-height: 1.4;
+                @media #{$small-only} {
+                   font-size: 0.925rem;
+                }
+            }
+        }
+        table{
+            thead{
+                border: 2px solid $my-purple;
+            }
+            tbody{
+                border: 2px solid $medium-grey-section-bg-color;
+                border-top: 0 none;
+                tr td:first-of-type{
+                    border-right: 1px solid $medium-grey-section-bg-color;
+                }
+            }
+        }
+    }
+    blockquote {
+        font-size: 1.5rem;
+    }
+    .wrapper{
+        position: relative;
+        display: inline-block;
+
+        .side-bar-container{
+            .sidebar{
+                p.first{
+                    font-size: 1.6rem;
+                    text-align: left;
+                    font-weight: 400;
+                    margin-bottom: rem-calc(10);
+                    color: $my-subheader-paragraph-color;
+                    @media #{$medium-only} {
+                        font-size: 1.4rem;
+                    }
+                }
+                ol{
+                    font-size: rem-calc(14);
+                    font-weight: 400;
+                    margin-left: rem-calc(23);
+                    li{
+                        margin-bottom: 0.25rem;
+                        a:focus{
+                            color: $my-blue-black;
+                        }
+                    }
+                }
+                &.autofix_sb.fixed {
+                    position: fixed !important;
+                    left: auto;
+                    top: auto;
+                    right: auto;
+                    bottom: auto;
+                    height: 100%;
+                    overflow:auto;
+                }
+                &.autofix_sb.fixed.bottom {
+                    bottom: 0;
+                    position: absolute !important;
+                }
+            }
+        }
+    }
+}
+
+.tos-pricing tr th, .tos-pricing tr td {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    text-align: center;
+}
+
+#terms .tos-pricing tbody {
+	border-top-color: rgb(205, 215, 220) !important;
+    border-top-style: solid !important;
+    border-top-width: 2px !important;
+}

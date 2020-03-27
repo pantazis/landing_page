@@ -1,0 +1,90 @@
+// New tld sections
+#new-tlds-categories, #new-tlds-list, #new-tlds-proposals{
+	padding: 4rem 0;
+	&.light-grey{
+		background-color: $light-grey-section-bg-color;
+	}
+}
+
+// Slider has inside tld-category-list
+.slider{
+	.orbit-container{
+		.orbit-bullets{
+			overflow: visible;
+			margin-bottom: 5px;
+			li{
+				cursor: pointer;
+				&:not(:last-child){
+					margin-right: 8px;
+				}
+			}
+		}
+	}
+}
+
+// TLDs category list
+.tld-category-list{
+	.block{
+		padding-bottom: 1.25rem;
+		.title{
+			color: $my-inner-elements-header-color;
+			margin-bottom: 0.75rem;
+			font-size: rem-calc(17);
+			border-bottom: 1px solid $medium-grey-section-bg-color;
+			font-weight: 700;
+			padding-bottom: 2px;
+			&:before{
+				content: "\ea3c";
+				font-family: Icomoon;
+				display: inline-block;
+				margin-right: 7px;
+				color: $my-pink;
+				font-size: 14px;
+			}
+		}
+		ul > li{
+			line-height: 1.2;
+			padding: 0 !important;
+			position: relative;
+			display: inline;
+			.line{
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				font-size: rem-calc(15);
+				font-weight: 400;
+				margin-bottom: 0.5rem;
+				.tld{
+					font-weight: 500;
+					&:hover{
+						text-decoration: underline;
+					}
+				}
+				.price{
+					display: flex;
+					.strikethrough{
+						margin-right: 0.5rem;
+					}
+					&.discount .current-price{
+						color: scale-color($my-orange, $lightness: -10%);
+					}
+				}
+			}
+		}
+	}
+	@media #{$medium-up}{
+		margin: 0 -2rem;
+		.block{
+			padding: 0 2rem 1.25rem;
+		}
+	}
+}
+
+
+//Reusing Search bar with some local styles
+.simple-search-bar{
+	padding: 3rem 0 2rem;
+	&.grey{
+		background-color: scale-color($light-grey-section-bg-color, $lightness: -6%);
+	}
+}

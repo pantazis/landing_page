@@ -1,0 +1,27 @@
+/* Spam Filter */
+
+
+// This Section is commented out on the spam-filter blade at the moment
+
+/*
+table.sf-enterprise{
+	thead{
+		background-color: $my-green;
+		border: 2px solid $my-green;
+	}
+	tbody{
+		border: 2px solid $medium-grey-section-bg-color;
+		border-top: 0 none;
+		tr{
+			td{
+				&:first-of-type{
+                    width: 46%;
+                    @media #{$medium-up} { 
+                       width: 70%;
+                    }
+                }
+			}
+		}
+	}
+}
+*/

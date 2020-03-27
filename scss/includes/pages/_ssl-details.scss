@@ -1,0 +1,451 @@
+/* SSL Details Page */
+
+/* Order SSL */
+#order-ssl{
+	padding: 4rem 0 2rem;
+	// Header
+    h2{
+    	margin-top: -1.5rem;
+    	margin-bottom: 1.75rem;
+		&.black-friday:after{
+			content: "BLACK FRIDAY";
+			background-color: $black-friday;
+			color: white;
+			position: absolute;
+			font-size: 0.775rem;
+			font-weight: 700;
+			letter-spacing: 1px;
+			padding: 0.25rem 0.5rem;
+			margin-left: 0.5rem;
+		}
+    }
+	// Extra Domains
+    .additional_domains{
+    	color: white; 
+    	background-color: $my-inner-elements-header-color;
+    	font-size: 0.875rem;
+	    font-weight: 400;
+	    margin-bottom: 0;
+	    padding: 0.25rem 0.75rem;
+	    display: inline-block;
+	    position: relative;
+    	top: -1.5rem;
+    }
+	// List
+    ul.advantages{
+    	margin-bottom: 1.5rem;
+    	margin-top: 1.5rem;
+    	li{
+			line-height: 1.3;
+			font-size: 0.925rem;
+			margin-bottom: 0.35rem;
+			@media #{$small-only} {
+				margin-bottom: 0.5rem;
+			}
+		}	 
+    }
+	// Image
+    img{
+    	margin-top: 1rem;
+    	margin-bottom: 1.25rem;
+    }
+	// Buy-overview box special styles
+	.panel{
+		&.buy-overview{
+			ul.price-container{
+	            li{		            	
+	            	&.pricing{
+			            padding-top: 1rem;
+			        }
+	            	ul{
+	            		margin-bottom: 0;
+	            		li{
+	            			.smaller-padding{
+	            				padding-bottom: 0.75rem;
+	            			}
+							select{
+			            		height: 1.7rem;
+							    margin-bottom: 0;
+							    padding: 0.1rem 0.1rem 0.1rem 0.3rem;
+							    width: 2.75rem;
+							    border: 0 none;
+			            	}
+	            		}
+	            	}	
+	            }
+			}
+			a.button{
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+/* Extend buy-overview styles for SSL / here we build add and remove with plus and minus buttons */
+.buy-overview{
+    .plus-minus-input{
+        display: inline-flex;
+        width: 100%;
+        .input-group-field{
+            text-align: right;
+            margin-bottom: 0;
+            width: 100%;
+            border-color: white;
+            border-top: 0 none;
+            border-bottom: 0 none;
+        }
+        button{
+            font-size: rem-calc(20);
+            margin-bottom: 0;
+            padding: 0.25rem 0.5rem 0.1rem;
+            max-width: 3rem;
+            &.minus:after{
+                color: #989898;
+                display: inline-block;
+                font-size: rem-calc(11);
+                font-weight: 500;
+                margin-left: 3rem;
+                position: absolute;
+                line-height: 1;
+                text-align: left;
+                width: 6rem;
+                left: 0;
+            }
+        }
+		// Handling different screens with Media Queries
+        @media #{$medium-only} {
+            button{
+                width: 3.5rem;
+                &.minus:after{
+                   margin-left: 3rem;
+                }
+            }
+        }
+        @media #{$large-up} {
+            .input-group-field{
+                width: 70%;
+                height: 2.125rem;
+            }
+            button{
+                width: 15%;
+            }
+        }
+    }
+	// Labels with after for each extra service
+    .additional-domains .plus-minus-input button.minus:after{
+        content: "Επιπλέον domains:";
+        top: 15px;
+        @media #{$large-up} {
+            top: 11px;
+        }
+    }
+    .additional-servers .plus-minus-input button.minus:after{
+        content: "Αριθμός servers:";
+        top: 15px;
+        @media #{$large-up} {
+            top: 11px;
+        }
+    }
+    .ssl-quantity .plus-minus-input button.minus:after{
+        content: "Ποσότητα:";
+        top: 15px;
+        @media #{$large-up} {
+            top: 11px;
+        }
+    }
+    li{
+        &.additional-domains, &.additional-servers, &.total-domains{
+            padding-bottom: 0.75rem;
+        }
+    }
+    .total-domains{
+        div{
+            background-color: scale-color($buy-overview-bg-color, $lightness: -10%);
+            padding: 0.3rem 0.65rem 0.425rem;
+            margin-top: -0.5rem;
+            font-size: 0.825rem;
+            font-weight: 500;
+            line-height: 1.2;
+            span{
+                &:last-of-type{
+                    float: right;
+                }
+            }
+        }
+        &.with-additional-domains div{
+            margin-top: -0.75rem;
+            margin-left: 2.4rem;
+            margin-right: 2.4rem;
+        }
+    }
+}
+// Specific style for touch devices
+html.touch .buy-overview .plus-minus-input button.secondary{
+    background-color: $secondary-color;
+}
+
+/* Table with prices */
+#ssl-2rows-table{
+	padding: 0 0 3rem;
+	// List
+	ul{
+		margin: 0;
+	    li{
+	    	padding-left: 0;
+	    	padding-right: 0;
+		    padding-bottom: 0;
+		    // Build Table
+		    ul{
+		    	li{
+			    	text-align: center;
+			    	padding: 0.625rem 1.25rem;
+					@media #{$medium-up} {
+				        border-right: 1px solid $medium-grey-section-bg-color;
+				    }
+					@media #{$small-only} {
+				        text-align: left;
+				        border-bottom: 1px solid $medium-grey-section-bg-color;
+				    }
+				    &:first-of-type{
+				    	font-weight: 500;
+				    	background-color: scale-color($light-grey-section-bg-color, $lightness: 5%);
+				    	border-bottom: 1px solid $medium-grey-section-bg-color;
+				    	border-top: 1px solid $medium-grey-section-bg-color;
+				    	@media #{$small-only} {
+					        border-right: 1px solid $medium-grey-section-bg-color;
+					        border-top: 0 none;
+					    }
+				    }
+				    &:last-of-type{
+				     	background-color: scale-color($light-grey-section-bg-color, $lightness: 50%);
+				     	@media #{$medium-up} {
+					        border-bottom: 1px solid $medium-grey-section-bg-color;
+					        background-color: white;
+					    }
+				    }
+				    &.theader{
+				    	text-align: left;
+				    	font-weight: 500;
+				    	background-color: scale-color($light-grey-section-bg-color, $lightness: 5%);
+
+				    	@media #{$medium-up} {
+					        border-left: 1px solid $medium-grey-section-bg-color;
+					    }
+				    }  
+				}
+		    }
+	    }
+	}
+	// Header
+	.table-header{
+		padding: 0.75rem 1rem;
+		text-align: center;
+		font-weight: 500;
+		font-size: 1.075rem;
+		border-bottom: 1px solid $medium-grey-section-bg-color;
+		margin-top: 1rem;
+		@media #{$small-only} {
+	        margin-top: 1.5rem;
+	        border-left: 0 none;
+	        border-right: 0 none;
+	    }
+	    span{
+	    	display: block;
+	    	font-weight: 300;
+	    	padding-top: 0.25rem;
+	    	font-size: 0.825rem;
+	    }
+	}
+	// Extra row for additional info
+	.extra-row{
+		ul{
+			li{
+				padding: 0.625rem 1.25rem;
+				background-color: scale-color($light-grey-section-bg-color, $lightness: 60%);
+				border-right: 1px solid $medium-grey-section-bg-color;
+				@media #{$medium-up} {
+					border-bottom: 1px solid $medium-grey-section-bg-color;
+				}
+				&.theader{
+			    	text-align: left;
+			    	font-weight: 500;
+			    	background-color: scale-color($light-grey-section-bg-color, $lightness: 5%);
+				    border-left: 1px solid $medium-grey-section-bg-color;
+			    } 
+
+			}
+		}
+	}
+}
+
+/* Most important features */
+#ssl-features-summary{
+	background: $light-grey-section-bg-color;
+	padding: 4rem 0;
+	// Wrapper
+	.panel{
+		background-color: white;
+		// Icons
+		figure{
+			margin: 1rem 10px;
+			figcaption{
+				line-height: 1.1;
+			    font-style: italic;
+			    font-size: 0.925rem;
+			    color: #989898;
+			    margin-top: 0.25rem;
+			}
+		}
+		// Bold Features
+		&.bold-features{
+			padding-bottom: 0.5rem;
+			color: $my-inner-elements-header-color;
+			background-color: scale-color($medium-grey-section-bg-color, $lightness: 3%);
+			ul{
+				li{
+					font-size: 0.875rem;
+				    line-height: 1.2;
+				    padding-bottom: 1.25rem;
+					text-align: center;
+					span{
+						display: block;
+						font-size: 1.0625rem; 
+						font-weight: 700;
+					}
+					@media #{$large-up} {
+						width: 24%;
+						padding-bottom: 0.75rem;
+					}
+				}
+			}
+		}
+		// Additional Features
+		&.more-features{
+			@media #{$xlarge-up} {
+				height: rem-calc(260);
+    			padding-top: 2.925rem;
+    		}
+			@media #{$large-up} {
+				padding-top: 2rem;
+				padding-left: 2rem;
+			}
+			// list
+			ul{
+				li{
+					line-height: 1.2;
+					margin-left: 1.25rem;
+					i{
+						font-size: 1.25rem;
+						margin-left: -1.5rem;
+    					position: absolute;
+						&.icon-checkmark{
+							color: $my-green;
+						    margin-top: -1px;
+						}
+						&.icon-cross3{
+							color: $my-red;
+						    margin-top: 1px;
+						}
+					}
+					span{
+						font-weight: 500;
+					}
+					// Handling different screens with Media Queries
+					@media #{$large-up} {
+						margin-left: 0;
+						left: -3px;
+						position: relative;
+						i{
+							position: relative;
+							margin-left: 0;
+							&.icon-checkmark{
+								top: 1px;
+							}
+							&.icon-cross3{
+								top: 4px;
+							}
+						}
+						
+					}
+				}
+			}	
+		}
+		&.advantages{
+			.my-h4-title{
+				font-weight: 300;
+			}
+		}
+	}
+}
+
+/* Module for adding extra content to our most popular SSLs */
+#tab-module.ssl-details{
+	background-color: #d2e9e0;
+	padding: 4rem 0 5rem;
+	// Header
+	h2{
+		strong{
+			letter-spacing: -0.5px;
+			border-bottom: 1px dashed $my-body-text-color;
+		}
+	}
+	// Extend tabs
+	.tabs{
+		// Title
+		.tab-title{
+			a{
+				background-color: #7bd1b1;
+				color: white;
+				letter-spacing: 0.5px;
+				&:hover{
+					background-color: $my-green;
+				}
+			}
+			&.active a{
+				background-color: white;
+				color: $my-green;
+			}
+		}
+	}
+	// Content
+	.accordion dd > {
+		& a{
+			margin-bottom: 1px;
+		}
+		& .content{
+			padding: 1.25rem;
+			background-color: white;
+			@include shadow(0, 2px, 0, scale-color($medium-grey-section-bg-color, $lightness: -5%));
+			i{
+				display: none;
+			}
+			h3{
+				font-weight: 500;
+				margin-bottom: 0.75rem;
+			}
+			// Handling different screens with Media Queries
+			@media #{$medium-up}{
+				padding: 3rem;
+				.wrapper{
+					display: inline-flex;
+					align-items: center;
+					@media #{$xlarge-up}{
+						min-height: 10rem;
+					}
+					i{
+						display: inline-block;
+						font-size: 5rem;
+						color: $my-green;
+						margin-right: 3rem;
+					}
+					h3{
+						font-size: 1.125rem;
+					}
+					p{
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+}

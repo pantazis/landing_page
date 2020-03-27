@@ -1,0 +1,453 @@
+/* Editable forms - Used regularly. Live example can be found at my account section */
+.editable-form{
+	margin-bottom: 1.25rem;
+	@media #{$medium-up}{
+		margin-bottom: 2rem;
+	}
+	// headers
+	h5, h6{
+		background-color: scale-color($light-grey-section-bg-color, $lightness: 15%);
+		border: 1px solid $medium-grey-section-bg-color;
+	    display: block;
+	    font-weight: 500;
+	    line-height: 1.1;
+	    margin: 0;
+	    padding: 1rem 1.25rem;
+		position: relative;
+	    @media #{$small-only}{
+	    	background-color: $medium-grey-section-bg-color;
+	    }
+	    a{
+	    	color: $my-inner-elements-header-color;
+	    	position: relative;
+	    	right: -2px;
+			&.on-right{
+				position: absolute;
+				right: 1.25rem;
+				top: rem-calc(18);
+			}
+	    }
+	}
+	//Items in rows
+	.item{
+		background-color: $editable-item-bg-color;
+		border-bottom: 1px solid scale-color($medium-grey-section-bg-color, $lightness: 20%);
+		border-left: 1px solid $medium-grey-section-bg-color;
+		border-right: 1px solid $medium-grey-section-bg-color;
+		padding-left: 1.25rem;
+		padding-right: 1.25rem;
+		padding-top: 0.75rem;
+		padding-bottom: 0.75rem;
+		line-height: 1.3;
+		font-size: 0.95rem;
+		@media #{$small-only}{
+			font-size: 1rem;
+		}
+		p{
+			font-size: 0.95rem;
+			line-height: 1.3;
+		}
+		
+		&:last-of-type{
+			border-bottom: 1px solid $medium-grey-section-bg-color;
+		}
+		&:hover{
+			background-color: $editable-item-hover;
+		}
+		&.non-hover{
+			background-color: $editable-item-bg-color; 
+		}
+		&.opened{
+			background-color: $editable-item-opened !important;
+			border-bottom: 1px solid $medium-grey-section-bg-color;
+			@media #{$small-only}{
+				background-color: white !important;
+			}
+		}
+		/* Used for important admin comments */
+		&.important{
+			&:before{
+				content: '';
+				width: 8px;
+				height: 8px;
+				display: block;
+				background-color: $my-orange;
+				position: absolute;
+				margin-top: 5px;
+				@media #{$medium-only}{
+					left: 22px;
+				}
+				@media #{$small-only}{
+					left: 22px;
+				}
+			}
+		}
+		.first-label{
+			word-wrap: break-word;
+			color: #717171;
+			display: block;
+			@media #{$small-only}{
+				font-size: 0.85rem;
+			}
+	    	@media #{$large-up}{
+    			text-align: right;
+	    	}
+	    	&.top-7{
+	    		@media #{$large-up}{
+	    			margin-top: 7px;
+	    		}
+	    	}
+		}
+		.data-label{
+			word-wrap: break-word;
+			color: black;
+			font-weight: 400;
+			@media #{$small-only}{
+	    		display: block;
+	    		width: 90%;
+	    	}
+	    	span{
+	    		display: block;
+	    		line-height: 1.2;
+	    		&.time{
+	    			display: inline-block;
+	    			margin-left: 0.5rem;
+	    			margin-right: 0.25rem;
+	    		}
+	    	}
+			strong{
+				font-weight: 700;
+			}
+	    	&.spacy span{
+	    		@media #{$medium-up}{
+	    			padding-bottom: 0.25rem;
+	    		}
+    			&:last-child{
+    				padding-bottom: 0;
+    			}
+    		}
+    		&.auth-code span{
+				font-size: 0.875rem;
+			    padding-bottom: 1rem;
+				&:last-child{
+    				padding-bottom: 0;
+    			}
+    			strong{
+    				font-weight: 700;
+    				display: block;
+    				margin-bottom: 0.125rem;
+    				color: $my-inner-elements-header-color;
+    			}
+    		}
+    		&.italic span{
+    			&:first-child{
+					display: block;
+					font-size: 0.85rem;
+    			}
+    			font-style: italic;
+    			font-weight: 300;
+    			color: #717171;
+    		}
+    		&.warning{
+				color: $my-orange;
+			}
+			.timezone{
+				color: #c3c3c3;
+			}
+			&.small-lineheight{
+	    		@media #{$large-up}{
+		    		line-height: 1.2;
+				    margin-top: 0.25rem;
+				    align-items: center;
+    				display: flex;
+				}
+	    	}
+	    	&.csr{
+	    		font-family: Monospace;
+	    		line-height: 16px;
+	    		font-size: 13px;
+	    	}
+			ol, ul{
+				margin-bottom: 0.25rem;
+    			margin-top: 0.1rem;
+    			margin-left: 1rem;
+    			font-weight: 300;
+				li{
+					line-height: 1.1;
+					margin-bottom: 0.75rem;
+					font-size: 0.95rem;
+					&:last-child{
+						margin-bottom: 0;
+					}
+				}	
+			}
+			i{
+				&.check{
+					font-size: 1.25rem;
+					color: $my-green;
+				}
+				&.unavail{
+					font-size: 1.25rem;
+					color: $my-red;
+					position: relative;
+					top: 1px;
+				}
+			}
+		}
+		.label{
+			@media #{$small-only}{
+				margin-top: 3px;
+				margin-bottom: 2px;
+			}
+			margin-bottom: 0;
+			@media #{$large-up}{
+				float: right;
+			}
+			&.label-hide{
+				display: none;
+			}
+			&.align-left{
+				@media #{$large-up}{
+					float: left !important;
+					margin-right: 0.5rem;
+				}
+			}
+			&.lang-el{
+				min-width: 5rem;
+			}
+			&.lang-en{
+				min-width: 5rem;
+			}
+		}
+		/* Used for small loader */
+		.inline-small-loader{
+			.loading{
+				margin: rem-calc(10 13);
+				@media #{$small-only}{
+					margin: rem-calc(20 13);
+					padding-bottom: 1px;
+				}
+			}
+		}
+
+
+		.in-block{
+			display: inline-block;
+		}
+		.edit_btn{
+			font-size: 0.875rem;
+			position: relative;
+			@media #{$small-only}{
+				bottom: 0;
+			    font-size: 0.875rem;
+			    position: absolute;
+			    right: 1rem;
+			}
+
+			//found in domain manage -> nameservers
+			&.edit_host{
+				&:hover::before{
+					content: " ";
+		        	content: none;
+				}
+			}
+		}
+		.delete_btn{
+			font-size: 1.25rem;
+			position: relative;
+			right: -3px;
+			@media #{$small-only}{
+				right: 4px;
+			}
+			//found in domain manage -> nameservers
+			&.delete_host{
+				top: 4px;
+				&:hover::before{
+					content: " ";
+		        	content: none;
+				}
+			}
+		}
+		/* Used in Domains nameservers section */
+		.delete_reg{
+			bottom: 0.85rem;
+			float: right;
+			font-size: 0.825rem;
+			height: 0.5rem;
+			position: relative;
+			&:hover{
+				@media #{$medium-up}{
+					&::before{
+		        		content: "\e913";
+		        		font-family: 'icomoon'; 
+		        		position: absolute;
+		        		left: -1rem;
+		        		font-size: 0.9rem;
+		        		top: -1px;
+		        	}
+		        }
+			}
+		}
+		.divider-padding{
+    		margin-right: 1.25rem;
+    		margin-left: 0.35rem;
+    		&:after{
+				content: '';
+			    width: 0;
+			    height: 100%;
+			    position: absolute;  
+			    border-left: 1px solid $my-body-light-text-color;
+			    top: 0;
+			}
+    		@media #{$large-up}{
+    			margin-left: 0.925rem;
+    			margin-right: 1.325rem;
+    		}
+    		@media #{$medium-only}{
+    			margin-left: 0.5rem;
+    			margin-right: 0.75rem;
+    		}
+		}
+		.verify_btn{
+			padding-top: 0.25rem;
+			padding-bottom: 0.3125rem;
+			margin-bottom: 0.5rem;
+			margin-right: 0.25rem;
+		}
+		.switch{
+			&.tiny{
+				margin-top: 0.25rem;
+				@media #{$medium-up}{
+		    		top: -2px;
+		    		margin-bottom: -0.5rem;
+		    		margin-top: 0;
+		    	}
+		    	input:checked + label::after {
+				    left: 2.25rem;
+				}
+		    	label{
+		    		width: 4rem;
+					text-indent: 0%;
+		    		&::after{
+		    			width: 1.5rem;
+		    		}
+		    	}
+		    	.switch-off, .switch-on{
+		    		font-size: 0.6875rem;
+		    		pointer-events: none;
+		    		top: 4px;
+		    	}
+				.switch-on {
+					left: 6px;
+				}
+		    	.switch-off{
+		    		//left: -28px;
+					left: 36px;
+		    	}
+		    	&.is-locked{
+		    		pointer-events: none;
+		    		cursor: default;
+		    	}
+			}
+		}
+		form{
+			fieldset{
+				background-color: scale-color($medium-grey-section-bg-color, $lightness: 40%);
+				legend{
+					background-color: scale-color($medium-grey-section-bg-color, $lightness: 40%);
+				}
+			}
+			label{
+				font-weight: 500;
+				cursor: default;
+			}
+		    .checkbox, .radio{
+		    	label{
+		    		cursor: pointer;
+		    	}
+		    }
+		}
+		hr{
+			margin-top: 0.5rem;
+		}
+		.button{
+			padding-top: 0.5rem;
+			padding-bottom: 0.5625rem;
+			&.cancel{
+				background-color: scale-color($light-grey-section-bg-color, $lightness: -5%);
+				&:hover{
+					background-color: scale-color($light-grey-section-bg-color, $lightness: -12%);
+				}
+			}
+			&.add-nameservers{
+				font-size: rem-calc(20);
+				padding: 0.25rem 0.575rem 0.025rem;
+				margin-bottom: 0.675rem;
+			}
+			&.in-cart{
+                background-color: $my-green;
+                cursor: default;
+                pointer-events: none;
+            }
+            &.in-item{
+            	@media #{$medium-up}{
+            		margin-left: 1rem;
+            	}
+            }
+		}	
+	}
+	/* Edit content for a whole Block */
+	.display_items{
+		max-height: 40rem;
+	}
+	.display_form{
+		display: none;
+		overflow: hidden;
+		.item.opened{
+			padding-top: 1.75rem;
+		}
+	}
+	/* Edit content for every Item */
+	.content_static{
+		max-height: 15rem;
+		hr{
+			margin: 1rem 0 0.6rem;
+			border-color: #d2dee1;
+		}
+	}
+	.content_form{
+		padding-top: 1rem;
+		overflow: hidden;
+		display: none;
+	}
+	/* Open - Close classes */
+	.is-open{
+    	display: block;
+	    overflow: visible;
+	}
+	.is-closed{
+		display: none;
+	    max-height: 0;
+	    overflow: hidden;
+	}
+}
+
+/* Classes used in Admin Comments */
+.no-static-line{
+    max-height: 0;
+    overflow: hidden;
+}
+.no-static-line.active{
+    max-height: 35rem;
+}
+
+/* Handling Touch only screens */
+html.touch .editable-form .item:hover{
+	background-color: white;
+}
+html.touch .editable-form .item .delete_reg:hover::before, 
+html.touch .editable-form .item .delete_btn:hover::before, 
+html.touch .editable-form .item .edit_btn:hover::before {
+	content: '';
+    content: none;
+}

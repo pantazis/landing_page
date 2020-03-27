@@ -1,0 +1,34 @@
+/* Specific refinement styles for checkout in back-end */
+
+#checkout-summary, .payment-options{
+    h1{
+        margin-bottom: 1rem;
+        @media #{$medium-up} {
+            margin-bottom: 3rem;
+        }
+    }
+    hr{
+        border-color: scale-color($medium-grey-section-bg-color, $lightness: 10%);
+    }
+    p.smaller{
+        font-size: 0.925rem;
+        line-height: 1.3;
+    }
+}
+#checkout-summary{
+   .payment-methods{
+       padding-top: 0;
+       padding-bottom: 1rem;
+       background-color: white;
+       ol{
+           margin-bottom: 0;
+           line-height: 1.3;
+           li:not(:last-child){
+               margin-bottom: 0.825rem;
+           }
+       }
+   }
+}
+.payment-options{
+    margin: 1rem 0;
+}

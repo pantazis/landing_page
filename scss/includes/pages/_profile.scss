@@ -1,0 +1,124 @@
+/* Who we are page */
+
+/* Intro cards */
+#profile-intro{
+     padding: 2.25rem 0 4rem;
+    // wrapper
+     .profile{
+         margin: 0 -0.625rem;
+         li{
+             padding: 0 0.625rem 1.25rem;
+             &:before{
+                 content: none;
+             }
+             // card
+             .panel{
+                 padding: 0;
+                 margin-bottom: 0;
+                 background: scale-color($light-grey-section-bg-color, $lightness: 40%);
+                 border-bottom: 2px solid $medium-grey-section-bg-color;
+                 height: 100%;
+                 .pic{
+                     background-color: #B6D8F1;
+                 }
+                 .content{
+                     padding: 1.75rem 1.5rem 1.25rem;
+                     p{
+                         line-height: 1.5;
+                     }
+                 }
+                 strong{
+                     color: $my-inner-elements-header-color;
+                     font-size: 1.125rem;
+                 }
+             }
+         }
+     }
+ }
+/* Our Team styles */
+.the-people{
+    // First wrapper
+    .wrapper-1{
+        margin: 4rem 0;
+        .panel{
+            background-color: scale-color($light-grey-section-bg-color, $lightness: 40%);
+            border: 1px solid scale-color($light-grey-section-bg-color, $lightness: -8%);
+            // Content styles
+            .my-h4-title{
+                color: $my-inner-elements-header-color;
+                margin-bottom: 0.25rem;
+            }
+            .sub-title{
+                color: scale-color($my-body-light-text-color, $lightness: 15%);
+            }
+            img{
+                margin-right: 1.25rem;
+                margin-bottom: 0.75rem;
+                float: left;
+                @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    // Second wrapper
+    .wrapper-2{
+        .block{
+            @media #{$large-up} {
+                margin: 0 2rem;
+            }
+            // Content styles
+            .my-h4-title{
+                margin-bottom: 1rem;
+            }
+            img{
+                width: 85px;
+                height: 85px;
+                @include border-radius(50%);
+                @include transition(all 0.15s ease-out);
+                &:hover{
+                    box-shadow: 0 0 0 4px $medium-grey-section-bg-color;
+                }
+            }
+            p{
+                line-height: 1.5;
+            }
+            // List
+            ul.inline-list {
+                display: inline-table;
+                margin: 1.75rem auto 0.5rem;
+                @media #{$large-up} {
+                    margin: 0 auto 0.5rem;
+                }
+                li{
+                    margin-left: rem-calc(5);
+                    padding: rem-calc(4);
+                    &:first-of-type {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* Specific style for the imgs in this section */
+#customer-base #simple-row img{
+    margin-bottom: 0;
+}
+
+/* Specific styles for the map */
+#map{
+    height: 500px;
+}
+.fixed-prefix{
+    display: inline-flex;
+    width: 100%;
+    span.prefix{
+        width: 3rem;
+    }
+}
+.scrolloff{
+    pointer-events: none;
+}

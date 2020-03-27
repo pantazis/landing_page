@@ -1,0 +1,136 @@
+// Styles for system responses. Its a box found at left bottom of the page
+// Building Outer Wrapper for positioning
+.top-alert-msg{
+	position: fixed;
+	top: 0;
+	width: 100%;
+    z-index: 9999;
+	// Inside wrapper styles
+    .alert-box{
+    	padding-left: 4rem;
+    	position: fixed;
+	    bottom: 0;
+	    background-color: white;
+	    color: $my-body-text-color;
+	    box-shadow: 0 1px 25px -5px $my-header-color;
+	    line-height: 1.3;
+	    border: 0 none;
+	    width: 90%;
+	    min-height: 7rem;
+	    margin-left: 5%;
+	    @media #{$medium-up} {
+    		width: 20rem;
+	    	left: 1rem;
+	    	margin-left: 0;
+	    }
+		// Icon style
+    	i{
+		    display: block;
+		    font-size: 1.75rem;
+		    height: 100%;
+		    margin-left: -64px;
+		    margin-top: -14px;
+		    padding: 0;
+		    position: absolute;
+		    width: 3.25rem;
+		    padding-top: 16px;
+		    padding-left: 12px;
+		    color: white;
+    	}
+		// Close box
+    	.closeMessage{
+		    color: $my-header-color;
+		    float: right;
+		    font-size: 1.25rem;
+		    position: absolute;
+		    right: 9px;
+		    top: 0;
+		    opacity: 0.5;
+			&:hover{
+				opacity: 1;
+			}
+    	}
+		// Different colors
+    	&.success{
+    		i{
+    			background: $my-green;
+    		}
+    	}
+    	&.alert{
+    		i{
+    			background: $my-red;
+    		}
+    	}
+    	&.warning{
+    		i{
+    			background: $my-orange;
+    		}
+    	}
+    	// Special style. Used in cart for pointing domains with missing information
+	    .question-mark:after{
+	        background-color: $my-red;
+			@include border-radius(50%);
+			color: white;
+			content: "\e61c";
+			font-family: "icomoon";
+			font-size: 0.625rem;
+			height: 1rem;
+			left: 0.25rem;
+			padding: 0.2rem;
+			position: relative;
+			top: 0.125rem;
+			width: 1rem;
+    	}
+    }
+}
+
+// Style for closing alert boxes
+.alert-box{
+ 	&.closeMyBox{
+	   	font-size: 1.375rem;
+	   	padding: 9px 6px 4px;
+	   	line-height: 0;
+	   	position: absolute;
+	   	top: 50%;
+	   	margin-top: -0.6875rem;
+	   	right: 0.25rem;
+	   	color: black;
+	   	opacity: 0.3;
+
+	   	&:hover, &:focus {
+		    opacity: 0.5; 
+		}
+	}
+}
+
+// Back end system responses ( e.g. Message: No results found )
+.pending_answer{
+    min-height: 7rem;
+	// loader wrapper style
+    .global_loader{
+    	margin-top: 6rem;
+    	text-align: center;
+    }
+	// content style
+	.system-response{
+		font-size: 0.925rem;
+		color: $my-inner-elements-header-color;
+		font-weight: 400;
+	}
+	// loader size
+    #noEntries, .global_loader{
+    	.loading{
+    		text-align: center;
+    		display: inline;
+    		.spinner, .spinner:after{
+    			width: 5rem;
+        		height: 5rem;
+    		}
+    		.spinner{
+    			border-width: 6px;
+    			top: 1.5rem;
+    			margin: -2.5rem auto auto -2.5rem;
+    		}
+    	}
+    }
+}

@@ -1,0 +1,1539 @@
+/* -------------------------------
+Main style file
+--------------------------------*/
+
+@charset "utf-8";
+@import "included-app-files";
+@import "includes/_header.scss";
+
+/* Disable Backend Menu Shadow for medium down*/
+header {
+	#main_nav{
+		@media only screen and (max-width: 1025px) {
+			box-shadow: none;
+		}
+	}
+}
+
+
+/* -----------------------------------------
+Useful margin and padding global classes
+------------------------------------------- */
+.no-padding{
+	padding: 0;
+}
+.no-padding-bottom{
+	padding-bottom: 0;
+}
+.some-padding-top{
+	padding-top: 1.25rem;
+}
+.no-margin-top{
+	margin-top: 0;
+}
+.no-margin-bottom{
+	margin-bottom: 0;
+}
+.some-margin-top{
+	margin-top: 1.25rem;
+}
+.half-margin-top{
+	margin-top: 0.75rem;
+}
+.small-margin-top{
+	margin-top: 0.25rem;
+}
+.some-margin-bottom{
+	margin-bottom: 1.25rem;
+}
+.half-margin-bottom{
+	margin-bottom: 0.75rem;
+}
+.small-margin-bottom{
+	margin-bottom: 0.25rem;
+}
+.half-margin-left{
+	margin-left: 0.75rem;
+}
+.small-margin-left{
+	margin-left: 0.25rem;
+}
+
+/* -----------------------------------------
+Globals - Typography
+------------------------------------------ */
+h1,h2,h3,h4,h5,h6{
+	&.white{
+		color: white;
+	}
+}
+.small-font{
+	font-size: 0.875rem;
+	line-height: 1.4;
+}
+.smaller-font{
+	font-size: 0.825rem;
+	line-height: 1.3;
+}
+.smallest-font{
+	font-size: 0.75rem;
+	line-height: 1.2;
+}
+b, strong {
+    font-weight: 500;
+}
+.light-weight{
+	font-weight: 300;
+}
+.normal-weight{
+	font-weight: 400;
+}
+hr{
+	border-color: scale-color($dark-grey-section-bg-color, $lightness: 75%);
+	&.big-margin{
+		margin-top: 0.5rem;
+		margin-bottom: 2rem;
+	}
+	&.dash{
+		border-style: dashed;
+	}
+}
+a{
+	&.under-line{
+		border-bottom: 1px dotted;
+		padding-bottom: 1px;
+	}
+	&.warn{
+		color: $my-orange;
+		&:hover{
+			color: scale-color($my-orange, $lightness: -20%);
+		}
+	}
+	&.pale-blue{
+		color: #90caf9;
+		&:hover{
+			color: scale-color(#90caf9, $lightness: -20%);
+		}
+	}
+	&.consistant-light-blue{
+		color: $my-light-blue;
+	}
+}
+
+/* -----------------------------------------
+Global Elements
+------------------------------------------ */
+
+// Footer
+footer {
+    margin-top: 2.75rem;
+}
+// Inputs
+input{
+	font-weight: 400;
+}
+// Textarea
+textarea{
+	line-height: 1.3;
+	&.non-resizable, &.no-resize{
+		resize: none;
+	}
+	&.normal-size{
+		font-size: 1rem;
+	}
+	&.mono-space{
+        font-family: Monospace;
+    }
+    &.with-min-height{
+    	min-height: 6rem;
+    }
+}
+// Labels as html elements - Pairs with input elements
+label{
+	&.inline {
+		@media #{$medium-only}{
+		    margin: 0;
+		    padding: 0;
+		    line-height: 1.5;
+		}
+		@media #{$small-only}{
+		    margin: 0;
+		    padding: 0;
+		    line-height: 1.5;
+		}
+		&.n-lineheight{
+			@media #{$large-up}{
+				line-height: 1.4;
+			}
+		}
+	}
+}
+// Fieldset
+fieldset{
+  	margin-bottom: 1.75rem;
+}
+// Buttons
+button, .button{
+	//padding: 0.725rem 1.25rem 0.7875rem;
+	&.small{
+		padding: 0.675rem 1.75rem 0.7375rem;
+	}
+	&.warning{
+		background-color: $my-orange;
+		&:hover{
+			background-color: scale-color($my-orange, $lightness: -20%);
+		}
+	}
+	&.with-icon{
+		padding-left: 3rem;
+		i{
+			display: block;
+		    font-size: 1.25rem;
+		    height: 100%;
+		    line-height: 2;
+		    position: absolute;
+		    text-align: center;
+		    top: -1px;
+		    left: 1.25rem;
+		}
+	}
+}
+
+// Styles for labels as a class for showing states like "active", "disabled", etc....
+.label{
+	background-color: white;
+	font-weight: 500;
+	border: 1px solid;
+	// suspended, error, declined
+    &.suspended, &.error, &.declined{
+    	background-color: white;
+        border-color:  $my-red;
+        color: $my-red;
+        font-size: 0.6875rem;
+        font-weight: 500;
+    }
+	// open, overdue, on_payment
+    &.open, &.overdue, &.on_payment{
+    	border-color:  scale-color($my-yellow, $lightness: -30%);
+        color: scale-color($my-yellow, $lightness: -30%);
+    }
+	// paid
+    &.paid{
+    	border-color:  $my-deep-blue;
+        color: $my-deep-blue;
+    }
+	// success, completed
+    &.success, &.completed{
+    	background-color: white;
+    	border-color: $my-green;
+        color: $my-green;
+    }
+	// pending, warning
+    &.pending, &.warning{
+    	background-color: white;
+        border-color: #f08a24;
+        color: #f08a24;
+    }
+	// scheduled
+    &.scheduled{
+        border-color: $my-light-blue;
+        color: $my-light-blue;
+    }
+	// processing
+    &.processing{
+        border-color: $my-pink;
+        color: $my-pink;
+    }
+	// cancelled
+    &.cancelled{
+        border-color: scale-color($medium-grey-section-bg-color, $lightness: -25%);
+        color: scale-color($medium-grey-section-bg-color, $lightness: -25%);
+    }
+	// refunded, partially_refunded
+    &.refunded, &.partially_refunded{
+    	border-color: $my-purple;
+        color: $my-purple;
+    }
+}
+// Refinement styles for .labels
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	.label{
+		padding-bottom: 0.3125rem !important;
+	}
+}
+@-moz-document url-prefix() {
+    .label{
+		padding-top: 0.3125rem !important;
+	}
+}
+
+// Switchers with yes-no text inside
+// ON
+.switch-on {
+    position: absolute;
+    left: -55px;
+    top: 10px;
+    color: white;
+    font-weight: 400;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+}
+// OFF
+.switch-off {
+    position: absolute;
+    left: -25px;
+    top: 10px;
+    color: white;
+    font-weight: 400;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+}
+
+// Global big wrapper padding
+.simple-wrapper{
+	padding: 4rem 0;
+}
+
+
+/* End Styling Globals */
+
+
+/* -----------------------------------------
+Useful Classes & Elements
+------------------------------------------ */
+
+// Styles for panels
+.panel{
+    border-width: 1px;
+    &.no-border{
+    	border-width: 0;
+    }
+	// Colors
+    &.white{
+    	background-color: white;
+    }
+    &.callout{
+    	border-width: 1px;
+    	border-color: $my-orange;
+    	background: scale-color($my-orange, $lightness: 75%);
+    }
+    //this one is specially made for editable forms
+    &.actions{
+    	background-color: scale-color(#EAF5FC, $lightness: -4%);
+    }
+	// With form inside
+    &.form{
+    	padding: 2rem;
+    	form{
+    		padding: 0;
+    	}
+    	.link{
+    		line-height: 1.2;
+    		margin-bottom: 0.75rem;
+    		
+    		@media #{$medium-up} {
+	            position: relative;
+    			top: 0.8rem;
+    			margin-bottom: 0;
+	        }
+    	}
+    }
+}
+// Custom dropdown used as a tooltip 
+.my-tooltip{
+	// Dropdown wrapper
+    &.f-dropdown{
+    	&:before {
+	        border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) scale-color($medium-grey-section-bg-color, $lightness: -5%);
+	        top: -13px;
+	    }
+		// Content style
+    	&.content{
+	        background: white;
+	        margin-left: -0.55rem;
+	    	margin-top: 0.175rem;
+	        border: 1px solid scale-color($medium-grey-section-bg-color, $lightness: -5%);
+	        padding: 1rem;
+	        line-height: 1.3;
+	        font-weight: 400;
+	        font-size: 0.825rem;
+	        box-shadow: 0 4px 10px -5px $my-header-color;
+	        word-break: initial;
+			// Domain in rgp
+		    .rgp{
+		    	color: $my-red;
+		    	position: relative;
+		    	padding: 0;
+    			display: inline;
+		    }
+		    span{
+		    	font-size: 0.825rem;
+		    }
+	    }
+    }
+}
+// position classes used often with .my-tooltip
+.top-1{
+	position: relative;
+	top: 1px;
+}
+.top-2{
+	position: relative;
+	top: 2px;
+}
+
+
+
+// No scroll -> George need this
+.noscroll{
+	position: fixed;
+	overflow-y: scroll;
+	width: 100%;
+}
+// Make type white
+.color-white{
+	color: white;
+}
+// Hide important -> George need this often
+.hide-important{
+	display: none !important;
+}
+/* End */
+
+
+/* -----------------------------------------
+Components
+------------------------------------------ */
+// A custom Panel 
+.custom-panel{
+	margin-bottom: 1.25rem;
+	// Header
+	.heading{
+	    padding: 1rem 1.25rem;
+        background: scale-color($light-grey-section-bg-color, $lightness: 15%);
+        border: 1px solid $medium-grey-section-bg-color;
+		// Head
+	    h5{
+	    	line-height: 1.1;
+            margin: 0;
+            padding: 0;
+            font-weight: 500;
+            display: inline;
+	    }
+		// Colors
+	    &.light-grey{
+	    	background: scale-color($dark-grey-section-bg-color, $lightness: 40%);
+	    }
+		&.pale-red{
+			background: #fde3e0;
+		}
+	}
+	// Body
+	.body {
+		background: white;
+	    padding: 1.25rem;
+	    border: 1px solid $medium-grey-section-bg-color;;
+		border-top: 0;
+		font-size: 0.925rem;
+		// Colors
+		&.light-grey {
+		    background: $light-grey-section-bg-color;
+		}
+		p.description{
+			font-size: 0.95rem;
+			line-height: 1.3;
+			margin-bottom: 1.75rem;
+		}
+		// Generic lists
+		ol, ul{
+			margin-bottom: 0;
+			font-size: 0.95rem;
+			line-height: 1.3;
+			li:not(:last-child){
+				margin-bottom: 0.75rem;
+			}
+
+		}
+		ol{
+			margin-left: 1.2rem;
+		}
+		// Styles for lists
+		ul{
+			&.documents{
+				li{
+					margin-bottom: 1.25rem;
+					line-height: 1.3;
+					display: table;
+					width: 100%;
+					.number{
+						display: table-cell;
+						font-size: 1.5rem;
+						font-weight: 500;
+						color: $my-inner-elements-header-color;
+						padding-right: 0.5rem;
+	    				text-align: right;
+	    				width: 3rem;
+					}
+					.desc{
+						display: table-cell;
+					}
+				}
+			}
+			&.links{
+				li{
+					margin-bottom: 1.25rem;
+					line-height: 1.3;
+				}
+			}
+		}
+		// Specific style for tile component
+		.tile{
+			&:last-of-type{
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+// Tabs Component
+.tabs{
+	// Tabs button style
+	dd > a, .tab-title > a {
+    	font-weight: 400;
+    	color: white;
+    	background-color: $horizontal-tabs-bg-color;
+    	@media #{$medium-only} { 
+    		padding-left: 1.5rem;
+    		padding-right: 1.5rem;
+		}
+    	span{
+    		position: relative;
+    		color: $my-orange;
+    		i{
+    			position: absolute;
+    			font-size: 1.25rem;
+    			top: 1px;
+    			left: 7px;
+    		}
+    	}
+    	&:hover{
+    		background-color: scale-color($horizontal-tabs-bg-color, $lightness: -20%);
+    	}
+	}
+	// Active State
+	dd.active > a, .tab-title.active > a {
+    	background-color: white;
+    	color: $my-inner-elements-header-color;
+    	font-weight: 500;
+	}
+	// Vertical Tabs
+	&.vertical{
+		// Tab Style
+		.tab-title > a{
+			color: scale-color($medium-grey-section-bg-color, $lightness: -20%);
+    		background-color: $vertical-tabs-bg-color;
+			border: 1px solid $medium-grey-section-bg-color;
+			line-height: 1.2;
+			padding-left: 1.25rem;
+    		padding-right: 1.25rem;
+    		position: relative;
+    		font-weight: 500;
+    		margin-bottom: 1rem;
+    		@media #{$medium-only} {
+				padding-left: 0.825rem;
+    			padding-right: 0.825rem;
+			}
+    		&:hover{
+    			color: $my-inner-elements-header-color;
+    			border-color: scale-color($medium-grey-section-bg-color, $lightness: -15%);
+    		}
+    		&:hover::after{
+	    		font-family: "Icomoon";
+	    		content: "\e604";
+	    		position: absolute;
+	    		right: 1.25rem;
+	    		margin-top: 1px;
+	    		color: $my-inner-elements-header-color;
+	    		@media #{$medium-only} {
+	    			right: 0.625rem;
+	    		}
+	    	}
+		}
+		// Handling last child's margin
+		.tab-title:last-of-type > a{
+			margin-bottom: 0;
+		}
+		// Active State
+		.tab-title.active > a {
+	    	background-color: $vertical-tabs-active-bg-color;
+	    	border-color: scale-color($vertical-tabs-active-bg-color, $lightness: -25%);
+	    	color: $my-inner-elements-header-color;
+	    	&::after{
+	    		font-family: "Icomoon";
+	    		content: "\e604";
+	    		position: absolute;
+	    		right: 1.25rem;
+	    		margin-top: 1px;
+	    		color: $my-inner-elements-header-color;
+	    	}
+	    	@media #{$medium-only} {
+	    		&::after{
+	    			right: 0.625rem;
+	    		}
+	    	}
+		}
+	}
+}
+
+// Accordion Component
+.accordion{
+	margin-bottom: 1.25rem;
+	.accordion-navigation {
+		& > a {
+			margin-bottom: 1px;
+		}
+		// Content styles
+		.content{
+			// Active
+			&.active{
+				@media #{$medium-up} {
+					border-bottom: 2px solid scale-color($medium-grey-section-bg-color, $lightness: -5%);
+				}
+			}
+			// Vertical cersion
+			&.vertical{
+				&.active{
+					background-color: white;
+					border-bottom: 0 none;
+					@media #{$small-only}{
+						background-color: $light-grey-section-bg-color;
+						padding: 1.5rem 1rem;
+					}
+				}
+				// Handling different screens with Media Queries
+				@media #{$medium-up} {
+					padding-top: 0;
+					padding-bottom: 0;
+					padding-right: 0;
+					margin-left: 20%;
+					.content-box, .section-box{
+						padding: 0 0.5rem;
+						padding-right: 0;
+					}
+				}
+				@media #{$large-up} { 
+					.content-box, .section-box{
+						padding: 0 0 0 1rem;
+					}
+				}
+			}
+		}	
+	}
+}
+
+// Styles for Tables 
+table{
+	width: 100%;
+	// Heading
+	thead{
+        background: scale-color($light-grey-section-bg-color, $lightness: 15%);
+        border: 1px solid $medium-grey-section-bg-color;
+        tr{
+        	th{
+	        	color: $my-header-color;
+	        	font-size: 1.125rem;
+	        	font-weight: 500;
+	        	line-height: 1.1;
+	        	padding: 1rem 1.25rem;
+	        }
+        }
+	}
+	// Special Style Table Credit limit
+	&.credit-limit{
+		tbody{
+			tr{
+				td, th{
+					padding-left: 1.25rem;
+					padding-right: 1.25rem;
+					text-align: right;
+					&:first-of-type{
+						text-align: left;
+					}
+				}
+				th{
+					font-size: 0.925rem;
+				    color: $my-inner-elements-header-color;
+				    font-weight: 500;
+				}
+				td:last-of-type{
+					color: $my-red;
+				}
+			}
+		}
+		
+	}
+	// Special Style for 2 columns Table
+    &.simple-2-columns{
+        tr{
+           td{
+                &:first-of-type{
+                	color: #717171;
+                    @media #{$large-up}{
+                        width: 33%;
+                    }
+                } 
+                &:last-of-type{
+                	color: black;
+    				font-weight: 400;
+                }  
+            } 
+        }
+        tbody{
+        	th{
+        		text-align: left;
+        		line-height: 1.4;
+        		font-weight: 300;
+        	}
+        } 
+    }
+	// Special Style for domain transfer table
+    &#domain-transfer-validation{
+    	border-color: $my-red;
+    	thead{
+    		border-color: $my-red;
+    		background-color: #FFBEC0;
+    	}
+    	.msg{
+    		&:before{
+			    color: white;
+			    border-radius: 50%;
+			    font-family: "Icomoon";
+			    margin-right: 0.5rem;
+			    padding: 3px;
+			    position: relative;
+			    line-height: 1;
+			    top: 1px;
+    		}
+    		&.fail:before{
+    			background-color: $my-red;
+    			content: "\e913";
+    		}
+    		&.pass:before{
+    			background-color: $my-green;
+    			content: "\e614";
+    		}
+    	}
+    }   
+}
+
+/* -----------------------------------------
+ Custom Build Components
+------------------------------------------ */
+// Back end Menu for User & Admin
+#nav-icons{
+	// Top bar styles
+	.top-bar{
+	  	.top-bar-section {
+	  		ul{
+	  			background-color: $my-topbar-bg-color;
+	  		}
+		  	& > ul > li > a i{
+				display: none;
+	  		}
+	  		& .dropdown li label{
+	  			padding: 7px 15px;
+	  			cursor: default;
+	  		}
+			& #backendSidrTarget {
+				display: flex;
+			}
+		}
+	}
+	// Handling different screens with Media Queries
+	@media #{$large-up} {
+		.top-bar{
+		  	//max-height: 145px;
+		  	//height: 145px;
+			max-width: 100%;
+		  	line-height: 10px;
+		  	text-align:center;
+		  	display: table;
+		  	.top-bar-section {
+			  	display: inline-block;
+			  	& > ul > li > a{
+		  			font-size: .85rem;
+				    font-weight: 400;
+				    height: 145px;
+				    min-width: 11rem;
+				    //padding: 2rem 1rem 1rem;
+					padding: 2rem 1rem;
+		  			&::after{
+		  				content: none;
+		  			}
+		  			i{
+						font-size: 2.75rem;
+						display: block;
+						color: $my-green;
+					}
+		  		}
+		  		& > ul > li > ul > li{
+		  			text-align: left;
+		  		}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 90.063em){
+	#nav-icons .top-bar .top-bar-section > ul > li > a {
+		min-width: 9.5rem;
+	}
+}
+
+
+
+/* Build User Menu for Admin */
+$admin-nav-bg-color: #1d3554;
+$admin-nav-border-color: #071931;
+#admin-nav{
+	.contain-to-grid{
+		background-color: $admin-nav-bg-color;
+		border-top: 5px solid $admin-nav-border-color;
+		.top-bar{
+			max-width: 87.5rem;
+			//max-width: 100%;
+			background-color: $admin-nav-bg-color;
+			@media #{$large-up} {
+				padding-right: 1rem;
+			}
+			.top-bar-section li:not(.has-form) a:not(.button){
+				background-color: $admin-nav-bg-color;
+				&:hover{
+					background-color: $admin-nav-border-color;
+				}
+			}
+			.top-bar-section .divider, .top-bar-section [role="separator"],
+			.top-bar-section > ul > .divider, .top-bar-section > ul > [role="separator"]{
+				border-color: $admin-nav-border-color;
+			}
+			.title-area .name .username{
+				cursor: default;
+				span{
+					@include border-radius(50%);
+				    display: inline-block;
+				    height: 0.75rem;
+				    margin-right: 0.5rem;
+				    position: relative;
+				    width: 0.75rem;
+				}
+				&.success span{
+					background-color: $my-green;
+				}
+				&.alert span{
+					background-color: $my-red;
+				}
+				&.warning span{
+					background-color: $my-orange;
+				}
+				small{
+					display: block;
+					position: relative;
+					top: -6px;
+					color: white;
+					text-align: right;
+				}
+			}
+		}
+	}
+}
+
+
+// Styles for Main Header. Also have actions on the right
+.intro{
+	background-color: scale-color($light-grey-section-bg-color, $lightness: 25%);
+    border-bottom: 1px solid $medium-grey-section-bg-color;
+	border-top: 1px solid $medium-grey-section-bg-color;
+	padding-top: 1.25rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+	// Handling different screens with Media Queries
+    @media #{$large-up} {
+		margin-bottom: 3.25rem;
+		padding-top: 0.5rem;
+		border-top: 0 none;
+	}
+	@media #{$small-only} {
+		.wrapper{
+			.breadcrumbs{
+				display: none;
+			}	
+		}
+	}
+    .wrapper{
+		// breadcrumbs
+    	.breadcrumbs{
+    		margin-bottom: 0.825rem;
+    		margin-left: 0.125rem;
+    		padding-bottom: 0;
+    		padding-top: 0.25rem;
+    		& > *{
+    			line-height: 1.2;
+    		}
+    		/* Query for Smartphones Portrait disable */
+			@media only screen and (max-width: 40em) and (orientation : portrait) {
+				display: none;
+			}
+    	}
+		// Title
+        h1{
+		    font-weight: 300;
+		    margin-top: 0;
+		    line-height: 1.1;
+		    margin-bottom: 0.875rem;
+			@media #{$large-up} {
+				font-size: 2.5rem;
+			}
+			@media #{$small-only} {
+		        font-size: 1.5rem;
+		        font-weight: 400;
+		    }
+	        span{
+	        	&.suspended-user-status{
+	        		font-size: 1rem;
+	        		font-weight: 500;
+	        		color:  $my-red;
+			        @media #{$small-only} {
+				        display: block;
+				    }
+	        	}
+	        }
+		}
+    }
+	// Actions on the right side
+    .actions{
+    	position: relative;
+    	@media #{$large-up} {
+    		margin-top: rem-calc(-58);
+    		top: rem-calc(33);
+    		ul{
+    			float: right;
+    		}
+	    }
+    	ul{
+    		margin-bottom: 0;
+    		li{
+    			@media #{$large-up} {
+    				margin-left: 0.75rem;
+    			}
+    			.button{
+    				@include transition(all 0.2s ease-in-out);
+    				background-color: white;
+    				border: 1px solid $my-deep-blue;
+    				margin-bottom: 0.25rem;
+    				font-size: 0.9rem;
+    				color: $my-deep-blue;
+    				font-weight: 500;
+    				line-height: 1.3;
+    				padding-top: rem-calc(11);
+    				padding-bottom: rem-calc(11.25);
+					padding-left: rem-calc(17);
+					padding-right: rem-calc(17);
+    				&:hover{
+    					color: scale-color($my-deep-blue, $lightness: -20%);
+    					border-color: scale-color($my-deep-blue, $lightness: -20%);
+    					background-color: #E1EDF4;
+    				}
+    				span{
+						font-size: 1.25rem;
+					    position: relative;
+					    line-height: 0.5;
+					    top: 4px;
+					    left: -1px;
+						&:before{
+							font-family: "Icomoon";
+						}
+					}
+    				&.create{
+    					border-color: $my-green;
+    					color: $my-green;
+    					span{
+		    				&:before{
+		    					content: '\e659';
+		    				}
+		    			}
+		    			&:hover{
+		    				color: scale-color($my-green, $lightness: -20%);
+		    				border-color: scale-color($my-green, $lightness: -20%);
+		    				background-color: #E6F4F1;
+		    			}
+    				}
+    				&.delete{
+    					color: $my-red;
+    					border-color: $my-red;
+    					span{
+		    				&:before{
+		    					content: '\e913';
+		    				}
+		    			}
+		    			&:hover{
+		    				color: scale-color($my-red, $lightness: -20%);
+		    				border-color: scale-color($my-red, $lightness: -20%);
+		    				background-color: scale-color($my-red, $lightness: 90%);
+		    			}
+    				}
+    				&.help{
+    					padding-left: rem-calc(11);
+    					padding-right: rem-calc(11);
+    					border: 1px solid $medium-grey-section-bg-color;
+						display: none;
+    					span{
+						    left: 0.0175rem;
+						    color: $my-body-text-color;
+		    				&:before{
+		    					content: '\e655';
+		    				}
+		    			}
+		    			&:hover{
+		    				border-color: $medium-grey-section-bg-color;
+		    				background-color: white;
+		    			}
+		    			// Disable info for small screens
+		    			@media #{$large-up} {
+		    				display: block;
+		    			}
+    				}
+    				&.in-cart{
+    					color: $my-green;
+    					border-color: $my-green;
+    					cursor: default;
+    					pointer-events: none;
+    				}
+    				.loading{
+    					padding: 0.6rem;
+    				}
+    			}
+    		}
+    	}
+    }
+}
+
+// Component for showing important info of tables. Positioned above responsive tables
+.table-info{
+	padding-top: 0.5rem;
+	padding-bottom: 1rem;
+	@media #{$large-up} {
+		padding-bottom: 2rem;
+	}
+	// ul wrapper
+	ul{
+		margin-left: 0;
+		margin-bottom: 0.25rem;
+		width: 100%;
+		@media #{$large-up} {
+			min-width: 100%;
+			display: inline-flex;
+			justify-content: center;
+		}
+		// Build each cell
+		li{
+			margin-left: 0;
+			border-bottom: 1px solid $medium-grey-section-bg-color;
+			border-left: 1px solid $medium-grey-section-bg-color;
+			// Handling different screens with Media Queries
+			@media #{$small-only} {
+				border-left: 0 none;
+				width: 100%;
+				margin-bottom: 1rem;
+			}
+			@media #{$medium-only} {
+				border-left: 0 none;
+				clear: unset;
+				margin-bottom: 1rem;
+				margin-left: 4%;
+				min-width: 17rem;
+				width: 44%;
+			}
+			@media #{$large-up} {
+				min-width: 25%;
+			}
+			&:first-child{
+				border-left: 0 none;
+			}
+			// Content Container
+			.container{
+				display: inline-flex;
+				padding: 0.5rem 1rem;
+				align-items: flex-end;
+				width: 100%;
+				justify-content: space-between;
+				// 1st Container
+				.box1{
+					display: flex;
+					flex-direction: column;
+					.number{
+						line-height: 1;
+						font-family: "Sarala";
+						font-size: 2rem;
+						font-weight: 700;
+						// States
+						&.warning{
+							color: $my-orange;
+						}
+						&.error{
+							color: $my-red;
+						}
+						&.success{
+							color: $my-green;
+						}
+					}
+					.number-label{
+						font-size: 0.75rem;
+						font-weight: 500;
+						line-height: 1;
+						color: $my-body-light-text-color;
+						@media screen and (-webkit-min-device-pixel-ratio:0) {
+							font-weight: 700;
+						}
+					}
+					@media #{$large-up} {
+						.number{
+							font-size: rem-calc(37);
+						}
+					}
+				}
+				// 2nd Container
+				.box2{
+					button, .button{
+						border: 1px solid $medium-grey-section-bg-color;
+						background-color: scale-color($light-grey-section-bg-color, $lightness: 25%);
+						color: $my-body-text-color;
+						font-size: 0.75rem;
+						font-weight: 500;
+						margin-bottom: 1px;
+						padding: 0.325rem 1rem 0.35rem;
+						&:hover{
+							border-color: scale-color($medium-grey-section-bg-color, $lightness: -10%);
+							color: $my-inner-elements-header-color;
+						}
+					}
+				}
+			}
+		}
+	}
+	// Reusing component for dashboard
+	&.dashboard{
+		padding-top: rem-calc(22);
+		ul{
+			li{
+				border-left: 1px solid $medium-grey-section-bg-color;
+				border-right: 1px solid $medium-grey-section-bg-color;
+				margin-bottom: 0;
+				&:first-of-type{
+					border-top: 1px solid $medium-grey-section-bg-color;
+				}
+				.container{
+					padding-top: 10px;
+					padding-bottom: 10px;
+				}
+			}
+		}
+		@media #{$medium-only} {
+			ul{
+				li{
+					width: 100%;
+					margin: 0;
+				}
+			}
+		}
+		@media #{$large-up} {
+			padding-bottom: 0;
+			ul{
+				margin-bottom: 0;
+				display: inherit;
+				li{
+					min-width: 100%;
+					.container{
+						.number{
+							font-size: rem-calc(32);
+							font-weight: 400;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// Showing Important Info of Documents(see->orders).
+.document-info{
+	display: table;
+	margin: 0 auto;
+	padding-top: 0.5rem;
+	padding-bottom: 1rem;
+	@media #{$large-up} {
+		padding-bottom: 2rem;
+	}
+	// ul wrapper
+	ul{
+		margin-left: 0;
+		// cells
+		li{
+			margin-left: 0;
+			border-bottom: 1px solid $medium-grey-section-bg-color;
+			border-left: 1px solid $medium-grey-section-bg-color;
+			// Handling different screens with Media Queries
+			@media #{$small-only} {
+				border-left: 0 none;
+				width: 100%;
+				margin-bottom: 1rem;
+			}
+			@media #{$medium-only} {
+				border-left: 0 none;
+				clear: unset;
+			    margin-bottom: 1rem;
+			    margin-left: 4%;
+			    min-width: 17rem;
+			    width: 44%;
+			}
+			@media #{$large-up} {
+				min-width: rem-calc(288);
+			}
+			&:first-child{
+				border-left: 0 none;
+			}
+			// Outer container
+			.container{
+				padding: 0.5rem 1rem;
+				width: 100%;
+				min-height: 3.75rem;
+				// Inner container
+				.box{
+					text-align: center;
+					// Content
+					.number{
+						font-size: rem-calc(26);
+						font-weight: 400;
+						line-height: 1;
+						&.negative-balance, &.no-fee{
+							color: $my-red;
+						}
+						&.positive-balance, &.with-fee{
+							color: $my-green;
+						}
+                        &.smaller{
+                          font-size: rem-calc(23);
+                        }
+					}
+					.number-label{
+					    font-size: 0.775rem;
+					    color: #a0b3bb;
+					    font-weight: 700;
+					    padding-bottom: 0.25rem;
+					    line-height: 1;
+					    a{
+					    	left: 16px;
+    						position: relative;
+					    	span{
+					    		position: relative;
+    							right: 16px;
+					    	}
+					    	&.warn.rgp{
+					    		left: 0;
+					    	}
+					    }
+					}
+					.label{
+						font-size: 0.875rem;
+						font-weight: 700;
+						padding-left: 1rem;
+					    padding-right: 1rem;
+					    padding-bottom: 0.3125rem;
+					    @media screen and (-webkit-min-device-pixel-ratio:0) {
+							padding-top: 0.3125rem;
+						}
+					}
+					// Styles for small devices
+					@media #{$small-only} {
+						.number{
+							font-size: 1.35rem;
+							font-weight: 500;
+						}
+						.number-label{
+							font-size: 0.675rem;
+							a{
+								position: initial;
+								span{
+									position: initial;
+								}
+							}
+						}
+					}	
+				}
+			}
+		}
+	}
+}
+
+// Tiles Component. Can see it in dashboard
+.tile{
+	width: 100%;
+	border: 1px solid $medium-grey-section-bg-color;
+	padding: 1.25rem;
+	margin-bottom: 1.25rem;
+	position: relative;
+	// Left Cell
+	.t-left{
+		// Label
+		.label{
+			border: 0 none;
+		    display: block;
+		    font-size: 0.875rem;
+		    font-weight: 700;
+		    margin-bottom: 0.75rem;
+		    padding: 0 !important;
+		    text-align: left;
+			background-color: transparent;
+		}
+		// Number
+		.number{
+			font-size: 1.2rem;
+			color: $my-inner-elements-header-color;
+			line-height: 1;
+			.digit{
+				font-size: 2.5rem;
+				font-weight: 400;
+			}
+		}
+	}
+	// Right Cell
+	.t-right{
+		i{
+			color: $medium-grey-section-bg-color;
+		    font-size: rem-calc(59);
+		    line-height: 1;
+		    position: absolute;
+		    top: 1.25rem;
+		    right: 1.25rem;
+		}
+	}
+}
+
+// Custom Dropdown
+.custom-dropdown{
+	// Button
+	.button{
+		padding-right: 2.75rem;
+		@media #{$small-only} {
+	        width: 100%;
+	    }
+	    &.dropdown:before{
+	        border-color: #fff transparent transparent;
+	        border-width: 0.3rem;
+	    }
+	}
+	// Dropdown wrapper
+	.f-dropdown {
+	    background: #FFFFFF;
+	    border: 2px solid $medium-grey-section-bg-color;
+
+	    &:before {
+	        border: none;
+	    }
+	    &:after {
+	        border: none;
+	    }
+
+	    & > li{
+	        a{
+	            color: #484848;
+	            &:hover{
+	                color: white;
+	            }
+	        }
+	        &:hover, &.focus{
+	            background-color: $my-deep-blue;
+	        }
+	        &.active {
+	            background-color: #D5DFE2;
+	            cursor: default;
+	            pointer-events: none;
+	        }
+	    }
+	}
+}
+
+// Payment methods
+.payment-methods{
+	// title
+	.my-h3-title{
+        font-weight: 400;
+    }
+	// break line
+    hr{
+        border-style: dashed;
+        border-color: scale-color($light-grey-section-bg-color, $lightness: -15%);
+        margin: 2rem 0;
+    }
+	// Warning panel
+    .panel.warning{
+        background: scale-color($my-yellow, $lightness: 80%);
+        border-color: scale-color($my-yellow, $lightness: -10%);
+        border-width: 1px;
+        p.panel-header{
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+        ol, ul{
+            margin-bottom: 0;
+			font-size: 0.925rem;
+			font-weight: 300;
+			line-height: 1.3;
+            li:not(:last-child){
+                margin-bottom: 0.625rem;
+            }
+            
+        }
+    }
+	// For Payments
+    .payments{
+    	padding-top: 1rem;
+        .panel{
+            border-color: $medium-grey-section-bg-color;
+            padding-bottom: 2.5rem;
+            padding-top: 0.5rem;
+            text-align: center;
+            border-width: 1px;
+            ul{
+                li{
+                    line-height: 1.3;
+                    margin-top: 1rem;
+                    font-size: 0.925rem;
+                    &:before{
+                        content: none;
+                    }
+                    span{
+                        display: block;
+                        color: $my-header-color;
+                        font-size: 0.875rem;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Message with Icon - Find it in view -> domains internal transfer final step
+.msg-with-icon{
+	display: table;
+    margin-bottom: 1.25rem;
+    width: 100%;
+	.icon{
+		background-color: $light-grey-section-bg-color;
+		@include border-radius(50%);
+	    display: table-cell;
+	    height: 3rem;
+	    text-align: center;
+	    vertical-align: middle;
+	    width: 3rem;
+		i{
+			color: $my-green;
+			font-size: 2rem;
+		}
+	}
+	p{
+		display: table-cell;
+	    line-height: 1.2;
+	    margin-bottom: 0;
+	    padding-left: 0.75rem;
+	    vertical-align: middle;
+	    strong{
+	    	color: $my-inner-elements-header-color;
+	    }
+	}
+}
+
+
+/* -----------------------------------------
+Development Components  / Test if in use
+------------------------------------------ */
+
+// Comments
+.single-comment{
+	&:nth-child(2n+1){
+		background: scale-color($light-grey-section-bg-color, $lightness:15%);
+	}
+	background: scale-color($light-grey-section-bg-color, $lightness: -3%);
+	margin-bottom: 1.25rem;
+	padding: 1.25rem;
+	.initiator{
+		display: block;
+		margin-bottom: 1.75rem;
+		span{
+			&.name{
+				background-color: scale-color($dark-grey-section-bg-color, $lightness: 5%);
+				color: white;
+				font-size: 1rem;
+				margin-left: -1.25rem;
+				padding: 0.25rem 1.25rem;
+				display: inline-block;
+			}
+			&.date{
+				font-size: 0.725rem;
+				margin-left: 0.5rem;
+			}
+			&.action{
+				font-size: 0.785rem;
+				margin-right: 0.5rem;
+				a{
+					color: $my-body-text-color;
+				}
+				&.edit{
+					a{
+						&:hover{
+							color: scale-color($my-deep-blue, $lightness: -10%);
+						}
+					}
+				}
+				&.delete{
+					a{
+						font-size: 1.025rem;
+					    position: relative;
+					    top: 2px;
+						&:hover{
+							color: scale-color($my-red, $lightness: -1%);
+						}
+					}
+				}
+			}
+		}
+	}	
+}
+
+#iconNav .top-bar-section #backendSidrTarget > .has-dropdown > a{
+	padding-right: 17px !important;
+}
+
+
+/* ------------
+End CSS file
+-------------- */
+
+/*
+main color red
+footer , top right
+main logo , (hat)
+
+hero banner (front page) - background img
+
+hosting section (fornt page) rocket image bottom
+
+price box - badge (fornt page)  - mexri -24%
+
+offer strip (web-hosting)
+
+hero banner (offers)
+
+
+
+*/

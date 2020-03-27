@@ -1,0 +1,96 @@
+/*
+Syntax error: Undefined variable: "$medium-up".
+        on line 27 of /var/www/vhosts/site.dev/httpdocs/laravel/public/scss/includes/alert.scss
+
+22: 			&:hover{
+23: 				opacity: 1;
+24: 			}
+25:     	}
+26: 
+27:     	@media #{$medium-up} {
+28:     		padding-left: 4rem;
+29: 			i{
+30: 				display: block;	
+31: 				padding-left: 4rem;
+32: 	    		font-size: 1.2rem;
+
+Backtrace:
+/var/www/vhosts/site.dev/httpdocs/laravel/public/scss/includes/alert.scss:27
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/script/variable.rb:49:in `_perform'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/script/node.rb:40:in `perform'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:398:in `run_interp_no_strip'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:396:in `map'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:396:in `run_interp_no_strip'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:406:in `run_interp'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:360:in `visit_media'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:100:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `map'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:109:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:121:in `with_environment'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:108:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:320:in `visit_rule'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:100:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `map'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:109:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:121:in `with_environment'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:108:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:320:in `visit_rule'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:100:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `map'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:109:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:121:in `with_environment'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:108:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:128:in `visit_root'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:100:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:7:in `send'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:7:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/root_node.rb:20:in `render'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/engine.rb:315:in `_render'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/engine.rb:262:in `render'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/plugin/compiler.rb:362:in `update_stylesheet'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/plugin/compiler.rb:203:in `update_stylesheets'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/plugin/compiler.rb:201:in `each'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/plugin/compiler.rb:201:in `update_stylesheets'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/plugin/compiler.rb:283:in `watch'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/vendor/listen/lib/listen/multi_listener.rb:108:in `call'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/vendor/listen/lib/listen/multi_listener.rb:108:in `on_change'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/vendor/listen/lib/listen/multi_listener.rb:117:in `initialize_adapter'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/vendor/listen/lib/listen/adapters/polling.rb:56:in `call'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/vendor/listen/lib/listen/adapters/polling.rb:56:in `poll'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/vendor/listen/lib/listen/adapters/polling.rb:32:in `start'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/vendor/listen/lib/listen/adapters/polling.rb:32:in `initialize'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/vendor/listen/lib/listen/adapters/polling.rb:32:in `new'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/vendor/listen/lib/listen/adapters/polling.rb:32:in `start'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/vendor/listen/lib/listen/multi_listener.rb:44:in `start'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/plugin/compiler.rb:291:in `watch'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/plugin.rb:107:in `send'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/plugin.rb:107:in `method_missing'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/exec.rb:463:in `watch_or_update'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/exec.rb:326:in `process_result'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/exec.rb:41:in `parse'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/exec.rb:21:in `parse!'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/sass:13
+/usr/bin/sass:19:in `load'
+/usr/bin/sass:19
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined variable: \"$medium-up\".\A         on line 27 of /var/www/vhosts/site.dev/httpdocs/laravel/public/scss/includes/alert.scss\A \A 22: 			&:hover{\A 23: 				opacity: 1;\A 24: 			}\A 25:     	}\A 26: \A 27:     	@media #{$medium-up} {\A 28:     		padding-left: 4rem;\A 29: 			i{\A 30: 				display: block;	\A 31: 				padding-left: 4rem;\A 32: 	    		font-size: 1.2rem;"; }

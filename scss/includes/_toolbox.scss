@@ -1,0 +1,453 @@
+
+
+
+/* ---------------------------------------------------------------------------------
+This scss file is out of included files. So its not in the produced final css
+--------------------------------------------------------------------------------- */
+
+
+/* Move to Top */
+.move-to-top{
+	position: fixed; 
+	right: 0; 
+	bottom: 25px;
+	display: none;
+	z-index: 99999;
+	@media #{$large-up} {
+        bottom: 66px;
+    }
+	a{
+		font-size: 1.5rem;
+		padding : 0.25rem 1rem 0.1rem;
+		color: white;
+		background: #080808;
+		&:hover{
+	  		color: $my-deep-blue;
+	  	}
+	}
+}
+html.touch .move-to-top{
+	bottom: 82px;
+}
+
+/* Toolbox */
+#toolBar-container{
+	.menu-opener, 
+	.menu-opener.activated, 
+	.menu-opener-inner, 
+	.menu-opener-inner::before, 
+	.menu-opener-inner::after, 
+	.menuContainer, 
+	.menuContainer.activated, 
+	.menuContainer.vertical, 
+	.menuContainer.vertical.activated, 
+	.slide, 
+	#email.activated, 
+	#contact.activated, 
+	#offer.activated, 
+	#chat.activated, 
+	#bulk-content, 
+	#bulk-content.deactivated, 
+	#starting-content, 
+	#starting-content.deactivated {
+	  	@include transition(all 300ms);
+	}
+	.menu-opener {
+	  	cursor: pointer;
+	  	-webkit-user-select: none;
+	  	-moz-user-select: none;
+	  	-ms-user-select: none;
+	  	user-select: none;
+	  	height: 3.5rem;
+	  	width: 3.5rem;
+	  	background: #080808;
+
+	  	&.activated {
+		  	right: 20.5%;
+		}
+	}
+	.menu-opener-inner {
+	  	position: relative;
+	  	background: white;
+	 	height: 0.125rem;
+	  	width: 1.5rem;
+	  	top: 1.75rem;
+	  	left: 1rem;
+
+	  	&.activated {
+		  	background: transparent;
+		}
+		&::before, &::after {
+		  	background: white;
+		  	content: '';
+		  	display: block;
+		 	height: 2px;
+		}
+		&::before{
+	  		@include transform(translateY(-0.35rem));
+		}
+		&::after {
+	  		@include transform(translateY(0.25rem));
+		}
+		&.activated::before{
+	  		@include transform(translateY(0rem) rotate(-45deg));		
+		}
+		&.activated::after{
+	  		@include transform(translateY(-0.1rem) rotate(45deg));		
+		}
+	}
+	.menuContainer{
+	  	bottom: 0;
+		margin: 0;
+		padding: 0;
+		position: fixed;
+		right: -17.5rem;
+		width: 21rem;
+		z-index: 99999;
+
+		&.activated{
+		  	right: 0;
+		}
+
+		.menuModule{
+			a{
+			  	float: left;
+			  	width: 3.5rem; 
+			  	height: 3.5rem;
+			}
+			.menu-link{
+			  	padding: 1rem 0.9rem;
+			  	background: $toolbox-bg;
+			  	color: $toolbox-icons-color;
+			  	border-left: 1px solid scale-color($toolbox-bg, $lightness: 15%);
+			  	&:hover{
+			  		color: $my-deep-blue;
+			  	}
+			  	&.bgactive{
+					background: $my-deep-blue;
+					color: #FFFFFF;
+				}
+				&.inactive, &.inactive:hover{
+					pointer-events:none;
+					cursor: default;
+				}
+			  	i{
+			  		font-size: rem-calc(27);
+			  	}
+			}
+
+		} 
+		.menuBar{
+		  	margin: 0;
+		  	padding: 0;
+		}
+	}
+	.slide{
+	  	width: 21rem;
+	  	height: 29.5rem;
+	  	position:fixed;
+	  	padding: 1.5rem 0.6rem 1rem;
+	  	margin: 0;
+	  	background: $slide-up-bg;
+	  	right: 0;
+	  	bottom: -29.5rem;
+	  	z-index: 9999;
+		hr{
+			border-color: #666e72;
+		}
+	  	p{
+	  		color: white;
+	  		&.header{
+				font-size: rem-calc(17);
+				font-weight: 700;
+				letter-spacing: 0.25px;
+				line-height: 1;
+		  	}
+			small{
+				font-size: 85%;
+			}
+	  	}
+	  	button, .button{
+	  		padding-top: 0.8rem;
+	  		padding-bottom: 0.8625rem;
+	  		min-width: 10rem;
+	  	}
+	  	.close-toolbox {
+		    color: white;
+		    cursor: pointer;
+		    font-size: 2rem;
+		    font-weight: bold;
+		    line-height: 1;
+		    position: absolute;
+		    right: 0.6875rem;
+		    top: 0.5rem;
+		} 	
+	}
+	#toolbox-chat{
+		&.activated{
+		  	bottom: 3.5rem;
+		  	height: 18.5rem;
+		}
+	}
+	#toolbox-support{
+		&.activated{
+		  	bottom: 3.5rem;
+		  	height: auto;
+		}
+		form{
+			.captcha-wrapper{
+	            margin-bottom: 1.25rem;
+	        }
+			label{
+				color: white;
+			}
+			textarea{
+				height: 6rem;
+			}
+		}
+	} 
+	#toolbox-tel{
+		&.activated{
+		  	bottom: 3.5rem;
+		  	height: 16rem;
+		}
+	}
+	#toolbox-vat{
+		&.activated{
+		  	bottom: 3.5rem;
+		  	height: 19.5rem;
+		}
+		form{
+			ul.no-bullet{
+				li{
+					margin-bottom: 1.25rem;
+					&:first-of-type{
+						margin-bottom: 0.5rem;
+					}
+				}
+			}
+    		label{
+    			line-height: 1;
+    			color: white;
+    			font-size: 0.925rem;
+    		}
+
+    		/* RADIO BUTTONS */
+			[type="radio"] {
+			  	visibility: hidden;
+			  	margin: 0 !important;
+			}
+
+			/* Radio button style */
+			[type="radio"]:not(:checked) + label,
+			[type="radio"]:checked + label {
+			  	position: relative;
+			  	padding-left: 25px;
+			  	margin-left: -20px;
+			  	cursor: pointer;
+
+			  	&:before{
+				  	content: '';
+				  	position: absolute;
+				  	left:0; 
+				  	top: 0 ;
+				  	width: 0.85rem; 
+				  	height: 0.85rem; 
+				  	border: 2px solid white;
+				  	background: #fff;
+				    -webkit-border-radius: 50%;
+				    -moz-border-radius: 50%;
+				  	border-radius: 50%;
+				}
+				/* Checked style */
+				&:after {
+				  	content: '';
+				  	position: absolute;
+				  	top: 0; 
+				  	left: 0;
+				  	width: 0.85rem; 
+				  	height: 0.85rem; 
+				  	background: scale-color($my-light-blue, $lightness: -20%);
+				    -webkit-border-radius: 50%;
+				    -moz-border-radius: 50%;
+				  	border-radius: 50%;
+				  	transition: all .2s;
+				}
+			}
+
+			/* checked mark aspect changes */
+			[type="radio"]:not(:checked) + label:after {
+			  	opacity: 0;
+			  	transform: scale(0);
+			}
+			[type="radio"]:checked + label:after {
+			  	opacity: 1;
+			  	transform: scale(1);
+			}
+
+			/* Label hover style */
+			label:hover:before {
+			  	border: 2px solid scale-color($my-light-blue, $lightness: -20%) !important;
+			}
+			ul{
+				margin-bottom: 0.75rem;
+			}
+    	}
+    	.select-vat{
+    		p{
+    			margin-bottom: 0.75rem;
+    		}
+    		ul{
+    			color: white;
+    			margin-bottom: 0.25rem;
+    			li{
+    				&.flag{
+    					background-size: 110px 55px;
+                        overflow: hidden;
+                        text-indent: -9999px; 
+                        text-align: left;
+                        height:	24px;
+                        width: 24px;
+                        background: url('../img/sprites/main-sprite.png') no-repeat;
+
+                        &.allothers { background-position: -20px -1275px;}
+						&.at { background-position: -64px -1275px; }
+						&.be { background-position: -20px -1319px; }
+						&.bg { background-position: -64px -1319px; }
+						&.ch { background-position: -20px -1363px; } 
+						&.cy { background-position: -64px -1363px; }
+						&.cz { background-position: -20px -1407px; }
+						&.de { background-position: -64px -1407px; }
+						&.dk { background-position: -20px -1451px; }
+						&.ee { background-position: -64px -1451px; }
+						&.es { background-position: -20px -1495px; }
+						&.fi { background-position: -64px -1495px; }
+						&.fr { background-position: -20px -1539px; }
+						&.gb { background-position: -64px -1539px; }
+						&.gr { background-position: -20px -1583px; }
+						&.hr { background-position: -64px -1583px; }
+						&.hu { background-position: -20px -1627px; }
+						&.ie { background-position: -64px -1627px; }
+						&.it { background-position: -20px -1671px; }
+						&.lt { background-position: -64px -1671px; }
+						&.lu { background-position: -20px -1715px; }
+						&.lv { background-position: -64px -1715px; }
+						&.mt { background-position: -20px -1759px; }
+						&.nl { background-position: -64px -1759px; }
+						&.pl { background-position: -20px -1803px; }
+						&.pt { background-position: -64px -1803px; }
+						&.ro { background-position: -20px -1847px; }
+						&.se { background-position: -64px -1847px; }
+						&.si { background-position: -20px -1891px; }
+						&.sk { background-position: -64px -1891px; }
+						&.ua { background-position: -20px -1935px; }
+    				}
+    				&.country{
+    					margin-left: 0.5rem;
+    				}
+    				&.percentage{
+    					margin-left: 0.5rem;
+    					font-size: 0.875rem;
+    					position: relative;
+    					top: 2px;
+    				}
+    			}
+    		}
+		    select {
+		    	border: none;
+			}
+    	}
+    	.vat-widget-notice{
+    		font-size: 0.925rem;
+        	line-height: 1.3;
+        	margin-bottom: 1rem;
+    	}
+    	a.text-link{
+    		font-size: 0.925rem;
+    	}
+	}
+	#toolbox-offers{
+		&.activated{
+		  	bottom: 3.5rem;
+		  	//height: auto;
+			//height: 20.25rem;
+		  	// with 2 offers height: 29.5rem;
+			height: 29.5rem;
+		}
+		.offerModule{
+			margin-bottom: 1rem;
+
+			p.offer-title{
+				margin-bottom: 0.5rem;
+				line-height: 1.3;
+			}
+			.item {
+				text-align:center;
+				position:relative;			
+			}
+			.item,
+			.item-hover,
+			.item-hover .mask,
+			.item-img,
+			.item-info {
+				height: 105px;
+    			width: 286px;	
+			}
+			.item-hover,
+			.item-hover .mask,
+			.item-img { 
+				position:absolute;
+				top:0;
+				left:0;			
+			}			
+			.item-type-line{
+				.item-hover {	
+					z-index: 100;		
+					opacity: 0;
+					cursor: pointer;						
+					display: block;
+					text-decoration: none;
+					text-align: center;
+					@include transition(all 200ms ease-out);
+				}
+				.item-info {
+					color: $my-deep-blue;
+					display: table-cell;
+					vertical-align: middle;
+					position: relative;
+					z-index: 5;
+
+					.headline {
+						font-size: 1.125rem;
+						font-weight: 500;					
+					}
+					.line {
+						height: 1px;
+						width: 0;
+						margin: 15px auto 0;
+						background-color: $my-deep-blue;
+						@include transition(all 400ms ease-out);					 
+					}
+				}
+				.item-hover {
+					.mask {
+						background-color: white;
+						-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+						filter: alpha(opacity=50);										
+						opacity: 1;
+						z-index: 0;
+					}
+					&:hover {
+						opacity: 1;
+						.line {
+							width: 56%;
+						}			
+					}				
+				}
+			} 	
+			.item-img {			
+				z-index: 0;			
+			}
+		}
+	}
+}

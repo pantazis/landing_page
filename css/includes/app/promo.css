@@ -1,0 +1,107 @@
+/*
+Syntax error: Undefined variable: "$light-grey-section-bg-color".
+        on line 10 of /var/www/vhosts/site.dev/httpdocs/laravel/public/scss/includes/app/promo.scss
+
+5:     // Styles for the product boxes
+6:     a{
+7:         /* Fix for Microsoft Edge *\/
+8:         color: transparent;
+9:         .panel{
+10:             background-color: scale-color($light-grey-section-bg-color, $lightness: -1%);
+11:             padding: 1.25rem 1.25rem 1.5rem;
+12:             margin-bottom: 0;
+13:             position: relative;
+14:             text-align: center;
+15:             @include shadow(0, 2px, 0, scale-color($medium-grey-section-bg-color, $lightness: -5%));
+
+Backtrace:
+/var/www/vhosts/site.dev/httpdocs/laravel/public/scss/includes/app/promo.scss:10
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/script/variable.rb:49:in `_perform'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/script/node.rb:40:in `perform'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/script/funcall.rb:99:in `_perform'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/script/funcall.rb:99:in `map'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/script/funcall.rb:99:in `_perform'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/script/node.rb:40:in `perform'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:298:in `visit_prop'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:100:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `map'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:109:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:121:in `with_environment'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:108:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:320:in `visit_rule'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:100:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `map'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:109:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:121:in `with_environment'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:108:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:320:in `visit_rule'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:100:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `map'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:109:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:121:in `with_environment'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:108:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:320:in `visit_rule'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:100:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `map'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:109:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:121:in `with_environment'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:108:in `visit_children'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:128:in `visit_root'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:100:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:7:in `send'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/visitors/perform.rb:7:in `visit'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/tree/root_node.rb:20:in `render'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/engine.rb:315:in `_render'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/engine.rb:262:in `render'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/plugin/compiler.rb:362:in `update_stylesheet'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/plugin/compiler.rb:203:in `update_stylesheets'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/plugin/compiler.rb:201:in `each'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/plugin/compiler.rb:201:in `update_stylesheets'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/plugin/compiler.rb:283:in `watch'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/vendor/listen/lib/listen/multi_listener.rb:108:in `call'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/vendor/listen/lib/listen/multi_listener.rb:108:in `on_change'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/vendor/listen/lib/listen/multi_listener.rb:117:in `initialize_adapter'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/vendor/listen/lib/listen/adapters/polling.rb:56:in `call'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/vendor/listen/lib/listen/adapters/polling.rb:56:in `poll'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/vendor/listen/lib/listen/adapters/polling.rb:32:in `start'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/vendor/listen/lib/listen/adapters/polling.rb:32:in `initialize'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/vendor/listen/lib/listen/adapters/polling.rb:32:in `new'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/vendor/listen/lib/listen/adapters/polling.rb:32:in `start'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/vendor/listen/lib/listen/multi_listener.rb:44:in `start'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/plugin/compiler.rb:291:in `watch'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/plugin.rb:107:in `send'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/plugin.rb:107:in `method_missing'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/exec.rb:463:in `watch_or_update'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/exec.rb:326:in `process_result'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/exec.rb:41:in `parse'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/../lib/sass/../sass/exec.rb:21:in `parse!'
+/usr/lib/ruby/gems/1.8/gems/sass-3.2.19/bin/sass:13
+/usr/bin/sass:19:in `load'
+/usr/bin/sass:19
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined variable: \"$light-grey-section-bg-color\".\A         on line 10 of /var/www/vhosts/site.dev/httpdocs/laravel/public/scss/includes/app/promo.scss\A \A 5:     // Styles for the product boxes\A 6:     a{\A 7:         /* Fix for Microsoft Edge */\A 8:         color: transparent;\A 9:         .panel{\A 10:             background-color: scale-color($light-grey-section-bg-color, $lightness: -1%);\A 11:             padding: 1.25rem 1.25rem 1.5rem;\A 12:             margin-bottom: 0;\A 13:             position: relative;\A 14:             text-align: center;\A 15:             @include shadow(0, 2px, 0, scale-color($medium-grey-section-bg-color, $lightness: -5%));"; }

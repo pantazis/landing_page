@@ -1,0 +1,175 @@
+/* Toolbox */
+.menu-opener, .menu-opener.active, .menu-opener-inner, .menu-opener-inner::before, .menu-opener-inner::after, .menuContainer, .menuContainer.active, .menuContainer.vertical, .menuContainer.vertical.active, .slide, #email.active, #contact.active, #offer.active, #chat.active, #bulk-content, #bulk-content.deactivated, #starting-content, #starting-content.deactivated {
+  -webkit-transition: all 300ms;
+  transition: all 300ms; }
+
+ul {
+  list-style-type: none; }
+
+.menu-opener {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  height: 4em;
+  width: 4em;
+  background: black; }
+
+.menu-opener.active {
+  right: 20.5%; }
+
+.menu-opener-inner {
+  position: relative;
+  background: white;
+  height: 0.125em;
+  width: 2rem;
+  top: 1.9375rem;
+  left: 1rem; }
+
+.menu-opener-inner.active {
+  background: transparent; }
+
+.menu-opener-inner::before, .menu-opener-inner::after {
+  background: white;
+  content: '';
+  display: block;
+  height: 2px; }
+
+.menu-opener-inner::before {
+  -webkit-transform: translateY(-0.35rem);
+  -ms-transform: translateY(-0.35rem);
+  transform: translateY(-0.35rem); }
+
+.menu-opener-inner::after {
+  -webkit-transform: translateY(0.25rem);
+  -ms-transform: translateY(0.25rem);
+  transform: translateY(0.25rem); }
+
+.menu-opener-inner.active::before {
+  -webkit-transform: translateY(0rem) rotate(-45deg);
+  -ms-transform: translateY(0rem) rotate(-45deg);
+  transform: translateY(0rem) rotate(-45deg); }
+
+.menu-opener-inner.active::after {
+  -webkit-transform: translateY(-0.1rem) rotate(45deg);
+  -ms-transform: translateY(-0.1rem) rotate(45deg);
+  transform: translateY(-0.1rem) rotate(45deg); }
+
+.menuContainer {
+  width: 28em;
+  position: fixed;
+  bottom: 0%;
+  padding: 0px;
+  margin: 0px;
+  right: -24em;
+  z-index: 2; }
+
+.menuContainer.active {
+  right: 0; }
+
+.menuContainer .menuModule a {
+  float: left;
+  width: 4em;
+  height: 4em; }
+
+.menuContainer .menu-link {
+  padding: 1em 1.5em 0 1.5em;
+  background: #555;
+  color: #fff;
+  border-left: 1px solid #fff; }
+
+.menuContainer .menuBar {
+  margin: 0;
+  padding: 0; }
+
+.menuContainer.vertical {
+  width: 4em;
+  bottom: -24em;
+  right: 0em; }
+
+.menuContainer.vertical.active {
+  bottom: 0; }
+
+.menuContainer.vertical .menu-link {
+  border-left: 0px;
+  border-top: 1px solid #fff; }
+
+.slide {
+  width: 24em;
+  height: 29em;
+  position: fixed;
+  padding: 0px;
+  margin: 0px;
+  right: 0em;
+  bottom: -29em;
+  background: black;
+  color: white;
+  z-index: 0; }
+
+#email .formContainer {
+  width: 20em;
+  height: 24em;
+  position: relative;
+  left: 2em;
+  top: 1em; }
+
+#email.active {
+  bottom: 4em; }
+
+#email p {
+  padding: 0;
+  margin: 0; }
+
+#email hr {
+  padding: 0;
+  margin: 0; }
+
+#email .innerSeparator {
+  padding: 0 0 1em 0;
+  margin: 0; }
+
+#email .submitBody {
+  background: black;
+  height: 5em; }
+
+#email .submit {
+  width: 8em;
+  height: 2em;
+  position: relative;
+  left: 8em;
+  top: 1em; }
+
+#contact.active {
+  bottom: 4em;
+  height: 9em; }
+
+#offer.active {
+  bottom: 4em;
+  max-height: 29em;
+  overflow-y: auto; }
+
+#offer .offerModule {
+  width: 20em;
+  background-color: white;
+  color: black;
+  position: relative;
+  left: 2em;
+  margin: 1em 0 0 0;
+  padding: 0 0 1em 0; }
+
+.offerModule fieldset {
+  position: relative;
+  width: 18em;
+  margin: 0;
+  padding: 0;
+  left: 1em; }
+
+#chat.active {
+  width: 26em;
+  height: 30em;
+  bottom: 4em; }
+
+#chat iframe {
+  width: 100%;
+  height: 100%; }

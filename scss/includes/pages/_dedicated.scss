@@ -1,0 +1,241 @@
+/* Styles for dedicated servers */
+
+/* some padding */
+#dedicated-server{
+	padding: 2.25rem 0 4rem;
+}
+
+/* after new servers layout is live this goes off */
+#dedicated-servers{
+	.head{
+		margin-bottom: 1rem;
+		margin-left: 3.75rem;
+		display: inline-block;
+		h2{
+			margin-bottom: 0;
+			line-height: 1.1;
+			padding-top: 0.325rem;
+			@media #{$small-only}{
+				margin-bottom: 0.5rem;
+			}
+		}
+		p{
+			color: #989898;
+			line-height: 1.2;
+			font-size: 0.925rem;
+			left: 2px;
+		    position: relative;
+		    margin-bottom: 0;
+		}
+		&.eu{
+			margin-top: 0.5rem;
+		}
+		&.gr::before, &.eu::before{
+		    content: "";
+		    display: block;
+		    height: 60px;
+		    left: 1rem;
+		    position: absolute;
+		    width: 48px;
+		}
+		&.gr::before{
+			background: transparent url("../img/hosting/gr_pin.png") no-repeat scroll center / 48px 60px;
+		}
+		&.eu::before{
+			background: transparent url("../img/hosting/eu_pin.png") no-repeat scroll center / 48px 60px;
+		}
+	}
+	.custom-list.dedicated-list{
+		.item{
+			&.header{
+				background-color: $buy-overview-bg-color;
+				padding: 0.775rem 0;
+				ul li{
+					height: 2rem;
+					span, a{
+						color: white;
+					}
+					a{
+						border-bottom: 1px dashed;
+						border-color: scale-color($buy-overview-bg-color, $lightness: 20%);
+					}
+				}
+			}
+			@media #{$large-up}{
+				ul{
+					li{
+						&.name{
+							width: 15%;
+						}
+						&.cpu{
+							width: 15%;
+						}
+						&.ram, &.managed{
+							width: 9%;
+						}
+						&.bandwidth{
+							width: 10%;
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	// New styles for Dedicated Servers
+	.wrapper{
+		margin: 0.5rem 0;
+		padding: 2rem 0;
+		.heading{
+			margin-bottom: 2rem;
+			text-align: center;
+			padding: 1.5rem;
+			border-bottom: 1px solid scale-color($medium-grey-section-bg-color, $lightness: 30%);
+			h2{
+				margin-bottom: 3px;
+				line-height: 1.1;
+				margin-top: 0;
+				font-weight: 500;
+				font-size: rem-calc(19);
+				letter-spacing: 0.5px;
+				position: relative;
+				display: inline-block;
+				@media #{$large-up}{
+					font-size: rem-calc(25);
+				}
+				&.gr::before, &.eu::before{
+					content: "";
+					display: block;
+					height: 60px;
+					position: absolute;
+					width: 48px;
+					right: -45px;
+					top: -50px;
+					transform: rotate(35deg);
+				}
+				&.gr::before{
+					background: transparent url("../img/hosting/gr_pin.png") no-repeat scroll center / 48px 60px;
+				}
+				&.eu::before{
+					background: transparent url("../img/hosting/eu_pin.png") no-repeat scroll center / 48px 60px;
+				}
+
+			}
+			p{
+				margin-bottom: 0;
+				color: #a1a1a1;
+				font-size: rem-calc(14);
+				font-weight: 400;
+				line-height: 1.2;
+			}
+		}
+		.custom-list.dedicated-list-2{
+			.item{
+				&.header{
+					ul li{
+						a{
+							border-bottom: 1px dashed;
+							border-color: scale-color($my-body-light-text-color, $lightness: 80%);
+						}
+					}
+				}
+				@media #{$large-up}{
+					ul{
+						li{
+							&.name{
+								width: 15%;
+								font-size: 1rem;
+							}
+							&.cpu{
+								width: 15%;
+							}
+							&.ram, &.managed{
+								width: 9%;
+							}
+							&.bandwidth{
+								width: 10%;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Dedicated servers list */
+#dedicated-servers-list{
+	// New styles for Dedicated Servers
+	.wrapper{
+		.custom-list.dedicated-list{
+			.item{
+				&.header{
+					margin-bottom: 0.75rem;
+					padding-top: inherit;
+					padding-bottom: inherit;
+				}
+				@media #{$large-up}{
+					padding-bottom: 0.875rem;
+					padding-top: 0.875rem;
+					&:last-child{
+						margin-bottom: 1rem;
+					}
+					ul{
+						li{
+							&.name{
+								width: 15%;
+								font-size: 0.9375rem;
+							}
+							&.cpu{
+								width: 15%;
+							}
+							&.ram, &.managed{
+								width: 9%;
+							}
+							&.bandwidth{
+								width: 10%;
+							}
+							div span.offer{
+								top: -14px;
+							}
+							div{
+								button, .button{
+									@media #{$large-up}{
+										padding-top: 0.7rem;
+										padding-bottom: 0.725rem;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			.alert-box.info{
+				margin-top: 1.25rem;
+			}
+		}
+	}
+}
+
+/* Loader when servers are loading */
+.loader-wrapper{
+	min-height: 20rem;
+	position: relative;
+	.loading{
+		position: absolute;
+		left: 50%;
+		margin-left: -1.5rem;
+		top: 50%;
+		margin-top: -1.5rem;
+		.spinner, .spinner:after{
+			width: 5rem;
+			height: 5rem;
+		}
+		.spinner{
+			border-width: 6px;;
+		}
+	}
+}
+
+

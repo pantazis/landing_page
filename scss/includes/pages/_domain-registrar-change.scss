@@ -1,0 +1,221 @@
+/* Registrar Change */
+#registrar-change{
+    padding: 3rem 0 4rem;
+    .guidelines{
+        margin-top: 1.75rem;
+        @media #{$large-up} {
+            margin-top: 5.75rem;
+            margin-left: 3rem;
+        }
+        .lead{
+            border-bottom: 2px solid $light-grey-section-bg-color;
+            padding-bottom: 0.75rem;
+        }
+        ul{
+            li{
+                display: table;
+                margin-bottom: 1.25rem;
+                i{
+                    color: $my-red;
+                    font-size: 34px;
+                    padding-right: 1rem;
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+                span{
+                    line-height: 1.3;
+                    font-size: 0.975rem;
+                    display: table-cell;
+                    vertical-align: middle;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    #tab-module{
+        background: white;
+        padding-bottom: 1rem;
+        padding-top: 0;
+        .tab-title{
+            width: 50%;
+        }
+        .content{
+            padding: 1.5rem;
+            background-color: $light-grey-section-bg-color;
+            @include shadow(0, 2px, 0, scale-color($medium-grey-section-bg-color, $lightness: -5%));
+            @media #{$medium-up} {
+                padding: 3rem;
+            }
+            .multiple-tranfers{
+                .domain_groups{
+                    margin-bottom: 1rem;
+                    .domain-result{
+                        margin-bottom: 0.25rem;
+                    }
+                }
+                .s-header{
+                    font-weight: 500;
+                    font-size: 0.925rem;
+                }
+                .status{
+                    &.label{
+                        font-size: 0.775rem;
+                        position: relative;
+                        top: -2px;
+                    }
+                }
+                .remove-btn{
+                    bottom: 1.125rem;
+                    float: right;
+                    font-size: 0.825rem;
+                    height: 0.5rem;
+                    position: relative;
+                }
+                button{
+                    &.secondary{
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+        .accordion-navigation > a {
+            margin-bottom: 1px;
+        }
+    }
+    form{
+        label{
+            font-weight: 500;
+            line-height: 1.2;
+        }
+        input{
+            margin-top: 0.25rem;
+            height: 3rem;
+        }
+        textarea{
+            margin-top: 0.25rem;
+            line-height: 1.6;
+            resize: none;
+        }
+        button{
+            margin-top: 1rem;
+            margin-bottom: 0;
+        }
+        span.error, small.error{
+            line-height: 1.3;
+        }
+        .alert-box{
+            .msg{
+                line-height: 1.2;
+                margin-bottom: 0.75rem;
+                display: block;
+            }
+        }
+        .responses{
+            .msg{
+                display: table;
+                font-size: 0.825rem;
+                padding: 0.35rem 0;
+                border-bottom: 1px dashed $medium-grey-section-bg-color;
+                width: 100%;
+                line-height: 1.2;
+                .domain{
+                    display: table-cell;
+                    font-weight: 500;
+                }
+                .msg-type{
+                    display: table-cell;
+                    text-align: right;
+                    font-weight: 400;
+                }
+                &.error{
+                    color: $my-red;
+                }
+                &.success{
+                    color: $my-green;
+                }
+                @media #{$small-only} {
+                    .domain, .msg-type{
+                        display: block;
+                    }
+                    .msg-type{
+                        text-align: left;
+                        padding-top: 0.125rem;
+                    }
+                }  
+            }  
+        }
+        .max-domains{
+            color: $my-orange;
+            border-bottom: 1px dashed $medium-grey-section-bg-color;
+            font-size: 0.925rem;
+            font-weight: 400;
+        }
+    }
+}
+
+/* Content Section that consists of 4 panels */
+#show-info{
+    background: scale-color($dark-grey-section-bg-color, $lightness: 10%);
+    padding: 4rem 0 5rem;
+    position: relative;
+
+    h2, h3, a{
+        color: white;
+    }
+    .my-h3-title{
+        margin-bottom: 1.5rem;
+        font-weight: 300;
+        background-color: #324a56; // Extracted form color-scheme - Based on bg color
+        padding: 0.5rem 1rem;
+        font-size: 1.125rem;
+    }
+    p{
+        margin-bottom: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        color: #D9DFE2; // Extracted form color-scheme - Based on bg color
+        @media #{$small-only} {
+            width: 100%;
+            margin-bottom: 2rem;
+            &.no-margin-bottom{
+                margin-bottom: 0;
+            }
+        }
+        @media #{$medium-only} {
+            margin-bottom: 2rem;
+        }
+    }
+    a{
+        border-bottom: 1px dotted;
+        &:hover{
+            color: $my-deep-blue;
+        }
+    }
+    .card{
+        background: scale-color($dark-grey-section-bg-color, $lightness: 15%);
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.25rem;
+        box-shadow: 0 4px 10px -5px scale-color($dark-grey-section-bg-color, $lightness: 4%);
+        min-height: rem-calc(220);
+        .my-h3-title{
+            padding: 1.125rem 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+        p{
+            font-weight: 400;
+            font-size: rem-calc(15);
+            line-height: 1.5;
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+        @media #{$large-up} {
+            margin-bottom: 0;
+        }
+    }
+}
+
+

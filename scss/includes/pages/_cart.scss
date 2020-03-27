@@ -1,0 +1,84 @@
+/* Cart Styles */
+// The classes checkout-steps and product-summary moved to global.scss file. They are used in front-end and back-end as well
+
+// Icons with content to the bottom of the cart page
+.cart-standout-points{
+	background-color: $light-grey-section-bg-color;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	margin-top: 5rem;
+	.panel{
+		margin-bottom: 0;
+		padding-bottom: 0;
+		font-size: 0.925rem;
+		margin-left: 2rem;
+		background-color: $light-grey-section-bg-color;
+		@media #{$large-up} {
+			width: 90%;
+	    }
+
+		i{
+			font-size: rem-calc(38);
+			left: -6px;
+			margin-left: -2.7rem;
+			position: relative;
+			top: 0.75rem;
+		}
+	}
+}
+
+// Specific styles for Το καλάθι σου είναι άδειο! message
+.cart-icon-msg{
+	padding: 3rem 0;
+	.icon{
+		&::after{
+			background-color: $light-grey-section-bg-color;
+			@include border-radius(50%);
+			content: "";
+			height: 8rem;
+			margin-left: rem-calc(-58);
+			position: absolute;
+			top: 6px;
+			width: 8rem;
+			z-index: -1;
+		}
+		i{
+			font-size: 7rem;
+			display: block;
+			margin-bottom: 3rem;
+			&.icon-check-1{
+				position: relative;
+			    right: -28px;
+			    top: -10px;
+			    color: $my-green;
+			}
+		}
+	}
+	a{
+		font-weight: 500;
+	}	
+}
+
+
+
+.stand-alone-ssl-installation.get-ssl-domain{
+	display: flex;
+    margin-top: 0.5rem;
+
+	input[type='text'], .button{
+		height: 2.125rem;
+		line-height: 2.125rem;
+	}
+
+	input[type='text']{
+		min-width: 19rem;
+	}
+
+	.saved-domain{
+		font-size: 0.9rem;
+	}
+
+	.help-block{
+		margin-top: -9px;
+	}
+}

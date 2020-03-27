@@ -1,0 +1,264 @@
+
+// Styling whois, no-padlock and csr together. Similar styles
+#intro.whois,
+#intro.no-padlock,
+#intro.csr{
+	hr{
+		margin: 2.75rem 0 3rem;
+	}
+	// Search bar
+	.domains-searchbar{
+		display: inline-table;
+		width: 100%;
+		.re-captcha{
+			.captcha-wrapper{
+				margin-top: 1.25rem;
+			}
+		}
+	}
+	// Wrapper
+	.csr-wrapper{
+		padding: 1.5rem;
+		@media #{$large-up} {
+			padding: 4rem;
+		}
+		textarea{
+			font-family: monospace;
+		}
+		button{
+			display: block;
+			margin-bottom: 0;
+			margin-top: 1.5rem;
+		}
+	}
+	// Results
+	.whois-results,
+	.no-padlock-results,
+	.csr-results{
+		margin-top: 1.25rem;
+		// Wrapper
+		.panel{
+			background-color: scale-color($light-grey-section-bg-color, $lightness: 20%);
+			border: 0 none;
+			border-bottom: 2px solid $medium-grey-section-bg-color;
+			padding: 1.75rem 1.25rem;
+			// Content styles
+			.content{
+				.my-h3-title {
+					font-weight: 400;
+					margin-bottom: 1.25rem;
+					color: $my-inner-elements-header-color;
+				}
+				p{
+					line-height: 1.5;
+				}
+				ul{
+					margin-bottom: 0;
+					margin-top: 0;
+					line-height: 1.2;
+					font-size: 0.925rem;
+					li{
+						margin-bottom: 0.25rem;
+						padding-bottom: 0;
+					}
+				}
+			}
+			// Results style
+			.results{
+				font-family: monospace;
+				font-size: 15px;
+				@include word-wrap();
+			}
+			// Results with table
+			.no-padlock, .csr-table{
+				font-family: inherit;
+				table {
+					border: 0 none;
+					margin-bottom: 0;
+					width: 100%;
+					tr {
+						&:nth-of-type(even) {
+							background: white;
+						}
+						td {
+							line-height: 1;
+							padding: 0.8rem 1.25rem;
+							@include word-wrap();
+							hr {
+								margin: 1rem 0;
+							}
+						}
+					}
+				}
+			}
+		}
+		// Handling different screens with Media Queries
+		@media #{$large-up} {
+			.panel{
+				padding: 2rem;
+				.results{
+					max-height: 41rem;
+					overflow-y: auto;
+				}
+			}
+		}
+	}
+}
+
+// Styling whois for Chrome and Firefox
+// Chrome
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm){
+	#intro.whois .whois-results .panel .results{
+		line-height: 1.1;
+		br{
+			content: '';
+			display: block;
+			margin-bottom: 0.35rem;
+		}
+	}
+}
+// Firefox
+@media all and (min--moz-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+	#intro.whois .whois-results .panel .results{
+		line-height: 1.1;
+		br{
+			display: block;
+			margin-bottom: 0.35rem;
+		}
+	}
+}
+
+// Extend points for whois
+#points.whois{
+	.point{
+		// Not icons but letter
+		.head{
+			.tld{
+				color:  $my-red;
+				font-size: 2rem;
+				font-weight: 700;
+				line-height: 1;
+				z-index: 1;
+				font-family: "Sarala";
+				min-width: 6.5rem;
+				display: inline-block;
+				position: relative;
+				top: 24px;
+				left: 24px;
+				letter-spacing: -1px;
+				&:before{
+					content: "";
+					position: absolute;
+					background: white;
+					border-radius: 50%;
+					left: -26px;
+					top: -36px;
+					width: 6.5rem;
+					height: 6.5rem;
+					z-index: -1;
+				}
+				&.com{
+					left:13px;
+					&:before{
+						left: -11px;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+/* ID Protect pros and cons */
+.id-protect-example{
+    hr{
+        margin: 3rem 0;
+    }
+	// wrapper
+    .panel{
+        padding: 3rem 1.5rem 1.75rem 3rem;
+        border-bottom: 2px solid scale-color($light-grey-section-bg-color, $lightness: -18%);
+		// Header
+        h3{
+            margin-left: 2.5rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.2;
+            &:before{
+                font-family: "Icomoon";
+                font-size: 3rem;
+                display: inline-flex;
+                margin-left: -3.75rem;
+                margin-right: 0.625rem;
+                position: absolute;
+                top: 8px;
+            }
+            &.pros:before{
+                content: "\e62c";
+                color: $my-green;
+            }
+            &.con:before{
+                content: "\e933";
+                color: $my-red;
+            }
+
+        }
+		// List
+        ul{
+            li{
+                padding-bottom: 0.75rem;
+                line-height: 1.2;
+            }
+        }
+		// Handling different screens with Media Queries
+        @media #{$small-only} {
+            .with-border{
+                margin-top: 1rem;
+                &:before {
+                    content: "";
+                    width: 100%;
+                    height: 1px;
+                    background-color: $medium-grey-section-bg-color;
+                    display: inline-block;
+                    position: absolute;
+                    top: -1.25rem;
+
+                }
+            }
+        }
+        @media #{$medium-up} {
+            padding: 3rem;
+            .with-border{
+                border-left: 1px solid $medium-grey-section-bg-color;
+                padding-left: 3rem;
+            }
+            .wrapper{
+                ul{
+                    margin-bottom: 0;
+                }
+            }
+        }
+        @media #{$large-up} {
+            .with-border{
+                padding-left: 4rem;
+            }
+            .wrapper{
+                padding: 1rem 3rem 0;
+            }
+        }
+    }
+}
+// this icon is in domain id faq
+.id-protect-availability{
+    display: inline-block;
+    width: 38px;
+    height: 24px;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+    background-size: 38px 24px;
+    background: url(../img/sprites/main-sprite.png) no-repeat;
+    background-position: -20px -1979px;
+    top: 3px;
+    position: relative;
+}

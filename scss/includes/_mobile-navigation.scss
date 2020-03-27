@@ -1,0 +1,464 @@
+/* -----------------------
+Build Mobile Navigation
+Always include this file after sidebar.scss in the included scss files
+-----------------------------*/
+@mixin mobileNav {
+      /* Build Mobile Nav Icons */
+    #mobile-nav{
+        margin-top: 13px;
+        display: inline-block;
+        float: right;
+        #site-menu{
+            i{
+                color: $mobile-nav-icon-color;
+                font-size: rem-calc(39);
+            }
+        }
+        #user-menu{
+            position: relative;
+            top: -7px;
+            padding: 7px;
+            i{
+                color: $mobile-nav-icon-color;
+                font-size: rem-calc(23);
+            }
+            .badge{
+                @include border-radius(50%);
+                color: white;
+                font-size: rem-calc(10);
+                height: 17px;
+                width: 17px;
+                position: absolute;
+                line-height: 17px;
+                background-color: $my-red;
+                margin-left: -11px;
+                top: -7px;
+                text-align: center;
+            }
+        }
+    }
+
+    /* Reusing Sidr and build Mobile Side Menu */
+    .sidr{
+        width: 100%;
+        font-weight: normal;
+        border-left: none;
+        background: $mobile-nav-bg-color;
+        @include shadow(-16px,0,40px, rgba(0, 0, 0, 0.5));
+        // Big Title style
+        .side-menu-title{
+            background-color: $mobile-nav-header-bg-color;
+            font-size: rem-calc(18);
+            font-weight: 500;
+            color: $my-header-color;
+            letter-spacing: 0.5px;
+            line-height: 1;
+            display: block;
+            padding-left: 1.5rem;
+            padding-top: rem-calc(27);
+            padding-bottom: rem-calc(25);
+        }
+        // Close icon
+        .sidr-close{
+            color: $mobile-nav-icon-color;
+            position: absolute;
+            width: 4rem;
+            height: rem-calc(69);
+            float: right;
+            right: 0;
+            top: 0;
+            i{
+                position: absolute;
+                top: rem-calc(21);
+                right: rem-calc(20);
+                font-size: rem-calc(30);
+            }
+        }
+        // First level Menu Links
+        .sidr-inner > ul > li{
+            line-height: rem-calc(52);
+            // Link
+            & > a {
+                font-weight: 400;
+                letter-spacing: 0.25px;
+                text-transform: uppercase;
+                position: relative;
+                padding-left: 3.25rem;
+                &:before{
+                    font-family:'icomoon';
+                    position:  absolute;
+                    left: 1.325rem;
+                    font-size: 21px;
+                }
+                .arrow {
+                    top: 15px;
+                }
+            }
+            // Styling User's Logged in account name
+            &.sidr-user-account{
+                background-color: $mobile-nav-icon-color;
+                line-height: 2.5;
+                position: relative;
+                // Logged user arrow pointing at services
+                &:after{
+                    content: "";
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    border-left: 7px solid transparent;
+                    border-right: 7px solid transparent;
+                    border-top: 8px solid $mobile-nav-icon-color;
+                    left: rem-calc(24);
+                    bottom: -7px;
+                }
+                // User name style
+                a{
+                    font-size: 0.875rem;
+                    color: white;
+                    text-transform: none;
+                    font-weight: 500;
+                    pointer-events: none;
+                    max-height: 36px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    outline: none;
+                    margin: 0;
+                    padding: 0 1.5rem;
+                }
+            }
+        }
+        // First Level Nav list
+        ul{
+            margin: 0;
+            li{
+                line-height: rem-calc(44);
+                border-color: scale-color($light-grey-section-bg-color, $lightness: -2%);
+                &:hover > a {
+                    //background-color: $mobile-nav-links-bg-color;
+                    background-color: transparent;
+                }
+                // Importing Icons
+                &.sidr-class-dashboard{
+                    & > a:before{
+                        content: "\e62b";
+                    }
+                }
+                &.sidr-class-domains{
+                    & > a:before{
+                        content: "\e64e";
+                    }
+                }
+                &.sidr-class-hosting{
+                    & > a:before{
+                        content: "\e908";
+                    }
+                }
+                &.sidr-class-websites{
+                    & > a:before{
+                        content: "\e914";
+                    }
+                }
+                &.sidr-class-security{
+                    & > a:before{
+                        content: "\e280";
+                        margin-left: -1px;
+                    }
+                }
+                &.sidr-class-users{
+                    & > a:before{
+                        content: "\e198";
+                    }
+                }
+                &.sidr-class-account{
+                    & > a:before{
+                        content: "\e629";
+                    }
+                }
+                &.sidr-class-billing{
+                    & > a:before{
+                        content: "\e901";
+                    }
+                }
+                // Link generic style
+                a{
+                    padding: rem-calc(0 0 0 28);
+                    margin-right: rem-calc(64);
+                    display: block;
+                    text-decoration: none;
+                    color: $my-body-text-color;
+                    // Hover state
+                    &:hover{
+                        color: $my-deep-blue;
+                        font-weight: 500;
+                    }
+                    // Login Button
+                    &.login-btn{
+                        margin: 1.5rem;
+                        font-weight: 500;
+                        font-size: 0.925rem;
+                        color: white;
+                        padding: 0.825rem 2rem;
+                        @media #{$medium-only} {
+                            display: inline-block;
+                        }
+                        &:hover{
+                            background-color: scale-color($my-deep-blue, $lightness: -18%);
+                        }
+                    }
+                    // Arrow for showing second level menu
+                    .arrow{
+                        position: relative;
+                        float: right;
+                        top: 11px;
+                        background-color: scale-color($light-grey-section-bg-color, $lightness: -5%);
+                        width: 24px;
+                        height: 22px;
+                        margin-right: rem-calc(-40);
+                        @include border-radius(2px);
+                        // Initial state
+                        &:after{
+                            content: "";
+                            position: absolute;
+                            width: 0;
+                            height: 0;
+                            border-left: 4px solid transparent;
+                            border-right: 4px solid transparent;
+                            border-top: 6px solid $mobile-nav-icon-color;
+                            right: rem-calc(8);
+                            top: rem-calc(8);
+                        }
+                        // Active State
+                        &.active{
+                            &:after{
+                                content: "";
+                                border-bottom: 6px solid $mobile-nav-icon-color;
+                                border-top: 0 none;
+                            }
+                        }
+                    }
+                }
+                // Second level menu list
+                ul{
+                    border-bottom: none;
+                    margin: 0;
+                    background-color: $light-grey-section-bg-color;
+                    // List item
+                    li{
+                        font-size: 0.925rem;
+                        border: 0 none;
+                        margin: 0 1.5rem;
+                        &:not(:first-child){
+                            border-top: 1px solid white;
+                        }
+                        a{
+                            font-weight: 400;
+                        }
+                        /*
+                        label{
+                            padding-left: rem-calc(45);
+                            margin-top: 0.725rem;
+                            margin-bottom: 1px;
+                            line-height: 1;
+                            font-size: 0.675rem;
+                            letter-spacing: 1px;
+                            font-weight: 700;
+                            color: $my-green;
+                        }
+                        */
+                        // Third Level menu list
+                        ul{
+                            li{
+                                margin: 0;
+                                border-top: 1px solid white;
+                                a{
+                                    padding-left: rem-calc(42);
+                                    //inside ssl categories
+                                    span{
+                                        display: block;
+                                        line-height: 1;
+                                        position: relative;
+                                        top: rem-calc(-7);
+                                        font-size: 0.75rem;
+                                        padding-bottom: rem-calc(5);
+                                        color: #919191;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // Specific styles for user Nav
+        #userNav.sidr-inner{
+            ul{
+                // Importing User's icons
+                li{
+                    &.sidr-class-m-cart{
+                        & > a {
+                            &:before{
+                                content: "\e638";
+                                top: -1px !important;
+                            }
+                            // Cart items
+                            .badge{
+                                background-color: $my-red;
+                                @include border-radius(50%);
+                                color: white;
+                                font-size: 0.675rem;
+                                height: 18px;
+                                line-height: 18px;
+                                margin-left: 5px;
+                                position: absolute;
+                                text-align: center;
+                                top: 10px;
+                                vertical-align: middle;
+                                width: 18px;
+                            }
+                        }
+                    }
+                    &.sidr-class-m-support{
+                        & > a:before{
+                            content: "\e61e";
+                        }
+                    }
+                    // Build side menu vat module
+                    &.sidr-class-m-vat{
+                        & > a:before{
+                            content: "\e005";
+                        }
+                        // Build Vat
+                        ul{
+                            // wrapper
+                            &.vat-wrapper{
+                                padding: 1.625rem;
+                                & > li{
+                                    display: flex;
+                                    label{
+                                        font-weight: 400;
+                                        color: $my-body-text-color;
+                                        position: relative;
+                                        top: -4px;
+                                    }
+                                }
+                                // Action
+                                button.small{
+                                    padding-top: 0.675rem;
+                                    padding-bottom: 0.7375rem;
+                                    margin-bottom: 0;
+                                    margin-right: 1rem;
+                                    margin-top: 0.325rem;
+                                    min-width: 7rem;
+                                }
+                            }
+                            //
+                            li{
+                                border: 0 none;
+                                a{
+                                    padding-left: 2.8125rem;
+                                }
+                                .countries-wrapper{
+                                    display: inline-block;
+                                    width: 100%;
+                                    max-width: 22rem;
+                                    // Header
+                                    .c-header{
+                                        line-height: 1.1;
+                                        margin-top: 0.5rem;
+                                        margin-bottom: 0.5rem;
+                                        font-weight: 500;
+                                        border-bottom: 1px dashed scale-color($medium-grey-section-bg-color, $lightness: -10%);
+                                    }
+                                    // Load Countries
+                                    #countrySelected{
+                                        margin-bottom: 4px;
+                                        line-height: 1.1;
+                                        span{
+                                            color: $my-body-text-color;
+                                            display: inline-block;
+                                            margin-right: 5px;
+                                            &.flag{
+                                                background-size: 110px 55px;
+                                                overflow: hidden;
+                                                text-indent: -9999px;
+                                                text-align: left;
+                                                height: 24px;
+                                                width: 24px;
+                                                background: url('../img/sprites/main-sprite.png') no-repeat;
+                                                position: relative;
+                                                bottom: -7px;
+                                                &.allothers { background-position: -20px -1275px;}
+                                                &.at { background-position: -64px -1275px; }
+                                                &.be { background-position: -20px -1319px; }
+                                                &.bg { background-position: -64px -1319px; }
+                                                &.ch { background-position: -20px -1363px; }
+                                                &.cy { background-position: -64px -1363px; }
+                                                &.cz { background-position: -20px -1407px; }
+                                                &.de { background-position: -64px -1407px; }
+                                                &.dk { background-position: -20px -1451px; }
+                                                &.ee { background-position: -64px -1451px; }
+                                                &.es { background-position: -20px -1495px; }
+                                                &.fi { background-position: -64px -1495px; }
+                                                &.fr { background-position: -20px -1539px; }
+                                                &.gb { background-position: -64px -1539px; }
+                                                &.gr { background-position: -20px -1583px; }
+                                                &.hr { background-position: -64px -1583px; }
+                                                &.hu { background-position: -20px -1627px; }
+                                                &.ie { background-position: -64px -1627px; }
+                                                &.it { background-position: -20px -1671px; }
+                                                &.lt { background-position: -64px -1671px; }
+                                                &.lu { background-position: -20px -1715px; }
+                                                &.lv { background-position: -64px -1715px; }
+                                                &.mt { background-position: -20px -1759px; }
+                                                &.nl { background-position: -64px -1759px; }
+                                                &.pl { background-position: -20px -1803px; }
+                                                &.pt { background-position: -64px -1803px; }
+                                                &.ro { background-position: -20px -1847px; }
+                                                &.se { background-position: -64px -1847px; }
+                                                &.si { background-position: -20px -1891px; }
+                                                &.sk { background-position: -64px -1891px; }
+                                                &.ua { background-position: -20px -1935px; }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &.sidr-class-m-lang{
+                        & > a:before{
+                            content: "\e2c7";
+                        }
+                    }
+                    &.sidr-class-m-logout{
+                        & > a:before{
+                            content: "\e934";
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+// Hide for 1025px and up
+@media only screen and (min-width: 1025px){
+    #mobile-nav{
+        display: none;
+    }
+}
+// Build mobile Nav
+@media only screen and (max-width: 64em){
+    @include mobileNav;
+
+}
+
+.is_mobile {
+    @include mobileNav;
+}
+
+
+// Refinement for touch screens
+html.touch .sidr .sidr-inner > ul > li > a:before{
+    top: 1px;
+}

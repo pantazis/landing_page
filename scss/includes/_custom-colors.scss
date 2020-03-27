@@ -1,0 +1,161 @@
+/* Website Colors */
+
+/* Color Pallete */
+$my-white: #FFFFFF;
+$my-black: #000000;
+$my-orange: #fd9662;
+$my-red: #ff585d;
+$my-purple: #9472BE;
+$my-yellow: #F7DA4C;
+$my-pink: #eb7092;
+$my-deep-blue: #008cdd; // and also my primary color
+$my-light-blue: #20B6DB; // also my hosting color
+$my-blue-black: #023161;  // used for about us & support
+$my-green: #18BF93;
+
+// Offer color
+$offer-color: #00c853;
+
+// Special Christmas red
+ $xmas-red: #F41F28;
+
+// Special Easter color
+// $easter-color: #EAEDF6;
+$easter-color: #db4aa3;
+
+
+
+// Black Friday
+$black-friday: #161616;
+
+// Inner Banner bg color
+$inner-banner-color: #092241;
+
+// Link color
+$link-color: #4285f4;
+
+
+
+/* Content Sections Background Colors */
+$light-grey-section-bg-color: #EBEFF1;
+$medium-grey-section-bg-color: #CDD7DC;
+$dark-grey-section-bg-color:  #31444e;
+
+
+/* Typography Colors */
+$my-header-color: #282828;
+$my-subheader-paragraph-color: #282828;
+$my-inner-elements-header-color: #282828;
+$my-body-text-color: #585858;
+$my-body-light-text-color: #686868;
+$my-body-lightest-text-color: #919191;
+
+
+/* Header Colors */
+$header-bg-color: $my-white;
+$header-dropdown-bg-color: $my-white;
+$header-dropdown-li-hover-color: $light-grey-section-bg-color;
+
+
+/* Inner Banner Colors */
+$hosting-bg-color: scale-color($my-light-blue, $lightness: 0%);
+$domains-bg-color: scale-color($my-red, $lightness: 0%);
+$security-bg-color: scale-color($my-green, $lightness: 0%);
+$websites-bg-color: scale-color($my-purple, $lightness: 0%);
+$company-bg-color: scale-color($my-blue-black, $lightness: 0%);
+$customer-support-bg-color: scale-color($my-blue-black, $lightness: 0%);
+
+
+/* Inner Pages Intro Icon Colors */
+$hosting-icons: $medium-grey-section-bg-color;
+$domains-icons: $medium-grey-section-bg-color;
+$websites-icons: $medium-grey-section-bg-color;
+
+
+/* Homepage Banner Colors */
+$hp-banner-specs-color: $my-white;
+
+
+/* Homepage Domains Colors */
+$hp-domains-bg-color: $light-grey-section-bg-color;
+
+
+/* Homepage Hosting Boxes Colors */
+$hp-hosting-bg-color: $my-white;
+$hp-hosting-box-color: scale-color($dark-grey-section-bg-color, $lightness: 0%);
+$hp-hosting-box-hover-color: white;
+$hp-hosting-icon-color: scale-color($my-light-blue, $lightness: 0%);
+$hp-hosting-box-hover-button-bgcolor: scale-color($my-deep-blue, $lightness: 0%);
+$hp-hosting-box-hover-button-color: white;
+
+
+/* Homepage Websites & Security */
+$hp-websites-bg-color: $light-grey-section-bg-color;
+$hp-websites-box-hover-color: $my-white;
+$hp-websites-icons-color: $my-white;
+$hp-websites-icons-hover-color: scale-color($websites-bg-color, $lightness: 0%);
+$hp-security-icons-color: $my-white;
+$hp-security-icons-hover-color: scale-color($security-bg-color, $lightness: 0%);
+
+
+/* Homepage Comments */
+$hp-comments-bg-color: $my-white;
+$hp-comments-icon-color: $light-grey-section-bg-color;
+
+
+/* Footer */
+$footer-bg-color: scale-color($dark-grey-section-bg-color, $lightness: -10%);
+$footer-text-color: #b6c3c9;
+$footer-social-bg-color: #92a3ab;
+$footer-social-hover-bg-color: $my-white;
+$footer-partners-bg-color: scale-color($dark-grey-section-bg-color, $lightness: -20%);
+
+
+/* Sidebar */
+$sidebar-bg-color: $my-white;
+$sidebar-left-border-color: scale-color($my-deep-blue, $lightness: -20%);
+$sidebar-header-bg-color: scale-color($my-deep-blue, $lightness: -20%);
+$sidebar-header-color: $my-white;
+$sidebar-container-hover-bg-color: #bfe1eb;
+$sidebar-container-button-bg-color: $my-white;
+$sidebar-container-button-hover-bg-color: scale-color($my-deep-blue, $lightness: -20%);
+
+
+/* Mobile Navigation */
+$mobile-nav-icon-color: #20292B;
+$mobile-nav-bg-color: white;
+$mobile-nav-links-bg-color: scale-color($light-grey-section-bg-color, $lightness: 0%);
+
+
+$mobile-nav-header-bg-color: #AFBFC6;
+$mobile-nav-header-color: $my-body-text-color;
+
+
+/* Content Modules */
+
+
+/* Intersection Line */
+$action-box-font-color: $my-white;
+$action-box1-color: scale-color($dark-grey-section-bg-color, $lightness: 7%);
+$action-box1-hover-color: scale-color($my-deep-blue, $lightness: -10%);
+$action-box2-color: scale-color($dark-grey-section-bg-color, $lightness: 7%);
+$action-box2-hover-color: scale-color($my-deep-blue, $lightness: -10%);
+
+
+/* Tabs with arrow in active content  */
+$tabs-bg-color: scale-color($dark-grey-section-bg-color, $lightness: 10%);
+
+
+/* Toolbox */
+$toolbox-bg: #20292B;
+$toolbox-icons-color: #FFFFFF;
+$toolbox-icon-hover: $my-green;
+$slide-up-bg: scale-color($toolbox-bg, $lightness: -15%);
+
+
+/* Topbar Admin Menu Colors  */
+$my-topbar-bg-color: $inner-banner-color;
+$my-topbar-bg-color-hover: scale-color($my-topbar-bg-color, $lightness: -25%);
+
+/* Buy Overview Box */
+$buy-overview-bg-color: scale-color($inner-banner-color, $lightness: 3%);

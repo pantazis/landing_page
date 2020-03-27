@@ -1,0 +1,234 @@
+/* Component used for displaying offers */
+
+// Outer wrapper
+.offer-list{
+    background-color: $light-grey-section-bg-color;
+    .wrapper{
+        margin: 1rem 0 2rem;
+        padding: 2rem 0;
+        .my-h2-title{
+            @media #{$large-up} {
+                font-size: 1.6rem;
+            }
+        }
+    }
+}
+
+// Build offer blocks
+.offer-block{
+    position: relative;
+    &:not(:last-child){
+        margin-bottom: 2rem;
+    }
+    // Wrapper
+    .offer-wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        flex-wrap: nowrap;
+        position: relative;
+        border: 1px solid;
+        border-color: $medium-grey-section-bg-color;
+        background-color: white;
+        @include transition(all 0.15s linear);
+        // Image
+        .img-container{
+            padding: 0;
+            margin: 0;
+            min-width: 20%;
+            border-bottom: 1px solid ;
+            border-color: $medium-grey-section-bg-color;
+        }
+        // Content styles
+        .content{
+            padding: 1.25rem;
+            width: 100%;
+            .my-h3-title{
+                font-size: 1.325rem;
+                font-weight: 400;
+                margin-bottom: 0.175rem;
+            }
+            p{
+                color: $my-body-text-color;
+                line-height: 1.3;
+            }
+            ul{
+                // Specific styles for displaying domains on offer
+                &.domains-wrapper{
+                    margin-top: 0.75rem;
+                    color: $my-body-text-color;
+                    // item
+                    li{
+                        padding-bottom: 0.375rem;
+                        line-height: 1.2;
+                        .tld{
+                            min-width: 4rem;
+                            font-weight: 500;
+                            display: inline-block;
+                            color: $my-header-color;
+                        }
+                        .init-price{
+                            color: #8e8e8e;
+                            display: inline-block;
+                            min-width: 3.5rem;
+                        }
+                        .final-price{
+                            color: #fd7f3f;
+                            display: inline-table;
+                            font-weight: 500;
+                            text-align: right;
+                            min-width: 3.25rem;
+
+                        }
+                    }
+                }
+            }
+            .button{
+                margin-top: 0.75rem;
+                margin-bottom: 0;
+                padding-top: 0.675rem;
+                padding-bottom: 0.7375rem;
+            }
+        }
+        // Handling different screens with Media Queries
+        @media #{$large-up} {
+            flex-flow: row;
+            justify-content: flex-start;
+            .img-container{
+                max-width: 28%;
+                border-right: 1px solid ;
+                border-color: $medium-grey-section-bg-color;
+                border-bottom: 0 none;
+            }
+            .content{
+                padding: 0.5rem 1.75rem 0.5rem 3rem;
+                ul.domains-wrapper li {
+                   padding-bottom: 0;
+                }
+            }
+        }
+        @media #{$xlarge-up} {
+            .img-container {
+                max-width: 26%;
+            }
+        }
+        // Hover State
+        &:hover{
+            border-color: scale-color($medium-grey-section-bg-color, $lightness: -10%);
+            .content .button{
+                background-color: scale-color($primary-color, $lightness: -15%);
+            }
+        }
+        &::after {
+            content: "";
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            @include shadow(0, 1px, 6px, scale-color($my-black, $lightness: 70%));
+            @include transition(opacity 0.3s ease-in-out);
+        }
+        &:hover::after {
+            opacity: 1;
+        }
+    }
+    // Show -25% image.
+    &.hosting{
+        @media #{$large-up} {
+            &:after {
+                content: "";
+                display: inline-block;
+                background: url(../img/offers/offer-25.png);
+                background-size: 110px 89px;
+                background-repeat: no-repeat;
+                width: 110px;
+                height: 89px;
+                position: absolute;
+                top: 0.5rem;
+                right: 1rem;
+            }
+        }
+    }
+}
+
+/* used for this page's styles */
+#simple-row{
+    &.offer{
+        a.first{
+            margin-top: -3.25rem;
+            position: absolute;
+        }
+    }
+    &.light-grey{
+        .newsletter {
+            input {
+               background: white;
+            }
+        }
+    }
+    .newsletter{
+        input{ 
+            margin:0;
+            height: 3.25rem;
+            font-size: 1.2rem;
+            border: none;
+            background: $light-grey-section-bg-color;
+            color: $my-black;
+            padding-left: 1.25rem;
+            box-shadow:none;
+            @include border-radius(0);
+
+                @media #{$small-only} {
+                    font-size: 1rem;
+                    margin-bottom: 1rem;
+                }
+            &:focus{
+                border: 1px solid $light-grey-section-bg-color;
+                @include shadow(1px, 0, 3px, scale-color($my-black, $lightness: 50%));
+            }
+        }
+        .button{
+            cursor: pointer;
+            font-size: 1.125rem;
+            height: 3.25rem;
+            line-height: 3.25rem;
+            .loading{
+                height: 3.25rem;
+            }
+        }        
+    }
+}
+
+/* Some styles for Black Friday offers View */
+#intro.black-friday{
+    hr{
+        margin: 4rem 0;
+    }
+    .alert-box.info{
+        padding: 2.5rem;
+    }
+}
+
+
+/* This is the counter container on Black Friday offers View */
+.counter-container{
+    padding: 4rem 0;
+    .wrapper{
+        position: relative;
+        margin: 0 auto;
+        width: 414px;
+        .flip-clock-wrapper{
+            margin: 0;
+        }
+    }
+    .wrapper2{
+        position: relative;
+        margin: 2rem auto 0;
+        @media #{$large-up} {
+            width: rem-calc(800);
+        }
+    }
+}

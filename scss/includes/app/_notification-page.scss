@@ -1,0 +1,122 @@
+// Notification Page. Not being developed after all.
+.notify-actions{
+	margin-left: rem-calc(122px);
+	@media #{$small-only} {
+		margin-left: 0;
+	}
+	.f-dropdown {
+        background: white;
+        border: 1px solid $medium-grey-section-bg-color;
+        &:before {
+            border: none;
+        }
+        &:after {
+            border: none;
+        }
+        & > li{
+            a{
+                color: $my-body-text-color;
+            }
+            &:hover, &.focus{
+                background-color: $light-grey-section-bg-color;
+                color:$my-body-text-color;
+            }
+       	}
+    }                                
+}
+.read-all{
+	position: relative;
+	@media #{$medium-up} {
+		top: 0.85rem;
+	}
+}
+.notifyer{
+	margin-bottom: 0;
+	&:before{
+		content: "";
+	    position: absolute;
+	    left: rem-calc(65px);
+	    top: 0;
+	    bottom: 0;
+	    background: $medium-grey-section-bg-color;
+	    width: 1px;
+	}
+	.notification{
+		font-size: 0.95rem;
+    	margin: rem-calc(0 0 15px 122px);
+    	border: 1px solid $medium-grey-section-bg-color;
+    	background-color: scale-color($light-grey-section-bg-color, $lightness: 25%);
+    	position: relative;
+    	padding: 1.25rem;
+    	&:last-of-type{
+    		margin-bottom: 0;
+    	}
+    	.date{
+    		background-color: scale-color($light-grey-section-bg-color, $lightness: 25%);
+    		font-size: 0.825rem;
+		    border: 1px solid $medium-grey-section-bg-color;
+		    left: rem-calc(-121px);
+		    margin-top: rem-calc(-17px);
+		    padding: 0.25rem 0.75rem;
+		    position: absolute;
+		    top: 50%;
+    	}
+    	.content{
+    		.label{
+    			margin-bottom: 0.75rem;
+    			padding: 0.35rem 1rem;
+    			position: relative;
+    			top: -2px;
+    		}
+    		.title{
+    			line-height: 1.3;
+    			font-size: 0.925rem;
+    			font-weight: 500;
+			    margin-bottom: 0;
+    		}
+    		.message{
+    			line-height: 1.4;
+    			font-size: 0.875rem;
+			    margin-bottom: 0;
+			    margin-top: 0.325rem;
+    		}
+    	}
+    	.actions{
+    		position: absolute;
+    		right: 0.5rem;
+    		top: 0.5rem;
+    		.delete{
+    			color: #989898;
+    			font-size: 1.125rem;
+    			line-height: 1;
+    			&:hover{
+                    color: $my-red;
+    			}
+    		}
+    	}
+	}
+	@media #{$small-only} {
+		&:before{
+			content: none;
+		}
+		.notification{
+    		margin: rem-calc(24px 0 16px);
+    		.date{
+    			display: inline-block;
+    			position: static;
+    			margin-bottom: 1rem;
+    			background-color: white;
+    		}
+    	}
+    }
+}
+
+#newsletterConfirmationNotice > span {
+	margin-bottom: .75rem;
+}
+
+#newsletterConfirmationNotice > button {
+	width: 180px;
+	height: 41px;
+	vertical-align: top;
+}

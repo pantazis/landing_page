@@ -1,0 +1,417 @@
+/* Domains Pricelist */
+#domains-pricelist{
+    padding: 4rem 0;
+    p{
+        &.lead{
+            font-size: 1.075rem;
+            font-weight: 400;
+            line-height: 1.3; 
+        } 
+    }
+    .domains-more-results{
+        padding:0;
+        .filtering{
+            margin-top: rem-calc(114);
+            .search-container{
+                display: block;
+                position: relative;
+                input[type=search] {
+                    color: $my-black;
+                    padding-right: 2rem;
+                }
+                i{
+                    position: absolute;
+                    top: 0.75rem;
+                    right: 0.75rem;
+                    color: scale-color($my-body-light-text-color, $lightness: 25%);
+                }
+            }
+        }
+        .filters{
+            dl{
+                dd{
+                    //color: $my-body-light-text-color;
+                    padding-bottom: 0.175rem;
+                    padding-top: 0.175rem;
+                    margin-bottom: 2px;
+                    &.selected{
+                        color: $my-deep-blue;
+                        cursor: default;
+                        &:after{
+                            content: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .table{
+        @media #{$large-up} { 
+            padding: 2.5rem 2rem 1.25rem;
+            border: 1px solid $medium-grey-section-bg-color;
+            background-color: scale-color($light-grey-section-bg-color, $lightness: 25%);
+        }
+        table{
+            width:100%;
+            border-width: 2px;
+            thead{
+                border: 2px solid $my-blue-black;
+                border-bottom: none;
+                tr{
+                    background: $my-blue-black;
+                    th{
+                        color: white;
+                        font-size: 0.925rem;
+                        padding: 1rem;
+                        font-weight: 400;
+                        width: 22%;
+                        position: relative;
+                        text-align: center;
+                        &:first-of-type{
+                            text-align: left;
+                        }
+                        &:last-of-type{
+                            width: 12%;
+                        }
+                        @media #{$large-up} {
+                            i{
+                                float: right;
+                                position: absolute;
+                                cursor: pointer;
+                                border-left: 5px solid transparent;
+                                border-right: 5px solid transparent;
+                                margin-left: 1rem;
+                                &.arrow-up, &.arrow-down{
+                                    left: auto;
+                                    &.active{
+                                        pointer-events: none;
+                                        cursor: default;
+                                    }
+                                }
+                                &.arrow-up{
+                                    border-bottom: 8px solid; 
+                                    top: rem-calc(17);
+                                    border-bottom-color: white;
+                                    &:hover, &.active {
+                                        border-bottom-color: $my-light-blue;
+                                    }
+                                }
+                                &.arrow-down{
+                                    border-top: 8px solid; 
+                                    top: rem-calc(28);
+                                    border-top-color: white;
+                                    &:hover, &.active {
+                                        border-top-color: $my-light-blue;
+                                    }
+                                }                                          
+                            }
+                        }
+                        @media #{$medium-only}{
+                            &:nth-of-type(4){
+                                width: 16%;
+                            }
+                        }
+                    }
+                }
+            }
+            tbody{
+                &.load:after{
+                    content: "";
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    background-color: black;
+                }
+                tr{ 
+                    &:nth-of-type(2n){
+                        background: none;
+                    }
+                    &.even{
+                        background: $table-even-row-bg;
+                    }  
+                    &:first-of-type{
+                        @media #{$medium-up} {
+                            td{
+                                border-top: 0 none;
+                            }
+                        } 
+                    }                
+                    td{
+                        font-size: 1rem;
+                        color: $my-inner-elements-header-color;
+                        @media #{$medium-up} {
+                            border: 1px solid scale-color($medium-grey-section-bg-color, $lightness: 25%);
+                            text-align: right;
+                            &:first-of-type{
+                                text-align: left;
+                            }
+                            &:last-of-type{
+                                text-align: center;
+                            }
+                        }
+                        a{
+                            font-weight: 700;
+                            @media #{$medium-up} {
+                                &:hover{
+                                    padding-bottom: 1px;
+                                    border-bottom: 1px solid;
+                                }
+                            }
+                            &.simple-link{
+                                font-size: 0.875rem;
+                                font-weight: 300;
+                                i{
+                                    bottom: 1px;
+                                }
+                                &:hover{
+                                    padding-bottom: 0;
+                                    border-bottom: 0 none;
+                                }
+                                @media #{$medium-up} {
+                                    float: right;
+                                }
+                            }
+                        }
+                        .smaller{
+                            font-size: 0.925rem;
+                        } 
+                        .price{
+                            .strikethrough{
+                                color: scale-color($my-body-light-text-color, $lightness: 25%);
+                                margin-right: 0.25rem;
+                            }
+                            &.discount{
+                                line-height: 1.3;
+                                .current-price{
+                                    color: scale-color($my-orange, $lightness: -10%);
+                                    display: inline;
+                                    font-weight: 500;
+                                    @media #{$medium-up} {
+                                        display: inline-block;
+                                        min-width: 2.75rem;
+                                    }
+                                }
+                                .discount_msg{
+                                    display: inline;
+                                    a, a:hover{
+                                       color: scale-color($my-orange, $lightness: -10%);
+                                       border-bottom: none;
+                                       font-size: 0.85rem;
+                                       padding-bottom: 0; 
+                                    }
+                                }
+                            } 
+                        }
+                        .favorite{
+                            padding:0.25rem 0.5rem 0.25rem 0;
+                            cursor: pointer;
+                            font-size: 1.25rem;
+                            &:before{
+                                content: "\e912";
+                                font-family: 'icomoon';
+                                color: scale-color($my-body-light-text-color, $lightness: 80%);
+                                position: relative;
+                                top:3px;
+                            }
+                            &:hover:before , &.selected:before{
+                                content: "\e912";
+                                font-family: 'icomoon';
+                                color: $my-red; 
+                                position: relative;
+                            }                           
+                        }
+                        .arrow-animate{
+                            position: absolute;
+                            right: 1.25rem;
+                            margin-top: -2rem;
+                            font-size: 1.375rem;
+                            i{
+                                display: inline-block;
+                                padding: 0.75rem;
+                                transform: rotate(0deg);
+                                transition: all 0.2s linear;
+                                color: $dark-grey-section-bg-color;
+                            }
+                        }
+                        &.expand{
+                            .arrow-animate i{
+                                transform: rotate(180deg);
+                                transition: all 0.2s linear;
+                            }
+                            .transform-tld{ 
+                                max-height: 15rem;
+                                overflow: none;
+                                transition: all 0.3s linear;
+                            }
+                        }
+                        // This class shows tlds in small screens
+                        .transform-tld{ 
+                            display: none;
+                            @media #{$small-only}{ 
+                                display: block;
+                                max-height: 2.5rem;
+                                overflow: hidden;
+                                transition: all 0.3s linear;
+                                ul{
+                                    margin-top: 1rem;
+                                    margin-bottom: 0;
+                                    li{
+                                        margin-bottom: 1rem;
+                                        display: table;
+                                        width: 100%;
+                                        &:last-of-type{
+                                            margin-bottom: 0.25rem;
+                                        }
+                                        .tld-label, .wrapper{
+                                            display: table-cell;
+                                            font-size: 0.925rem;
+                                            vertical-align: bottom;
+                                            line-height: 1.1; 
+                                        }
+                                        .tld-label{
+                                            color: $my-body-lightest-text-color;
+                                            width: 7.5rem;
+                                        }
+                                        .wrapper{
+                                            .price{
+                                                font-size: 0.925rem;
+                                                &.discount{
+                                                    .current-price{
+                                                        font-weight: 700;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }       
+                }
+            }
+        }
+    }
+}
+
+// Domain tier also applies on tld details also
+.domain-tiers{
+    .inline-list{
+        margin-left: 0;
+        margin-bottom: 0;
+        li{
+            margin-left: 0;
+            &.tier-indicator{
+                &:after{
+                    content: "";
+                    background:url("../img/tier-indicator.png");
+                    background-repeat: no-repeat ;  
+                    position: absolute;
+                    width: 95px;
+                    height: 55px;
+                    top: 0;
+                    margin-top: -3.5rem;
+                    margin-left: -0.25rem;
+                }
+            }
+            button{
+                margin-bottom: 0;
+                background-color: white;
+                border: 1px solid $medium-grey-section-bg-color;
+                border-left: 0;
+                border-bottom: 0;
+                color: $my-body-text-color;
+                padding: 0.125rem 1rem 0.5rem;
+                width: 130px;
+                height: 115px;
+                .f_sprite{
+                    background-size: 90px 90px;
+                    overflow: hidden;
+                    text-indent: -9999px; 
+                    text-align: left;
+                    height: 90px;
+                    width: 90px;
+                    background: url('../img/sprites/main-sprite.png') no-repeat; 
+                }
+                &:hover{
+                    &:after{
+                        background-color: $my-red;
+                        color: white;
+                        content: "";
+                        font-size: 0.7rem;
+                        font-weight: 700;
+                        letter-spacing: 1px;
+                        padding: 0.2rem 0.625rem;
+                        position: absolute;
+                        right: -1px;
+                        top: -1px;
+                    } 
+                }
+                &.active{
+                    background-color: $medium-grey-section-bg-color;
+                    cursor: default;
+                    &:hover{
+                        background-color: $medium-grey-section-bg-color; 
+                    }
+                }
+                &:hover{
+                   background-color: $light-grey-section-bg-color;  
+                }
+                &.tier1{
+                    .f_sprite{
+                        background-position: -20px -2063px;
+                    }
+                    &:hover:after{
+                        content: "1-10 Domains";
+                    }
+                }
+                &.tier2{
+                    .f_sprite{
+                        background-position: -20px -2173px;
+                    }
+                    &:hover:after{
+                        content: "11-20 Domains";
+                    }
+                }
+                &.tier3{
+                    .f_sprite{
+                        background-position: -20px -2283px;
+                    }
+                    &:hover:after{
+                        content: "21-30 Domains";
+                    }
+                }
+                &.tier4{
+                    .f_sprite{
+                        background-position: -20px -2393px;
+                    }
+                    &:hover:after{
+                        content: "31-40 Domains";
+                    }
+                }
+                &.tier5{
+                    .f_sprite{
+                        background-position: -20px -2503px;
+                    }
+                    &:hover:after{
+                        content: "41-100 Domains";
+                    }
+                }
+                &.tier6{
+                    .f_sprite{
+                        background-position: -20px -2613px;
+                    }
+                    &:hover:after{
+                        content: "100+ Domains";
+                    } 
+                }
+            }
+            &:first-of-type{
+                button{
+                    border-left: 1px solid $medium-grey-section-bg-color;
+                }
+            }
+        }
+    }
+}
+
+
