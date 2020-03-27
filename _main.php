@@ -13,9 +13,7 @@
         <div class="large-12 columns domains">
             <section>
                 <div class="section-header">
-                    <h2>Domain names σε 3
-                    '</h2>
-                    <p>Το domain σου σε περιμένει εδώ! Εκατοντάδες επιλογές, δωρεάν υπηρεσίες, γρήγορη εξυπηρέτηση.</p>
+                   
                 </div>
               
             </section>
@@ -30,338 +28,32 @@
         <div class="large-12 columns hosting">
             <section>
                 <div class="section-header">
-                    <h2>Hosting όπως ακριβώς το θες!</h2>
-                    <p>Tαχύτατο, ασφαλές SSD hosting &amp; e-mail με γρήγορη υποστήριξη</p>
-                </div>
-                <div class="hosting-content">
-                    <section>
-    <div class="hosting-module">
-        <ul class="tabs show-for-medium-up" data-tab="">
-            <li class="tab-title active">
-                <a href="http://laravel.upgrade/#web-hosting" rel="nofollow"><i class="icon-car-sports"></i>Web <span>Hosting</span></a>
-            </li>
-            <li class="tab-title">
-                <a href="http://laravel.upgrade/#reseller-hosting" rel="nofollow"><i class="icon-bus-5"></i>Reseller <span>Hosting</span></a>
-            </li>
-            <li class="tab-title">
-                <a href="http://laravel.upgrade/#semi-dedicated" rel="nofollow"><i class="icon-helicopter-1"></i>Semi-Dedicated <span>Hosting</span></a>
-            </li>
-            <li class="tab-title">
-                <a href="http://laravel.upgrade/#vps-hosting" rel="nofollow"><i class="icon-airplane"></i>VPS <span>Hosting</span></a>
-            </li>
-            <li class="tab-title">
-                <a href="http://laravel.upgrade/#dedicated" rel="nofollow"><i class="icon-jet-plane"></i>Dedicated <span>Servers</span></a>
-            </li>
-        </ul>
-        <dl class="accordion" data-accordion="">
-            <dd class="accordion-navigation active">
-                                    <a href="http://laravel.upgrade/#web-hosting" class="show-for-small-only active" rel="nofollow" aria-expanded="true">WEB HOSTING</a>
-<div id="web-hosting" class="content active">
-    <div class="content-box section-box">
-        <div class="row">
-            <div class="large-3 large-push-9 columns show-for-large-up">
-                                        <div class="price-box">
-    <a href="http://laravel.upgrade/hosting/web-hosting" title="Δες πακέτα Web Hosting">
-                <h3 class="title">Web Hosting</h3>
-        <span class="sub-title">κόστος για ετήσια συνδρομή</span>
-        <span class="pricing  discount ">
-                            <span class="vat sup price " data-price="3.95">3<sup>,95</sup></span>
-                            <span class="currency">€</span>
-            <span class="period">/μήνα</span>
-                                                                                            <s class="strikethrough white-version"><span class="vat" data-price="4.5">4,50</span> €</s>
-                                            </span>
-        <div class="price-box-btn expand">Διάλεξε πακέτο
-             <i class="icon-uniE60C"></i>
-        </div>
-    </a>
-</div>
-<p class="vat after-tabs right"><small class="vat-disclaimer">Οι τιμές δεν περιέχουν ΦΠΑ.</small>
-<small><a href="http://laravel.upgrade/#" class="vatControlsTrigger vat-link">Ρύθμιση ΦΠΑ</a></small></p>            </div>
-            <div class="large-9 large-pull-3 columns">
-                <div class="wrapper">
-                    <div class="block">
-                        <p class="head">Ταχύτατη φιλοξενία &amp; email για μικρές ιστοσελίδες</p>
-                                                <hr>
-                        <p>Προνομιούχο SSD Web hosting με <strong>αποκλειστικά πλεονεκτήματα</strong> και όλη την ταχύτητα, ασφάλεια και υποστήριξη που χρειάζεσαι για να ξεκινήσεις σωστά!</p>
-                        <div class="suitable">
-                            <p>To Web Hosting είναι η σωστή επιλογή για:</p>
-                            <ul class="no-bullet">
-                                <li>Απλές HTML ή PHP/mySQL ιστοσελίδες</li>
-                                <li>Μικρού μεγέθους WordPress, Joomla κ.α.</li>
-                                <li>E-shops με λίγα προϊόντα &amp; απαιτήσεις</li>
-                            </ul>
-                        </div>
-                        <div class="price-wrapper">
-                            <p class="price">
-                                <small>από</small>
-                                                                                                                                                    <s class="strikethrough white-version"><span class="vat" data-price="4.5">4,50</span> €</s>
-                                                                                                                                        <span class="vat sup " data-price="3.95">3<sup>,95</sup></span>
-                                                                    <small>€/μήνα</small>
-                            </p>
-                            <a class="button" href="http://laravel.upgrade/hosting/web-hosting">Δες τα πακέτα web hosting</a>
-                        </div>
-                    </div>
-                    <div class="points">
-                        <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
-                            <li><strong>Νο1 Ελληνικό</strong> Datacenter</li>
-                            <li><strong>Καθημερινό</strong> R1Soft backup</li>
-                            <li><strong>Τετραπλή προστασία</strong> από επιθέσεις</li>
-                            <li><strong>DELL</strong> servers, <strong>Intel SSD</strong> δίσκοι</li>
-                            <li><strong>Γρήγορη, 7x7</strong> υποστήριξη</li>
-                            <li><strong>Δωρεάν</strong> Αντισπάμ &amp; μεταφορά site</li>
+                <h2>PARTNER HOSTING PROGRAM </h2>
+                    <p>Η DNHOST σου προσφέρει σήμερα την ευκαιρία να αποκτήσεις μοναδικά πακέτα Hosting  που θα απογειώσουν τις επιδόσεις της εταιρίας και των πελατών σου.</p></p>
+                    <div class="websites-row">
+                        <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3 global-cards">
+                            <li>
+                                <div class="global-card w-label security popular">
+                                    <section>
+                                        <div class="global-card-img">
+                                            <img src="./public/ssl-certificates.jpg" alt="ΠΙΣΤΟΠΟΙΗΤΙΚΑ SSL">
+                                        </div>
+                                        <div class="global-card-content">
+                                            <h3 class="global-card-name my-h3-title smallest-margin">SSL ΠΙΣΤΟΠΟΙΗΤΙΚΑ</h3>
+                                            <p class="global-card-info smaller half-margin-bottom">Προστάτευσε τα δεδομένα του eshop και των πελατών σου και αύξησε την αξιοπιστία και τις πωλήσεις σου.</p>
+                                            <a href="http://laravel.upgrade/ssl-certificates" title="Αγόρασε επιλεγμένα Πιστοποιητικά SSL" class="simple-link more-margin">βρες το SSL σου<i class="icon-arrow-right22"></i></a>
+                                        </div>
+                                    </section>
+                                </div>
+                            </li>
+                         
+                     
+                    
                         </ul>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>                                    <a href="http://laravel.upgrade/#reseller-hosting" class="show-for-small-only" rel="nofollow" aria-expanded="true">RESELLER HOSTING</a>
-<div id="reseller-hosting" class="content">
-    <div class="content-box section-box">
-        <div class="row">
-            <div class="large-3 large-push-9 columns show-for-large-up">
-                                       <div class="price-box">
-    <a href="http://laravel.upgrade/hosting/reseller-hosting" title="Δες πακέτα Web Hosting">
-                <h3 class="title">Reseller Hosting</h3>
-        <span class="sub-title">κόστος για ετήσια συνδρομή</span>
-        <span class="pricing  discount ">
-                            <span class="vat sup price " data-price="14.95">14<sup>,95</sup></span>
-                            <span class="currency">€</span>
-            <span class="period">/μήνα</span>
-                                                            </span>
-        <div class="price-box-btn expand">Διάλεξε πακέτο
-             <i class="icon-uniE60C"></i>
-        </div>
-    </a>
-</div>
-<p class="vat after-tabs right"><small class="vat-disclaimer">Οι τιμές δεν περιέχουν ΦΠΑ.</small>
-<small><a href="http://laravel.upgrade/#" class="vatControlsTrigger vat-link">Ρύθμιση ΦΠΑ</a></small></p>            </div>
-            <div class="large-9 large-pull-3 columns">
-                <div class="wrapper">
-                    <div class="block">
-                        <p class="head">Η ποιότητα και η φροντίδα της DNHOST, με το δικό σου λογότυπο</p>
-                                                <hr>
-                        <p>Αξιόπιστα πακέτα <strong>Mεταπωλητών Ηosting</strong> για τη φιλοξενία websites των πελατών σου, με γρήγορο ξεκίνημα και χωρίς να φαινόμαστε κάπου εμείς.</p>
-                        <div class="suitable">
-                            <p>To Reseller Hosting είναι ιδανικό για:</p>
-                            <ul class="no-bullet">
-                                <li>Web designers και developers</li>
-                                <li>Επαγγελματίες του marketing ή SEO</li>
-                                <li>Διαφημιστικές ή εταιρίες Ι.Τ.</li>
-                            </ul>
-                        </div>
-                        <div class="price-wrapper">
-                            <p class="price">
-                                <small>από</small>
-                                                                                                                                                                        <span class="vat sup " data-price="14.95">14<sup>,95</sup></span>
-                                                                    <small>€/μήνα</small>
-                            </p>
-                            <a class="button" href="http://laravel.upgrade/hosting/reseller-hosting">Δες τα πακέτα reseller hosting</a>
-                        </div>
-                    </div>
-                    <div class="points">
-                        <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
-                            <li><strong>Βραβευμένο</strong> Eλληνικό Datacenter</li>
-                            <li><strong>Καθημερινό</strong> off-site backup</li>
-                            <li>Υψηλή <strong>προστασία</strong> από επιθέσεις</li>
-                            <li><strong>Intel SSD</strong> δίσκοι &amp; <strong>DELL</strong> servers</li>
-                            <li>WordPress, Joomla κ.α. με <strong>1 κλικ</strong></li>
-                            <li>Γρήγορη υποστήριξη <strong>7x7</strong></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>                                    <a href="http://laravel.upgrade/#semi-dedicated" class="show-for-small-only" rel="nofollow" aria-expanded="true">SEMI-DEDICATED HOSTING</a>
-<div id="semi-dedicated" class="content">
-    <div class="content-box section-box">
-        <div class="row">
-            <div class="large-3 large-push-9 columns show-for-large-up">
-                                        <div class="price-box">
-    <a href="http://laravel.upgrade/hosting/semi-dedicated-hosting" title="Δες πακέτα Web Hosting">
-                <h3 class="title">Semi-Dedi Hosting</h3>
-        <span class="sub-title">κόστος από</span>
-        <span class="pricing  discount ">
-                            <span class="vat sup price " data-price="17.95">17<sup>,95</sup></span>
-                            <span class="currency">€</span>
-            <span class="period">/μήνα</span>
-                                                            </span>
-        <div class="price-box-btn expand">Διάλεξε πακέτο
-             <i class="icon-uniE60C"></i>
-        </div>
-    </a>
-</div>
-<p class="vat after-tabs right"><small class="vat-disclaimer">Οι τιμές δεν περιέχουν ΦΠΑ.</small>
-<small><a href="http://laravel.upgrade/#" class="vatControlsTrigger vat-link">Ρύθμιση ΦΠΑ</a></small></p>            </div>
-            <div class="large-9 large-pull-3 columns">
-                <div class="wrapper">
-                    <div class="block">
-                        <p class="head">Πακέτα για 1 website με υψηλές απαιτήσεις &amp; επισκεψιμότητα.</p>
-                                                <hr>
-                        <p>Πανίσχυρο SSD hosting για ένα απαιτητικό website που δε θέλει να χάνει επισκέπτες. Yψηλότερες ταχύτητες, καλύτερη θέση στην Google, περισσότεροι πελάτες!</p>
-                        <div class="suitable">
-                            <p>To Semi-Dedicated Hosting καλύπτει τις ανάγκες ενός:</p>
-                            <ul class="no-bullet">
-                                <li>Απαιτητικού site σε χώρο ή κίνηση, CPU, RAM</li>
-                                <li>WordPress blog ή forum υψηλής επισκεψιμότητας</li>
-                                <li>E-shop με εκατοντάδες ή χιλιάδες προϊόντα</li>
-                            </ul>
-                            <!-- Andreas 01/07/2019 -->
-                            <!--<p style="width: 26%; vertical-align: middle;" class="text-center show-for-large-up">
-                                <span class="bg-dn-green color-white fs-12 p-5px-8px d-inline-block">Ακόμα περισσότεροι πόροι στην ίδια τιμή!</span>
-                            </p>-->
-                            <!-- Andreas end -->
-                        </div>
-                        <!-- Andreas 02/07/2019 -->
-                        <div class="text-center w-100 hide-for-large-up"><span class="bg-dn-green color-white fs-12 p-5px-8px d-inline-block">Ακόμα περισσότεροι πόροι στην ίδια τιμή!</span></div>
-                        <!-- Andreas end -->
-                        <div class="price-wrapper">
-                            <p class="price">
-                                <small>από</small>
-                                                                                                                                                                        <span class="vat sup " data-price="17.95">17<sup>,95</sup></span>
-                                                                    <small>€/μήνα</small>
-                            </p>
-                            <a class="button" href="http://laravel.upgrade/hosting/semi-dedicated-hosting">Δες τα πακέτα semi-dedicated hosting</a>
-                        </div>
-                    </div>
-                    <div class="points">
-                        <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
-                            <li><strong>PCI-DSS/Tier III</strong> Datacenter</li>
-                            <li><strong>Cloudlinux</strong> &amp; <strong>LiteSpeed</strong> web server</li>
-                            <li>Πολλαπλή <strong>κάλυψη</strong> από κινδύνους</li>
-                            <li>Πολλαπλό server &amp; PHP <strong>caching</strong></li>
-                            <li>Δωρεάν αντισπάμ <strong>SpamExperts</strong></li>
-                            <li>Σύνδεση με <strong>GIT, CloudFlare, DropBox</strong></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>                                    <a href="http://laravel.upgrade/#vps-hosting" class="show-for-small-only" rel="nofollow" aria-expanded="true">VPS HOSTING</a>
-<div id="vps-hosting" class="content">
-    <div class="content-box section-box">
-        <div class="row">
-            <div class="large-3 large-push-9 columns show-for-large-up">
-                                       <div class="price-box">
-    <a href="http://laravel.upgrade/hosting/vps-hosting" title="Δες πακέτα Web Hosting">
-                <h3 class="title">VPS Hosting</h3>
-        <span class="sub-title">κόστος από</span>
-        <span class="pricing  discount ">
-                            <span class="vat sup price " data-price="21.22">21<sup>,22</sup></span>
-                            <span class="currency">€</span>
-            <span class="period">/μήνα</span>
-                                                            </span>
-        <div class="price-box-btn expand">Διάλεξε πακέτο
-             <i class="icon-uniE60C"></i>
-        </div>
-    </a>
-</div>
-<p class="vat after-tabs right"><small class="vat-disclaimer">Οι τιμές δεν περιέχουν ΦΠΑ.</small>
-<small><a href="http://laravel.upgrade/#" class="vatControlsTrigger vat-link">Ρύθμιση ΦΠΑ</a></small></p>            </div>
-            <div class="large-9 large-pull-3 columns">
-                <div class="wrapper">
-                    <div class="block">
-                        <p class="head">Ισχύς και ευελιξία για υψηλές &amp; custom απαιτήσεις</p>
-                                                <hr>
-                        <p>Οικονομικό, παραμετροποιήσιμο και VPS hosting για sites υψηλών απαιτήσεων και μεταπωλητές. Πλήρως διαχερίσιμο από εμάς, για να επικεντρωθείς στη δουλειά σου!</p>
-                        <div class="suitable">
-                            <p>To VPS Hosting απευθύνεται περισσότερο σε:</p>
-                            <ul class="no-bullet">
-                                <li>Web designers, developers, SEO experts</li>
-                                <li>Resellers που θέλουν μεγαλύτερο έλεγχο &amp; ισχύ</li>
-                                <li>Ιστοσελίδες με υψηλή χρήση χώρου και κίνηση</li>
-                            </ul>
-                        </div>
-                        <div class="price-wrapper">
-                            <p class="price">
-                                <small>από</small>
-                                                                                                                                                                        <span class="vat sup " data-price="21.22">21<sup>,22</sup></span>
-                                                                    <small>€/μήνα</small>
-                            </p>
-                            <a class="button" href="http://laravel.upgrade/hosting/vps-hosting">Δες τα πακέτα VPS hosting</a>
-                        </div>
-                    </div>
-                    <div class="points">
-                        <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
-                            <li><strong>Νο1 Ελληνικό</strong> Datacenter</li>
-                            <li>Aξιόπιστο <strong>R1Soft</strong> backup</li>
-                            <li>Με τη δύναμη του Odin <strong>Virtuozzo</strong></li>
-                            <li><strong>SSD</strong> δίσκοι &amp; <strong>Enterprise</strong> servers</li>
-                            <li><strong>Root</strong> πρόσβαση, <strong>Managed</strong> OS &amp; Plesk</li>
-                            <li>Γρήγορη επίλυση θεμάτων <strong>7x7</strong></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>                                    <a href="http://laravel.upgrade/#dedicated" class="show-for-small-only" rel="nofollow" aria-expanded="true">DEDICATED SERVERS</a>
-<div id="dedicated" class="content">
-    <div class="content-box section-box">
-        <div class="row">
-            <div class="large-3 large-push-9 columns show-for-large-up">
-                                        <div class="price-box">
-    <a href="http://laravel.upgrade/hosting/dedicated-servers" title="Δες πακέτα Web Hosting">
-                <h3 class="title">Dedicated Servers</h3>
-        <span class="sub-title">κόστος από</span>
-        <span class="pricing  discount ">
-                            <span class="vat sup price " data-price="81.38">81<sup>,38</sup></span>
-                            <span class="currency">€</span>
-            <span class="period">/μήνα</span>
-                                                            </span>
-        <div class="price-box-btn expand">Διάλεξε πακέτο
-             <i class="icon-uniE60C"></i>
-        </div>
-    </a>
-</div>
-<p class="vat after-tabs right"><small class="vat-disclaimer">Οι τιμές δεν περιέχουν ΦΠΑ.</small>
-<small><a href="http://laravel.upgrade/#" class="vatControlsTrigger vat-link">Ρύθμιση ΦΠΑ</a></small></p>            </div>
 
-
-            <div class="large-9 large-pull-3 columns">
-                <div class="wrapper">
-                    <div class="block">
-                        <p class="head">Yψηλές επιδόσεις κι ελευθερία κινήσεων για πολύ μεγάλα projects</p>
-                                                <hr>
-                        <p>Υπερσύγχρονοι και δυνατοί managed dedicated servers για να έχεις όλη την ισχύ και τα εργαλεία που χρειάζεσαι στο hosting, χωρίς να σε απασχολεί η διαχείριση και η ασφάλεια του server.</p>
-                        <div class="suitable">
-                            <p>Οι Dedicated Servers είναι η ενδεδειγμένη λύση για:</p>
-                            <ul class="no-bullet">
-                                <li>Πολύπλοκα ή πολύ απαιτητικά custom websites</li>
-                                <li>Μεταπωλητές με πολύ μεγάλο πελατολόγιο</li>
-                                <li>E-shops ή ενημερωτικά sites πολύ υψηλής κίνησης</li>
-                            </ul>
-                        </div>
-
-                        <div class="price-wrapper">
-                            <p class="price">
-                                <small>από</small>
-                                                                                                                                                                        <span class="vat sup " data-price="81.38">81<sup>,38</sup></span>
-                                                                    <small>€/μήνα</small>
-                            </p>
-                            <a class="button" href="http://laravel.upgrade/hosting/dedicated-servers">Δες τους Dedicated Servers</a>
-                        </div>
-                    </div>
-                    <div class="points">
-                        <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
-                            <li>Datacenters σε <strong>Ελλάδα ή Ευρώπη</strong></li>
-                            <li><strong>Αξιόπιστος</strong> εξοπλισμός και backup</li>
-                            <li><strong>Υψηλή</strong> προστασία από επιθέσεις</li>
-                            <li><strong>Root</strong> πρόσβαση, εργαλεία <strong>developers</strong></li>
-                            <li><strong>Μanaged</strong> λειτουργικό &amp; υπηρεσίες</li>
-                            <li><strong>7x7</strong> mοnitoring και υποστήριξη</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>                            </dd>
-        </dl>
-    </div>
-</section>				</div>
+              
             </section>
         </div>
     </div>
